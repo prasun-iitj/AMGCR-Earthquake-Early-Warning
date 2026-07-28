@@ -1,0 +1,20 @@
+[project]
+name = "amgcr-earthquake-research"
+version = "0.1.0"
+description = "Research project for earthquake waveform analysis and early warning workflows"
+requires-python = ">=3.11"
+dependencies = [
+  "obspy>=1.5.0",
+  "numpy>=2.5.1",
+  "pandas>=3.0.5",
+  "matplotlib>=3.11.1",
+  "scipy>=1.18.0",
+  "PyYAML>=6.0.0"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=9.1.0"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"

@@ -1,0 +1,27 @@
+provider: fdsn
+network: IU
+station: ANMO
+channel: BHZ
+location: ""
+start_time: "2024-01-01T00:00:00"
+end_time: "2024-01-02T00:00:00"
+magnitude:
+  minimum: 4.0
+  maximum: 8.0
+catalog:
+  enabled: true
+  format: quakeml
+  limit: 10
+  output_dir: data/raw/catalogs
+  retry_attempts: 3
+  retry_delay: 1.0
+  timeout_seconds: 30
+waveform:
+  enabled: false
+output:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  logs_dir: logs
+logging:
+  level: INFO
+  file: logs/acquisition.log
