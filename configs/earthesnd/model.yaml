@@ -1,0 +1,38 @@
+# Reserved for a later phase. Null values are not specified in the paper.
+inputs:
+  channels: [A_NS, A_EW, A_UD, V_NS, V_EW, V_UD, D_NS, D_EW, D_UD]
+  channel_count: 9
+target_scale: M_JMA
+esn:
+  architecture: serial_multiscale_deep
+  terminal_state_only: true
+  fixed_random_reservoir: true
+  recurrent_weight_distribution: standard_normal
+  input_weight_distribution: normal
+  spectral_radius_scaling: true
+  layer_count: null
+  reservoir_widths: null
+  input_scaling: null
+  recurrent_sparsity: null
+  target_spectral_radii: null
+  initial_state: null
+  random_seed: null
+  washout: null
+  leak_prior: "log_uniform(1e-1, 1)"
+  windows: {"2": {reported_leak: 0.8}, "3": {reported_leak: 1.0}, "4": {reported_leak: 0.5}, "5": {reported_leak: 0.1}, "6": {reported_leak: 0.08}}
+denn:
+  layer_widths: [64, 1]
+  activations: [gelu, linear]
+  branch_connectivity_method: null
+  local_branch_nonlinearity: null
+  mask_learning: null
+  windows: {"2": {branches: 2, reported_sparsity: 0.1}, "3": {branches: 2, reported_sparsity: 0.1}, "4": {branches: 3, reported_sparsity: 0.2}, "5": {branches: 3, reported_sparsity: 0.1}, "6": {branches: 2, reported_sparsity: 0.1}}
+training:
+  loss: mse
+  optimizer: adam
+  epochs: 50
+  batch_size: 512
+  windows: {"2": {learning_rate: 0.001}, "3": {learning_rate: 0.0014}, "4": {learning_rate: 0.001}, "5": {learning_rate: 0.001}, "6": {learning_rate: 0.001}}
+  adam_betas: null
+  adam_epsilon: null
+  weight_decay: null

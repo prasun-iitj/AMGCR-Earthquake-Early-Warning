@@ -1,0 +1,14 @@
+# Reserved for a later phase. Null values are not specified in the paper.
+sample_rate_hz: 100
+sta_lta: {threshold: 2.5, short_window: null, long_window: null}
+station_scaling: {method: null}
+quality_gate: {samples: 20, mean_acceleration_threshold_gal: 0.01, comparison: greater_than}
+baseline_correction: {method: subtract_mean_first_n_samples, samples: 20}
+bandpass:
+  family: butterworth
+  poles: 4
+  low_hz: 0.0075
+  high_hz: 45.0
+  phase_mode: null
+  transient_handling: null
+integration: {method: null, initial_condition: null}

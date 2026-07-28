@@ -1,0 +1,6 @@
+# Reserved for a later phase. Null values are not specified in the paper.
+metrics: [mae, rmse, percent_mae_improvement, training_seconds_per_epoch]
+target_scales: [M_JMA, M_w]
+inference_latency: null
+repetitions: null
+timing_environment: null

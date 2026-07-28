@@ -1,0 +1,23 @@
+# Project assumption: YAML layout. Values trace to implementation specification §3.2.
+japan:
+  provider: k_net
+  time_range: {start: "1996", end: "2024-07"}
+  sampling_rate_hz: 100
+  components: [NS, EW, UD]
+  magnitude_scale: M_JMA
+  magnitude_min: 3.0
+  magnitude_max: null # Paper conflict: 7.6 in text versus 7.7 in Table 1.
+india:
+  provider: pesmos
+  records: 157
+  events: 12
+  magnitude_scale: M_w
+windows_seconds: [2, 3, 4, 5, 6]
+split:
+  train: 0.70
+  test: 0.15
+  validation: 0.15
+  stratification_bins: "np.arange(3.0, 8.5, 0.5)"
+  random_seed: null # Not specified in the paper.
+noto: {date: "2024-01-01", records: 232, magnitude: 7.6, magnitude_scale: M_JMA}
+manifest_path: null # Project-assumption local path.
