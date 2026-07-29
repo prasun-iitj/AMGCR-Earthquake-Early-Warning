@@ -1,0 +1,66 @@
+{
+  "summary": {
+    "generated_at_utc": "2026-07-29T12:19:38.325666+00:00",
+    "n_waveforms": 8,
+    "sta_lta": {
+      "threshold": 2.5,
+      "sta_window_s": 0.5,
+      "lta_window_s": 10.0
+    },
+    "magnitude": {
+      "min": 4.05,
+      "max": 4.87
+    },
+    "peak_amplitude_counts": {
+      "min": 17408.0,
+      "max": 3486065.0,
+      "mean": 680590.625
+    },
+    "snr_peak": {
+      "min": 6.291660729127114,
+      "max": 778.2292396818217,
+      "mean": 136.9758101998519,
+      "median": 49.881890504689
+    },
+    "p_pick_time_s": {
+      "min": 10.15,
+      "max": 55.15,
+      "mean": 31.296875
+    },
+    "signal_duration_s": {
+      "min": 0.0,
+      "max": 289.525,
+      "mean": 183.240625
+    },
+    "by_station": [
+      {
+        "station_id": "CI.ADO.--.BHZ",
+        "n_events": 6,
+        "mean_snr_peak": 168.63094855497607,
+        "mean_p_pick_s": 30.52916666666667,
+        "mean_peak": 297981.8333333333
+      },
+      {
+        "station_id": "CI.USC.--.BHZ",
+        "n_events": 2,
+        "mean_snr_peak": 42.010395134479445,
+        "mean_p_pick_s": 33.6,
+        "mean_peak": 1828417.0
+      }
+    ]
+  },
+  "figures": [
+    "signal_analysis_ci40964384.png",
+    "signal_analysis_ci40964128.png",
+    "signal_analysis_ci40964048.png",
+    "signal_analysis_nn00882322.png",
+    "signal_analysis_ci40699207.png",
+    "signal_analysis_ci40675215.png",
+    "signal_analysis_ci40593503.png",
+    "signal_analysis_ci40735352.png"
+  ],
+  "tables": [
+    "signal_analysis_per_event.csv"
+  ],
+  "per_event_metrics_dir": "C:\\Users\\prasun.tripathi\\Desktop\\MY\\AMGCR_Earthquake_Research\\reports\\signal_analysis"
+}

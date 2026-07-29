@@ -1,88 +1,90 @@
 # ARCHITECTURE.md
 
-# AMGCR Earthquake Research - Project Architecture
+High-level architecture for **AMGCR Earthquake Research**: Western-region EEW research with an **EarthESND reference** layer.
 
-## Purpose
-
-This document describes the high-level architecture of the AMGCR Earthquake
-Research project and how data flows through the system.
+**Scope:** [PROJECT_CHARTER.md](PROJECT_CHARTER.md)
 
 ---
 
-# Architecture Overview
+## Implementation status
 
-```
-FDSN Services
-      │
-      ▼
-Event Retrieval (ObsPy)
-      │
-      ▼
-Waveform Download
-      │
-      ▼
-Station Metadata
-      │
-      ▼
-Raw Data Storage
-      │
-      ▼
-Preprocessing
-      │
-      ▼
-Feature Extraction
-      │
-      ▼
-Visualisation
-      │
-      ▼
-Machine Learning / Analysis
-      │
-      ▼
-Results & Reports
+| Layer | Status |
+|-------|--------|
+| EarthESND reference (`src/models/`, configs, tests) | ✅ **Complete** |
+| USA FDSN pilot (`data/raw/iris/`, manifest) | ✅ **Complete** |
+| Analysis pipeline (EDA → features) | ✅ **Complete** |
+| Interpretation & proposal | ✅ **Complete** |
+
+---
+
+## Dual tracks
+
+```text
+┌──────────────────────────────────────────────────────────────┐
+│  CERTIFICATE RESEARCH (complete pilot + proposal)             │
+│  FDSN → reports/ → docs/*_REPORT.md → Research_Proposal_v1  │
+└──────────────────────────────────────────────────────────────┘
+                              │  optional comparison
+                              ▼
+┌──────────────────────────────────────────────────────────────┐
+│  REFERENCE: EarthESND (Japan-oriented literature benchmark)   │
+└──────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-# Core Components
+## Completed data flow (California pilot)
 
-## 1. Data Acquisition
-- Retrieve earthquake event catalogues.
-- Download waveform data.
-- Collect station metadata.
+```text
+scripts/download/download_iris_california_pilot.py
+      → data/raw/iris/ + data/manifests/
+      → docs/IRIS_DATASET_REPORT.md
 
-## 2. Data Storage
-- `data/raw/` for original files.
-- `data/processed/` for cleaned datasets.
-- `data/output/` for final results.
+scripts/analysis/
+      run_california_pilot_eda.py           → reports/eda/
+      run_california_signal_analysis.py     → reports/signal_analysis/
+      run_california_preprocessing.py       → reports/preprocessing/
+      run_california_feature_engineering.py → reports/features/
 
-## 3. Processing Pipeline
-- Detrending
-- Filtering
-- Quality checks
-- Feature extraction
+docs/EDA_REPORT.md … FEATURE_ENGINEERING_REPORT.md
+docs/RESULTS_AND_DISCUSSION.md
+reports/Research_Proposal_v1.md
+```
 
-## 4. Analysis
-- Statistical analysis
-- Visualisation
-- Research paper reproduction
-- Machine learning experiments
-
-## 5. Documentation
-- Record experiments.
-- Update decision log.
-- Maintain changelog.
+Analysis scripts are **standalone** from EarthESND `src/`.
 
 ---
 
-# Design Principles
+## Future architecture (planned)
 
-- Modular
-- Reproducible
-- Well-documented
-- Extensible
-- Research-focused
+```text
+European FDSN → same report layout → cross-region evaluation
+AI models (Western data) ↔ optional EarthESND-inspired benchmarks
+Real-time EEW stream → latency + onsite features
+```
 
 ---
 
-Version: **1.0.0**
+## Core paths
+
+| Path | Role |
+|------|------|
+| `data/raw/iris/` | Immutable pilot MiniSEED |
+| `data/manifests/` | Event metadata |
+| `reports/eda/`, `signal_analysis/`, `preprocessing/`, `features/` | Phase outputs |
+| `reports/figures/`, `reports/tables/` | Publication artefacts |
+| `reports/Research_Proposal_v1.md` | Deliverable 1 |
+| `configs/earthesnd/`, `src/models/` | Reference only |
+
+---
+
+## Design principles
+
+- **Modular** — pilot analysis separate from EarthESND benchmark  
+- **Reproducible** — manifests, JSON configs, versioned docs  
+- **Europe-forward** — pilot validates method; EU data is next geography  
+- **Documentation-first** — status in PROJECT_STATUS / CHARTER  
+
+---
+
+Version: **1.2.0**

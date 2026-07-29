@@ -1,0 +1,36 @@
+{
+  "generated_at_utc": "2026-07-29T12:24:41.304656+00:00",
+  "pipeline_order": [
+    "demean",
+    "linear_detrend",
+    "taper",
+    "instrument_response_optional",
+    "bandpass",
+    "peak_normalization"
+  ],
+  "taper": {
+    "max_percentage": 0.05,
+    "type": "hann"
+  },
+  "bandpass": {
+    "freqmin_hz": 0.1,
+    "freqmax_hz_nominal": 15.0,
+    "corners": 4,
+    "zerophase": true,
+    "note": "freqmax capped below Nyquist per trace"
+  },
+  "instrument_response": {
+    "fdsn_client": "EARTHSCOPE",
+    "level": "response",
+    "output": "VEL",
+    "water_level": 60.0,
+    "pre_filt_hz": [
+      0.08,
+      0.1,
+      20.0,
+      25.0
+    ]
+  },
+  "normalization": "peak_abs",
+  "snr_noise_window_s": 5.0
+}

@@ -1,0 +1,35 @@
+{
+  "generated_at_utc": "2026-07-29T12:14:57.849260+00:00",
+  "data_root": "C:\\Users\\prasun.tripathi\\Desktop\\MY\\AMGCR_Earthquake_Research\\data\\raw\\iris",
+  "manifest_path": "C:\\Users\\prasun.tripathi\\Desktop\\MY\\AMGCR_Earthquake_Research\\data\\manifests\\iris_california_pilot_events.csv",
+  "n_mseed_files_total": 12,
+  "n_mseed_files_in_manifest": 8,
+  "n_events_manifest": 8,
+  "n_unique_stations_manifest": 2,
+  "channels": [
+    "BHZ"
+  ],
+  "sampling_rates_hz_unique": [
+    40.0
+  ],
+  "duration_s": {
+    "min": 300.0,
+    "max": 300.0,
+    "mean": 300.0
+  },
+  "magnitude": {
+    "min": 4.05,
+    "max": 4.87,
+    "mean": 4.4037500000000005,
+    "median": 4.39,
+    "std": 0.27549671050667734
+  },
+  "time_coverage": {
+    "first_origin_utc": "2024-05-01T20:49:00.760000+00:00",
+    "last_origin_utc": "2024-10-25T15:04:23.620000+00:00"
+  },
+  "station_ids_manifest": [
+    "CI.ADO.--.BHZ",
+    "CI.USC.--.BHZ"
+  ]
+}

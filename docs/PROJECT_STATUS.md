@@ -1,70 +1,89 @@
 # PROJECT_STATUS.md
 
-# AMGCR Earthquake Research - Project Status
-
-## Purpose
-
-This document tracks the current progress, completed milestones, pending tasks, blockers, and upcoming work for the project.
+Current progress for **AMGCR Earthquake Research**. Authoritative scope: [PROJECT_CHARTER.md](PROJECT_CHARTER.md).
 
 ---
 
-# Project Information
+## Project information
 
-**Project Name:** AMGCR_Earthquake_Research
-
-**Current Phase:** Phase 2B – Earthquake Event Catalogue Retrieval (Completed)
-
-**Current Status:** Repository foundation and acquisition workflow are implemented and validated.
+| Field | Value |
+|-------|--------|
+| **Programme** | Swiss certificate EEW research |
+| **Primary focus** | Europe (long-term) |
+| **Pilot implementation** | USA / California (IRIS–EarthScope) — **complete** |
+| **Reference track** | EarthESND software **complete**; paper scientific reproduction **not started** |
+| **Current active stage** | **Research Proposal & Technical Report** ([Research_Proposal_v1.md](../reports/Research_Proposal_v1.md) — **complete**) |
 
 ---
 
-# Overall Progress
+## Status summary (canonical)
+
+| Component | Status |
+|-----------|--------|
+| EarthESND reference implementation | ✅ **Complete** |
+| USA / California IRIS pilot | ✅ **Complete** |
+| EDA | ✅ **Complete** |
+| Signal analysis | ✅ **Complete** |
+| Preprocessing | ✅ **Complete** |
+| Feature engineering | ✅ **Complete** |
+| Results & discussion | ✅ **Complete** |
+| Research Proposal & Technical Report (Deliverable 1) | ✅ **Complete** |
+
+---
+
+## Overall progress
 
 | Area | Status |
 |------|--------|
-| Environment Setup | ✅ Completed |
-| Acquisition Framework (Phase 2A) | ✅ Completed |
-| Event Catalogue Retrieval (Phase 2B) | ✅ Completed |
-| Waveform Acquisition | ⬜ Planned |
-| Signal Preprocessing | ⬜ Planned |
-| Visualisation | ⬜ Planned |
-| Feature Extraction | ⬜ Planned |
-| Research Reproduction | ⬜ Planned |
-| AI / ML Extension | ⬜ Planned |
+| Environment & repo foundation | ✅ Completed |
+| Generic acquisition framework (Phase 2A/2B) | ✅ Completed |
+| EarthESND reference implementation | ✅ **Complete** |
+| USA IRIS–EarthScope pilot acquisition | ✅ **Complete** |
+| Phase A.1 — EDA | ✅ **Complete** |
+| Phase A.2 — Signal analysis | ✅ **Complete** |
+| Phase B.1 — Preprocessing | ✅ **Complete** |
+| Phase B.2 — Feature engineering | ✅ **Complete** |
+| Phase C — Results & discussion | ✅ **Complete** |
+| Deliverable 1 — Research Proposal v1 | ✅ **Complete** |
+| EarthESND scientific reproduction (K-NET tables) | ⬜ Not started (optional) |
 
 ---
 
-# Completed
+## Completed deliverables (links)
 
-- [x] Repository structure created and organised
-- [x] Virtual environment created and validated
-- [x] Core scientific dependencies verified
-- [x] ObsPy installation verified
-- [x] Initial package structure created inside src/
-- [x] Logging configuration added
-- [x] Acquisition configuration loader implemented
-- [x] Validators and custom exceptions added
-- [x] Acquisition tests added and passing
-- [x] Configuration-driven catalogue retrieval implemented
-- [x] Sample catalogue retrieval completed using an ObsPy/FDSN client
-- [x] Sample QuakeML output written to data/raw/catalogs/catalog.xml
+| Phase | Documentation | Outputs |
+|-------|---------------|---------|
+| Acquisition | [IRIS_DATASET_REPORT.md](IRIS_DATASET_REPORT.md) | `data/raw/iris/`, manifest CSV |
+| EDA | [EDA_REPORT.md](EDA_REPORT.md) | `reports/eda/`, EDA figures/tables |
+| Signal analysis | [SIGNAL_ANALYSIS_REPORT.md](SIGNAL_ANALYSIS_REPORT.md) | `reports/signal_analysis/` |
+| Preprocessing | [PREPROCESSING_REPORT.md](PREPROCESSING_REPORT.md) | `reports/preprocessing/` |
+| Features | [FEATURE_ENGINEERING_REPORT.md](FEATURE_ENGINEERING_REPORT.md) | `reports/features/feature_matrix.csv` |
+| Interpretation | [RESULTS_AND_DISCUSSION.md](RESULTS_AND_DISCUSSION.md) | — |
+| Proposal | [Research_Proposal_v1.md](../reports/Research_Proposal_v1.md) | Deliverable 1 |
 
 ---
 
-# Pending Tasks
+## Future work (planned)
 
-- [ ] Download station metadata and waveform data
-- [ ] Build a waveform acquisition workflow
-- [ ] Plot the first waveform
-- [ ] Start preprocessing and feature extraction
-- [ ] Reproduce a reference methodology
+1. **European dataset integration** — EIDA/ORFEUS-style pilots; manifests and reports mirroring California workflow.  
+2. **AI modelling** — tabular and waveform models on Western data; optional EarthESND-**inspired** architectures (reference code only).  
+3. **Real-time EEW** — streaming/SeedLink prototypes; latency budgets.  
+4. **Comparative evaluation** — cross-station, cross-region, and benchmark vs literature with deviation logs.
 
----
-
-# Current Goal
-
-Maintain a documented, test-backed foundation for the next phase of waveform-based analysis.
+Supporting improvements (as needed): instrument response caching, pre-origin noise windows, larger catalogues.
 
 ---
 
-Version: **0.3.0**
+## Current goal
+
+Maintain documentation alignment with completed pilot science and pursue **future work** above without conflating EarthESND Japan reproduction with the European programme narrative.
+
+---
+
+## Blockers
+
+None for documentation or planning. European FDSN access may require network-specific credentials (future).
+
+---
+
+Version: **1.2.0**

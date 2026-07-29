@@ -1,0 +1,24 @@
+{
+  "generated_at_utc": "2026-07-29T12:25:09.281256+00:00",
+  "n_waveforms": 8,
+  "config_path": "C:\\Users\\prasun.tripathi\\Desktop\\MY\\AMGCR_Earthquake_Research\\reports\\preprocessing\\preprocessing_config.json",
+  "instrument_response": {
+    "applied": 0,
+    "skipped": 8
+  },
+  "raw_snr_peak": {
+    "min": 6.291660729127114,
+    "max": 778.2292396818217,
+    "mean": 136.9758101998519
+  },
+  "filtered_snr_peak": {
+    "min": 15.612412936035906,
+    "max": 7485.630744913397,
+    "mean": 1683.5090720687476
+  },
+  "snr_peak_change_ratio": {
+    "min": 2.4814454574383773,
+    "max": 27.5925366608767,
+    "mean": 17.051521698061816
+  }
+}

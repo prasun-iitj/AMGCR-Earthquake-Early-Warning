@@ -1,81 +1,90 @@
 # PAPER_REPRODUCTION.md
 
-# AMGCR Earthquake Research - Paper Reproduction Plan
+**EarthESND paper reproduction** — optional **reference track**, not the active certificate research path.
 
-## Purpose
-
-This document defines the strategy for reproducing the methodology of the
-selected research paper as part of the AMGCR Earthquake Research project.
+**Programme direction:** [PROJECT_CHARTER.md](PROJECT_CHARTER.md) · [RESEARCH_DIRECTION.md](RESEARCH_DIRECTION.md)
 
 ---
 
-# Primary Reference Paper
+## Primary reference paper
 
-**Title**
+**EarthESND:** Lightweight Multiscale Echo State Network with Dendritic Neural Network Readout for Earthquake Early Warning  
+(Joshi, Singh, Raman — *Computers and Electrical Engineering*, 2026)
 
-EarthESND: Lightweight Multiscale Echo State Network with Dendritic Neural Network Readout for Earthquake Early Warning.
-
-Status:
-- Selected as the primary research paper.
-- Reproduction planned after the data acquisition and preprocessing pipeline is complete.
-
----
-
-# Reproduction Objectives
-
-- Understand the complete methodology.
-- Reproduce the data preparation workflow.
-- Implement the preprocessing steps.
-- Recreate experiments where possible.
-- Compare reproduced results with the published work.
-- Document any differences and observations.
+| Aspect | Status |
+|--------|--------|
+| Paper selected as **literature & architecture reference** | ✅ |
+| **Software** reproduction in this repository | ✅ **Complete** |
+| **Scientific** reproduction (K-NET training, paper tables) | ⬜ **Not started** |
+| Role in certificate project | Benchmark only; **Western EEW research** is primary |
 
 ---
 
-# Planned Workflow
+## What “complete” means (software)
 
-1. Study the paper.
-2. Acquire comparable earthquake datasets.
-3. Preprocess waveform data.
-4. Extract required features.
-5. Implement the proposed methodology.
-6. Evaluate results.
-7. Record findings.
+- Reverse-engineered spec: [EARTHESND_REVERSE_ENGINEERING.md](EARTHESND_REVERSE_ENGINEERING.md)
+- Implementation spec: [EARTHESND_IMPLEMENTATION_SPEC_V1.md](EARTHESND_IMPLEMENTATION_SPEC_V1.md)
+- Pipeline modules under `src/` with **88 passing tests** on a full reference checkout
+- Config contracts under `configs/earthesnd/`
 
----
-
-# Prerequisites
-
-Before starting reproduction:
-
-- [ ] Environment setup complete
-- [ ] ObsPy verified
-- [ ] Earthquake catalogue downloaded
-- [ ] Waveforms downloaded
-- [ ] Preprocessing pipeline implemented
-- [ ] Feature extraction completed
+This does **not** imply published Table 3–6 numbers have been replicated.
 
 ---
 
-# Experiment Log
+## What “not started” means (scientific)
+
+Scientific reproduction requires at minimum:
+
+- Japan K-NET (and related) waveform acquisition at paper scale — see [DATASET_ACQUISITION_PLAN.md](DATASET_ACQUISITION_PLAN.md), [DATASET_ACCESS_REPORT.md](DATASET_ACCESS_REPORT.md)
+- Training and evaluation runs with documented hyperparameters
+- Comparison to paper metrics with a **deviation log**
+
+None of that is on the **critical path** for Phases A–D unless the charter is revised.
+
+---
+
+## Reproduction objectives (when explicitly scoped)
+
+- Reproduce data preparation as described in the paper
+- Run the implemented ESN/DENN stack on acquired K-NET-class data
+- Compare to Tables 3–6 and figures where feasible
+- Document all differences (sampling, magnitude definition, station set, etc.)
+
+---
+
+## Prerequisites checklist
+
+| Prerequisite | Reference track | Active USA track |
+|--------------|-----------------|------------------|
+| Environment & ObsPy | ✅ | ✅ |
+| Implementation in `src/` | ✅ | N/A (reuse optional) |
+| K-NET-scale waveforms | ⬜ | N/A |
+| California pilot waveforms | N/A | ✅ — [IRIS_DATASET_REPORT.md](IRIS_DATASET_REPORT.md) |
+| Pilot EDA & signal analysis | N/A | ✅ — [EDA_REPORT.md](EDA_REPORT.md), [SIGNAL_ANALYSIS_REPORT.md](SIGNAL_ANALYSIS_REPORT.md) |
+| Preprocessing on target geography | ⬜ | Phase B (exploratory STA/LTA done in A.2) |
+| Paper table reproduction | ⬜ | Out of scope unless requested |
+
+---
+
+## Experiment log (EarthESND scientific track)
 
 | Experiment | Status | Notes |
 |------------|--------|-------|
-| Literature Review | ⬜ | |
-| Data Preparation | ⬜ | |
-| Preprocessing | ⬜ | |
-| Model Implementation | ⬜ | |
-| Evaluation | ⬜ | |
+| Literature review | 🔄 | Ongoing for certificate proposal |
+| K-NET / PESMOS data acquisition | ⬜ | Plans in `docs/DATASET_*` |
+| Data preparation (Japan) | ⬜ | |
+| Training & evaluation | ⬜ | |
+| Table / figure comparison | ⬜ | |
 
 ---
 
-# Reproducibility Notes
+## Reproducibility notes
 
-- Record software versions.
-- Record dataset sources.
-- Keep all parameters documented.
-- Save intermediate outputs where appropriate.
+- Record ObsPy, Python, and dependency versions
+- Store dataset sources in manifests (`data/manifests/`)
+- Never claim paper parity without datasets and a deviation log
+- For new work, prefer **USA pilot → Europe** workflow documented in the charter
 
 ---
 
-Version: **1.0.0**
+Version: **1.1.0**

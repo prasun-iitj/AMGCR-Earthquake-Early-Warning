@@ -1,80 +1,61 @@
 # AI_AGENT.md
 
-# AMGCR Earthquake Research - AI Agent Instructions
-
-## Purpose
-
-This document provides instructions for AI coding assistants working on the
-AMGCR_Earthquake_Research repository.
-
-Supported assistants include:
-
-- Cursor
-- Kiro
-- GitHub Copilot
-- Claude Code
-- Gemini CLI
+Instructions for AI coding assistants working on **AMGCR_Earthquake_Research**.
 
 ---
 
-# Primary Objective
+## Primary objective
 
-Help build a reproducible earthquake research pipeline without changing the
-project's architecture or research direction.
-
----
-
-# Before Making Changes
-
-Always read the following documents in order:
-
-1. README.md
-2. PROJECT_GUIDE.md
-3. PROJECT_STATUS.md
-4. ROADMAP.md
-
-Do not begin implementation until the project context is understood.
+Support **European-focused EEW research** using a **completed California FDSN pilot** as the method reference. **EarthESND** is **reference code only**—not the default task.
 
 ---
 
-# Coding Rules
+## Repository status (do not contradict)
 
-- Follow PEP 8.
-- Keep functions focused on a single responsibility.
-- Avoid hard-coded paths.
-- Use descriptive variable names.
-- Add docstrings to public functions.
-- Prefer reusable modules over duplicated code.
+| Component | Status |
+|-----------|--------|
+| EarthESND reference implementation | ✅ Complete |
+| USA / California IRIS pilot | ✅ Complete |
+| EDA | ✅ Complete |
+| Signal analysis | ✅ Complete |
+| Preprocessing | ✅ Complete |
+| Feature engineering | ✅ Complete |
+| Results & discussion | ✅ Complete |
+| Research Proposal & Technical Report | ✅ Complete (`reports/Research_Proposal_v1.md`) |
 
----
-
-# Repository Rules
-
-- Preserve the existing folder structure.
-- Do not rename files unless requested.
-- Do not delete user-created files.
-- Keep documentation synchronized with code changes.
+**Current active stage:** Research Proposal & Technical Report (Deliverable 1 delivered). **Default new work:** future roadmap items below—not re-running the pilot pipeline unless explicitly requested.
 
 ---
 
-# Documentation Rules
+## Required reading (in order)
 
-Whenever a milestone is completed:
+1. [PROJECT_CHARTER.md](PROJECT_CHARTER.md)  
+2. [RESEARCH_DIRECTION.md](RESEARCH_DIRECTION.md)  
+3. [PROJECT_STATUS.md](PROJECT_STATUS.md)  
+4. [Research_Proposal_v1.md](../reports/Research_Proposal_v1.md)  
+5. Phase reports as needed (`EDA_*` through `RESULTS_AND_DISCUSSION.md`)
 
-- Update PROJECT_STATUS.md
-- Record significant changes in CHANGELOG.md
-- Update ROADMAP.md if priorities change
-
----
-
-# Development Philosophy
-
-Understand → Implement → Verify → Document → Improve
-
-Every code change should be reproducible, explainable, and well documented.
+For EarthESND code changes only: `PAPER_REPRODUCTION.md`, `EARTHESND_IMPLEMENTATION_SPEC_V1.md`.
 
 ---
 
-# Current Version
+## What to build next (default)
 
-Version: **1.0.0**
+Unless the user explicitly asks otherwise:
+
+1. **European dataset integration** — FDSN pilots, manifests, reports  
+2. **AI modelling** — Western datasets; EarthESND-**inspired** comparisons only  
+3. **Real-time EEW** — streaming/latency experiments  
+4. **Comparative evaluation** — metrics, deviation logs, documentation  
+
+**Do not** modify completed analysis scripts or re-run analyses unless asked. **Do not** modify EarthESND reference without explicit request.
+
+---
+
+## Documentation rules
+
+After milestones: update **PROJECT_STATUS**, **ROADMAP**, **CHANGELOG**, and charter if scope changes.
+
+---
+
+Version: **1.2.0**

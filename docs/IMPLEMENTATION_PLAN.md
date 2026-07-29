@@ -1,58 +1,86 @@
 # IMPLEMENTATION_PLAN.md
 
-# AMGCR Earthquake Research - Implementation Plan
-
-## Purpose
-
-This document tracks the implementation steps completed for repository initialization, acquisition preparation, and the first live catalogue retrieval milestone.
+Tracks **what was built** in the repository and **what to implement next**, aligned with [PROJECT_CHARTER.md](PROJECT_CHARTER.md).
 
 ---
 
-## Phase 1 — Repository Initialization
+## Part 1 — Foundation (completed)
 
-### Completed
+### Phase 1 — Repository initialization ✅
 
-- Created the repository directory structure requested for docs, data, src, notebooks, tests, references, figures, logs, and outputs.
-- Created a Python virtual environment and verified the environment is functional.
-- Installed the core scientific dependencies required for seismology and analysis.
-- Added project configuration files and initial package scaffolding.
-- Verified the package entry point and logging setup.
+### Phase 2A — Acquisition framework ✅
 
-### Status
+### Phase 2B — Event catalogue retrieval ✅
 
-✅ Completed
+(See prior sections in git history / v0.3.0 changelog.)
 
 ---
 
-## Phase 2A — Acquisition Framework Preparation
+## Part 2 — EarthESND reference implementation (completed)
 
-### Completed
+| Deliverable | Status |
+|-------------|--------|
+| Config, preprocessing, models, evaluation | ✅ |
+| 88 tests (full reference checkout) | ✅ |
+| Scientific paper reproduction | ⬜ Not started |
 
-- Added a modular acquisition package with catalog, waveform, station, and download manager modules.
-- Implemented YAML-based configuration loading and validation for acquisition settings.
-- Added reusable exception handling and retry logic for future data acquisition workflows.
-- Added automated tests covering configuration loading and validation.
-
-### Status
-
-✅ Completed
+See [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md).
 
 ---
 
-## Phase 2B — Event Catalogue Retrieval
+## Part 3 — USA dataset workflow (completed)
 
-### Completed
-
-- Implemented ObsPy-based catalogue retrieval from an FDSN-compatible service.
-- Added provider-aware query shaping so the workflow can handle service-specific constraints.
-- Verified a sample retrieval and saved a QuakeML file to data/raw/catalogs/catalog.xml.
-
-### Status
-
-✅ Completed
+| Step | Artifact |
+|------|----------|
+| ObsPy FDSN integration | `scripts/download/download_iris_california_pilot.py` |
+| 8-event California pilot | `data/raw/iris/`, manifest CSV |
+| Acquisition report | [IRIS_DATASET_REPORT.md](IRIS_DATASET_REPORT.md) |
 
 ---
 
-## Next Planned Phase
+## Part 4 — Phase A — USA waveform analysis
 
-Phase 3 will focus on waveform acquisition and station metadata retrieval.
+### Phase A.1 — EDA ✅
+
+- [x] `scripts/analysis/run_california_pilot_eda.py`
+- [x] Dataset summary, MiniSEED inspection CSV
+- [x] Figures: example waveform, magnitude histogram, events over time, station usage
+- [x] Tables: `event_summary.csv`, `station_summary.csv`
+- [x] [EDA_REPORT.md](EDA_REPORT.md)
+
+### Phase A.2 — Signal analysis ✅
+
+- [x] `scripts/analysis/run_california_signal_analysis.py`
+- [x] Per-event metrics (peak, RMS, noise, SNR, duration, STA/LTA P pick)
+- [x] Eight four-panel figures in `reports/figures/signal_analysis_*.png`
+- [x] `reports/tables/signal_analysis_per_event.csv`
+- [x] [SIGNAL_ANALYSIS_REPORT.md](SIGNAL_ANALYSIS_REPORT.md)
+
+### Phase A.3 — Proposal & literature 🔄
+
+- [ ] Introduction, Dataset, Methodology, Expected outcomes
+- [ ] Literature review document or section
+
+---
+
+## Part 5 — Next implementation
+
+### Phase B — Signal processing ⬜
+
+- [ ] Filter/detrend/QC pipeline on pilot data
+- [ ] Pre-origin FDSN windows for noise estimation
+- [ ] Features under `data/processed/`
+
+### Phase C — European extension ⬜
+
+### Phase D — AI methods ⬜
+
+---
+
+## Part 6 — Optional (EarthESND scientific reproduction)
+
+Execute [DATASET_ACQUISITION_PLAN.md](DATASET_ACQUISITION_PLAN.md) only if explicitly prioritised.
+
+---
+
+Version: **1.1.0**

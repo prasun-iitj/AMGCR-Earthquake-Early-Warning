@@ -1,104 +1,66 @@
 # DATASET.md
 
-# AMGCR Earthquake Research - Dataset Management
+How earthquake datasets are acquired, organised, stored, and documented.
 
-## Purpose
-
-This document defines how earthquake datasets are acquired, organised, stored, documented, and versioned throughout the project.
+**Authoritative scope:** [PROJECT_CHARTER.md](PROJECT_CHARTER.md)
 
 ---
 
-# Data Sources
+## Data sources
 
-Primary sources used or planned for this project:
-
-- EarthScope / IRIS FDSN
-- USGS event service via ObsPy
-- ISC and other FDSN-compatible services (when required)
+| Source | Role |
+|--------|------|
+| **USGS** FDSN Event | Event catalog (California pilot) |
+| **EarthScope** (formerly IRIS DMC) | Waveforms (MiniSEED) |
+| Other FDSN services | Future (Europe, optional Japan reproduction) |
 
 ---
 
-# Dataset Categories
-
-The project stores data in the following structure:
+## Directory layout
 
 ```text
 data/
 ├── raw/
-│   └── catalogs/
-├── waveforms/
-├── stations/
-└── processed/
+│   ├── catalogs/          # Sample QuakeML (generic FDSN test)
+│   └── iris/              # California pilot MiniSEED (by event id)
+├── manifests/
+│   └── iris_california_pilot_events.csv
+└── processed/             # Phase B (planned)
 ```
 
-### raw/catalogs/
-Raw earthquake catalogue downloads in QuakeML or CSV format.
-
-### waveforms/
-Raw MiniSEED waveform files downloaded from FDSN services.
-
-### stations/
-Station metadata (StationXML).
-
-### processed/
-Preprocessed datasets ready for analysis and modelling.
+Analysis outputs (not raw data) live under **`reports/`** — see [EDA_REPORT.md](EDA_REPORT.md) and [SIGNAL_ANALYSIS_REPORT.md](SIGNAL_ANALYSIS_REPORT.md).
 
 ---
 
-# Current Dataset Status
+## Active dataset — California pilot
 
-A sample catalogue retrieval has been completed and stored at data/raw/catalogs/catalog.xml. The retrieval used an ObsPy/FDSN client for a short time window and saved the result as QuakeML.
+| Field | Value |
+|-------|--------|
+| Region | California (bounding box in download script) |
+| Events in manifest | **8** |
+| Format | MiniSEED, **BHZ**, **40 Hz**, **300 s** from origin |
+| Stations (pilot) | **CI.ADO**, **CI.USC** |
+| Acquisition doc | [IRIS_DATASET_REPORT.md](IRIS_DATASET_REPORT.md) |
+| Download script | `scripts/download/download_iris_california_pilot.py` |
 
----
-
-# Naming Convention
-
-Use descriptive, consistent filenames.
-
-Examples:
-
-- catalog_2024_01_01.xml
-- event_catalog_2024.csv
-- waveform_<eventid>.mseed
-- station_<network>_<station>.xml
+**Rules:** Do not edit raw MiniSEED; re-download or version new pulls if parameters change.
 
 ---
 
-# Dataset Rules
+## Other datasets
 
-- Never modify raw data.
-- Store processed data separately.
-- Keep original downloads unchanged.
-- Record the source of every dataset.
-- Maintain reproducibility.
-
----
-
-# Metadata
-
-For each dataset, document:
-
-- Source
-- Download date
-- Time range
-- Magnitude filter
-- Geographic region
-- Processing steps
+| Dataset | Status | Doc |
+|---------|--------|-----|
+| Sample FDSN catalogue | Sample | `data/raw/catalogs/catalog.xml` |
+| EarthESND Japan (K-NET) | Planned (optional) | [DATASET_ACQUISITION_PLAN.md](DATASET_ACQUISITION_PLAN.md) |
+| Europe | Planned | Phase C roadmap |
 
 ---
 
-# Versioning
+## Metadata checklist
 
-Do not overwrite datasets.
-
-Instead, create new processed versions and document the changes.
+For each acquisition, document: source, query parameters, download date, manifest path, and a report in `docs/`.
 
 ---
 
-# Future Expansion
-
-This document will be updated as additional datasets and preprocessing pipelines are introduced.
-
----
-
-Version: **0.3.0**
+Version: **1.1.0**
