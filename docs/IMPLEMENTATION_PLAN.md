@@ -4,19 +4,27 @@
 
 ## Purpose
 
-This document tracks the implementation steps completed for repository initialization, acquisition preparation, and the first live catalogue retrieval milestone.
+This document tracks implementation milestones. For **EarthESND** requirements and progress detail, see `docs/EARTHESND_IMPLEMENTATION_SPEC_V1.md` (Implementation progress) and `docs/EARTHESND_REVERSE_ENGINEERING.md` (§17).
+
+**Automated tests:** **65 passing**  
+**Documentation version:** **0.5.0**
 
 ---
 
-## Phase 1 — Repository Initialization
+## EarthESND reproduction (primary track)
 
-### Completed
+| Phase | Description | Status |
+|-------|-------------|--------|
+| 1 | Repository foundation, manifest, splits, acquisition framework | ✅ Complete |
+| 2 | Preprocessing (paper gates, filter, windows; fail-closed nulls) | ✅ Complete |
+| 3 | Feature engineering schema (seven names; numerics blocked) | ✅ Complete |
+| 4 | Echo State Network | ✅ Complete |
+| 5 | DENN, fusion, EarthESNDModel; CTGAN & ensemble contracts | ✅ Complete |
+| 6 | Evaluation, trainer, full pipeline, K-NET data | ⬜ Pending |
 
-- Created the repository directory structure requested for docs, data, src, notebooks, tests, references, figures, logs, and outputs.
-- Created a Python virtual environment and verified the environment is functional.
-- Installed the core scientific dependencies required for seismology and analysis.
-- Added project configuration files and initial package scaffolding.
-- Verified the package entry point and logging setup.
+---
+
+## Phase 1 — Repository initialization
 
 ### Status
 
@@ -24,14 +32,7 @@ This document tracks the implementation steps completed for repository initializ
 
 ---
 
-## Phase 2A — Acquisition Framework Preparation
-
-### Completed
-
-- Added a modular acquisition package with catalog, waveform, station, and download manager modules.
-- Implemented YAML-based configuration loading and validation for acquisition settings.
-- Added reusable exception handling and retry logic for future data acquisition workflows.
-- Added automated tests covering configuration loading and validation.
+## Phase 2A — Acquisition framework preparation
 
 ### Status
 
@@ -39,13 +40,7 @@ This document tracks the implementation steps completed for repository initializ
 
 ---
 
-## Phase 2B — Event Catalogue Retrieval
-
-### Completed
-
-- Implemented ObsPy-based catalogue retrieval from an FDSN-compatible service.
-- Added provider-aware query shaping so the workflow can handle service-specific constraints.
-- Verified a sample retrieval and saved a QuakeML file to data/raw/catalogs/catalog.xml.
+## Phase 2B — Event catalogue retrieval
 
 ### Status
 
@@ -53,6 +48,13 @@ This document tracks the implementation steps completed for repository initializ
 
 ---
 
-## Next Planned Phase
+## Next planned work
 
-Phase 3 will focus on waveform acquisition and station metadata retrieval.
+1. Evaluation metrics and benchmarks (`src/evaluation/` per spec).  
+2. `EarthESNDTrainer` and differentiable DENN training once Adam fields are declared.  
+3. K-NET / PESMOS adapters and populated manifest.  
+4. `EarthESNDPipeline` and declared final aggregation weights.  
+
+---
+
+Version: **0.5.0**

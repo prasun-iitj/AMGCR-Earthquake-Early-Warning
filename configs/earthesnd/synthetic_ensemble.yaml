@@ -1,0 +1,14 @@
+# Reserved for a later phase. Null values are not specified in the paper.
+synthetic:
+  model: denn_ctgan
+  synthetic_record_count: 10000
+  input: vertical_component_tabular_features_and_training_target
+  generator_architecture: null
+  discriminator_architecture: null
+  training_hyperparameters: null
+  t_sne_parameters: null
+ensemble:
+  learners: [xgboost, lightgbm, catboost]
+  training_sets: [real, augmented]
+  expected_model_count: 6
+  aggregation_weights: null
