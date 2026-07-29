@@ -2,7 +2,8 @@
 
 High-level architecture for **AMGCR Earthquake Research**: Western-region EEW research with an **EarthESND reference** layer.
 
-**Scope:** [PROJECT_CHARTER.md](PROJECT_CHARTER.md)
+**Scope:** [PROJECT_CHARTER.md](PROJECT_CHARTER.md)  
+**Release:** **v1.0.0 — Submission Release** (29 July 2026)
 
 ---
 
@@ -11,9 +12,10 @@ High-level architecture for **AMGCR Earthquake Research**: Western-region EEW re
 | Layer | Status |
 |-------|--------|
 | EarthESND reference (`src/models/`, configs, tests) | ✅ **Complete** |
-| USA FDSN pilot (`data/raw/iris/`, manifest) | ✅ **Complete** |
+| USA FDSN pilot (`data/manifests/`, local `data/raw/iris/`) | ✅ **Complete** |
 | Analysis pipeline (EDA → features) | ✅ **Complete** |
-| Interpretation & proposal | ✅ **Complete** |
+| Interpretation & submission deliverables | ✅ **Complete** |
+| FINAL_SUBMISSION exports | ✅ **Complete** (validation **PASS**) |
 
 ---
 
@@ -21,10 +23,11 @@ High-level architecture for **AMGCR Earthquake Research**: Western-region EEW re
 
 ```text
 ┌──────────────────────────────────────────────────────────────┐
-│  CERTIFICATE RESEARCH (complete pilot + proposal)             │
-│  FDSN → reports/ → docs/*_REPORT.md → Research_Proposal_v1  │
+│  v1.0 CERTIFICATE RESEARCH (complete, frozen 2026-07-29)    │
+│  FDSN → reports/ → docs/*_REPORT.md → Research_Report_Final │
+│  → FINAL_SUBMISSION/ (PDF, PPTX, D-S1/S2)                     │
 └──────────────────────────────────────────────────────────────┘
-                              │  optional comparison
+                              │  optional comparison (v2.0)
                               ▼
 ┌──────────────────────────────────────────────────────────────┐
 │  REFERENCE: EarthESND (Japan-oriented literature benchmark)   │
@@ -48,20 +51,25 @@ scripts/analysis/
 
 docs/EDA_REPORT.md … FEATURE_ENGINEERING_REPORT.md
 docs/RESULTS_AND_DISCUSSION.md
-reports/Research_Proposal_v1.md
+reports/Research_Report_Final.md
+FINAL_SUBMISSION/  (exported artefacts)
 ```
 
 Analysis scripts are **standalone** from EarthESND `src/`.
 
 ---
 
-## Future architecture (planned)
+## Version 2.0 architecture (planned)
 
 ```text
+Web / dashboard / interactive viz  →  public programme interface
 European FDSN → same report layout → cross-region evaluation
-AI models (Western data) ↔ optional EarthESND-inspired benchmarks
-Real-time EEW stream → latency + onsite features
+AI models (Western data) ↔ EarthESND-inspired benchmarks
+Real-time stream (SeedLink) → latency + onsite features
+Production deployment layer (operations, governance)
 ```
+
+Details: [ROADMAP.md](ROADMAP.md).
 
 ---
 
@@ -69,11 +77,13 @@ Real-time EEW stream → latency + onsite features
 
 | Path | Role |
 |------|------|
-| `data/raw/iris/` | Immutable pilot MiniSEED |
-| `data/manifests/` | Event metadata |
+| `FINAL_SUBMISSION/` | Official v1.0 PDF/DOCX/PPTX bundle |
+| `data/manifests/` | Event metadata (tracked) |
+| `data/raw/iris/` | Immutable pilot MiniSEED (local; gitignored) |
 | `reports/eda/`, `signal_analysis/`, `preprocessing/`, `features/` | Phase outputs |
-| `reports/figures/`, `reports/tables/` | Publication artefacts |
-| `reports/Research_Proposal_v1.md` | Deliverable 1 |
+| `reports/figures/`, `reports/tables/` | Publication artefacts (figures often gitignored) |
+| `reports/Research_Report_Final.md` | Primary submission narrative (D-F1) |
+| `reports/Research_Proposal_v1.md` | Superseded proposal v1 |
 | `configs/earthesnd/`, `src/models/` | Reference only |
 
 ---
@@ -81,10 +91,10 @@ Real-time EEW stream → latency + onsite features
 ## Design principles
 
 - **Modular** — pilot analysis separate from EarthESND benchmark  
-- **Reproducible** — manifests, JSON configs, versioned docs  
-- **Europe-forward** — pilot validates method; EU data is next geography  
-- **Documentation-first** — status in PROJECT_STATUS / CHARTER  
+- **Reproducible** — manifests, JSON configs, D-S1/D-S2  
+- **Europe-forward** — pilot validates method; Version 2.0 targets EU data and ops  
+- **Documentation-first** — status in PROJECT_STATUS / CHARTER / RELEASE_SUMMARY  
 
 ---
 
-Version: **1.2.0**
+Version: **1.3.0** (v1.0.0 submission release)

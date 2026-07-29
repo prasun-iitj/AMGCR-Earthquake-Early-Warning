@@ -25,7 +25,7 @@ data/
 │   └── iris/              # California pilot MiniSEED (by event id)
 ├── manifests/
 │   └── iris_california_pilot_events.csv
-└── processed/             # Phase B (planned)
+└── processed/             # Reserved (v1.0 features in reports/features/)
 ```
 
 Analysis outputs (not raw data) live under **`reports/`** — see [EDA_REPORT.md](EDA_REPORT.md) and [SIGNAL_ANALYSIS_REPORT.md](SIGNAL_ANALYSIS_REPORT.md).
@@ -52,8 +52,8 @@ Analysis outputs (not raw data) live under **`reports/`** — see [EDA_REPORT.md
 | Dataset | Status | Doc |
 |---------|--------|-----|
 | Sample FDSN catalogue | Sample | `data/raw/catalogs/catalog.xml` |
-| EarthESND Japan (K-NET) | Planned (optional) | [DATASET_ACQUISITION_PLAN.md](DATASET_ACQUISITION_PLAN.md) |
-| Europe | Planned | Phase C roadmap |
+| EarthESND Japan (K-NET) | Planned (optional, Version 2.0) | [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md) |
+| Europe | Planned (Version 2.0) | [ROADMAP.md](ROADMAP.md) |
 
 ---
 
@@ -63,4 +63,4 @@ For each acquisition, document: source, query parameters, download date, manifes
 
 ---
 
-Version: **1.1.0**
+Version: **1.3.0** (v1.0.0 submission release)

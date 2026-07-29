@@ -73,7 +73,7 @@ Contributors and agents **must** align work with:
 ### Reference only (maintain, do not prioritise for certificate deliverables)
 
 - Full **EarthESND** pipeline in `src/` (ESN, DENN, contracts, 88 tests).
-- **K-NET / PESMOS / Noto** acquisition plans (`docs/DATASET_ACQUISITION_PLAN.md`, etc.) for optional literature reproduction.
+- **K-NET / PESMOS / Noto** optional Japan reproduction — see [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md) (Version 2.0 / optional track).
 - Paper table reproduction (Tables 3–6) without a explicit programme decision.
 
 ### Out of scope unless requested
@@ -94,7 +94,7 @@ Contributors and agents **must** align work with:
 | Scientific reproduction (K-NET-scale training + paper tables) | **Not started** |
 | Role going forward | Literature, architecture, and AI methodology **reference** |
 
-Key docs: `docs/EARTHESND_REVERSE_ENGINEERING.md`, `docs/EARTHESND_IMPLEMENTATION_SPEC_V1.md`, `docs/PAPER_REPRODUCTION.md`.
+Key docs: [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md), `configs/earthesnd/`, [REFERENCES.md](../references/REFERENCES.md).
 
 ### 6.2 USA dataset workflow
 
@@ -118,9 +118,13 @@ Key docs: `docs/EARTHESND_REVERSE_ENGINEERING.md`, `docs/EARTHESND_IMPLEMENTATIO
 | Preprocessing | **Complete** — `docs/PREPROCESSING_REPORT.md`, `reports/preprocessing/` |
 | Feature engineering | **Complete** — `docs/FEATURE_ENGINEERING_REPORT.md`, `reports/features/` |
 | Results & discussion | **Complete** — `docs/RESULTS_AND_DISCUSSION.md` |
-| Research Proposal & Technical Report (Deliverable 1) | **Complete** — `reports/Research_Proposal_v1.md` |
+| Reproducibility Statement (D-S1) | **Complete** — `docs/REPRODUCIBILITY_STATEMENT.md` |
+| Data Availability Statement (D-S2) | **Complete** — `docs/DATA_AVAILABILITY_STATEMENT.md` |
+| Final Research Report (D-F1) | **Complete** — `reports/Research_Report_Final.md` |
+| Presentation & submission package (D-F2–F4) | **Complete** — `FINAL_SUBMISSION/` (validation **PASS**) |
+| Research Proposal v1 (superseded) | **Complete** — `reports/Research_Proposal_v1.md` |
 
-**Current active stage:** Research Proposal & Technical Report (Deliverable 1 delivered). **Future work:** European dataset integration, AI modelling, real-time EEW, comparative evaluation.
+**Current stage:** **v1.0.0 Submission Release** (29 July 2026). Pilot analysis **frozen**. **Version 2.0** roadmap: [ROADMAP.md](ROADMAP.md).
 
 ### 6.4 Generic acquisition foundation
 
@@ -136,8 +140,8 @@ Key docs: `docs/EARTHESND_REVERSE_ENGINEERING.md`, `docs/EARTHESND_IMPLEMENTATIO
 |---------|--------|--------|----------------|
 | California pilot waveforms | USA | **Complete** (acquired & analysed) | `data/raw/iris/`, `docs/IRIS_DATASET_REPORT.md` |
 | Sample FDSN catalogue | Generic | Sample only | `data/raw/catalogs/` |
-| EarthESND Japan (K-NET) | Japan | Planned for optional reproduction | `docs/DATASET_ACQUISITION_PLAN.md` |
-| European networks (e.g. ORFEUS, EIDA) | Europe | **Planned** | Phase C roadmap |
+| EarthESND Japan (K-NET) | Japan | Planned (optional, Version 2.0) | [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md) |
+| European networks (e.g. ORFEUS, EIDA) | Europe | **Planned (Version 2.0)** | [ROADMAP.md](ROADMAP.md) |
 
 Storage conventions: `docs/DATASET.md`, `data/raw/`, `data/manifests/`, `data/processed/` (when used).
 
@@ -145,7 +149,7 @@ Storage conventions: `docs/DATASET.md`, `data/raw/`, `data/manifests/`, `data/pr
 
 ## 8. Research roadmap (prioritised)
 
-### Completed (California pilot)
+### Completed (v1.0 submission)
 
 | Stage | Status |
 |-------|--------|
@@ -154,16 +158,12 @@ Storage conventions: `docs/DATASET.md`, `data/raw/`, `data/manifests/`, `data/pr
 | Preprocessing | **Complete** |
 | Feature engineering | **Complete** |
 | Results & discussion | **Complete** |
-| Research Proposal & Technical Report | **Complete** |
+| D-S1 / D-S2 statements | **Complete** |
+| D-F1–F4 submission deliverables | **Complete** |
 
-### Future work
+### Version 2.0 / future work
 
-- **European dataset integration** (ORFEUS/EIDA pattern)  
-- **AI modelling** on Western data  
-- **Real-time EEW** prototypes  
-- **Comparative evaluation** (incl. EarthESND-**inspired** baselines, not Japan reproduction mandate)  
-
-Legacy EarthESND/K-NET reproduction: optional — [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md).
+See [ROADMAP.md](ROADMAP.md): interactive website, public dashboard, interactive visualisations, **Europe dataset expansion**, **EarthESND training/evaluation**, **real-time streaming**, **additional datasets**, **production deployment**, and related science hardening.
 
 ---
 
@@ -182,7 +182,9 @@ Legacy EarthESND/K-NET reproduction: optional — [PAPER_REPRODUCTION.md](PAPER_
 | **USA preprocessing (B.1)** | `docs/PREPROCESSING_REPORT.md` |
 | **USA features (B.2)** | `docs/FEATURE_ENGINEERING_REPORT.md` |
 | **Interpretation** | `docs/RESULTS_AND_DISCUSSION.md` |
-| **Deliverable 1** | `reports/Research_Proposal_v1.md` |
+| **Submission (v1.0)** | [RELEASE_SUMMARY_v1.0.md](../RELEASE_SUMMARY_v1.0.md), `FINAL_SUBMISSION/` |
+| **Final report** | `reports/Research_Report_Final.md` |
+| **Proposal v1** | `reports/Research_Proposal_v1.md` |
 | **AI assistants** | `docs/AI_AGENT.md` → then this charter |
 
 ---
@@ -201,6 +203,7 @@ Legacy EarthESND/K-NET reproduction: optional — [PAPER_REPRODUCTION.md](PAPER_
 
 | Version | Date | Summary |
 |---------|------|---------|
+| **1.3.0** | 2026-07-29 | **v1.0.0 Submission Release** — FINAL_SUBMISSION, D-F1–F4, D-S1/S2, validation PASS; Version 2.0 roadmap |
 | **1.2.0** | 2026-07-29 | Final doc sync: full pilot pipeline + Deliverable 1 complete; future work defined |
 | **1.1.0** | 2026-07-29 | Phase A.1 EDA and A.2 signal analysis on California pilot |
 | **1.0.0** | 2026-07-29 | Charter established; pivot to Europe-focused EEW research with USA experimental data |

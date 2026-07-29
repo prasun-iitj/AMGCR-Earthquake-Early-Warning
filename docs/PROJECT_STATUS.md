@@ -2,17 +2,19 @@
 
 Current progress for **AMGCR Earthquake Research**. Authoritative scope: [PROJECT_CHARTER.md](PROJECT_CHARTER.md).
 
+**Release:** **v1.0.0 — Submission Release** (29 July 2026)
+
 ---
 
 ## Project information
 
 | Field | Value |
 |-------|--------|
-| **Programme** | Swiss certificate EEW research |
+| **Programme** | Swiss certificate EEW research (AMGCR) |
 | **Primary focus** | Europe (long-term) |
 | **Pilot implementation** | USA / California (IRIS–EarthScope) — **complete** |
 | **Reference track** | EarthESND software **complete**; paper scientific reproduction **not started** |
-| **Current active stage** | **Research Proposal & Technical Report** ([Research_Proposal_v1.md](../reports/Research_Proposal_v1.md) — **complete**) |
+| **Current stage** | **v1.0 submission complete** — maintenance & **Version 2.0** planning only |
 
 ---
 
@@ -27,63 +29,56 @@ Current progress for **AMGCR Earthquake Research**. Authoritative scope: [PROJEC
 | Preprocessing | ✅ **Complete** |
 | Feature engineering | ✅ **Complete** |
 | Results & discussion | ✅ **Complete** |
-| Research Proposal & Technical Report (Deliverable 1) | ✅ **Complete** |
+| Reproducibility Statement (D-S1) | ✅ **Complete** |
+| Data Availability Statement (D-S2) | ✅ **Complete** |
+| Final Research Report (D-F1) | ✅ **Complete** |
+| Presentation outline & script (D-F2/D-F3) | ✅ **Complete** |
+| FINAL_SUBMISSION package (D-F4) | ✅ **Complete** |
+| Submission validation | ✅ **PASS** |
 
 ---
 
-## Overall progress
+## Archived — v1.0 milestones (2026-07-29)
 
-| Area | Status |
-|------|--------|
-| Environment & repo foundation | ✅ Completed |
-| Generic acquisition framework (Phase 2A/2B) | ✅ Completed |
-| EarthESND reference implementation | ✅ **Complete** |
-| USA IRIS–EarthScope pilot acquisition | ✅ **Complete** |
-| Phase A.1 — EDA | ✅ **Complete** |
-| Phase A.2 — Signal analysis | ✅ **Complete** |
-| Phase B.1 — Preprocessing | ✅ **Complete** |
-| Phase B.2 — Feature engineering | ✅ **Complete** |
-| Phase C — Results & discussion | ✅ **Complete** |
-| Deliverable 1 — Research Proposal v1 | ✅ **Complete** |
-| EarthESND scientific reproduction (K-NET tables) | ⬜ Not started (optional) |
+| Milestone | Documentation / output |
+|-----------|-------------------------|
+| Acquisition | [IRIS_DATASET_REPORT.md](IRIS_DATASET_REPORT.md) |
+| EDA | [EDA_REPORT.md](EDA_REPORT.md) |
+| Signal analysis | [SIGNAL_ANALYSIS_REPORT.md](SIGNAL_ANALYSIS_REPORT.md) |
+| Preprocessing | [PREPROCESSING_REPORT.md](PREPROCESSING_REPORT.md) |
+| Feature engineering | [FEATURE_ENGINEERING_REPORT.md](FEATURE_ENGINEERING_REPORT.md) |
+| Interpretation | [RESULTS_AND_DISCUSSION.md](RESULTS_AND_DISCUSSION.md) |
+| Proposal v1 | [Research_Proposal_v1.md](../reports/Research_Proposal_v1.md) |
+| Final report | [Research_Report_Final.md](../reports/Research_Report_Final.md) |
+| Submission package | [FINAL_SUBMISSION/](../FINAL_SUBMISSION/) |
+| Deliverable audit | [FINAL_DELIVERABLE_AUDIT.md](FINAL_DELIVERABLE_AUDIT.md) |
 
----
-
-## Completed deliverables (links)
-
-| Phase | Documentation | Outputs |
-|-------|---------------|---------|
-| Acquisition | [IRIS_DATASET_REPORT.md](IRIS_DATASET_REPORT.md) | `data/raw/iris/`, manifest CSV |
-| EDA | [EDA_REPORT.md](EDA_REPORT.md) | `reports/eda/`, EDA figures/tables |
-| Signal analysis | [SIGNAL_ANALYSIS_REPORT.md](SIGNAL_ANALYSIS_REPORT.md) | `reports/signal_analysis/` |
-| Preprocessing | [PREPROCESSING_REPORT.md](PREPROCESSING_REPORT.md) | `reports/preprocessing/` |
-| Features | [FEATURE_ENGINEERING_REPORT.md](FEATURE_ENGINEERING_REPORT.md) | `reports/features/feature_matrix.csv` |
-| Interpretation | [RESULTS_AND_DISCUSSION.md](RESULTS_AND_DISCUSSION.md) | — |
-| Proposal | [Research_Proposal_v1.md](../reports/Research_Proposal_v1.md) | Deliverable 1 |
+EarthESND scientific reproduction (K-NET tables): ⬜ **Not started** — optional **Version 2.0** track ([PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md)).
 
 ---
 
-## Future work (planned)
+## Version 2.0 / future roadmap
 
-1. **European dataset integration** — EIDA/ORFEUS-style pilots; manifests and reports mirroring California workflow.  
-2. **AI modelling** — tabular and waveform models on Western data; optional EarthESND-**inspired** architectures (reference code only).  
-3. **Real-time EEW** — streaming/SeedLink prototypes; latency budgets.  
-4. **Comparative evaluation** — cross-station, cross-region, and benchmark vs literature with deviation logs.
+See [ROADMAP.md](ROADMAP.md). Summary:
 
-Supporting improvements (as needed): instrument response caching, pre-origin noise windows, larger catalogues.
+- Interactive project website · public dashboard · interactive visualisations  
+- Europe dataset expansion (ORFEUS/EIDA)  
+- EarthESND model training and evaluation on Western data  
+- Real-time streaming support · additional datasets  
+- Production deployment  
 
 ---
 
 ## Current goal
 
-Maintain documentation alignment with completed pilot science and pursue **future work** above without conflating EarthESND Japan reproduction with the European programme narrative.
+Preserve **v1.0 submission integrity** (frozen pilot artefacts). Plan and execute **Version 2.0** without re-running or rewriting v1.0 science unless explicitly approved.
 
 ---
 
 ## Blockers
 
-None for documentation or planning. European FDSN access may require network-specific credentials (future).
+None for v1.0 submission. European FDSN access and web hosting may require credentials or infrastructure (Version 2.0).
 
 ---
 
-Version: **1.2.0**
+Version: **1.3.0** (v1.0.0 submission release)

@@ -8,13 +8,35 @@ The format is inspired by **Keep a Changelog** and follows semantic versioning w
 
 ---
 
+## [1.3.0] - v1.0.0 Submission Release
+
+### Added
+
+- **FINAL_SUBMISSION/** — PDF/DOCX/PPTX bundle (D-F4), checklists, validation summary (**PASS**).
+- **reports/Research_Report_Final.md** (D-F1), presentation outline/script (D-F2/D-F3).
+- **docs/REPRODUCIBILITY_STATEMENT.md**, **docs/DATA_AVAILABILITY_STATEMENT.md** (D-S1/S2).
+- **RELEASE_SUMMARY_v1.0.md** — submission overview and Version 2.0 roadmap pointer.
+- **docs/FINAL_DELIVERABLE_AUDIT.md** — artefact audit (completed).
+
+### Documentation
+
+- Synchronized README, PROJECT_CHARTER, PROJECT_STATUS, ROADMAP, IMPLEMENTATION_PLAN, AI_AGENT, ARCHITECTURE, PROJECT_GUIDE, AGENTS, RESEARCH_DIRECTION, DATASET, FINAL_DELIVERABLE_PLAN, CHANGELOG.
+- **Current stage:** v1.0 submission **complete**; **Version 2.0** future work (website, dashboard, Europe, ML, streaming, deployment).
+- Documentation-only release relative to v1.0 science freeze; **no changes** to analysis source code or scientific results.
+
+### Notes
+
+- Suggested Git tag: **`v1.0.0`**.
+
+---
+
 ## [1.2.0] - Final documentation synchronization
 
 ### Documentation
 
 - Synchronized README, PROJECT_STATUS, ROADMAP, PROJECT_CHARTER, RESEARCH_DIRECTION, AI_AGENT, PROJECT_GUIDE, and ARCHITECTURE to **current repository status**.
 - Canonical completion: EarthESND reference, California IRIS pilot, EDA, signal analysis, preprocessing, feature engineering, results & discussion, **Research Proposal & Technical Report** (Deliverable 1).
-- **Current active stage:** Research Proposal & Technical Report (complete). **Future work:** European dataset integration, AI modelling, real-time EEW, comparative evaluation.
+- **Current stage (historical):** Research Proposal v1 complete at 1.2.0; superseded by **v1.0.0 Submission Release** in 1.3.0.
 
 ### Notes
 
@@ -117,4 +139,4 @@ Avoid logging trivial edits such as spelling corrections unless they materially 
 
 ---
 
-Current Version: **1.2.0**
+Current Version: **1.3.0** (Git release **v1.0.0**)

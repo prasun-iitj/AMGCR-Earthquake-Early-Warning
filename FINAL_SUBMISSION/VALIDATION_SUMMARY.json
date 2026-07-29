@@ -1,0 +1,20 @@
+{
+  "timestamp_utc": "2026-07-29T13:32:13.952119+00:00",
+  "figures_expected_in_deck": [
+    "events_over_time.png",
+    "example_waveform_raw.png",
+    "feature_boxplots_by_station.png",
+    "feature_correlation_heatmap.png",
+    "feature_distributions.png",
+    "feature_engineering_fft_spectra.png",
+    "magnitude_histogram.png",
+    "preprocessing_ci40675215.png",
+    "preprocessing_ci40699207.png",
+    "signal_analysis_ci40675215.png",
+    "signal_analysis_ci40699207.png",
+    "station_usage_frequency.png"
+  ],
+  "figures_missing_on_disk": [],
+  "outputs_missing": [],
+  "figure_count_on_disk": 24
+}

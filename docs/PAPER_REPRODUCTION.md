@@ -22,8 +22,7 @@
 
 ## What “complete” means (software)
 
-- Reverse-engineered spec: [EARTHESND_REVERSE_ENGINEERING.md](EARTHESND_REVERSE_ENGINEERING.md)
-- Implementation spec: [EARTHESND_IMPLEMENTATION_SPEC_V1.md](EARTHESND_IMPLEMENTATION_SPEC_V1.md)
+- Primary paper: [REFERENCES.md](../references/REFERENCES.md) · local copy `references/papers/ScienceDirect_EarthESND_2026.pdf`
 - Pipeline modules under `src/` with **88 passing tests** on a full reference checkout
 - Config contracts under `configs/earthesnd/`
 
@@ -35,7 +34,7 @@ This does **not** imply published Table 3–6 numbers have been replicated.
 
 Scientific reproduction requires at minimum:
 
-- Japan K-NET (and related) waveform acquisition at paper scale — see [DATASET_ACQUISITION_PLAN.md](DATASET_ACQUISITION_PLAN.md), [DATASET_ACCESS_REPORT.md](DATASET_ACCESS_REPORT.md)
+- Japan K-NET (and related) waveform acquisition at paper scale — **not started**; scope when revived under [ROADMAP.md](ROADMAP.md) Version 2.0 and this document
 - Training and evaluation runs with documented hyperparameters
 - Comparison to paper metrics with a **deviation log**
 
@@ -61,7 +60,7 @@ None of that is on the **critical path** for Phases A–D unless the charter is 
 | K-NET-scale waveforms | ⬜ | N/A |
 | California pilot waveforms | N/A | ✅ — [IRIS_DATASET_REPORT.md](IRIS_DATASET_REPORT.md) |
 | Pilot EDA & signal analysis | N/A | ✅ — [EDA_REPORT.md](EDA_REPORT.md), [SIGNAL_ANALYSIS_REPORT.md](SIGNAL_ANALYSIS_REPORT.md) |
-| Preprocessing on target geography | ⬜ | Phase B (exploratory STA/LTA done in A.2) |
+| Preprocessing on target geography | ⬜ (Japan) | ✅ — [PREPROCESSING_REPORT.md](PREPROCESSING_REPORT.md) |
 | Paper table reproduction | ⬜ | Out of scope unless requested |
 
 ---
@@ -70,8 +69,8 @@ None of that is on the **critical path** for Phases A–D unless the charter is 
 
 | Experiment | Status | Notes |
 |------------|--------|-------|
-| Literature review | 🔄 | Ongoing for certificate proposal |
-| K-NET / PESMOS data acquisition | ⬜ | Plans in `docs/DATASET_*` |
+| Literature review | ✅ | Cited in [Research_Report_Final.md](../reports/Research_Report_Final.md) |
+| K-NET / PESMOS data acquisition | ⬜ | Version 2.0 / optional — [ROADMAP.md](ROADMAP.md) |
 | Data preparation (Japan) | ⬜ | |
 | Training & evaluation | ⬜ | |
 | Table / figure comparison | ⬜ | |
@@ -87,4 +86,4 @@ None of that is on the **critical path** for Phases A–D unless the charter is 
 
 ---
 
-Version: **1.1.0**
+Version: **1.3.0** (v1.0.0 submission release)

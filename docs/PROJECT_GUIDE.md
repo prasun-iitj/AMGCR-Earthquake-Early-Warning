@@ -2,13 +2,14 @@
 
 Master operating guide for **AMGCR_Earthquake_Research**.
 
-**Authoritative definition:** [PROJECT_CHARTER.md](PROJECT_CHARTER.md).
+**Authoritative definition:** [PROJECT_CHARTER.md](PROJECT_CHARTER.md).  
+**Release:** **v1.0.0 — Submission Release** (29 July 2026)
 
 ---
 
 ## Project vision
 
-Reproducible **AI-assisted EEW** research for **Western regions**: **Europe** as programme focus, **California** as **completed pilot**. EarthESND = **reference only**.
+Reproducible **AI-assisted EEW** research for **Western regions**: **Europe** as programme focus, **California** as **completed pilot**. EarthESND = **reference only**. **v1.0 submission is complete.**
 
 ---
 
@@ -18,30 +19,30 @@ Reproducible **AI-assisted EEW** research for **Western regions**: **Europe** as
 |-----------|--------|
 | EarthESND reference implementation | ✅ Complete |
 | USA / California IRIS pilot | ✅ Complete |
-| EDA | ✅ Complete |
-| Signal analysis | ✅ Complete |
-| Preprocessing | ✅ Complete |
-| Feature engineering | ✅ Complete |
+| EDA · Signal · Preprocessing · Features | ✅ Complete |
 | Results & discussion | ✅ Complete |
-| Research Proposal & Technical Report | ✅ Complete |
+| D-S1 / D-S2 statements | ✅ Complete |
+| Final report & FINAL_SUBMISSION | ✅ Complete |
+| Validation | ✅ PASS |
 
-**Active stage:** Deliverable 1 — [Research_Proposal_v1.md](../reports/Research_Proposal_v1.md).
+**Active stage:** **Version 2.0 planning** — see [ROADMAP.md](ROADMAP.md).
 
-**Future work:** European datasets, AI modelling, real-time EEW, comparative evaluation.
+Primary narrative: [Research_Report_Final.md](../reports/Research_Report_Final.md) · Package: [FINAL_SUBMISSION/](../FINAL_SUBMISSION/)
 
-Details: [PROJECT_STATUS.md](PROJECT_STATUS.md).
+Details: [PROJECT_STATUS.md](PROJECT_STATUS.md) · Summary: [RELEASE_SUMMARY_v1.0.md](../RELEASE_SUMMARY_v1.0.md)
 
 ---
 
 ## Repository layout
 
 ```text
-data/raw/iris/           # Pilot MiniSEED
-data/manifests/        # Event CSV
-docs/                    # Phase reports + charter
-reports/                 # Figures, tables, feature matrix, proposal v1
+FINAL_SUBMISSION/        # v1.0 official PDF/DOCX/PPTX
+data/manifests/          # Event CSV (tracked)
+data/raw/iris/           # MiniSEED (local; gitignored)
+docs/                    # Charter, phase reports, statements
+reports/                 # Final report, figures, tables, presentation
 scripts/download/        # Acquisition (executed)
-scripts/analysis/        # EDA → features (executed)
+scripts/analysis/        # EDA → features (frozen)
 src/                     # acquisition + EarthESND reference
 ```
 
@@ -49,8 +50,8 @@ src/                     # acquisition + EarthESND reference
 
 ## AI agents
 
-Read [AI_AGENT.md](AI_AGENT.md) and [PROJECT_CHARTER.md](PROJECT_CHARTER.md) before code changes.
+Read [AI_AGENT.md](AI_AGENT.md) and [PROJECT_CHARTER.md](PROJECT_CHARTER.md) before changes. **Do not** alter v1.0 science without explicit approval.
 
 ---
 
-Version: **1.2.0**
+Version: **1.3.0** (v1.0.0 submission release)
