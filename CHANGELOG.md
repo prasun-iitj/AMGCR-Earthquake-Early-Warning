@@ -3,7 +3,35 @@
 All notable changes to this project are documented in this file.
 
 The format is inspired by [Keep a Changelog](https://keepachangelog.com/).  
-**Current version:** **0.5.0** (documentation synchronized with implementation; **65** automated tests passing).
+**Current version:** **1.0.0** (EarthESND software implementation complete; **88** automated tests passing; scientific reproduction pending).
+
+---
+
+## [1.0.0] - EarthESND implementation complete
+
+### Added
+
+- **Phase 6 — Evaluation & reproducibility:** MAE, RMSE, percentage MAE improvement, scoped benchmarks (Japan test, Noto holdout, India cross-region), training seconds/epoch timing helper (`src/evaluation/`).
+- **Experiment metadata:** `ExperimentMetadata`, deviation log persistence, exact-reproduction guard for unresolved YAML nulls (`src/experiments/run_metadata.py`).
+- Unit tests: `tests/test_earthesnd_evaluation.py`.
+
+### Summary (full EarthESND software stack)
+
+- Complete EarthESND implementation through spec build-order gate 6.
+- Echo State Network (ESN) with spectral-radius scaling and terminal-state readout.
+- Dendritic Neural Network (DENN) readout and ESN–tabular fusion.
+- `EarthESNDModel` forward path (`predict()`; training blocked until declared Adam settings).
+- DENN-CTGAN and tabular ensemble **contracts** (train-only guards, six predictors, explicit aggregation weights).
+- Evaluation framework and reproducibility framework (fail-closed; no cross-scale metric mixing).
+- **88** automated tests passing (`python -m pytest`).
+
+### Documentation
+
+- README, implementation spec, reverse engineering §17–§18, PROJECT_STATUS, PAPER_REPRODUCTION, IMPLEMENTATION_PLAN, ARCHITECTURE, ROADMAP aligned with **implementation complete / reproduction pending**.
+
+### Reproducibility note
+
+Scientific reproduction (datasets, training runs, paper table comparison) remains **pending**. No exact paper claim while spec-mandated YAML fields remain `null` or supplementary details are missing.
 
 ---
 
@@ -17,10 +45,6 @@ The format is inspired by [Keep a Changelog](https://keepachangelog.com/).
 - **CTGAN contract:** train-only DENN-CTGAN wrapper, 10 000 synthetic row enforcement (`src/models/denn_ctgan.py`).
 - **Synthetic / ensemble contracts:** augmented tabular union, six tabular predictors, explicit-weight aggregation (`src/models/tabular_ensemble.py`, `tabular_data.py`, `aggregation.py`).
 - Unit tests: `tests/models/test_dendritic.py`, `test_earthesnd.py`, `test_synthetic_ensemble.py`.
-
-### Documentation
-
-- README, implementation spec progress section, reverse-engineering §17, PROJECT_STATUS, PAPER_REPRODUCTION aligned with implementation.
 
 ### Verification
 

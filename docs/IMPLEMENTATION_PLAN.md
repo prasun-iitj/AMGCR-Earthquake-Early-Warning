@@ -4,10 +4,12 @@
 
 ## Purpose
 
-This document tracks implementation milestones. For **EarthESND** requirements and progress detail, see `docs/EARTHESND_IMPLEMENTATION_SPEC_V1.md` (Implementation progress) and `docs/EARTHESND_REVERSE_ENGINEERING.md` (§17).
+This document tracks implementation milestones. For **EarthESND** requirements and progress detail, see `docs/EARTHESND_IMPLEMENTATION_SPEC_V1.md` (Implementation progress) and `docs/EARTHESND_REVERSE_ENGINEERING.md` (§17–§18).
 
-**Automated tests:** **65 passing**  
-**Documentation version:** **0.5.0**
+**Software implementation:** **COMPLETE**  
+**Scientific reproduction:** **Pending**  
+**Automated tests:** **88 passing**  
+**Documentation version:** **1.0.0**
 
 ---
 
@@ -20,7 +22,19 @@ This document tracks implementation milestones. For **EarthESND** requirements a
 | 3 | Feature engineering schema (seven names; numerics blocked) | ✅ Complete |
 | 4 | Echo State Network | ✅ Complete |
 | 5 | DENN, fusion, EarthESNDModel; CTGAN & ensemble contracts | ✅ Complete |
-| 6 | Evaluation, trainer, full pipeline, K-NET data | ⬜ Pending |
+| 6 | Evaluation metrics, benchmarks, timing, experiment metadata | ✅ Complete |
+
+**Implementation complete.** All spec build-order gates 1–6 are delivered with automated tests.
+
+---
+
+## Remaining work (scientific reproduction — not implementation gaps)
+
+1. **Dataset acquisition** — K-NET / PESMOS adapters, populated manifest, Noto/India holdouts on real waveforms.  
+2. **Parameter resolution** — Declare project assumptions for YAML `null` fields; deviation log.  
+3. **Training experiments** — `EarthESNDTrainer`, Adam DENN training, optional serial multiscale ESN, CTGAN/ensemble training when hyperparameters are declared.  
+4. **Paper reproduction** — Full pipeline orchestration, seven-way aggregation with declared weights, ablations and baselines (RE §15 Phase E).  
+5. **Benchmark comparison** — Japan test, Noto holdout, India cross-region vs Tables 3–6; timing parity where environment is documented.  
 
 ---
 
@@ -48,13 +62,4 @@ This document tracks implementation milestones. For **EarthESND** requirements a
 
 ---
 
-## Next planned work
-
-1. Evaluation metrics and benchmarks (`src/evaluation/` per spec).  
-2. `EarthESNDTrainer` and differentiable DENN training once Adam fields are declared.  
-3. K-NET / PESMOS adapters and populated manifest.  
-4. `EarthESNDPipeline` and declared final aggregation weights.  
-
----
-
-Version: **0.5.0**
+Version: **1.0.0**

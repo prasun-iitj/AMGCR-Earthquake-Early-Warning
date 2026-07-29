@@ -636,9 +636,9 @@ comparison explaining gaps from published numbers.
 
 ## 17. Current Implementation Status
 
-*Synchronized with the repository documentation pass v0.5.0. **65** automated tests passing (`python -m pytest`). Section 14 remains a historical gap analysis; this section is authoritative for today’s code.*
+*Synchronized with the repository documentation pass **v1.0.0**. **88** automated tests passing (`python -m pytest`). Section 14 remains a historical gap analysis; §18 summarizes repository status for documentation readers.*
 
-### ✓ Implemented
+### ✓ Implemented (software complete)
 
 | Component | Repository location | Reproduction note |
 |-----------|---------------------|-------------------|
@@ -652,6 +652,8 @@ comparison explaining gaps from published numbers.
 | CTGAN contract | `src/models/denn_ctgan.py` | Train-only guard; **10 000** row count enforced; no GAN training until architecture resolved |
 | Ensemble contract | `src/models/tabular_ensemble.py`, `tabular_data.py` | Six outputs (3 learners × 2 sets); train-split guards |
 | Aggregation | `src/models/aggregation.py` | Explicit weights only |
+| Evaluation metrics & benchmarks | `src/evaluation/` | MAE, RMSE, % MAE improvement; Japan / Noto / India scopes; scale guards |
+| Experiment metadata | `src/experiments/run_metadata.py` | Deviation log; blocks exact claim while YAML nulls remain |
 | Generic FDSN catalogue acquisition | `src/acquisition/catalog_client.py` | Not K-NET-specific |
 | EarthESND YAML configs | `configs/earthesnd/` | Reported leaks, branches, sparsity, training schedule; intentional nulls |
 
@@ -667,15 +669,38 @@ comparison explaining gaps from published numbers.
 - Final seven-way averaging weights (`aggregation_weights: null`).
 - Adam β, ε, weight decay; full `EarthESNDModel.fit` training loop.
 
-### Pending (not yet in repository)
+### Pending scientific validation (reproduction experiments)
 
-- `SerialMultiscaleESN` and full deep serial stack per §5.2.
-- `EarthESNDTrainer`, `EarthESNDPipeline`, evaluation metrics/benchmarks/timing, experiment metadata guard for “exact” runs.
 - K-NET / PESMOS waveform and station adapters; populated 36 196-record manifest workflow.
+- `EarthESNDTrainer`, `EarthESNDPipeline`, optional `SerialMultiscaleESN` when topology is declared.
+- Training runs, synthetic/ensemble fitting, and seven-way aggregation with declared weights.
 - Paper table reproduction (Tables 3–6), ablations, baselines (Phase E, §15).
-- End-to-end executable reproduction run with deviation log.
+- End-to-end executable reproduction run with deviation log and benchmark comparison.
 
 ### Known paper limitations (unchanged)
 
 - Main-article-only reverse engineering; supplementary feature formulas, optimal ESN depth, baseline hyperparameters, and Noto quantitative tables are **not specified in the paper** as supplied.
 - Internal inconsistencies (six vs seven tabular features; M_JMA 7.6 vs 7.7; leak prose vs per-window scalars; DENN vs reservoir `ν`) remain **config-driven**, not resolved in code.
+
+## 18. Repository Status
+
+*Documentation summary aligned with README and `docs/PROJECT_STATUS.md` (v1.0.0).*
+
+| Category | Status |
+|----------|--------|
+| **Software implementation** | **Complete** — EarthESND spec phases 1–6 in repository |
+| **Automated tests** | **88 passing** (`python -m pytest`) |
+| **Fail-closed philosophy** | **Active** — no undocumented assumptions for paper-unspecified fields |
+| **Scientific reproduction** | **Pending** — datasets, training, table comparison not executed |
+
+### Implemented
+
+All modules listed in §17 “Implemented” table, including evaluation and experiment metadata.
+
+### Blocked by missing paper details
+
+All items in §17 “Blocked (by design until declared)” — YAML `null` fields and blocked APIs until project assumptions are recorded.
+
+### Pending scientific validation
+
+All items in §17 “Pending scientific validation” — reproduction experiments on real study data and comparison to published metrics.

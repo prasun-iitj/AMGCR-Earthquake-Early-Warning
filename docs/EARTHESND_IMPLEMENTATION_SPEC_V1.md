@@ -253,18 +253,32 @@ Numerical tolerances, test fixtures, mocking approach, and coverage target are
 
 ## Implementation progress
 
-*Last synchronized with the repository: documentation pass v0.5.0. **65** automated tests passing. This section tracks delivery only; it does not change requirements above.*
+*Last synchronized with the repository: documentation pass **v1.0.0**. **88** automated tests passing. **Software implementation complete**; **scientific reproduction pending**. This section tracks delivery only; it does not change requirements above.*
 
-### Completed (spec build-order gates)
+### Implementation complete
+
+All spec build-order gates **1–6** are **COMPLETE**.
 
 | Gate | Project phase (README) | Status | Primary modules / tests |
 |------|-------------------------|--------|-------------------------|
-| 1 | Phase 1 — repository foundation | ✅ | `src/data/manifest.py`, `splits.py`; acquisition framework; `tests/test_earthesnd_manifest.py`, `test_earthesnd_splits.py`, acquisition tests |
-| 2 | Phase 2 — preprocessing | ✅ | `src/preprocessing/*`, `pipeline.py`; `tests/test_earthesnd_preprocessing.py` |
-| 3 | Phase 3 — feature engineering | ✅ | `src/processing/features.py`; schema tests; numeric extraction **blocked** |
-| 4 (partial) | Phase 4 — ESN | ✅ | `src/models/esn.py`; `tests/models/test_esn.py` |
-| 4 (partial) | Phase 5 — DENN, fusion, `EarthESNDModel` | ✅ | `src/models/dendritic.py`, `earthesnd.py`, `earthesnd_config.py`, `src/processing/fusion.py`; `tests/models/test_dendritic.py`, `test_earthesnd.py` |
-| 5 | Phase 5 — CTGAN & ensemble **contracts** | ✅ | `denn_ctgan.py`, `tabular_ensemble.py`, `aggregation.py`, `tabular_data.py`; `tests/models/test_synthetic_ensemble.py` |
+| 1 | Phase 1 — repository foundation | ✅ Complete | `src/data/manifest.py`, `splits.py`; acquisition framework; `tests/test_earthesnd_manifest.py`, `test_earthesnd_splits.py`, acquisition tests |
+| 2 | Phase 2 — preprocessing | ✅ Complete | `src/preprocessing/*`, `pipeline.py`; `tests/test_earthesnd_preprocessing.py` |
+| 3 | Phase 3 — feature engineering | ✅ Complete | `src/processing/features.py`; schema tests; numeric extraction **blocked** |
+| 4 | Phase 4 — ESN | ✅ Complete | `src/models/esn.py`; `tests/models/test_esn.py` |
+| 5 | Phase 5 — DENN, fusion, `EarthESNDModel`, CTGAN & ensemble | ✅ Complete | `dendritic.py`, `earthesnd.py`, `earthesnd_config.py`, `fusion.py`, `denn_ctgan.py`, `tabular_ensemble.py`, `aggregation.py`; `tests/models/*` |
+| 6 | Phase 6 — evaluation & reproducibility | ✅ Complete | `src/evaluation/*`, `src/experiments/run_metadata.py`; `tests/test_earthesnd_evaluation.py` |
+
+### Remaining work (scientific reproduction)
+
+The following are **not** missing implementation gates; they are **pending reproduction experiments** on top of the completed codebase:
+
+- **Dataset acquisition** — K-NET / PESMOS adapters (`knet_client.py`, `pesmos_client.py` in inventory), populated manifest.
+- **Parameter resolution** — Declare project assumptions for YAML `null` fields; record in deviation log.
+- **Training experiments** — `src/training/earthesnd_trainer.py`, full `EarthESNDModel.fit`, optional `SerialMultiscaleESN`, `src/models/full_pipeline.py`.
+- **Paper reproduction** — Ablations, baselines, Tables 3–6 (RE §15 Phase E).
+- **Benchmark comparison** — Japan test, Noto holdout, India cross-region with documented timing environment.
+
+Optional future inventory items (serial multiscale deep ESN beyond single-reservoir `ESN`) remain blocked until topology fields are declared—not silent defaults.
 
 ### Intentionally blocked (fail-closed; not paper-derived defaults)
 
@@ -278,15 +292,6 @@ Numerical tolerances, test fixtures, mocking approach, and coverage target are
 | DENN-CTGAN synthesis | Generator/discriminator/training hyperparameters null | `RE §7.1`, `R-SYN` |
 | Tree ensemble training | `learner_hyperparameters` absent in YAML | `RE §7.2`, `R-ENS` |
 | Final averaging | `aggregation_weights` null; runtime weights required | `RE §7.2`, `R-ENS` |
-
-### Remaining implementation work (spec inventory not yet delivered)
-
-- `SerialMultiscaleESN`, spectral helpers as named in module inventory (beyond single-layer `ESN`).
-- `src/training/earthesnd_trainer.py` — MSE / Adam / 50 / 512 per window.
-- `src/models/full_pipeline.py` — full EarthESND + ML path orchestration.
-- `src/evaluation/*`, `src/experiments/run_metadata.py`.
-- K-NET / PESMOS acquisition adapters (`knet_client.py`, `pesmos_client.py` in inventory).
-- Spec tests not yet present: e.g. `test_exact_run_blocks_unresolved_fields`, full `test_reported_training_settings` on trainer, metric/benchmark suites.
 
 ## Mandatory project-assumption log
 

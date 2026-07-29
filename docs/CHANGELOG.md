@@ -4,8 +4,9 @@
 
 The canonical changelog lives at the repository root: **[../CHANGELOG.md](../CHANGELOG.md)**.
 
-**Current version:** **0.5.0**  
-**Automated tests:** **65 passing**
+**Current version:** **1.0.0**  
+**Automated tests:** **88 passing**  
+**Status:** Implementation complete; scientific reproduction pending
 
 ---
 
@@ -16,6 +17,7 @@ The canonical changelog lives at the repository root: **[../CHANGELOG.md](../CHA
 - Phase 3 — Feature engineering (schema) ✅  
 - Phase 4 — Echo State Network ✅  
 - Phase 5 — DENN, EarthESNDModel, CTGAN contract, ensemble contract ✅  
-- Evaluation, full training loop, K-NET-scale data ⬜ pending  
+- Phase 6 — Evaluation & reproducibility ✅  
+- Dataset acquisition, training runs, paper benchmarks ⬜ scientific reproduction pending  
 
 See root `CHANGELOG.md` for full history.

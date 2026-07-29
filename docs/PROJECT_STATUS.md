@@ -12,11 +12,28 @@ This document tracks progress for the **EarthESND** paper reproduction effort. A
 
 **Project name:** AMGCR_Earthquake_Research  
 
-**Current focus:** Evaluation, training orchestration, and dataset acquisition (post–core architecture)  
+**Software implementation:** **COMPLETE** (EarthESND spec phases 1–6)  
 
-**Automated tests:** **65 passing** (`python -m pytest`)  
+**Current stage:** **Scientific reproduction** (datasets, training, benchmarks—not yet executed)  
 
-**Documentation version:** **0.5.0**
+**Reproduction claim:** **Pending** — no exact paper match while YAML null fields and missing supplement details remain  
+
+**Automated tests:** **88 passing** (`python -m pytest`)  
+
+**Documentation version:** **1.0.0**
+
+---
+
+## Implementation phases (spec)
+
+| Phase | Scope | Status |
+|-------|--------|--------|
+| 1 | Repository foundation, manifest, splits, acquisition framework | ✅ Complete |
+| 2 | Preprocessing | ✅ Complete |
+| 3 | Feature engineering (schema; numerics blocked) | ✅ Complete |
+| 4 | Echo State Network (ESN) | ✅ Complete |
+| 5 | DENN, EarthESNDModel, CTGAN & ensemble contracts | ✅ Complete |
+| 6 | Evaluation & reproducibility | ✅ Complete |
 
 ---
 
@@ -32,39 +49,50 @@ This document tracks progress for the **EarthESND** paper reproduction effort. A
 | DENN readout & fusion | ✅ Completed |
 | EarthESNDModel (`predict`; `fit` blocked) | ✅ Completed |
 | CTGAN & tabular ensemble contracts | ✅ Completed |
-| K-NET / PESMOS waveform acquisition | ⬜ Pending |
-| DENN training / EarthESNDTrainer | ⬜ Pending |
-| Serial multiscale deep ESN | ⬜ Pending |
-| Evaluation & paper table comparison | ⬜ Pending |
+| Evaluation metrics, benchmarks, timing & run metadata | ✅ Completed |
+| End-to-end paper reproduction (tables, timing parity) | ⬜ Scientific reproduction pending |
+| K-NET / PESMOS waveform acquisition | ⬜ Pending (reproduction) |
+| DENN training / EarthESNDTrainer | ⬜ Pending (reproduction) |
+| Serial multiscale deep ESN | ⬜ Pending (reproduction / optional stack) |
+| Full pipeline orchestration | ⬜ Pending (reproduction) |
 | Visualisation & notebooks | ⬜ Planned |
 
 ---
 
-## Completed milestones
+## Completed milestones (software)
 
-- [x] Repository structure, `pyproject.toml`, pytest suite  
+- [x] Repository structure, `pyproject.toml`, pytest suite (**88** tests)  
 - [x] Acquisition framework and sample FDSN catalogue retrieval  
 - [x] `configs/earthesnd/*` with paper values and intentional nulls  
 - [x] Preprocessing pipeline with fail-closed unresolved settings  
 - [x] ESN, DENN, fusion, `EarthESNDModel`  
 - [x] CTGAN, ensemble, and aggregation contracts  
+- [x] Evaluation (`src/evaluation/*`) and experiment metadata (`src/experiments/run_metadata.py`)  
 
 ---
 
-## Pending / blocked
+## Scientific reproduction (remaining)
 
-- [ ] Declare project assumptions for blocked YAML fields before reproduction runs  
-- [ ] Implement evaluation module and experiment metadata  
-- [ ] Implement full Adam DENN training and optional serial ESN stack  
-- [ ] K-NET-compatible data path and numeric feature formulas (with deviation log)  
-- [ ] Full pipeline orchestration and seven-way aggregation with declared weights  
+- [ ] Acquire datasets (K-NET, PESMOS) and populate manifest  
+- [ ] Resolve undocumented paper parameters or record project assumptions  
+- [ ] Train models (DENN, CTGAN, ensemble) under deviation log  
+- [ ] Generate tables/figures aligned with paper  
+- [ ] Compare metrics with published results (Japan, Noto, India scopes)  
+- [ ] Final reproducibility report  
+
+---
+
+## Fail-closed philosophy (unchanged)
+
+- No undocumented assumptions implemented as code or YAML defaults for paper-unspecified fields.  
+- Blocked APIs and `null` config fields remain until explicitly declared for reproduction runs.  
 
 ---
 
 ## Current goal
 
-Complete **spec build-order gate 6 (evaluation)** and dataset acquisition without inventing undocumented paper details.
+Execute **scientific reproduction** on top of the completed implementation: data, assumptions register, training experiments, and benchmark comparison—without claiming exact replication while unresolved nulls remain.
 
 ---
 
-Version: **0.5.0**
+Version: **1.0.0**

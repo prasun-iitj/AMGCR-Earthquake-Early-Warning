@@ -4,7 +4,25 @@
 
 ## Purpose
 
-This document defines the complete development plan for the AMGCR Earthquake Research project.
+This document defines the development plan for the AMGCR Earthquake Research project.
+
+**EarthESND software (spec phases 1–6):** ✅ **Implementation complete**  
+**Scientific reproduction:** ⬜ **Pending**  
+**Automated tests:** **88 passing**
+
+---
+
+# EarthESND track (primary)
+
+| Phase | Scope | Status |
+|-------|--------|--------|
+| 1 | Repository foundation, manifest, splits | ✅ Complete |
+| 2 | Preprocessing | ✅ Complete |
+| 3 | Feature engineering (schema) | ✅ Complete |
+| 4 | Echo State Network | ✅ Complete |
+| 5 | DENN, EarthESNDModel, CTGAN & ensemble contracts | ✅ Complete |
+| 6 | Evaluation & reproducibility | ✅ Complete |
+| — | Dataset acquisition, training, paper benchmarks | ⬜ Scientific reproduction |
 
 ---
 
@@ -15,6 +33,7 @@ This document defines the complete development plan for the AMGCR Earthquake Res
 ✅ Completed
 
 ## Objectives
+
 - Create project structure
 - Create Python virtual environment
 - Install required libraries
@@ -22,8 +41,9 @@ This document defines the complete development plan for the AMGCR Earthquake Res
 - Configure Git repository
 
 ### Deliverables
+
 - Working development environment
-- requirements.txt
+- `pyproject.toml` / editable install
 - Initial documentation
 
 ---
@@ -35,16 +55,19 @@ This document defines the complete development plan for the AMGCR Earthquake Res
 ✅ Completed
 
 ## Objectives
+
 - Connect to FDSN services
 - Build an acquisition framework for future downloads
 - Retrieve earthquake catalogues
 - Save QuakeML files
 
 ### Deliverables
+
 - Acquisition framework
 - Sample event catalogue dataset
 
 ### Submilestones
+
 - Phase 2A — Acquisition framework preparation: ✅ Completed
 - Phase 2B — Sample catalogue retrieval: ✅ Completed
 
@@ -54,16 +77,17 @@ This document defines the complete development plan for the AMGCR Earthquake Res
 
 ## Status
 
-⬜ Planned
+⬜ Pending (scientific reproduction — K-NET / PESMOS)
 
 ## Objectives
-- Download MiniSEED waveform files
-- Download StationXML metadata
+
+- Download study strong-motion records (three components)
+- Station metadata and scaling provenance
 - Organise data by event and station
 
 ### Deliverables
-- Waveform downloader
-- Station metadata
+
+- Source-specific adapters and populated manifest
 
 ---
 
@@ -71,17 +95,16 @@ This document defines the complete development plan for the AMGCR Earthquake Res
 
 ## Status
 
-⬜ Planned
+✅ Completed (EarthESND pipeline in `src/preprocessing/`)
 
 ## Objectives
-- Detrend signals
-- Remove noise
-- Apply filters
-- Trim waveform windows
-- Normalise data
+
+- Paper STA/LTA, gates, baseline, bandpass, integration hooks, P-wave windows
+- Fail-closed on unresolved operational YAML fields
 
 ### Deliverables
-- Clean waveform dataset
+
+- `(T, 9)` window tensors (unit tested)
 
 ---
 
@@ -92,12 +115,13 @@ This document defines the complete development plan for the AMGCR Earthquake Res
 ⬜ Planned
 
 ## Objectives
-- Plot waveforms
-- Plot earthquake locations
-- Generate summary statistics
+
+- Plot waveforms and diagnostics
+- Publication-ready figures for reproduction report
 
 ### Deliverables
-- Publication-ready figures
+
+- Figures aligned with paper where applicable
 
 ---
 
@@ -105,14 +129,16 @@ This document defines the complete development plan for the AMGCR Earthquake Res
 
 ## Status
 
-⬜ Planned
+✅ Schema complete; numeric extraction blocked until approved deviation
 
 ## Objectives
-- Extract waveform features
-- Prepare ML-ready datasets
+
+- Seven named vertical P-wave features
+- ML-ready tabular matrices when formulas are declared
 
 ### Deliverables
-- Feature matrices
+
+- Feature matrices with deviation log
 
 ---
 
@@ -120,15 +146,17 @@ This document defines the complete development plan for the AMGCR Earthquake Res
 
 ## Status
 
-⬜ Planned
+⬜ Pending (software ready; experiments not run)
 
 ## Objectives
-- Reproduce the methodology from the selected reference paper
-- Compare results
-- Document findings
+
+- Train EarthESND and ensemble path under declared assumptions
+- Compare results to EarthESND paper (Tables 3–6)
+- Document findings and gaps
 
 ### Deliverables
-- Reproducible experiments
+
+- Reproducibility report and deviation log
 
 ---
 
@@ -139,13 +167,13 @@ This document defines the complete development plan for the AMGCR Earthquake Res
 ⬜ Planned
 
 ## Objectives
-- Develop baseline ML models
-- Evaluate performance
+
+- Additional baselines or extensions beyond paper scope
 - Document improvements
 
 ### Deliverables
-- Experimental models
-- Final report
+
+- Experimental models (optional)
 
 ---
 
@@ -155,13 +183,14 @@ This document defines the complete development plan for the AMGCR Earthquake Res
 |-----------|--------|
 | Environment | ✅ |
 | Event Retrieval | ✅ |
-| Waveforms | ⬜ |
-| Preprocessing | ⬜ |
+| EarthESND preprocessing & models | ✅ |
+| EarthESND evaluation & metadata | ✅ |
+| Waveforms (study scale) | ⬜ Reproduction |
 | Visualisation | ⬜ |
-| Feature Extraction | ⬜ |
-| Research Reproduction | ⬜ |
+| Feature numerics | ⬜ Blocked / deviation |
+| Research Reproduction (paper tables) | ⬜ |
 | AI/ML Extension | ⬜ |
 
 ---
 
-Version: **0.3.0**
+Version: **1.0.0**
