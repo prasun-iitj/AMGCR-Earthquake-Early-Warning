@@ -163,6 +163,7 @@ class ESN:
                 f"configured input_size {self.input_size}."
             )
 
+        self.state = np.zeros(self.config.reservoir_size)
         n_timesteps = input_sequence.shape[0]
         states = np.zeros((n_timesteps, self.config.reservoir_size))
 
@@ -172,6 +173,14 @@ class ESN:
             states[t] = self.state
 
         return states
+
+    def terminal_state(self, input_sequence: np.ndarray) -> np.ndarray:
+        """Return the final reservoir state ``h_T`` (terminal state only).
+
+        Trace: RE §5.2 — intermediate states are not read out.
+        """
+        states = self.forward(input_sequence)
+        return states[-1]
 
     def _update_state(self, current_state: np.ndarray, input_vector: np.ndarray) -> np.ndarray:
         """
