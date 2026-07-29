@@ -251,6 +251,43 @@ Numerical tolerances, test fixtures, mocking approach, and coverage target are
 5. **CTGAN/ensemble:** preserve train-only synthetic generation, six tree predictions, explicit aggregation. Gate: no test leakage; weights declared. Trace: `RE §7, §15.D`.
 6. **Evaluation:** emit MAE/RMSE/improvement/timing, separate test scopes, and persist deviations. Gate: no cross-scale comparison and no exact claim with unresolved details. Trace: `RE §9–§16`.
 
+## Implementation progress
+
+*Last synchronized with the repository: documentation pass v0.5.0. **65** automated tests passing. This section tracks delivery only; it does not change requirements above.*
+
+### Completed (spec build-order gates)
+
+| Gate | Project phase (README) | Status | Primary modules / tests |
+|------|-------------------------|--------|-------------------------|
+| 1 | Phase 1 — repository foundation | ✅ | `src/data/manifest.py`, `splits.py`; acquisition framework; `tests/test_earthesnd_manifest.py`, `test_earthesnd_splits.py`, acquisition tests |
+| 2 | Phase 2 — preprocessing | ✅ | `src/preprocessing/*`, `pipeline.py`; `tests/test_earthesnd_preprocessing.py` |
+| 3 | Phase 3 — feature engineering | ✅ | `src/processing/features.py`; schema tests; numeric extraction **blocked** |
+| 4 (partial) | Phase 4 — ESN | ✅ | `src/models/esn.py`; `tests/models/test_esn.py` |
+| 4 (partial) | Phase 5 — DENN, fusion, `EarthESNDModel` | ✅ | `src/models/dendritic.py`, `earthesnd.py`, `earthesnd_config.py`, `src/processing/fusion.py`; `tests/models/test_dendritic.py`, `test_earthesnd.py` |
+| 5 | Phase 5 — CTGAN & ensemble **contracts** | ✅ | `denn_ctgan.py`, `tabular_ensemble.py`, `aggregation.py`, `tabular_data.py`; `tests/models/test_synthetic_ensemble.py` |
+
+### Intentionally blocked (fail-closed; not paper-derived defaults)
+
+| Area | Config / API behaviour | Trace |
+|------|------------------------|-------|
+| Vertical feature numerics | `extract_vertical_features` → `NotImplementedError` | `RE §4`, `R-FEAT` |
+| Preprocessing omissions | Null STA/LTA windows, filter `phase_mode`, integration policy | `RE §3`, `R-PRE` |
+| Serial multiscale deep ESN | `esn.layer_count`, widths, radii, washout null; single-reservoir `ESN` in code | `RE §5.2–§5.3`, `R-ESN` |
+| DENN operational mask / local φ | `denn.branch_connectivity_method`, `local_branch_nonlinearity`, `mask_learning` null in YAML | `RE §6.1`, `R-DENN` |
+| DENN Adam training | `EarthESNDModel.fit` blocked until `adam_betas`, `adam_epsilon`, `weight_decay` set; no training loop yet | `RE §8`, `R-TRAIN` |
+| DENN-CTGAN synthesis | Generator/discriminator/training hyperparameters null | `RE §7.1`, `R-SYN` |
+| Tree ensemble training | `learner_hyperparameters` absent in YAML | `RE §7.2`, `R-ENS` |
+| Final averaging | `aggregation_weights` null; runtime weights required | `RE §7.2`, `R-ENS` |
+
+### Remaining implementation work (spec inventory not yet delivered)
+
+- `SerialMultiscaleESN`, spectral helpers as named in module inventory (beyond single-layer `ESN`).
+- `src/training/earthesnd_trainer.py` — MSE / Adam / 50 / 512 per window.
+- `src/models/full_pipeline.py` — full EarthESND + ML path orchestration.
+- `src/evaluation/*`, `src/experiments/run_metadata.py`.
+- K-NET / PESMOS acquisition adapters (`knet_client.py`, `pesmos_client.py` in inventory).
+- Spec tests not yet present: e.g. `test_exact_run_blocks_unresolved_fields`, full `test_reported_training_settings` on trainer, metric/benchmark suites.
+
 ## Mandatory project-assumption log
 
 Before any executable reproduction run, record all of the following as project

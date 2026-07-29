@@ -4,67 +4,67 @@
 
 ## Purpose
 
-This document tracks the current progress, completed milestones, pending tasks, blockers, and upcoming work for the project.
+This document tracks progress for the **EarthESND** paper reproduction effort. Authority for requirements remains `docs/EARTHESND_REVERSE_ENGINEERING.md` and `docs/EARTHESND_IMPLEMENTATION_SPEC_V1.md`.
 
 ---
 
-# Project Information
+## Project information
 
-**Project Name:** AMGCR_Earthquake_Research
+**Project name:** AMGCR_Earthquake_Research  
 
-**Current Phase:** Phase 2B – Earthquake Event Catalogue Retrieval (Completed)
+**Current focus:** Evaluation, training orchestration, and dataset acquisition (post–core architecture)  
 
-**Current Status:** Repository foundation and acquisition workflow are implemented and validated.
+**Automated tests:** **65 passing** (`python -m pytest`)  
+
+**Documentation version:** **0.5.0**
 
 ---
 
-# Overall Progress
+## Overall progress
 
 | Area | Status |
 |------|--------|
-| Environment Setup | ✅ Completed |
-| Acquisition Framework (Phase 2A) | ✅ Completed |
-| Event Catalogue Retrieval (Phase 2B) | ✅ Completed |
-| Waveform Acquisition | ⬜ Planned |
-| Signal Preprocessing | ⬜ Planned |
-| Visualisation | ⬜ Planned |
-| Feature Extraction | ⬜ Planned |
-| Research Reproduction | ⬜ Planned |
-| AI / ML Extension | ⬜ Planned |
+| Repository foundation & generic acquisition | ✅ Completed |
+| EarthESND data manifest & splits | ✅ Completed |
+| EarthESND preprocessing | ✅ Completed |
+| Feature schema (seven names; numerics blocked) | ✅ Completed |
+| Echo State Network (ESN) | ✅ Completed |
+| DENN readout & fusion | ✅ Completed |
+| EarthESNDModel (`predict`; `fit` blocked) | ✅ Completed |
+| CTGAN & tabular ensemble contracts | ✅ Completed |
+| K-NET / PESMOS waveform acquisition | ⬜ Pending |
+| DENN training / EarthESNDTrainer | ⬜ Pending |
+| Serial multiscale deep ESN | ⬜ Pending |
+| Evaluation & paper table comparison | ⬜ Pending |
+| Visualisation & notebooks | ⬜ Planned |
 
 ---
 
-# Completed
+## Completed milestones
 
-- [x] Repository structure created and organised
-- [x] Virtual environment created and validated
-- [x] Core scientific dependencies verified
-- [x] ObsPy installation verified
-- [x] Initial package structure created inside src/
-- [x] Logging configuration added
-- [x] Acquisition configuration loader implemented
-- [x] Validators and custom exceptions added
-- [x] Acquisition tests added and passing
-- [x] Configuration-driven catalogue retrieval implemented
-- [x] Sample catalogue retrieval completed using an ObsPy/FDSN client
-- [x] Sample QuakeML output written to data/raw/catalogs/catalog.xml
+- [x] Repository structure, `pyproject.toml`, pytest suite  
+- [x] Acquisition framework and sample FDSN catalogue retrieval  
+- [x] `configs/earthesnd/*` with paper values and intentional nulls  
+- [x] Preprocessing pipeline with fail-closed unresolved settings  
+- [x] ESN, DENN, fusion, `EarthESNDModel`  
+- [x] CTGAN, ensemble, and aggregation contracts  
 
 ---
 
-# Pending Tasks
+## Pending / blocked
 
-- [ ] Download station metadata and waveform data
-- [ ] Build a waveform acquisition workflow
-- [ ] Plot the first waveform
-- [ ] Start preprocessing and feature extraction
-- [ ] Reproduce a reference methodology
-
----
-
-# Current Goal
-
-Maintain a documented, test-backed foundation for the next phase of waveform-based analysis.
+- [ ] Declare project assumptions for blocked YAML fields before reproduction runs  
+- [ ] Implement evaluation module and experiment metadata  
+- [ ] Implement full Adam DENN training and optional serial ESN stack  
+- [ ] K-NET-compatible data path and numeric feature formulas (with deviation log)  
+- [ ] Full pipeline orchestration and seven-way aggregation with declared weights  
 
 ---
 
-Version: **0.3.0**
+## Current goal
+
+Complete **spec build-order gate 6 (evaluation)** and dataset acquisition without inventing undocumented paper details.
+
+---
+
+Version: **0.5.0**

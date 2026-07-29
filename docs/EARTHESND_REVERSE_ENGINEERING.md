@@ -531,6 +531,8 @@ method used to derive those bounds is **Not specified in the paper.**
 
 ## 14. Paper-to-current-repository mapping
 
+> **Note:** This table describes gaps at specification time. For the live codebase, see **§17 Current Implementation Status**.
+
 | Paper requirement | Existing repository status | Mapping / required addition |
 |---|---|---|
 | Dataset catalogue | Implemented generically | `src/acquisition/catalog_client.py` retrieves generic FDSN catalogues; it does not retrieve K-NET/Japan data or match the paper schema. Add a K-NET-specific acquisition adapter and provenance manifest. |
@@ -631,3 +633,49 @@ comparison explaining gaps from published numbers.
 | Scale mismatch | Main results use `M_JMA`, regression table and India results use `M_w`. | Keep target scale explicit at every interface; do not silently compare scales. |
 | Potential leakage | Synthetic generation and tabular models must use training data only. | Enforce split-aware pipelines and test them. |
 | Undefined final averaging weights | Changes final score materially. | Treat equal averaging as a tested assumption, not a recovered paper setting. |
+
+## 17. Current Implementation Status
+
+*Synchronized with the repository documentation pass v0.5.0. **65** automated tests passing (`python -m pytest`). Section 14 remains a historical gap analysis; this section is authoritative for today’s code.*
+
+### ✓ Implemented
+
+| Component | Repository location | Reproduction note |
+|-----------|---------------------|-------------------|
+| Manifest & stratified splits | `src/data/manifest.py`, `splits.py` | Project-assumption schema; paper bins/proportions traced |
+| Preprocessing pipeline | `src/preprocessing/` | Paper STA/LTA threshold, gates, Butterworth band, windows; fails on null operational details |
+| Feature schema (7 names) | `src/processing/features.py` | Six-vs-seven conflict preserved; **no numeric formulas** |
+| ESN reservoir update & scaling | `src/models/esn.py` | Eq. 1-style update; spectral-radius scaling; **single layer** (not full serial multiscale stack) |
+| DENN readout structure | `src/models/dendritic.py` | Branch mask → local φ → aggregate → activation; 64/GELU → 1/linear when operational settings supplied |
+| Fusion `C = [H^(L) \| Tab_mag]` | `src/processing/fusion.py` | Terminal state + seven tabular slots |
+| `EarthESNDModel` | `src/models/earthesnd.py`, `earthesnd_config.py` | `predict()` wired; YAML loader for `configs/earthesnd/model.yaml` |
+| CTGAN contract | `src/models/denn_ctgan.py` | Train-only guard; **10 000** row count enforced; no GAN training until architecture resolved |
+| Ensemble contract | `src/models/tabular_ensemble.py`, `tabular_data.py` | Six outputs (3 learners × 2 sets); train-split guards |
+| Aggregation | `src/models/aggregation.py` | Explicit weights only |
+| Generic FDSN catalogue acquisition | `src/acquisition/catalog_client.py` | Not K-NET-specific |
+| EarthESND YAML configs | `configs/earthesnd/` | Reported leaks, branches, sparsity, training schedule; intentional nulls |
+
+### Blocked (by design until declared)
+
+- Numeric vertical P-wave features (supplement §1.1 not in repo).
+- Station scaling formula; STA/LTA window lengths; filter phase; integration method/ICs.
+- Serial ESN depth, reservoir widths, target spectral radii, washout, leak interpretation vs log-uniform prior.
+- DENN mask construction and local branch nonlinearity in default YAML (`null`).
+- Learnable DENN masks (`mask_learning` unset).
+- DENN-CTGAN generator/discriminator/training hyperparameters (`null`).
+- Tree-model hyperparameters and live XGB/LGBM/CatBoost training with default YAML.
+- Final seven-way averaging weights (`aggregation_weights: null`).
+- Adam β, ε, weight decay; full `EarthESNDModel.fit` training loop.
+
+### Pending (not yet in repository)
+
+- `SerialMultiscaleESN` and full deep serial stack per §5.2.
+- `EarthESNDTrainer`, `EarthESNDPipeline`, evaluation metrics/benchmarks/timing, experiment metadata guard for “exact” runs.
+- K-NET / PESMOS waveform and station adapters; populated 36 196-record manifest workflow.
+- Paper table reproduction (Tables 3–6), ablations, baselines (Phase E, §15).
+- End-to-end executable reproduction run with deviation log.
+
+### Known paper limitations (unchanged)
+
+- Main-article-only reverse engineering; supplementary feature formulas, optimal ESN depth, baseline hyperparameters, and Noto quantitative tables are **not specified in the paper** as supplied.
+- Internal inconsistencies (six vs seven tabular features; M_JMA 7.6 vs 7.7; leak prose vs per-window scalars; DENN vs reservoir `ν`) remain **config-driven**, not resolved in code.
