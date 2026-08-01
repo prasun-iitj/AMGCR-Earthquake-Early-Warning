@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FigureLightbox } from "@/components/results/FigureLightbox";
+import { EmptyState } from "@/components/ui/EmptyState";
 import type { ResultFigure } from "@/lib/results/loader";
 
 type FigureGalleryProps = {
@@ -20,10 +21,10 @@ export function FigureGallery({ groups }: FigureGalleryProps) {
 
   if (allFigures.length === 0) {
     return (
-      <div className="rounded-xl border border-dashed border-border bg-surface p-8 text-center text-sm text-text-muted">
-        No figures discovered in reports/figures/. Run the analysis scripts to
-        regenerate PNG outputs per the reproducibility statement.
-      </div>
+      <EmptyState
+        title="No figures available"
+        description="No figures discovered in reports/figures/. Run the analysis scripts to regenerate PNG outputs per the reproducibility statement."
+      />
     );
   }
 

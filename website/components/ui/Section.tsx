@@ -13,6 +13,8 @@ type SectionProps = {
   title?: string;
   subtitle?: string;
   eyebrow?: string;
+  /** Use h1 for primary page titles (accessibility). Defaults to h2. */
+  titleAs?: "h1" | "h2";
   variant?: SectionVariant;
   container?: boolean;
   className?: string;
@@ -28,6 +30,7 @@ export function Section({
   title,
   subtitle,
   eyebrow,
+  titleAs = "h2",
   variant = "default",
   container = true,
   className,
@@ -50,16 +53,26 @@ export function Section({
                 {eyebrow}
               </p>
             )}
-            {title && (
-              <h2
-                className={cn(
-                  "font-serif text-3xl font-semibold tracking-tight md:text-4xl",
-                  isAccent ? "text-white" : "text-text",
-                )}
-              >
-                {title}
-              </h2>
-            )}
+            {title &&
+              (titleAs === "h1" ? (
+                <h1
+                  className={cn(
+                    "font-serif text-3xl font-semibold tracking-tight md:text-4xl",
+                    isAccent ? "text-white" : "text-text",
+                  )}
+                >
+                  {title}
+                </h1>
+              ) : (
+                <h2
+                  className={cn(
+                    "font-serif text-3xl font-semibold tracking-tight md:text-4xl",
+                    isAccent ? "text-white" : "text-text",
+                  )}
+                >
+                  {title}
+                </h2>
+              ))}
             {subtitle && (
               <p
                 className={cn(

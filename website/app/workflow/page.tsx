@@ -3,12 +3,14 @@ import { Breadcrumbs } from "@/components/content/Breadcrumbs";
 import { WorkflowExplorer } from "@/components/workflow/WorkflowExplorer";
 import { Section } from "@/components/ui/Section";
 import { loadWorkflowStages } from "@/lib/workflow/loader";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Workflow Explorer",
   description:
     "Interactive explorer for the California FDSN research pipeline — stages, artefacts, and repository links.",
-};
+  path: "/workflow",
+});
 
 export default function WorkflowPage() {
   const stages = loadWorkflowStages();

@@ -1,11 +1,16 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { GlobalSearch } from "@/components/search/GlobalSearch";
 import { isNavItemActive, mobileNavSections } from "@/lib/navigation-utils";
 import { mainNav, siteConfig } from "@/lib/navigation";
+
+const GlobalSearch = dynamic(
+  () => import("@/components/search/GlobalSearch").then((mod) => mod.GlobalSearch),
+  { ssr: false },
+);
 
 function cn(...classes: Array<string | undefined | false>) {
   return classes.filter(Boolean).join(" ");
@@ -33,6 +38,12 @@ export function Header() {
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMobileOpen(false);
+        setSearchOpen(false);
+        return;
+      }
+
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
         event.preventDefault();
         setSearchOpen((open) => !open);
@@ -46,42 +57,53 @@ export function Header() {
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-border bg-surface-elevated text-text shadow-sm backdrop-blur supports-[backdrop-filter]:bg-surface-elevated/95">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
-          <Link href="/" className="group flex min-w-0 flex-col">
-            <span className="truncate font-serif text-lg font-semibold text-primary transition-colors group-hover:text-primary-light sm:text-xl">
-              {siteConfig.name}
-            </span>
-            <span className="hidden text-xs text-text-muted sm:block">
+        <div className="mx-auto flex min-h-16 max-w-[1600px] items-center gap-3 px-4 py-2 sm:px-5 lg:px-6">
+          <Link
+            href="/"
+            className="group shrink-0 transition-colors hover:text-primary-light"
+            aria-label={siteConfig.name}
+          >
+            {siteConfig.nameLines.map((line) => (
+              <span
+                key={line}
+                className="block whitespace-nowrap font-serif text-sm font-semibold leading-tight text-primary sm:text-base lg:text-[1.05rem]"
+              >
+                {line}
+              </span>
+            ))}
+            <span className="mt-0.5 hidden whitespace-nowrap text-xs text-text-muted sm:block">
               {siteConfig.tagline}
             </span>
           </Link>
 
           <nav
             aria-label="Main navigation"
-            className="hidden items-center gap-1 lg:flex"
+            className="hidden min-w-0 flex-1 justify-center lg:flex"
           >
-            {mainNav.map((item) => {
-              const isActive = isNavItemActive(pathname, item.href);
+            <div className="flex items-center gap-0.5 xl:gap-1">
+              {mainNav.map((item) => {
+                const isActive = isNavItemActive(pathname, item.href);
 
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    "rounded-lg px-2.5 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
-                    isActive
-                      ? "bg-primary/10 text-primary"
-                      : "text-text hover:bg-surface hover:text-primary",
-                  )}
-                  aria-current={isActive ? "page" : undefined}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      "rounded-lg px-2 py-2 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 xl:px-2.5 xl:text-sm",
+                      isActive
+                        ? "bg-primary/10 text-primary"
+                        : "text-text hover:bg-surface hover:text-primary",
+                    )}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </div>
           </nav>
 
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-2">
             <button
               type="button"
               onClick={openSearch}
@@ -142,7 +164,7 @@ export function Header() {
             aria-label="Mobile navigation"
             className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border bg-surface-elevated lg:hidden"
           >
-            <div className="mx-auto max-w-7xl space-y-6 px-4 py-4 sm:px-6">
+            <div className="mx-auto max-w-[1600px] space-y-6 px-4 py-4 sm:px-5">
               <button
                 type="button"
                 onClick={() => {

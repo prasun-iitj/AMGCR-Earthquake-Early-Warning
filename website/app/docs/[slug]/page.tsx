@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { DocView } from "@/components/content/DocView";
 import { documentBySlug, docsIndexEntries } from "@/lib/content/documents";
 import { loadDocumentBySlug } from "@/lib/content/loader";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -17,13 +18,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const definition = documentBySlug[slug];
 
   if (!definition || !definition.href.startsWith("/docs/")) {
-    return { title: "Documentation" };
+    return buildPageMetadata({
+      title: "Documentation",
+      description: "Documentation for AMGCR Earthquake Research.",
+      path: "/docs",
+    });
   }
 
-  return {
+  return buildPageMetadata({
     title: definition.title,
     description: definition.description,
-  };
+    path: definition.href,
+  });
 }
 
 export default async function DocumentationPage({ params }: PageProps) {

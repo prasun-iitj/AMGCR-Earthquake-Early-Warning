@@ -1,23 +1,33 @@
 import type { Metadata } from "next";
+import { PageHeader } from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { documents } from "@/lib/content/documents";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Research",
-  description: "Research portal for AMGCR Earthquake Research documentation and reports.",
-};
+  description:
+    "Research portal for AMGCR Earthquake Early Warning Research — final report, workflow explorer, and documentation.",
+  path: "/research",
+});
 
 export default function ResearchPage() {
   const report = documents.find((doc) => doc.slug === "research-report-final");
 
   return (
     <>
-      <Section
+      <PageHeader
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Research" },
+        ]}
         eyebrow="Research"
         title="Research portal"
         subtitle="Explore the final research report and supporting documentation rendered from the repository."
-      >
+      />
+
+      <Section>
         <div className="grid gap-6 md:grid-cols-3">
           {report && (
             <article className="rounded-xl border border-border bg-surface-elevated p-6 shadow-sm">

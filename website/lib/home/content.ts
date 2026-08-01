@@ -1,7 +1,10 @@
 import { githubRepoUrl } from "@/lib/content/paths";
 
 export const heroContent = {
-  eyebrow: "Swiss certificate programme · AMGCR",
+  eyebrow: {
+    left: "Swiss certificate programme",
+    right: "AMGCR",
+  },
   title: "Reproducible AI-Assisted Earthquake Early Warning Research",
   subtitle: "Western Seismic Regions",
   description:

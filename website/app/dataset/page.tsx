@@ -3,12 +3,14 @@ import { Breadcrumbs } from "@/components/content/Breadcrumbs";
 import { DatasetExplorer } from "@/components/dataset/DatasetExplorer";
 import { DatasetJourney } from "@/components/dataset/DatasetJourney";
 import { loadDatasetExplorer } from "@/lib/dataset/loader";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Dataset Explorer",
   description:
     "Explore the California FDSN pilot dataset — sources, journey, outputs, and planned regional expansions.",
-};
+  path: "/dataset",
+});
 
 export default function DatasetPage() {
   const data = loadDatasetExplorer();

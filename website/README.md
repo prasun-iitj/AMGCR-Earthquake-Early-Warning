@@ -1,8 +1,17 @@
 # AMGCR Earthquake Research — Website
 
-Version 2.0 interactive research platform (Phase 1 foundation).
+Version 2.0 interactive research platform (Phases 1–12 complete).
 
 This application is **separate** from the v1.0 scientific codebase. It lives entirely under `website/` and does not modify analysis scripts, reports, or documentation in the parent repository.
+
+## Release documentation (v2.0)
+
+- [docs/V2_RELEASE_NOTES.md](../docs/V2_RELEASE_NOTES.md)
+- [docs/V2_DEPLOYMENT_GUIDE.md](../docs/V2_DEPLOYMENT_GUIDE.md)
+- [docs/V2_TEST_REPORT.md](../docs/V2_TEST_REPORT.md)
+- [docs/V2_KNOWN_LIMITATIONS.md](../docs/V2_KNOWN_LIMITATIONS.md)
+- [docs/V2_PUBLIC_LAUNCH_CHECKLIST.md](../docs/V2_PUBLIC_LAUNCH_CHECKLIST.md)
+- [CHANGELOG.md](CHANGELOG.md) — website changelog
 
 ## Stack
 
@@ -39,27 +48,15 @@ cd website
 npm run lint
 ```
 
-## Phase 2 scope
-
-- Markdown rendering from repository sources at build time (no duplicated content)
-- Documentation index at `/docs`
-- Research report at `/research/report`
-- Table of contents, breadcrumbs, and previous/next navigation
-- Supported documents: `README.md`, `docs/PROJECT_CHARTER.md`, `docs/PROJECT_STATUS.md`, `reports/Research_Report_Final.md`
-
-## Phase 1 scope (complete)
-
-- Global layout, navigation, footer
-- Placeholder pages: Home, Research, Downloads, About, Contact
-- Theme, typography, reusable UI components
-- No repository content rendering
-- No backend, database, charts, maps, or API integrations
-
 ## Deployment
 
 Compatible with **Vercel Hobby** (recommended). Set project root directory to `website/` in Vercel project settings.
 
-See parent repo planning docs:
+Copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_SITE_URL` before production deploy.
+
+See [docs/V2_DEPLOYMENT_GUIDE.md](../docs/V2_DEPLOYMENT_GUIDE.md) and [docs/V2_PUBLIC_LAUNCH_CHECKLIST.md](../docs/V2_PUBLIC_LAUNCH_CHECKLIST.md).
+
+Legacy planning docs:
 
 - `docs/V2_ARCHITECTURE.md`
 - `docs/V2_UI_PLAN.md`

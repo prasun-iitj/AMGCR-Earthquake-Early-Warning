@@ -3,12 +3,14 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/content/Breadcrumbs";
 import { MapExplorer } from "@/components/map/MapExplorer";
 import { loadMapExplorer } from "@/lib/map/loader";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Earthquake Map",
   description:
     "Interactive map of California pilot earthquake events with links to datasets, waveforms, workflow, and results.",
-};
+  path: "/map",
+});
 
 export default function MapPage() {
   const data = loadMapExplorer();

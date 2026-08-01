@@ -8,12 +8,14 @@ import {
   groupFiguresByPhase,
   loadResultsExplorerData,
 } from "@/lib/results/loader";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Results Explorer",
   description:
     "Browse pilot figures, CSV tables, and output summaries from the California FDSN research pipeline.",
-};
+  path: "/results",
+});
 
 export default function ResultsPage() {
   const summary = getResultsSummary();

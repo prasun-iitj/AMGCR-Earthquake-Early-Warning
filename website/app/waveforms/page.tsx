@@ -3,12 +3,14 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/content/Breadcrumbs";
 import { WaveformExplorer } from "@/components/waveforms/WaveformExplorer";
 import { loadWaveformExplorer } from "@/lib/waveforms/loader";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Waveform Explorer",
   description:
     "Interactive preview of California pilot earthquake waveforms — event metadata, processing stages, and repository-derived series.",
-};
+  path: "/waveforms",
+});
 
 export default function WaveformsPage() {
   const data = loadWaveformExplorer();

@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PageHeader } from "@/components/ui/PageHeader";
 import { Section } from "@/components/ui/Section";
 import { documents } from "@/lib/content/documents";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Documentation",
   description:
     "Documentation index for AMGCR Earthquake Research — rendered from repository Markdown.",
-};
+  path: "/docs",
+});
 
 const categoryLabels = {
   overview: "Overview",
@@ -26,11 +29,17 @@ export default function DocumentationIndexPage() {
 
   return (
     <>
-      <Section
+      <PageHeader
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Documentation" },
+        ]}
         eyebrow="Documentation"
         title="Documentation index"
         subtitle="These pages render Markdown directly from the repository at build time. The GitHub repository remains the single source of truth."
-      >
+      />
+
+      <Section>
         <div className="space-y-10">
           {(Object.keys(categoryLabels) as Array<keyof typeof categoryLabels>).map(
             (category) => {
@@ -40,8 +49,11 @@ export default function DocumentationIndexPage() {
               }
 
               return (
-                <section key={category}>
-                  <h2 className="mb-4 font-serif text-2xl font-semibold text-text">
+                <section key={category} aria-labelledby={`docs-${category}`}>
+                  <h2
+                    id={`docs-${category}`}
+                    className="mb-4 font-serif text-2xl font-semibold text-text"
+                  >
                     {categoryLabels[category]}
                   </h2>
                   <ul className="grid gap-4 md:grid-cols-2">

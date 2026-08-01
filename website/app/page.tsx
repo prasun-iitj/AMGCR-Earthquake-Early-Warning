@@ -7,18 +7,21 @@ import { TimelinePreview } from "@/components/home/TimelinePreview";
 import { FeaturedDownloads } from "@/components/home/FeaturedDownloads";
 import { getRepositoryStats } from "@/lib/content/stats";
 import { heroContent } from "@/lib/home/content";
-import { siteConfig } from "@/lib/navigation";
+import { heroSlides } from "@/lib/home/hero-slides";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: siteConfig.name,
+export const metadata: Metadata = buildPageMetadata({
+  title: "Home",
   description: heroContent.description,
-};
+  path: "/",
+});
 
 export default function HomePage() {
   const stats = getRepositoryStats();
 
   return (
     <>
+      <link rel="preload" as="image" href={heroSlides[0]?.src ?? "/hero/slide-1.png"} />
       <HeroSection />
       <ProjectHighlights />
       <WorkflowPreview />

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import type { Viewport } from "next";
 import { Inter, Source_Serif_4 } from "next/font/google";
 import { Layout } from "@/components/layout/Layout";
-import { siteConfig } from "@/lib/navigation";
+import { WebsiteJsonLd } from "@/components/seo/WebsiteJsonLd";
+import { createRootMetadata } from "@/lib/seo/metadata";
 import "./globals.css";
 
 const inter = Inter({
@@ -16,12 +18,10 @@ const sourceSerif = Source_Serif_4({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s · ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
+export const metadata: Metadata = createRootMetadata();
+
+export const viewport: Viewport = {
+  colorScheme: "light",
 };
 
 export default function RootLayout({
@@ -36,6 +36,7 @@ export default function RootLayout({
       style={{ colorScheme: "light" }}
     >
       <body className="min-h-full bg-surface text-text">
+        <WebsiteJsonLd />
         <Layout>{children}</Layout>
       </body>
     </html>

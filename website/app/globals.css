@@ -28,8 +28,19 @@ html {
 }
 
 @media (prefers-color-scheme: dark) {
-  html {
+  :root {
+    /* Keep designed light palette even when OS prefers dark mode */
     color-scheme: light;
+    --color-primary: #1e3a5f;
+    --color-primary-light: #2d5a87;
+    --color-accent: #c45c26;
+    --color-success: #2d6a4f;
+    --color-warning: #b8860b;
+    --color-surface: #f8f9fb;
+    --color-surface-elevated: #ffffff;
+    --color-text: #1a1a2e;
+    --color-text-muted: #5c6370;
+    --color-border: #e2e8f0;
   }
 }
 
@@ -72,6 +83,33 @@ body {
   color: var(--color-text);
   font-family: var(--font-inter), system-ui, sans-serif;
   min-height: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+a,
+button,
+input,
+textarea,
+select,
+summary {
+  transition-property: color, background-color, border-color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  summary {
+    transition: none;
+  }
 }
 
 .font-serif {

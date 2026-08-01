@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PageHeader } from "@/components/ui/PageHeader";
 import { Section } from "@/components/ui/Section";
 import { documents } from "@/lib/content/documents";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Resources",
   description:
     "Documentation and research resources rendered from the repository.",
-};
+  path: "/resources",
+});
 
 export default function ResourcesPage() {
   const docEntries = documents.filter((doc) => doc.href.startsWith("/docs/"));
@@ -15,11 +18,17 @@ export default function ResourcesPage() {
 
   return (
     <>
-      <Section
+      <PageHeader
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Resources" },
+        ]}
         eyebrow="Resources"
         title="Documentation and research resources"
         subtitle="All content is rendered directly from repository Markdown at build time. No duplicate copies are maintained in the website."
-      >
+      />
+
+      <Section variant="muted" className="py-16 md:py-20">
         <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           <article className="rounded-xl border border-border bg-surface-elevated p-6">
             <h2 className="font-serif text-xl font-semibold text-text">

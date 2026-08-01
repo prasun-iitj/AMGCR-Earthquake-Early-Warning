@@ -7,12 +7,14 @@ import { QuickNavigationSection } from "@/components/dashboard/QuickNavigationSe
 import { RepositoryMetricsSection } from "@/components/dashboard/RepositoryMetricsSection";
 import { ResearchSummarySection } from "@/components/dashboard/ResearchSummarySection";
 import { loadDashboard } from "@/lib/dashboard/loader";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Research Dashboard",
   description:
     "High-level overview of AMGCR earthquake research — dataset metrics, repository inventory, pipeline progress, and quick navigation.",
-};
+  path: "/dashboard",
+});
 
 export default function DashboardPage() {
   const dashboard = loadDashboard();

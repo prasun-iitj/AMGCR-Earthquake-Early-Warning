@@ -18,7 +18,8 @@ export const mainNav: NavItem[] = [
 ];
 
 export const siteConfig = {
-  name: "AMGCR Earthquake Research",
+  name: "AMGCR Earthquake Early Warning Research",
+  nameLines: ["AMGCR Earthquake", "Early Warning Research"] as const,
   tagline: "Interactive Research Platform",
   description:
     "A documentation-driven research portal for reproducible earthquake early warning science.",

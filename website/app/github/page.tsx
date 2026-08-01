@@ -6,12 +6,14 @@ import {
   GithubStructure,
 } from "@/components/github/GithubPageSections";
 import { loadGithubPage } from "@/lib/github/loader";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "GitHub Integration",
   description:
     "Repository overview, release information, structure, and direct links to GitHub — static configuration, no authentication required.",
-};
+  path: "/github",
+});
 
 export default function GithubPage() {
   const data = loadGithubPage();
