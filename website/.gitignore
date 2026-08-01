@@ -26,7 +26,6 @@
 /public/datasets/
 /public/waveforms/
 /public/search-index.json
-/public/hero/
 
 # misc
 .DS_Store

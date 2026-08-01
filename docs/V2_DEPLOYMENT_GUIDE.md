@@ -46,7 +46,7 @@ Open `http://localhost:3000` and confirm:
 - All navigation links resolve
 - `/search-index.json` returns 200
 - `/sitemap.xml` and `/robots.txt` return 200
-- Hero images load (requires `public/hero/slide-*.png` — see §6)
+- Hero images load (`public/hero/slide-*.png` — committed in repo; see §6)
 
 ---
 
@@ -129,9 +129,7 @@ These paths are **gitignored** or **build-generated** — they must exist at dep
 | `public/tables/` | same |
 | `public/waveforms/` | same + Python export |
 | `public/search-index.json` | `build-search-index.mjs` |
-| `public/hero/slide-*.png` | **Manual** — not synced from v1.0 figures |
-
-Ensure hero images are present on the deployment machine before build, or the homepage hero will show overlay only.
+| `public/hero/slide-*.png` | **Committed** in `website/public/hero/` (homepage slideshow) |
 
 ---
 

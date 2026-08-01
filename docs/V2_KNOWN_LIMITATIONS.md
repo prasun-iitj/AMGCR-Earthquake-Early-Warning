@@ -24,7 +24,7 @@ This document lists intentional constraints and known gaps at the v2.0 public re
 
 | Limitation | Detail |
 |------------|--------|
-| **Hero images not in git** | `public/hero/slide-*.png` is gitignored. Deployments must include these files locally or CI artifact. |
+| **Hero images in repository** | `public/hero/slide-*.png` (five PNGs) are committed with the website — included on clone and deploy. |
 | **Build-generated assets** | Figures, tables, waveforms, and search index are created by `npm run build` — not committed. |
 | **Canonical URL dependency** | Production SEO requires `NEXT_PUBLIC_SITE_URL` environment variable. |
 | **GitHub Pages** | Requires static export (`output: 'export'`) — not the default configuration. Vercel is recommended. |
