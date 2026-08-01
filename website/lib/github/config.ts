@@ -4,9 +4,9 @@
  */
 
 export const githubIntegration = {
-  owner: "amgcr",
-  name: "AMGCR_Earthquake_Research",
-  fullName: "amgcr/AMGCR_Earthquake_Research",
+  owner: "prasun-iitj",
+  name: "AMGCR-Earthquake-Early-Warning",
+  fullName: "prasun-iitj/AMGCR-Earthquake-Early-Warning",
   description:
     "Reproducible ObsPy/FDSN earthquake early warning research — California pilot, open documentation, Version 2.0 platform.",
   defaultBranch: "main",

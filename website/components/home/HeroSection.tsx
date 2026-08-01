@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/Button";
 import { HeroBackgroundSlide } from "@/components/home/HeroBackgroundSlide";
 import { heroContent } from "@/lib/home/content";
 import {
+  heroSlideCycleMs,
   heroSlideFadeMs,
-  heroSlideIntervalMs,
   heroSlideZoomMs,
   heroSlides,
 } from "@/lib/home/hero-slides";
@@ -23,7 +23,7 @@ export function HeroSection() {
 
     const interval = window.setInterval(() => {
       setActiveSlide((current) => (current + 1) % heroSlides.length);
-    }, heroSlideIntervalMs);
+    }, heroSlideCycleMs);
 
     return () => window.clearInterval(interval);
   }, [shouldReduceMotion]);

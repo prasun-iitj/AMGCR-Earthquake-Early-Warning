@@ -23,6 +23,6 @@ export const siteConfig = {
   tagline: "Interactive Research Platform",
   description:
     "A documentation-driven research portal for reproducible earthquake early warning science.",
-  version: "2.0.0-beta",
+  version: "2.0.0",
   scienceVersion: "1.0.0",
 };

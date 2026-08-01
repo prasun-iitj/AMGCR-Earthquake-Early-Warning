@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/navigation";
+import { ogImage } from "@/lib/seo/og-image";
 import { getSiteUrl } from "@/lib/seo/site-url";
 
 type BuildPageMetadataOptions = {
@@ -9,6 +10,18 @@ type BuildPageMetadataOptions = {
   noIndex?: boolean;
 };
 
+function buildOpenGraphImages() {
+  return [
+    {
+      url: ogImage.path,
+      width: ogImage.width,
+      height: ogImage.height,
+      alt: ogImage.alt,
+      type: ogImage.type,
+    },
+  ];
+}
+
 function buildOpenGraph(title: string, description: string, url: string) {
   return {
     title,
@@ -17,6 +30,7 @@ function buildOpenGraph(title: string, description: string, url: string) {
     siteName: siteConfig.name,
     locale: "en_GB" as const,
     type: "website" as const,
+    images: buildOpenGraphImages(),
   };
 }
 
@@ -25,6 +39,7 @@ function buildTwitter(title: string, description: string) {
     card: "summary_large_image" as const,
     title,
     description,
+    images: [ogImage.path],
   };
 }
 

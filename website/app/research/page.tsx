@@ -77,13 +77,13 @@ export default function ResearchPage() {
         </div>
       </Section>
 
-      <Section variant="muted" title="Available in later phases">
+      <Section variant="muted" title="Platform explorers">
         <ul className="grid gap-4 md:grid-cols-2">
           {[
             "Interactive charts and feature exploration",
             "Event map and dataset explorer",
             "Waveform viewer",
-            "Submission PDF viewing",
+            "Submission PDF (GitHub link via Resources)",
           ].map((item) => (
             <li
               key={item}

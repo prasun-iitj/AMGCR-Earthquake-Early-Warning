@@ -45,5 +45,7 @@ export const heroSlides: HeroSlide[] = [
 export const heroSlideIntervalMs = 4000;
 /** ~30% of interval — keeps crossfade proportional (was 2200ms at 7s) */
 export const heroSlideFadeMs = 1200;
-/** Zoom spans display + crossfade so motion doesn't freeze before the fade */
+/** Zoom spans display + crossfade so motion continues through the fade */
 export const heroSlideZoomMs = heroSlideIntervalMs + heroSlideFadeMs;
+/** Time between slide changes (display hold + crossfade overlap) */
+export const heroSlideCycleMs = heroSlideZoomMs;

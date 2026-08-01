@@ -11,4 +11,4 @@ export function resolveRepoPath(relativePath: string): string {
 
 export const githubRepoUrl =
   process.env.NEXT_PUBLIC_GITHUB_REPO_URL ??
-  "https://github.com/amgcr/AMGCR_Earthquake_Research";
+  "https://github.com/prasun-iitj/AMGCR-Earthquake-Early-Warning";

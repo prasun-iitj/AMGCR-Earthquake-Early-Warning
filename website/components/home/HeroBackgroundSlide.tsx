@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef } from "react";
 
 type HeroBackgroundSlideProps = {
   src: string;
@@ -15,6 +15,7 @@ const MAX_ZOOM = 1.1;
 /**
  * Ken Burns zoom that keeps moving through the crossfade and holds
  * the final scale — avoids the snap-back bug from CSS animation reset.
+ * Scale is driven via --hero-scale on the DOM (rAF), not React state.
  */
 function HeroBackgroundSlideComponent({
   src,
@@ -23,21 +24,32 @@ function HeroBackgroundSlideComponent({
   zoomDurationMs,
   reduceMotion,
 }: HeroBackgroundSlideProps) {
-  const [scale, setScale] = useState(1);
+  const imgRef = useRef<HTMLImageElement>(null);
   const frameRef = useRef(0);
 
   useEffect(() => {
-    if (reduceMotion || !isActive) {
+    const img = imgRef.current;
+    if (!img || reduceMotion) {
+      if (img && reduceMotion) {
+        img.style.setProperty("--hero-scale", "1");
+      }
       return;
     }
 
-    setScale(1);
+    if (!isActive) {
+      // Keep current scale and let any in-flight zoom finish during fade-out.
+      return;
+    }
+
+    cancelAnimationFrame(frameRef.current);
+    img.style.setProperty("--hero-scale", "1");
     const start = performance.now();
 
     const tick = (now: number) => {
       const progress = Math.min((now - start) / zoomDurationMs, 1);
       const eased = 1 - (1 - progress) ** 2;
-      setScale(1 + eased * (MAX_ZOOM - 1));
+      const scale = 1 + eased * (MAX_ZOOM - 1);
+      img.style.setProperty("--hero-scale", String(scale));
 
       if (progress < 1) {
         frameRef.current = requestAnimationFrame(tick);
@@ -57,6 +69,7 @@ function HeroBackgroundSlideComponent({
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
+      ref={imgRef}
       src={src}
       alt=""
       decoding="async"
@@ -65,7 +78,7 @@ function HeroBackgroundSlideComponent({
       className="absolute inset-0 h-full w-full object-cover will-change-[transform,opacity]"
       style={{
         opacity: isActive ? 1 : 0,
-        transform: `scale(${reduceMotion ? 1 : scale})`,
+        transform: "scale(var(--hero-scale, 1))",
         transitionProperty: "opacity",
         transitionDuration: `${fadeMs}ms`,
         transitionTimingFunction: "ease-in-out",
