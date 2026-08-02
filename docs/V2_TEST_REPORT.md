@@ -1,9 +1,9 @@
 # Version 2.0 Test Report
 
 **Date:** 2 August 2026  
-**Platform version:** 2.0.0-beta → 2.0.0 (release candidate)  
-**Tester:** Automated + manual verification (Phase 12)  
-**Environment:** Windows 11 · Node.js · `npm run dev` @ `localhost:3000`
+**Platform version:** 2.0.0  
+**Tester:** Automated + manual verification (Phase 12 + final production audit)  
+**Environment:** Windows 11 · Node.js · `npm run build` / `npm run dev` @ `localhost:3000`
 
 ---
 
@@ -15,11 +15,11 @@
 | **Route availability (19 URLs)** | PASS |
 | **Static assets** | PASS |
 | **SEO files** | PASS |
-| **Search index** | PASS (109 records) |
-| **ESLint** | WARN (3 non-blocking issues) |
+| **Search index** | PASS (114 records) |
+| **ESLint** | PASS (0 errors, 0 warnings) |
 | **Manual UX/a11y** | PASS (spot check) |
 
-**Verdict:** Ready for deployment preparation. No blocking defects found.
+**Verdict:** **Production Audit PASSED.** Ready for deployment.
 
 ---
 
@@ -28,7 +28,7 @@
 | Check | Command | Result |
 |-------|---------|--------|
 | Production build | `npm run build` | PASS — 22 routes generated |
-| ESLint | `npm run lint` | WARN — 2 errors, 1 warning in `HeroBackgroundSlide.tsx` (React setState-in-effect rule); build unaffected |
+| ESLint | `npm run lint` | PASS — 0 errors, 0 warnings |
 
 ---
 
@@ -96,7 +96,7 @@ Build-time loader reads from parent repository — no duplicate copies in `websi
 | Figures | 24 files | Synced at build | PASS |
 | Tables | 6 files | Synced at build | PASS |
 | Waveforms JSON | 8 files | Synced at build | PASS |
-| Search index | 109 records, ~70 KB | `/search-index.json` 200 | PASS |
+| Search index | 114 records, ~70 KB | `/search-index.json` 200 | PASS |
 
 ---
 
@@ -104,7 +104,7 @@ Build-time loader reads from parent repository — no duplicate copies in `websi
 
 | Check | Result |
 |-------|--------|
-| Index file present | PASS — `recordCount: 109` |
+| Index file present | PASS — `recordCount: 114` |
 | Modal opens via button | PASS (manual) |
 | Modal opens via Ctrl+K | PASS (manual) |
 | Escape closes modal | PASS (Phase 11) |
@@ -118,7 +118,7 @@ Build-time loader reads from parent repository — no duplicate copies in `websi
 | Link | Target | Result |
 |------|--------|--------|
 | `/github` page | Static metadata from `lib/github/config.ts` | PASS |
-| Repository URL | `https://github.com/amgcr/AMGCR_Earthquake_Research` | PASS (config) |
+| Repository URL | `https://github.com/prasun-iitj/AMGCR-Earthquake-Early-Warning` | PASS (config + workflow links verified) |
 | Releases / Issues links | Constructed from base URL | PASS |
 | Footer GitHub link | External ↗ | PASS |
 | About page repo link | External ↗ | PASS |
@@ -175,6 +175,7 @@ Header collapses to mobile menu below `lg` breakpoint. Explorers use stacked lay
 | Per-page metadata | PASS — `buildPageMetadata` on all routes |
 | Canonical URLs | PASS — requires `NEXT_PUBLIC_SITE_URL` in prod |
 | JSON-LD WebSite schema | PASS — in root layout |
+| Open Graph image | PASS — `/og-image.png` (1200×630) with Twitter `summary_large_image` |
 
 ---
 
@@ -182,10 +183,12 @@ Header collapses to mobile menu below `lg` breakpoint. Explorers use stacked lay
 
 See [V2_KNOWN_LIMITATIONS.md](V2_KNOWN_LIMITATIONS.md):
 
-1. ESLint `react-hooks/set-state-in-effect` in hero slideshow (cosmetic lint)
-2. Contact form disabled (no backend)
-3. Hero PNGs not in git — must be deployed manually
-4. Research page footer section text references "later phases" for features now live (content staleness)
+1. Contact form disabled (no backend) — Version 2.1
+2. Presentation PDF external link only (not embedded) — Version 2.1
+3. No automated E2E test suite — Version 2.1
+4. Turbopack NFT build warning (filesystem reads in stats loader) — non-blocking
+
+**Resolved since Phase 12:** ESLint hero warnings, hero PNGs in git, Research page stale copy, GitHub URL 404s, OG image, platform version 2.0.0.
 
 ---
 
@@ -195,5 +198,6 @@ See [V2_KNOWN_LIMITATIONS.md](V2_KNOWN_LIMITATIONS.md):
 |------|--------|------|
 | Automated route tests | Complete | 2026-08-02 |
 | Build verification | Complete | 2026-08-02 |
+| Final production audit | **PASS** | 2026-08-02 |
 | Manual UX review | Recommended at deploy URL | Pending launch |
-| Production deploy | **Not executed** (Phase 12 scope) | — |
+| Production deploy | **Not executed** — awaiting manual push | — |

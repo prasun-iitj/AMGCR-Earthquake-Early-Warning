@@ -13,8 +13,8 @@ Current progress for **AMGCR Earthquake Research**. Authoritative scope: [PROJEC
 | **Programme** | Swiss certificate EEW research (AMGCR) |
 | **Primary focus** | Europe (long-term) |
 | **Pilot implementation** | USA / California (IRIS–EarthScope) — **complete** |
-| **Reference track** | EarthESND software **complete**; paper scientific reproduction **not started** |
-| **Current stage** | **v1.0 submission complete** — maintenance & **Version 2.0** planning only |
+| **Reference track** | EarthESND literature track **documented**; executable pipeline optional (v3.0); K-NET reproduction **not started** |
+| **Current stage** | **v1.0 submission complete** · **Version 2.0 platform live** (2026-08-02) |
 
 ---
 
@@ -22,7 +22,7 @@ Current progress for **AMGCR Earthquake Research**. Authoritative scope: [PROJEC
 
 | Component | Status |
 |-----------|--------|
-| EarthESND reference implementation | ✅ **Complete** |
+| EarthESND literature / optional track | ✅ **Documented** (not in v1.0.0 code tree) |
 | USA / California IRIS pilot | ✅ **Complete** |
 | EDA | ✅ **Complete** |
 | Signal analysis | ✅ **Complete** |
@@ -35,6 +35,22 @@ Current progress for **AMGCR Earthquake Research**. Authoritative scope: [PROJEC
 | Presentation outline & script (D-F2/D-F3) | ✅ **Complete** |
 | FINAL_SUBMISSION package (D-F4) | ✅ **Complete** |
 | Submission validation | ✅ **PASS** |
+| **Version 2.0 interactive platform** (`website/`) | ✅ **Complete** (2 August 2026) |
+
+---
+
+## Version 2.0 platform (complete — 2026-08-02)
+
+| Component | Status |
+|-----------|--------|
+| Interactive website (19 routes) | ✅ **Complete** |
+| Research dashboard | ✅ **Complete** |
+| Workflow, results, dataset, waveform, map explorers | ✅ **Complete** |
+| Documentation portal & global search | ✅ **Complete** |
+| SEO, error pages, accessibility polish | ✅ **Complete** |
+| Production deployment documentation | ✅ **Complete** |
+
+Release notes: [V2_RELEASE_NOTES.md](V2_RELEASE_NOTES.md) · Website guide: [website/README.md](../website/README.md)
 
 ---
 
@@ -53,25 +69,22 @@ Current progress for **AMGCR Earthquake Research**. Authoritative scope: [PROJEC
 | Submission package | [FINAL_SUBMISSION/](../FINAL_SUBMISSION/) |
 | Deliverable audit | [FINAL_DELIVERABLE_AUDIT.md](FINAL_DELIVERABLE_AUDIT.md) |
 
-EarthESND scientific reproduction (K-NET tables): ⬜ **Not started** — optional **Version 2.0** track ([PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md)).
+EarthESND scientific reproduction (K-NET tables): ⬜ **Not started** — optional **Version 3.0** track ([PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md)).
 
 ---
 
-## Version 2.0 / future roadmap
+## Version 2.1 / Version 3.0 roadmap
 
 See [ROADMAP.md](ROADMAP.md). Summary:
 
-- Interactive project website · public dashboard · interactive visualisations  
-- Europe dataset expansion (ORFEUS/EIDA)  
-- EarthESND model training and evaluation on Western data  
-- Real-time streaming support · additional datasets  
-- Production deployment  
+- **Version 2.1** — platform maintenance, content sync, deployment hardening, optional UX improvements  
+- **Version 3.0** — Europe dataset expansion (ORFEUS/EIDA), EarthESND training/evaluation, real-time streaming, operational deployment  
 
 ---
 
 ## Current goal
 
-Preserve **v1.0 submission integrity** (frozen pilot artefacts). Plan and execute **Version 2.0** without re-running or rewriting v1.0 science unless explicitly approved.
+Preserve **v1.0 submission integrity** (frozen pilot artefacts). Maintain **Version 2.0 platform** (`website/`). Plan **Version 2.1** and **Version 3.0** without re-running or rewriting v1.0 science unless explicitly approved.
 
 ---
 
@@ -81,4 +94,4 @@ None for v1.0 submission. European FDSN access and web hosting may require crede
 
 ---
 
-Version: **1.3.0** (v1.0.0 submission release)
+Version: **1.4.0** (v2.0.0 platform release · science v1.0.0 frozen)

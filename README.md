@@ -9,11 +9,13 @@ Reproducible **AI-assisted Earthquake Early Warning (EEW)** research for **Weste
 | Document | Role |
 |----------|------|
 | **[docs/PROJECT_CHARTER.md](docs/PROJECT_CHARTER.md)** | **Authoritative** vision, scope, status, roadmap |
-| [docs/PROJECT_STATUS.md](docs/PROJECT_STATUS.md) | Milestones and Version 2.0 roadmap |
+| [docs/PROJECT_STATUS.md](docs/PROJECT_STATUS.md) | Milestones · v2.0 platform status |
+| [docs/V2_RELEASE_NOTES.md](docs/V2_RELEASE_NOTES.md) | **Version 2.0** interactive platform release |
+| [website/README.md](website/README.md) | Website development and deployment |
 | [RELEASE_SUMMARY_v1.0.md](RELEASE_SUMMARY_v1.0.md) | **v1.0 submission** overview and deliverables |
 | [FINAL_SUBMISSION/FINAL_SUBMISSION_README.md](FINAL_SUBMISSION/FINAL_SUBMISSION_README.md) | PDF/DOCX/PPTX submission package |
 | [docs/RESEARCH_DIRECTION.md](docs/RESEARCH_DIRECTION.md) | Reference vs active research; Europe vs California |
-| [docs/ROADMAP.md](docs/ROADMAP.md) | Archived v1.0 milestones · Version 2.0 future work |
+| [docs/ROADMAP.md](docs/ROADMAP.md) | Archived v1.0 milestones · v2.0 platform complete · v2.1/v3.0 future work |
 
 **AI assistants:** read [docs/PROJECT_CHARTER.md](docs/PROJECT_CHARTER.md) and [docs/AI_AGENT.md](docs/AI_AGENT.md).
 
@@ -22,13 +24,13 @@ Reproducible **AI-assisted Earthquake Early Warning (EEW)** research for **Weste
 1. **Europe** — primary long-term research focus (proposal, theory, datasets).
 2. **United States / California** — **completed pilot** for method development (ObsPy, IRIS/EarthScope).
 
-**EarthESND** is a **reference implementation only** (literature, architecture, AI methodology)—**not** the programme objective. Reference software: **complete**; K-NET scientific paper reproduction: **not started**.
+**EarthESND** is a **literature and architecture reference only** (optional Version 3.0 track — see [docs/PAPER_REPRODUCTION.md](docs/PAPER_REPRODUCTION.md)); **not included as executable code in v1.0.0**. K-NET scientific paper reproduction: **not started**.
 
 ## v1.0 submission status (complete)
 
 | Component | Status |
 |-----------|--------|
-| EarthESND reference implementation | ✅ **Complete** |
+| EarthESND literature / optional track | ✅ **Documented** ([PAPER_REPRODUCTION.md](docs/PAPER_REPRODUCTION.md); not in v1.0.0 code tree) |
 | USA / California IRIS–EarthScope pilot | ✅ **Complete** |
 | EDA | ✅ **Complete** |
 | Signal analysis | ✅ **Complete** |
@@ -42,7 +44,9 @@ Reproducible **AI-assisted Earthquake Early Warning (EEW)** research for **Weste
 | FINAL_SUBMISSION package (D-F4) | ✅ **Complete** |
 | Submission validation | ✅ **PASS** ([VALIDATION_SUMMARY.md](FINAL_SUBMISSION/VALIDATION_SUMMARY.md)) |
 
-**Version 2.0 / future work** is documented in [docs/ROADMAP.md](docs/ROADMAP.md) (website, dashboard, Europe expansion, ML, streaming, deployment). The **v1.0 analysis chain is frozen** at 2026-07-29 artefacts.
+**Version 2.0 platform (complete — 2 August 2026):** Interactive research website in [`website/`](website/) — dashboard, workflow, results, dataset, waveforms, map, documentation portal, global search. Platform version **2.0.0** · Science baseline **v1.0.0** (frozen). See [docs/V2_RELEASE_NOTES.md](docs/V2_RELEASE_NOTES.md).
+
+**Version 2.1 / 3.0 future work** is documented in [docs/ROADMAP.md](docs/ROADMAP.md) (platform maintenance, Europe expansion, ML, streaming, operational deployment). The **v1.0 analysis chain is frozen** at 2026-07-29 artefacts.
 
 ## Key reports and deliverables
 
@@ -67,15 +71,16 @@ Analysis artefacts: `reports/eda/`, `reports/signal_analysis/`, `reports/preproc
 ```text
 AMGCR_Earthquake_Research/
 ├── FINAL_SUBMISSION/       # v1.0 PDF/DOCX/PPTX + checklists (official submission)
-├── configs/                # EarthESND reference + acquisition YAML
+├── configs/                # Acquisition and project YAML
 ├── data/manifests/         # California pilot event CSV (tracked)
 ├── data/raw/iris/          # Pilot MiniSEED (local; gitignored — see D-S2)
 ├── docs/                   # Charter, phase reports, submission statements
 ├── reports/                # Final report, figures, tables, presentation assets
 ├── scripts/download/       # FDSN pilot download (executed)
 ├── scripts/analysis/       # EDA → features (executed; frozen)
-├── src/                    # acquisition + EarthESND reference
-└── tests/
+├── src/                    # Acquisition framework (+ reserved package stubs)
+├── tests/
+└── website/                # Version 2.0 interactive platform (Next.js)
 ```
 
 ## Technology stack
@@ -84,9 +89,22 @@ Python 3.11+, ObsPy, NumPy, Pandas, Matplotlib, SciPy, PyYAML, Git.
 
 ## Verification
 
-- EarthESND reference: **88 passing tests** when the full reference tree imports (`python -m pytest`).
+- Acquisition framework: **9 passing tests** (`python -m pytest`).
 - California pilot: **8×18** feature matrix, **24** figures — see [FINAL_SUBMISSION/VALIDATION_SUMMARY.md](FINAL_SUBMISSION/VALIDATION_SUMMARY.md).
+
+## License, citation, and community
+
+| Resource | Link |
+|----------|------|
+| **License** | [LICENSE](LICENSE) (MIT) |
+| **Citation** | [CITATION.cff](CITATION.cff) |
+| **Code of conduct** | [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) |
+| **Contributing** | [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md) |
+| **Security** | [docs/SECURITY.md](docs/SECURITY.md) |
 
 ## Version
 
-**v1.0.0 — Submission Release** (documentation **1.3.0**). See [docs/CHANGELOG.md](docs/CHANGELOG.md).
+**Science:** v1.0.0 — Submission Release (documentation **1.4.0**)  
+**Platform:** v2.0.0 — Interactive website ([website/](website/))
+
+See [docs/CHANGELOG.md](docs/CHANGELOG.md) · [website/CHANGELOG.md](website/CHANGELOG.md)

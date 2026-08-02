@@ -11,7 +11,7 @@ High-level architecture for **AMGCR Earthquake Research**: Western-region EEW re
 
 | Layer | Status |
 |-------|--------|
-| EarthESND reference (`src/models/`, configs, tests) | ✅ **Complete** |
+| EarthESND reference (`src/models/` stub, optional track) | ✅ **Documented** (not in v1.0.0 tree) |
 | USA FDSN pilot (`data/manifests/`, local `data/raw/iris/`) | ✅ **Complete** |
 | Analysis pipeline (EDA → features) | ✅ **Complete** |
 | Interpretation & submission deliverables | ✅ **Complete** |
@@ -59,14 +59,20 @@ Analysis scripts are **standalone** from EarthESND `src/`.
 
 ---
 
-## Version 2.0 architecture (planned)
+## Version 2.0 architecture (implemented)
+
+**Status:** Complete — see [V2_ARCHITECTURE.md](V2_ARCHITECTURE.md) and live implementation in `website/`.
+
+The v2.0 platform adds a **static Next.js site** that reads repository Markdown and synced artefacts at build time. No changes to v1.0 analysis modules.
+
+**Future:** Version 2.1 maintenance; Version 3.0 science expansion — [ROADMAP.md](ROADMAP.md).
 
 ```text
-Web / dashboard / interactive viz  →  public programme interface
-European FDSN → same report layout → cross-region evaluation
-AI models (Western data) ↔ EarthESND-inspired benchmarks
-Real-time stream (SeedLink) → latency + onsite features
-Production deployment layer (operations, governance)
+✅ Web / dashboard / interactive viz  →  website/ v2.0.0 (complete)
+⬜ European FDSN → same report layout → cross-region evaluation (v3.0)
+⬜ AI models (Western data) ↔ EarthESND-inspired benchmarks (v3.0)
+⬜ Real-time stream (SeedLink) → latency + onsite features (v3.0)
+⬜ Production deployment layer (operations, governance) (v3.0)
 ```
 
 Details: [ROADMAP.md](ROADMAP.md).
@@ -84,7 +90,7 @@ Details: [ROADMAP.md](ROADMAP.md).
 | `reports/figures/`, `reports/tables/` | Publication artefacts (figures often gitignored) |
 | `reports/Research_Report_Final.md` | Primary submission narrative (D-F1) |
 | `reports/Research_Proposal_v1.md` | Superseded proposal v1 |
-| `configs/earthesnd/`, `src/models/` | Reference only |
+| `configs/` | Acquisition and project YAML |
 
 ---
 
@@ -92,7 +98,7 @@ Details: [ROADMAP.md](ROADMAP.md).
 
 - **Modular** — pilot analysis separate from EarthESND benchmark  
 - **Reproducible** — manifests, JSON configs, D-S1/D-S2  
-- **Europe-forward** — pilot validates method; Version 2.0 targets EU data and ops  
+- **Europe-forward** — pilot validates method; Version 3.0 targets EU data and ops  
 - **Documentation-first** — status in PROJECT_STATUS / CHARTER / RELEASE_SUMMARY  
 
 ---

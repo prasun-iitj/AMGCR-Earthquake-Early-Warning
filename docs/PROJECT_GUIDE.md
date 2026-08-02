@@ -17,7 +17,7 @@ Reproducible **AI-assisted EEW** research for **Western regions**: **Europe** as
 
 | Component | Status |
 |-----------|--------|
-| EarthESND reference implementation | ✅ Complete |
+| EarthESND literature / optional track | ✅ Documented |
 | USA / California IRIS pilot | ✅ Complete |
 | EDA · Signal · Preprocessing · Features | ✅ Complete |
 | Results & discussion | ✅ Complete |
@@ -25,7 +25,7 @@ Reproducible **AI-assisted EEW** research for **Western regions**: **Europe** as
 | Final report & FINAL_SUBMISSION | ✅ Complete |
 | Validation | ✅ PASS |
 
-**Active stage:** **Version 2.0 planning** — see [ROADMAP.md](ROADMAP.md).
+**Active stage:** **Version 2.0 platform live** (2026-08-02) — see [V2_RELEASE_NOTES.md](V2_RELEASE_NOTES.md) and [website/README.md](../website/README.md). **Future work:** [ROADMAP.md](ROADMAP.md) (v2.1 / v3.0).
 
 Primary narrative: [Research_Report_Final.md](../reports/Research_Report_Final.md) · Package: [FINAL_SUBMISSION/](../FINAL_SUBMISSION/)
 
@@ -44,6 +44,7 @@ reports/                 # Final report, figures, tables, presentation
 scripts/download/        # Acquisition (executed)
 scripts/analysis/        # EDA → features (frozen)
 src/                     # acquisition + EarthESND reference
+website/                 # Version 2.0 interactive platform (Next.js)
 ```
 
 ---
@@ -54,4 +55,4 @@ Read [AI_AGENT.md](AI_AGENT.md) and [PROJECT_CHARTER.md](PROJECT_CHARTER.md) bef
 
 ---
 
-Version: **1.3.0** (v1.0.0 submission release)
+Version: **1.4.0** (v2.0.0 platform release · science v1.0.0 frozen)

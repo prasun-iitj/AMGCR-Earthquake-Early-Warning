@@ -28,6 +28,12 @@ htmlcov/
 .DS_Store
 Thumbs.db
 
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
 # Project outputs
 logs/
 data/raw/
@@ -35,3 +41,6 @@ data/interim/
 data/processed/
 data/output/
 figures/
+
+# Local scratch scripts
+tmp_*.py

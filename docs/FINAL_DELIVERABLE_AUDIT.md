@@ -235,9 +235,17 @@ Listed per user instruction; implement in **D-S4** or after final submission pre
 | Reproducibility inputs for D-S1 | **PASS** |
 | Data-provenance inputs for D-S2 | **PASS** |
 | Git-only submission without regen | **WARNING** |
-| D-S1 / D-S2 / D-F1 files | **WARNING** (not created) |
+| D-S1 / D-S2 / D-F1 files | **PASS** (created; see `FINAL_SUBMISSION/`) |
 
-**Next step (when approved):** Draft **D-S1** and **D-S2** (no code changes), then begin **D-F1** with embedded figures.
+### Post-submission update (2026-08-02)
+
+| Check | Result |
+|-------|--------|
+| FINAL_SUBMISSION validation | **PASS** ([VALIDATION_SUMMARY.json](../FINAL_SUBMISSION/VALIDATION_SUMMARY.json)) |
+| Version 2.0 platform | **Complete** (`website/`) |
+| Pre-release doc sync | EarthESND status aligned to v1.0.0 tree; LICENSE added |
+
+**Note:** This audit file retains the 2026-07-29 pre-submission snapshot in §§1–10; §11 updated above.
 
 ---
 

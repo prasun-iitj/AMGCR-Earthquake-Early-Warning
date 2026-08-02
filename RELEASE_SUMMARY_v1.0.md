@@ -8,7 +8,7 @@
 
 ## Project overview
 
-Swiss certificate programme research in **Assessment and Management of Geological and Climate Related Risk (AMGCR)**. The repository delivers a **reproducible, ObsPy/FDSN-based Earthquake Early Warning (EEW) research workflow** with **Europe** as the long-term focus and a **completed California IRIS/EarthScope pilot** (eight events, **8×18** feature matrix). **EarthESND** remains a **complete reference implementation**, not the geographic scientific endpoint.
+Swiss certificate programme research in **Assessment and Management of Geological and Climate Related Risk (AMGCR)**. The repository delivers a **reproducible, ObsPy/FDSN-based Earthquake Early Warning (EEW) research workflow** with **Europe** as the long-term focus and a **completed California IRIS/EarthScope pilot** (eight events, **8×18** feature matrix). **EarthESND** is a **literature and architecture reference only** (optional Version 3.0 track), not the geographic scientific endpoint.
 
 Authoritative scope: [docs/PROJECT_CHARTER.md](docs/PROJECT_CHARTER.md).
 
@@ -18,7 +18,7 @@ Authoritative scope: [docs/PROJECT_CHARTER.md](docs/PROJECT_CHARTER.md).
 
 | Area | Outcome |
 |------|---------|
-| Reference software | EarthESND-aligned pipeline in `src/` (**88 tests** on full checkout) |
+| Reference software | Acquisition framework in `src/acquisition/` (**9 tests**); EarthESND optional v3.0 track documented |
 | Data acquisition | USGS + EarthScope FDSN; manifest + [IRIS_DATASET_REPORT.md](docs/IRIS_DATASET_REPORT.md) |
 | Analysis pipeline | EDA → signal (STA/LTA) → preprocessing → features → interpretation |
 | Science narrative | Phase reports + [RESULTS_AND_DISCUSSION.md](docs/RESULTS_AND_DISCUSSION.md) |
@@ -42,7 +42,7 @@ Pilot science **freeze date:** 2026-07-29. No ML training or operational EEW cla
 | Feature matrix | **8 × 18** |
 | Pilot figures (`reports/figures/`) | **24** PNG (local/regenerable; often gitignored) |
 | Analysis scripts (California) | 4 under `scripts/analysis/` + 1 download script |
-| EarthESND tests (full tree) | **88** per charter/README |
+| Automated tests (acquisition) | **9** (`python -m pytest`) |
 
 ---
 
@@ -74,19 +74,16 @@ Details: [Research_Report_Final.md](reports/Research_Report_Final.md) §10–11.
 
 ---
 
-## Version 2.0 / future roadmap
+## Version 2.0 platform (complete — August 2026)
 
-Planned extensions (not part of v1.0 submission):
+The interactive research platform is **live** in [`website/`](website/) (platform **v2.0.0**):
 
-1. **Interactive project website** and **public dashboard**  
-2. **Interactive visualisations** for pilot and future catalogues  
-3. **Europe dataset expansion** (ORFEUS/EIDA pattern)  
-4. **EarthESND model training and evaluation** on Western data (with deviation log)  
-5. **Real-time streaming support** (e.g. SeedLink) and latency profiling  
-6. **Additional datasets** (scaled California/Western USA, optional K-NET reproduction track)  
-7. **Production deployment** considerations (operational EEW integration, governance)  
+- Interactive project website, public dashboard, and explorers (workflow, results, dataset, waveforms, map)  
+- Documentation portal, global search, SEO, and release documentation  
 
-Full list: [docs/ROADMAP.md](docs/ROADMAP.md) § Version 2.0.
+See [docs/V2_RELEASE_NOTES.md](docs/V2_RELEASE_NOTES.md) and [docs/V2_ARCHITECTURE.md](docs/V2_ARCHITECTURE.md).
+
+**Future work (Version 2.1 / 3.0):** platform maintenance; Europe dataset expansion; EarthESND training/evaluation; real-time streaming; operational deployment — [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ---
 
@@ -97,4 +94,4 @@ Release notes template: [FINAL_SUBMISSION/GITHUB_RELEASE_NOTES_v1.0.md](FINAL_SU
 
 ---
 
-**Document version:** 1.0.0 (submission summary)
+**Document version:** 1.0.0 (submission summary) · repository documentation **1.4.0**

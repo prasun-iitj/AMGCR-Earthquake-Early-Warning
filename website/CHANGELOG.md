@@ -5,7 +5,22 @@ Scientific releases remain documented in the repository root [CHANGELOG.md](../C
 
 ---
 
-## [2.0.0] — 2026-08-02 (Public release preparation)
+## [2.0.0] — 2026-08-02 (Official release)
+
+### Added (post Phase 12 audit)
+- Open Graph image (`public/og-image.png`) and Twitter Card metadata
+- Correct default GitHub repository URL (`prasun-iitj/AMGCR-Earthquake-Early-Warning`)
+- Hero slideshow timing fix (continuous Ken Burns through crossfade)
+- Research page platform explorers section (replaces stale "later phases" copy)
+- ESLint clean — hero animation via CSS variables (no setState-in-effect)
+
+### Release
+- Platform version **2.0.0** (was 2.0.0-beta during Phase 12)
+- Production audit PASS — build, lint, 19 routes, 114 search records
+
+---
+
+## [2.0.0-rc] — 2026-08-02 (Public release preparation)
 
 ### Added
 - Full interactive research platform (Phases 1–12)

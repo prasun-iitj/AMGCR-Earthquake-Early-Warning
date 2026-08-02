@@ -8,6 +8,50 @@ The format is inspired by **Keep a Changelog** and follows semantic versioning w
 
 ---
 
+## [1.4.0] - Pre-release audit (2026-08-02)
+
+### Added
+
+- **`CITATION.cff`** — repository citation metadata (software v1.0.0).
+- **`CODE_OF_CONDUCT.md`** — Contributor Covenant v2.1.
+
+### Fixed
+
+- **LICENSE** — MIT license added (was empty).
+- **requirements.txt** — added `PyYAML` and `pytest` for reproducible installs.
+- **pyproject.toml** — version aligned to **1.0.0**.
+- Removed dev scratch file `tmp_probe.py`; ignore `tmp_*.py`.
+
+### Documentation
+
+- Aligned EarthESND status across README, charter, status, PAPER_REPRODUCTION, REPRODUCIBILITY, and final report: **literature/optional v3.0 track**; **not in v1.0.0 code tree**; **9 acquisition tests**.
+- Fixed broken links in `RELEASE_SUMMARY_v1.0.md`.
+- Updated `FINAL_DELIVERABLE_AUDIT.md` post-submission sign-off.
+
+---
+
+## [2.0.0] - Version 2.0 interactive platform (documentation sync)
+
+### Added
+
+- **`website/`** — public interactive research platform (Next.js 16, TypeScript, Tailwind v4) at platform version **2.0.0**.
+- Nineteen routes: dashboard, workflow, results, dataset, waveforms, map, docs portal, global search, about, contact, and more.
+- Release documentation: `docs/V2_RELEASE_NOTES.md`, `V2_DEPLOYMENT_GUIDE.md`, `V2_TEST_REPORT.md`, `V2_KNOWN_LIMITATIONS.md`, `V2_PUBLIC_LAUNCH_CHECKLIST.md`.
+- `website/CHANGELOG.md` — platform changelog.
+
+### Documentation
+
+- Synchronized README, AGENTS, PROJECT_STATUS, ROADMAP, PROJECT_CHARTER, PROJECT_GUIDE, AI_AGENT for **v2.0 platform complete**.
+- Future work reframed as **Version 2.1** (platform) and **Version 3.0** (science/infrastructure).
+- **No changes** to v1.0 analysis scripts, scientific results, or FINAL_SUBMISSION.
+
+### Notes
+
+- Science release remains **`v1.0.0`** (29 July 2026).
+- Suggested platform tag: **`v2.0.0-website-release`** or team convention.
+
+---
+
 ## [1.3.0] - v1.0.0 Submission Release
 
 ### Added
@@ -65,7 +109,7 @@ The format is inspired by **Keep a Changelog** and follows semantic versioning w
 - Established **docs/PROJECT_CHARTER.md** as the authoritative project definition (Swiss certificate EEW research; Europe focus, USA experimental data).
 - Added **docs/RESEARCH_DIRECTION.md** explaining the pivot from EarthESND paper reproduction to Western-region active research.
 - Synchronised README, PROJECT_STATUS, ROADMAP, ARCHITECTURE, PAPER_REPRODUCTION, IMPLEMENTATION_PLAN, AI_AGENT, and PROJECT_GUIDE with Phases A–D roadmap and professor requirements.
-- Clarified EarthESND **reference implementation complete** vs **scientific paper reproduction not started**; USA IRIS/California pilot documented as active workflow.
+- Clarified EarthESND **literature track documented** vs **executable pipeline not in v1.0.0**; USA IRIS/California pilot documented as active workflow.
 
 ### Notes
 
@@ -139,4 +183,4 @@ Avoid logging trivial edits such as spelling corrections unless they materially 
 
 ---
 
-Current Version: **1.3.0** (Git release **v1.0.0**)
+Current Version: **1.4.0** (science **v1.0.0** · platform **v2.0.0**)

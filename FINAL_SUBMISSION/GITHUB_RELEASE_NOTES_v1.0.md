@@ -32,14 +32,14 @@ Official **v1.0.0 Submission Release** for the Swiss certificate programme: comp
 - California manifest: `data/manifests/iris_california_pilot_events.csv`
 - Analysis artefacts: `reports/tables/`, `reports/features/`, JSON/NPZ summaries
 - Phase documentation: `docs/IRIS_DATASET_REPORT.md` through `docs/RESULTS_AND_DISCUSSION.md`
-- EarthESND reference in `src/` — **complete**; not part of California pilot results
+- EarthESND optional literature track — **documented**; not part of California pilot results
 
 ---
 
 ## Known packaging notes
 
 - **`reports/figures/*.png`**, **`data/raw/`**, and **`logs/`** may be excluded by `.gitignore`. Regenerate per [docs/REPRODUCIBILITY_STATEMENT.md](../docs/REPRODUCIBILITY_STATEMENT.md) or use PDFs in this folder.
-- **Version 2.0** (website, Europe, ML, streaming, deployment): [docs/ROADMAP.md](../docs/ROADMAP.md)
+- **Version 2.0** interactive platform is complete in [`website/`](../website/); future work: [docs/ROADMAP.md](../docs/ROADMAP.md)
 
 ---
 

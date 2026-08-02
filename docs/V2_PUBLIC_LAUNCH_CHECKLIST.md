@@ -9,9 +9,11 @@ Phase 12 prepares but does **not** execute deployment or publication.
 
 - [ ] Version 1.0 science unchanged (`src/`, `FINAL_SUBMISSION/`, analysis scripts)
 - [ ] `website/` builds cleanly: `npm run build`
-- [ ] `npm run lint` reviewed (known hero lint warnings documented)
-- [ ] Hero images present: `website/public/hero/slide-1.png` … `slide-5.png`
-- [ ] Git tag planned: `website-v2.0.0` or monorepo tag per team convention
+- [ ] `npm run lint` passes (0 errors, 0 warnings)
+- [ ] Hero images present: `website/public/hero/slide-1.png` … `slide-5.png` (committed)
+- [ ] OG image present: `website/public/og-image.png`
+- [ ] Git tag planned: `v2.0.0-website-release` or team convention
+- [ ] `siteConfig.version` is `2.0.0` in `website/lib/navigation.ts`
 - [ ] `website/CHANGELOG.md` reviewed
 - [ ] Release docs complete:
   - [ ] [V2_RELEASE_NOTES.md](V2_RELEASE_NOTES.md)
@@ -24,7 +26,7 @@ Phase 12 prepares but does **not** execute deployment or publication.
 ## Pre-launch — environment
 
 - [ ] `NEXT_PUBLIC_SITE_URL` set to production URL (Vercel)
-- [ ] `NEXT_PUBLIC_GITHUB_REPO_URL` verified (if using fork/staging)
+- [ ] `NEXT_PUBLIC_GITHUB_REPO_URL` set if using a fork (default: `prasun-iitj/AMGCR-Earthquake-Early-Warning`)
 - [ ] `.env.local` not committed (secrets check)
 - [ ] Node.js 20 on CI/hosting platform
 
@@ -94,7 +96,6 @@ Phase 12 prepares but does **not** execute deployment or publication.
 
 ## Launch day
 
-- [ ] Update `siteConfig.version` to `2.0.0` in `website/lib/navigation.ts` (if still beta)
 - [ ] Merge to `main` (or release branch)
 - [ ] Promote Vercel deployment to **Production**
 - [ ] Verify production smoke test (section above)

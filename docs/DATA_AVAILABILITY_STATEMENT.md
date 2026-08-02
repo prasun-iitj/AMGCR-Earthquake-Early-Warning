@@ -138,7 +138,7 @@ Allen, R. M., and Kanamori, H. (2003). The potential for earthquake early warnin
 
 Hoshiba, M., Iwakiri, K., Hayashimoto, N., Shimoyama, T., Hirano, K., Yamada, Y., Ishigaki, Y., and Kikuta, H. (2008). Outline of the 2007–2008 earthquake early warning experiments in Japan. *Earth Planets Space*, 60, 123–129.
 
-Joshi, A., Singh, A. P., and Raman, B. (2026). EarthESND: Lightweight multiscale echo state network with dendritic neural network readout for earthquake early warning. *Computers and Electrical Engineering* (reference implementation only for this programme; see `docs/EARTHESND_REVERSE_ENGINEERING.md`).
+Joshi, A., Singh, A. P., and Raman, B. (2026). EarthESND: Lightweight multiscale echo state network with dendritic neural network readout for earthquake early warning. *Computers and Electrical Engineering* (optional literature track for this programme; see `docs/PAPER_REPRODUCTION.md`).
 
 ### Project documentation index
 

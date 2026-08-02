@@ -25,7 +25,7 @@ Copy `website/.env.example` to `website/.env.local` for local testing, or set in
 | Variable | Required | Example |
 |----------|----------|---------|
 | `NEXT_PUBLIC_SITE_URL` | **Yes (production)** | `https://your-app.vercel.app` |
-| `NEXT_PUBLIC_GITHUB_REPO_URL` | No | `https://github.com/amgcr/AMGCR_Earthquake_Research` |
+| `NEXT_PUBLIC_GITHUB_REPO_URL` | No | `https://github.com/prasun-iitj/AMGCR-Earthquake-Early-Warning` |
 
 Without `NEXT_PUBLIC_SITE_URL`, canonical URLs, Open Graph links, and sitemap default to `http://localhost:3000`.
 
@@ -161,7 +161,7 @@ GET /downloads     → 308 → /resources
 ```
 
 External (manual):
-- GitHub repository link on `/github` opens `github.com/amgcr/AMGCR_Earthquake_Research`
+- GitHub repository link on `/github` opens `github.com/prasun-iitj/AMGCR-Earthquake-Early-Warning`
 - Open Graph preview (optional): [opengraph.xyz](https://www.opengraph.xyz/)
 
 ---

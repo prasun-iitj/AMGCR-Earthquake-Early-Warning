@@ -2,9 +2,9 @@
 
 **Version 2.0 — Implementation Roadmap**
 
-**Status:** Planning only (no implementation)  
+**Status:** **Implemented** (Phases 1–12 complete — August 2026)  
 **Baseline:** v1.0.0 Submission Release (frozen 2026-07-29)  
-**Architecture:** [V2_ARCHITECTURE.md](V2_ARCHITECTURE.md) · **UI:** [V2_UI_PLAN.md](V2_UI_PLAN.md) · **Deploy:** [V2_DEPLOYMENT_PLAN.md](V2_DEPLOYMENT_PLAN.md)
+**Release:** [V2_RELEASE_NOTES.md](V2_RELEASE_NOTES.md) · **Live code:** [../website/](../website/)
 
 ---
 

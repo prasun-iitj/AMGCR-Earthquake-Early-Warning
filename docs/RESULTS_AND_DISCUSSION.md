@@ -49,7 +49,7 @@ Phase B.2 Feature engineering
     → reports/figures/feature_engineering_*.png (FFT grid, correlation heatmap, distributions, boxplots)
 ```
 
-Each stage is **script-driven and reproducible**; the EarthESND reference implementation in `src/` was **not** used for these USA pilot results, preserving a clean separation between **literature benchmark code** and **active Western-region research**.
+Each stage is **script-driven and reproducible**; EarthESND executable modules were **not** used for these USA pilot results, preserving a clean separation between **literature benchmark documentation** and **active Western-region research**.
 
 ---
 

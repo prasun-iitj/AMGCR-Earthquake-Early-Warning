@@ -2,7 +2,7 @@
 
 **Version 2.0 — User Interface and Experience Plan**
 
-**Status:** Planning only (no implementation)  
+**Status:** **Implemented** — see live UI in `website/`  
 **Baseline:** v1.0.0 Submission Release · Presentation: [Presentation_Outline_D-F2.md](../reports/Presentation_Outline_D-F2.md)  
 **Architecture:** [V2_ARCHITECTURE.md](V2_ARCHITECTURE.md)
 
@@ -529,7 +529,7 @@ v2.0 ships with **placeholder-free** layout unless explicitly approved; hooks ar
 | Source link | "View source file on GitHub" |
 | Missing figure | "Figure not bundled. Regenerate per Reproducibility Statement (D-S1)." |
 | Europe roadmap | "Planned Version 2.0+ science track—not included in v1.0 submission." |
-| EarthESND | "Reference implementation (88 tests). Not the geographic endpoint." |
+| EarthESND | "Literature reference (optional v3.0 track). Not the geographic endpoint." |
 
 ---
 

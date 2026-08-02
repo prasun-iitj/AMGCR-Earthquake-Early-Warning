@@ -2,7 +2,7 @@
 
 **Version 2.0 — Interactive Research Platform Architecture**
 
-**Status:** Planning only (no implementation)  
+**Status:** **Implemented** — see `website/` and [V2_RELEASE_NOTES.md](V2_RELEASE_NOTES.md)  
 **Baseline:** v1.0.0 Submission Release (frozen 2026-07-29)  
 **Authoritative scope:** [PROJECT_CHARTER.md](PROJECT_CHARTER.md) · v1.0 layout: [ARCHITECTURE.md](ARCHITECTURE.md)
 

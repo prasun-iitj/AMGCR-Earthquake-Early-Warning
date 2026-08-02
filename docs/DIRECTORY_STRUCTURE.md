@@ -23,8 +23,9 @@ AMGCR_Earthquake_Research/
 │   └── analysis/              # EDA → features pipeline (executed; frozen)
 ├── src/
 │   ├── acquisition/           # Generic FDSN acquisition modules
-│   └── models/                  # EarthESND reference implementation
-├── tests/                     # pytest (88 tests on full reference checkout)
+│   └── models/                  # Reserved stub (EarthESND optional v3.0 track)
+├── tests/                     # pytest (9 acquisition tests in v1.0.0)
+├── website/                   # Version 2.0 interactive platform (Next.js 16)
 ├── notebooks/                 # Optional exploration (not on v1.0 critical path)
 ├── RELEASE_SUMMARY_v1.0.md    # v1.0 release overview
 ├── README.md
@@ -93,7 +94,23 @@ Configs: `configs/earthesnd/`.
 
 ## tests/
 
-Unit and integration tests for acquisition and EarthESND reference modules. Full tree: **88 passing** tests (`python -m pytest`).
+Unit and integration tests for the acquisition framework. **9 passing** tests in v1.0.0 (`python -m pytest`).
+
+---
+
+## website/
+
+**Version 2.0 interactive platform** (Next.js 16, TypeScript, Tailwind v4). Separate from v1.0 science — does not modify analysis scripts or reports.
+
+| Path | Role |
+|------|------|
+| `website/app/` | App Router pages (19 public routes) |
+| `website/components/` | UI, explorers, layout |
+| `website/lib/` | Build-time loaders, SEO, navigation |
+| `website/public/` | Hero images, OG image; figures/tables/waveforms synced at build |
+| `website/scripts/` | Asset sync + search index builders |
+
+See [website/README.md](../website/README.md) and [V2_RELEASE_NOTES.md](V2_RELEASE_NOTES.md).
 
 ---
 
@@ -105,4 +122,4 @@ Unit and integration tests for acquisition and EarthESND reference modules. Full
 
 ---
 
-Version: **1.3.0** (v1.0.0 submission release)
+Version: **1.4.0** (v2.0.0 platform release · science v1.0.0 frozen)

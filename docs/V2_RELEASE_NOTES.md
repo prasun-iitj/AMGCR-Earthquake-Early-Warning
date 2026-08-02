@@ -37,7 +37,7 @@ Version 2.0 delivers a public-facing **interactive research platform** for the A
 - **About page** — researcher profile, academic supervision, technologies
 
 ### Platform quality (Phases 11–12)
-- Global search (`Ctrl+K`) — 109 indexed records
+- Global search (`Ctrl+K`) — 114 indexed records
 - SEO: sitemap, robots.txt, Open Graph, Twitter cards, canonical URLs
 - Accessibility: skip link, keyboard nav, ARIA, focus states, heading hierarchy
 - Error handling: custom 404, error boundary, loading skeletons

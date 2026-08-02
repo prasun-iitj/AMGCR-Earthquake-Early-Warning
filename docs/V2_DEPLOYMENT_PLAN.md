@@ -2,7 +2,7 @@
 
 **Version 2.0 — Deployment Plan**
 
-**Status:** Planning only (no implementation)  
+**Status:** **Ready for manual deployment** — see [V2_DEPLOYMENT_GUIDE.md](V2_DEPLOYMENT_GUIDE.md)  
 **Architecture:** [V2_ARCHITECTURE.md](V2_ARCHITECTURE.md) · **Roadmap:** [V2_ROADMAP.md](V2_ROADMAP.md)
 
 ---

@@ -60,7 +60,7 @@ Do not edit PDFs by hand for scientific changes; update Markdown sources and reb
 
 - **Primary research focus:** European seismic networks (EEW-oriented workflow)  
 - **Completed pilot:** California USGS + EarthScope FDSN (**8** events, **8×18** features)  
-- **EarthESND:** reference implementation only  
+- **EarthESND:** literature reference only (optional Version 3.0 track)
 
 ---
 

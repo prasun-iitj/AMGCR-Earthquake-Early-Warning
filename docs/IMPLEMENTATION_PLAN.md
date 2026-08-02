@@ -1,8 +1,8 @@
 # IMPLEMENTATION_PLAN.md
 
-Tracks **what was built** in the repository and **Version 2.0** implementation targets, aligned with [PROJECT_CHARTER.md](PROJECT_CHARTER.md).
+Tracks **what was built** in the repository. **Version 2.0 platform** is **complete** (August 2026). Future targets: [ROADMAP.md](ROADMAP.md) (v2.1 / v3.0).
 
-**v1.0 submission:** complete — no open certificate implementation tasks.
+**v1.0 submission:** complete — science frozen. **v2.0 platform:** complete — see [V2_RELEASE_NOTES.md](V2_RELEASE_NOTES.md).
 
 ---
 
@@ -18,12 +18,12 @@ Tracks **what was built** in the repository and **Version 2.0** implementation t
 
 ---
 
-## Part 2 — EarthESND reference implementation (archived ✅)
+## Part 2 — EarthESND literature track (archived ✅)
 
 | Deliverable | Status |
 |-------------|--------|
-| Config, preprocessing, models, evaluation | ✅ |
-| 88 tests (full reference checkout) | ✅ |
+| Paper reproduction plan and references | ✅ Documented |
+| Executable EarthESND pipeline in v1.0.0 | ⬜ Not included (optional v3.0) |
 | Scientific paper reproduction | ⬜ Not started (optional) |
 
 See [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md).
@@ -75,24 +75,37 @@ See [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md).
 
 ---
 
-## Part 5 — Version 2.0 / future implementation (planned)
+## Part 5 — Version 2.0 platform (complete ✅ — August 2026)
 
-Not started unless explicitly prioritised. See [ROADMAP.md](ROADMAP.md).
+Implemented in `website/` — platform version **2.0.0**. See [V2_RELEASE_NOTES.md](V2_RELEASE_NOTES.md).
 
-| Theme | Examples |
-|-------|----------|
-| Web & UX | Interactive project website, public dashboard, interactive visualisations |
-| Data | Europe dataset expansion, additional Western catalogues |
-| ML | EarthESND-inspired training/evaluation on Western tensors; tabular baselines |
-| Operations | Real-time streaming (SeedLink), latency budgets, production deployment |
-| Quality | Instrument response caching, pre-origin noise windows, larger **N** |
-
----
-
-## Part 6 — Optional (EarthESND scientific reproduction)
-
-Execute [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md) only if explicitly prioritised (Version 2.0 / optional reference track).
+| Theme | Status |
+|-------|--------|
+| Interactive website & dashboard | ✅ Complete |
+| Workflow, results, dataset, waveform, map explorers | ✅ Complete |
+| Documentation portal & global search | ✅ Complete |
+| SEO, error pages, accessibility polish | ✅ Complete |
 
 ---
 
-Version: **1.3.0** (v1.0.0 submission release)
+## Part 6 — Version 2.1 / 3.0 (planned)
+
+See [ROADMAP.md](ROADMAP.md).
+
+| Theme | Version | Examples |
+|-------|---------|----------|
+| Platform maintenance | 2.1 | Deployment, E2E tests, contact backend, embedded PDF |
+| Data | 3.0 | Europe dataset expansion, additional Western catalogues |
+| ML | 3.0 | EarthESND training/evaluation; tabular baselines |
+| Operations | 3.0 | Real-time streaming (SeedLink), operational deployment |
+| Quality | 3.0 | Instrument response caching, pre-origin noise windows, larger **N** |
+
+---
+
+## Part 7 — Optional (EarthESND scientific reproduction)
+
+Execute [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md) only if explicitly prioritised (Version 3.0 / optional reference track).
+
+---
+
+Version: **1.4.0** (v2.0.0 platform release · science v1.0.0 frozen)

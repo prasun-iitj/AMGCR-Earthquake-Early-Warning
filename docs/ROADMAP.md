@@ -15,7 +15,7 @@ All items below were **completed** by 2026-07-29 and are **frozen** for the cert
 |-----------|--------|----------------------|
 | Phase 1 — Environment & repo | ✅ | [CHANGELOG.md](CHANGELOG.md) |
 | Phase 2A/2B — Acquisition framework | ✅ | `src/acquisition/` |
-| **EarthESND reference implementation** | ✅ | `src/`, 88 tests |
+| **EarthESND literature track** | ✅ | [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md) |
 | **USA California IRIS/EarthScope pilot** | ✅ | [IRIS_DATASET_REPORT.md](IRIS_DATASET_REPORT.md) |
 | **EDA** | ✅ | [EDA_REPORT.md](EDA_REPORT.md) |
 | **Signal analysis** | ✅ | [SIGNAL_ANALYSIS_REPORT.md](SIGNAL_ANALYSIS_REPORT.md) |
@@ -31,53 +31,86 @@ Optional reference track: K-NET paper tables — ⬜ not started ([PAPER_REPRODU
 
 ---
 
-## Version 2.0 / future roadmap (planned)
+## Version 2.0 platform (complete — 2 August 2026)
 
-**Not part of v1.0 submission.** Prioritisation subject to programme and infrastructure decisions.
+All items below were **completed** for the public interactive research platform in `website/` (platform version **2.0.0**). Science baseline remains **v1.0.0** (frozen).
 
-### 1. Communication and visualisation
+| Milestone | Status | Route / output |
+|-----------|--------|----------------|
+| Interactive project website | ✅ | `/` — hero slideshow, highlights, timeline |
+| Public dashboard | ✅ | `/dashboard` |
+| Workflow explorer | ✅ | `/workflow` |
+| Results explorer (figures & tables) | ✅ | `/results` — 24 figures, 6 tables |
+| Dataset explorer | ✅ | `/dataset` |
+| Waveform explorer | ✅ | `/waveforms` — 8 pilot events |
+| Earthquake map | ✅ | `/map` |
+| Documentation portal | ✅ | `/docs`, `/research/report` |
+| Global search | ✅ | `Ctrl+K` — 114 indexed records |
+| Resources & GitHub pages | ✅ | `/resources`, `/github` |
+| About & contact | ✅ | `/about`, `/contact` |
+| SEO, error pages, accessibility | ✅ | sitemap, robots, OG image, 404/error |
+| Release & deployment docs | ✅ | `docs/V2_*.md`, `website/CHANGELOG.md` |
 
-- **Interactive project website** (programme-facing narrative, artefact index)  
-- **Public dashboard** (pilot metrics, manifest status, reproducibility health)  
-- **Interactive visualisations** (waveforms, features, cross-event exploration)
+See [V2_RELEASE_NOTES.md](V2_RELEASE_NOTES.md) · [website/README.md](../website/README.md)
 
-### 2. European and extended datasets
+---
+
+## Version 2.1 (planned)
+
+Platform maintenance and polish — **not** new science.
+
+- Production deployment on Vercel (or GitHub Pages fallback)
+- Content sync when repository docs change
+- Optional contact-form backend
+- Embedded presentation PDF viewer
+- Automated E2E test suite
+- Performance monitoring post-launch
+
+---
+
+## Version 3.0 (planned)
+
+Science and infrastructure expansion — **not** part of v1.0 or v2.0 scope.
+
+### 1. European and extended datasets
 
 - **Europe dataset expansion** — ORFEUS/EIDA and national FDSN endpoints  
 - **Additional datasets** — scaled California/Western USA catalogues; optional K-NET track  
 - Cross-region feature comparison (USA vs Europe)
 
-### 3. Machine learning and evaluation
+### 2. Machine learning and evaluation
 
 - **EarthESND model training and evaluation** on Western data (deviation log vs Japan paper)  
 - Tabular and waveform baselines on `feature_matrix.csv` and NPZ stages  
 - Comparative evaluation vs literature with documented metrics
 
-### 4. Real-time and operations
+### 3. Real-time and operations
 
 - **Real-time streaming support** (e.g. SeedLink simulation, continuous STA/LTA)  
 - Latency budgets and onsite feature push prototypes  
-- **Production deployment** path (operational EEW integration, governance, uncertainty communication)
+- **Production EEW deployment** path (operational integration, governance, uncertainty communication)
 
-### 5. Data quality and science hardening
+### 4. Data quality and science hardening
 
 - Instrument response caching and physical-unit amplitudes  
 - Pre-origin download windows for unbiased noise/SNR  
 - Three-component data where available  
 - Stratified sampling by magnitude, distance, and azimuth  
 
+Optional reference track: K-NET paper tables — ⬜ not started ([PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md)).
+
 ---
 
 ## Milestone summary
 
-| Track | v1.0 | v2.0 |
-|-------|------|------|
-| Reference (EarthESND code) | ✅ Complete | Optional K-NET reproduction |
-| California pilot science | ✅ Complete | Scale / extend |
-| Submission deliverables | ✅ Complete | — |
-| Web / dashboard / viz | — | ⬜ Planned |
-| Europe / ML / streaming / deploy | — | ⬜ Planned |
+| Track | v1.0 | v2.0 | v2.1 / v3.0 |
+|-------|------|------|-------------|
+| Reference (EarthESND literature) | ✅ Documented | — | Optional executable track (v3.0) |
+| California pilot science | ✅ Complete | — | Scale / extend (v3.0) |
+| Submission deliverables | ✅ Complete | — | — |
+| Web / dashboard / explorers | — | ✅ Complete | Maintenance (v2.1) |
+| Europe / ML / streaming / deploy | — | — | ⬜ Planned (v3.0) |
 
 ---
 
-Version: **1.3.0** (v1.0.0 submission release)
+Version: **1.4.0** (v2.0.0 platform release · science v1.0.0 frozen)

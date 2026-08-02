@@ -50,7 +50,7 @@
 **Bullets:**
 - Primary long-term target: European seismic networks
 - California IRIS/EarthScope pilot: **completed** validation lab
-- Initial EarthESND codebase: reference only (**88 tests** on full checkout)
+- Initial EarthESND track: literature reference only (optional v3.0 executable path)
 - Active work: real waveforms, theory, figures, tables, formal reporting
 - Pilot freeze: 2026-07-29; report consolidates completed science
 

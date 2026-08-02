@@ -9,7 +9,7 @@
 
 | Component | Status |
 |-----------|--------|
-| EarthESND reference implementation | **Complete** (benchmark only) |
+| EarthESND literature / optional track | **Documented** (benchmark only) |
 | USA / California IRIS–EarthScope pilot | **Complete** |
 | EDA · Signal analysis · Preprocessing · Feature engineering | **Complete** |
 | Results & discussion | **Complete** |
@@ -50,7 +50,7 @@ Earthquake Early Warning (EEW) delivers rapid estimates of ground shaking ahead 
 
 This report presents the **AMGCR Earthquake Research** project: a **European-focused** certificate programme whose **primary long-term target** is EEW-oriented analysis on **European seismic networks**, while **California** serves as the **completed pilot implementation** for method validation. Using ObsPy and FDSN services (USGS event metadata; EarthScope waveforms), we acquired eight MiniSEED recordings (magnitude 4.05–4.87, 2024), executed exploratory data analysis, STA/LTA-based signal characterisation, documented preprocessing, and extraction of an **8×18** feature matrix. Results confirm a reproducible path from raw waveforms to machine-learning-ready descriptors, while exposing limitations—origin-aligned download windows, absent instrument response correction in the pilot run, small sample size, and station-selection bias—that must be addressed before operational European deployment.
 
-The repository retains a **complete EarthESND reference implementation** (echo state network with dendritic readout) **only as a literature and architecture benchmark**, not as the programme’s scientific endpoint. **Proposed future work** includes scaling datasets, integrating ORFEUS/EIDA-class European archives, response-corrected amplitudes, and comparative evaluation of modern onsite AI models including EarthESND-inspired designs on Western data.
+The repository retains **EarthESND as a documented literature and architecture benchmark** (echo state network with dendritic readout) **only as a methodological reference**, not as the programme’s scientific endpoint. **Proposed future work** includes scaling datasets, integrating ORFEUS/EIDA-class European archives, response-corrected amplitudes, and comparative evaluation of modern onsite AI models including EarthESND-inspired designs on Western data.
 
 **Keywords:** earthquake early warning; ObsPy; FDSN; reproducible research; feature engineering; Europe; California pilot; machine learning
 
@@ -64,7 +64,7 @@ Damaging earthquakes remain a major risk in Europe and adjacent regions, from th
 
 ### 1.2 Programme positioning
 
-The present project was initiated within a **Swiss certificate programme** in geophysical risk assessment, aligned with **European expectations** for traceable analysis in natural-hazard research (open data, documented processing, explicit limitations). Initial effort targeted reproduction of a recent **EarthESND** machine-learning architecture (Joshi, Singh, and Raman, 2026). That phase produced a **test-backed reference codebase**, which is preserved for methodological comparison only. **Programme guidance** subsequently reframed the work toward a **logical European EEW research project** with real waveforms, theory, visualisation, tables, and this **Research Proposal & Technical Report**—using **United States (California) FDSN data** as a **completed pilot laboratory** where open APIs and pedagogical resources are mature (`docs/PROJECT_CHARTER.md`, `docs/RESEARCH_DIRECTION.md`).
+The present project was initiated within a **Swiss certificate programme** in geophysical risk assessment, aligned with **European expectations** for traceable analysis in natural-hazard research (open data, documented processing, explicit limitations). Initial effort targeted documentation of a recent **EarthESND** machine-learning architecture (Joshi, Singh, and Raman, 2026) as an optional literature track preserved for methodological comparison only. **Programme guidance** subsequently reframed the work toward a **logical European EEW research project** with real waveforms, theory, visualisation, tables, and this **Research Proposal & Technical Report**—using **United States (California) FDSN data** as a **completed pilot laboratory** where open APIs and pedagogical resources are mature (`docs/PROJECT_CHARTER.md`, `docs/RESEARCH_DIRECTION.md`).
 
 ### 1.3 Scope of this document
 
@@ -210,7 +210,7 @@ For each trace: peak and RMS amplitudes, noise RMS from a **0–5 s proxy window
 
 ### 6.6 EarthESND reference methodology (**completed software; not primary experiment**)
 
-The repository contains a **full EarthESND-aligned implementation** (preprocessing contracts, ESN/DENN, evaluation modules, **88 passing tests** on a complete checkout). **Scientific reproduction** of published K-NET tables is **not started**. Phase D **proposed** work may **compare** Western pilot features against EarthESND-inspired architectures without conflating geographic objectives.
+The repository documents an **EarthESND-aligned optional track** ([PAPER_REPRODUCTION.md](docs/PAPER_REPRODUCTION.md); preprocessing contracts, ESN/DENN concepts). Executable modules are **not included in v1.0.0**. **Scientific reproduction** of published K-NET tables is **not started**. Phase D **proposed** work may **compare** Western pilot features against EarthESND-inspired architectures without conflating geographic objectives.
 
 ---
 
@@ -326,7 +326,7 @@ Allen, R. M., and Kanamori, H. (2003). The potential for earthquake early warnin
 
 Hoshiba, M., Iwakiri, K., Hayashimoto, N., Shimoyama, T., Hirano, K., Yamada, Y., Ishigaki, Y., and Kikuta, H. (2008). Outline of the 2007–2008 earthquake early warning experiments in Japan. *Earth Planets Space*, 60, 123–129.
 
-Joshi, A., Singh, A. P., and Raman, B. (2026). EarthESND: Lightweight multiscale echo state network with dendritic neural network readout for earthquake early warning. *Computers and Electrical Engineering* (reference implementation discussed in `docs/EARTHESND_REVERSE_ENGINEERING.md`; **not primary geographic objective of this programme**).
+Joshi, A., Singh, A. P., and Raman, B. (2026). EarthESND: Lightweight multiscale echo state network with dendritic neural network readout for earthquake early warning. *Computers and Electrical Engineering* (optional literature track discussed in `docs/PAPER_REPRODUCTION.md`; **not primary geographic objective of this programme**).
 
 Krischer, L., Megies, T., Barsch, R., Beyreuther, M., Lecocq, T., Caudron, C., and Wassermann, J. (2015). ObsPy: A bridge for earthquake science. *Seismological Research Letters*, 86(3), 765–771.
 

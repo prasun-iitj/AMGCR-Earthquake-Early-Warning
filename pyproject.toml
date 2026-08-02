@@ -1,6 +1,6 @@
 [project]
 name = "amgcr-earthquake-research"
-version = "0.1.0"
+version = "1.0.0"
 description = "Research project for earthquake waveform analysis and early warning workflows"
 requires-python = ">=3.11"
 dependencies = [

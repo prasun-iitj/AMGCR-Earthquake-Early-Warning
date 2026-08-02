@@ -41,7 +41,7 @@ SLIDES: list[tuple[str, list[str], list[str]]] = [
         [
             "Primary target: European seismic networks",
             "California IRIS/EarthScope pilot: completed validation lab",
-            "EarthESND: reference only (88 tests on full checkout)",
+            "EarthESND: literature reference only (optional v3.0 track)",
             "Pilot science freeze: 2026-07-29",
         ],
         [],

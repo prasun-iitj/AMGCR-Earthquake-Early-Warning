@@ -1,6 +1,6 @@
 # AMGCR Earthquake Research — Website
 
-Version 2.0 interactive research platform (Phases 1–12 complete).
+Version **2.0.0** interactive research platform (Phases 1–12 complete · production audit PASS).
 
 This application is **separate** from the v1.0 scientific codebase. It lives entirely under `website/` and does not modify analysis scripts, reports, or documentation in the parent repository.
 

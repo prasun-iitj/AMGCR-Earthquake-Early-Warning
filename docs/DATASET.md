@@ -52,8 +52,8 @@ Analysis outputs (not raw data) live under **`reports/`** — see [EDA_REPORT.md
 | Dataset | Status | Doc |
 |---------|--------|-----|
 | Sample FDSN catalogue | Sample | `data/raw/catalogs/catalog.xml` |
-| EarthESND Japan (K-NET) | Planned (optional, Version 2.0) | [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md) |
-| Europe | Planned (Version 2.0) | [ROADMAP.md](ROADMAP.md) |
+| EarthESND Japan (K-NET) | Planned (optional, Version 3.0) | [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md) |
+| Europe | Planned (Version 3.0) | [ROADMAP.md](ROADMAP.md) |
 
 ---
 
@@ -63,4 +63,4 @@ For each acquisition, document: source, query parameters, download date, manifes
 
 ---
 
-Version: **1.3.0** (v1.0.0 submission release)
+Version: **1.4.0** (v1.0.0 science release · v2.0.0 platform)

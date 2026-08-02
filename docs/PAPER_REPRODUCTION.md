@@ -14,17 +14,17 @@
 | Aspect | Status |
 |--------|--------|
 | Paper selected as **literature & architecture reference** | ✅ |
-| **Software** reproduction in this repository | ✅ **Complete** |
+| **Software** reproduction in this repository | ⬜ **Not included in v1.0.0** (optional Version 3.0 track) |
 | **Scientific** reproduction (K-NET training, paper tables) | ⬜ **Not started** |
 | Role in certificate project | Benchmark only; **Western EEW research** is primary |
 
 ---
 
-## What “complete” means (software)
+## What the optional track includes (when scoped)
 
-- Primary paper: [REFERENCES.md](../references/REFERENCES.md) · local copy `references/papers/ScienceDirect_EarthESND_2026.pdf`
-- Pipeline modules under `src/` with **88 passing tests** on a full reference checkout
-- Config contracts under `configs/earthesnd/`
+- Primary paper: [REFERENCES.md](../references/REFERENCES.md)
+- Planned pipeline modules under `src/models/` and configs (not present in v1.0.0 release)
+- Scientific reproduction on K-NET-class data with a documented deviation log
 
 This does **not** imply published Table 3–6 numbers have been replicated.
 
@@ -34,7 +34,7 @@ This does **not** imply published Table 3–6 numbers have been replicated.
 
 Scientific reproduction requires at minimum:
 
-- Japan K-NET (and related) waveform acquisition at paper scale — **not started**; scope when revived under [ROADMAP.md](ROADMAP.md) Version 2.0 and this document
+- Japan K-NET (and related) waveform acquisition at paper scale — **not started**; scope when revived under [ROADMAP.md](ROADMAP.md) Version 3.0 and this document
 - Training and evaluation runs with documented hyperparameters
 - Comparison to paper metrics with a **deviation log**
 

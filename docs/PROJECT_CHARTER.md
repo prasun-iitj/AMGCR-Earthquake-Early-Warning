@@ -32,7 +32,7 @@ The **EarthESND** paper implementation remains in the repository as a **referenc
 
 ## 3. Background and evolution
 
-The repository **began as an EarthESND paper reproduction** effort. That **software reference implementation is complete** (see §6). Scientific reproduction of the paper’s published tables on K-NET-scale data is **not started** and is **out of scope** for the active certificate research unless explicitly revived.
+The repository **began as an EarthESND paper reproduction** effort. The **EarthESND literature track is documented** as an optional Version 3.0 path (see §6.1); executable modules are **not included in v1.0.0**. Scientific reproduction of the paper’s published tables on K-NET-scale data is **not started** and is **out of scope** for the active certificate research unless explicitly revived.
 
 **Active direction** follows professor guidance (§4): a logical European-oriented EEW research project with real data, theory, waveform analysis, visualisation, and written proposal sections.
 
@@ -67,13 +67,13 @@ Contributors and agents **must** align work with:
 - Exploratory waveform analysis, statistics, station and event studies.
 - Signal processing suitable for EEW research (filtering, STA/LTA, features) on Western datasets.
 - European dataset identification and integration (future).
-- Evaluation of **EarthESND-inspired** and other modern AI/ML approaches on **Western** datasets—not only Japan K-NET replication.
+- Evaluation of **EarthESND-inspired** and other modern AI/ML approaches on **Western** datasets—not only Japan K-NET replication (optional **Version 3.0** track).
 - Documentation, notebooks, figures, tables, and reproducible scripts under `scripts/`, `notebooks/`, `outputs/`.
 
 ### Reference only (maintain, do not prioritise for certificate deliverables)
 
-- Full **EarthESND** pipeline in `src/` (ESN, DENN, contracts, 88 tests).
-- **K-NET / PESMOS / Noto** optional Japan reproduction — see [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md) (Version 2.0 / optional track).
+- **EarthESND** executable pipeline — optional **Version 3.0** track; literature reference documented in [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md) (not included in v1.0.0 code tree).
+- **K-NET / PESMOS / Noto** optional Japan reproduction — see [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md).
 - Paper table reproduction (Tables 3–6) without a explicit programme decision.
 
 ### Out of scope unless requested
@@ -85,16 +85,17 @@ Contributors and agents **must** align work with:
 
 ## 6. Implementation status
 
-### 6.1 EarthESND reference implementation
+### 6.1 EarthESND reference track
 
 | Item | Status |
 |------|--------|
-| Software (phases 1–6 in repo spec) | **Complete** |
-| Automated tests | **88 passing** (`python -m pytest`) |
+| Literature and architecture reference (paper, optional track doc) | **Documented** |
+| Executable EarthESND pipeline in v1.0.0 release | **Not included** — optional Version 3.0 |
+| Acquisition framework automated tests | **9 passing** (`python -m pytest`) |
 | Scientific reproduction (K-NET-scale training + paper tables) | **Not started** |
 | Role going forward | Literature, architecture, and AI methodology **reference** |
 
-Key docs: [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md), `configs/earthesnd/`, [REFERENCES.md](../references/REFERENCES.md).
+Key docs: [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md), [REFERENCES.md](../references/REFERENCES.md).
 
 ### 6.2 USA dataset workflow
 
@@ -124,7 +125,7 @@ Key docs: [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md), `configs/earthesnd/`, 
 | Presentation & submission package (D-F2–F4) | **Complete** — `FINAL_SUBMISSION/` (validation **PASS**) |
 | Research Proposal v1 (superseded) | **Complete** — `reports/Research_Proposal_v1.md` |
 
-**Current stage:** **v1.0.0 Submission Release** (29 July 2026). Pilot analysis **frozen**. **Version 2.0** roadmap: [ROADMAP.md](ROADMAP.md).
+**Current stage:** **v1.0.0 Submission Release** (29 July 2026) · **Version 2.0 platform live** (2 August 2026). Pilot analysis **frozen**. Roadmap: [ROADMAP.md](ROADMAP.md).
 
 ### 6.4 Generic acquisition foundation
 
@@ -140,8 +141,8 @@ Key docs: [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md), `configs/earthesnd/`, 
 |---------|--------|--------|----------------|
 | California pilot waveforms | USA | **Complete** (acquired & analysed) | `data/raw/iris/`, `docs/IRIS_DATASET_REPORT.md` |
 | Sample FDSN catalogue | Generic | Sample only | `data/raw/catalogs/` |
-| EarthESND Japan (K-NET) | Japan | Planned (optional, Version 2.0) | [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md) |
-| European networks (e.g. ORFEUS, EIDA) | Europe | **Planned (Version 2.0)** | [ROADMAP.md](ROADMAP.md) |
+| EarthESND Japan (K-NET) | Japan | Planned (optional, Version 3.0) | [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md) |
+| European networks (e.g. ORFEUS, EIDA) | Europe | **Planned (Version 3.0)** | [ROADMAP.md](ROADMAP.md) |
 
 Storage conventions: `docs/DATASET.md`, `data/raw/`, `data/manifests/`, `data/processed/` (when used).
 
@@ -161,9 +162,13 @@ Storage conventions: `docs/DATASET.md`, `data/raw/`, `data/manifests/`, `data/pr
 | D-S1 / D-S2 statements | **Complete** |
 | D-F1–F4 submission deliverables | **Complete** |
 
-### Version 2.0 / future work
+### Version 2.0 platform (complete)
 
-See [ROADMAP.md](ROADMAP.md): interactive website, public dashboard, interactive visualisations, **Europe dataset expansion**, **EarthESND training/evaluation**, **real-time streaming**, **additional datasets**, **production deployment**, and related science hardening.
+Interactive website, dashboard, and explorers — **complete** (August 2026). See [V2_RELEASE_NOTES.md](V2_RELEASE_NOTES.md) and [../website/README.md](../website/README.md).
+
+### Version 2.1 / Version 3.0 (future work)
+
+See [ROADMAP.md](ROADMAP.md): **Version 2.1** platform maintenance; **Version 3.0** Europe dataset expansion, EarthESND training/evaluation, real-time streaming, operational deployment, and related science hardening.
 
 ---
 
@@ -203,6 +208,7 @@ See [ROADMAP.md](ROADMAP.md): interactive website, public dashboard, interactive
 
 | Version | Date | Summary |
 |---------|------|---------|
+| **1.4.0** | 2026-08-02 | Pre-release audit sync: v2.0 platform complete; EarthESND status aligned to v1.0.0 tree; LICENSE; reproducibility deps |
 | **1.3.0** | 2026-07-29 | **v1.0.0 Submission Release** — FINAL_SUBMISSION, D-F1–F4, D-S1/S2, validation PASS; Version 2.0 roadmap |
 | **1.2.0** | 2026-07-29 | Final doc sync: full pilot pipeline + Deliverable 1 complete; future work defined |
 | **1.1.0** | 2026-07-29 | Phase A.1 EDA and A.2 signal analysis on California pilot |

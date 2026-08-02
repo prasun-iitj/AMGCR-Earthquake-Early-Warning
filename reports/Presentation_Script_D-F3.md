@@ -40,7 +40,7 @@ That expectation is the motivation for a certificate project that emphasises rep
 
 The **primary long-term target** of this research programme is **European seismic networks**. The **California IRIS and EarthScope pilot** is a **completed methods laboratory**—a place to validate workflow, scripts, and reporting—not the intended final deployment region.
 
-The project began with an **EarthESND** reference implementation. That codebase is **complete** as a benchmark—the report cites **88 passing tests** on a full checkout—but it is **reference only** for this certificate narrative, not the scientific endpoint.
+The project began with an **EarthESND** literature track. That optional architecture benchmark is **documented** in the repository ([PAPER_REPRODUCTION.md](docs/PAPER_REPRODUCTION.md)) but is **reference only** for this certificate narrative, not the scientific endpoint.
 
 The completed active work uses **real waveforms**, theory, figures, tables, and formal reporting. All pilot science in this presentation reflects the freeze date **2026-07-29**.
 
@@ -402,7 +402,7 @@ California provides a **completed FDSN methods laboratory** with mature USGS and
 **No.** The completed pilot produces an **8×18 feature matrix** and normalized NPZ stages. The report states **no ML training or hold-out evaluation** and **no predictive performance metrics** in repository artefacts.
 
 **4. What is EarthESND’s role in your results?**  
-EarthESND is a **complete reference implementation** (**88 tests** on a full checkout) for **future comparative** studies. California pilot results **did not use** EarthESND `src/` modules; K-NET scientific reproduction is **not started**.
+EarthESND is a **documented literature reference** (optional Version 3.0 track) for **future comparative** studies. California pilot results **did not use** EarthESND modules; K-NET scientific reproduction is **not started**.
 
 **5. Why were instrument responses not applied?**  
 Preprocessing **attempted** response removal for all eight traces; **zero of eight** were applied in the completed run, and filtered traces remain in **counts**. The report documents this in preprocessing section 6.4 and limitations.

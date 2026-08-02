@@ -23,7 +23,7 @@ The pilot chain implemented in `scripts/download/` and `scripts/analysis/` produ
 
 Narrative interpretation lives in `docs/EDA_REPORT.md` through `docs/RESULTS_AND_DISCUSSION.md` and in `reports/Research_Proposal_v1.md`. Those reports **describe** outputs; they do not re-run computations.
 
-The **EarthESND reference implementation** in `src/` is separate (88 tests when the full reference tree is installed). **California pilot results were not produced with EarthESND modules** (`docs/RESULTS_AND_DISCUSSION.md`).
+The **EarthESND optional track** is documented separately ([PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md)) and is **not included in the v1.0.0 code tree**. **California pilot results were not produced with EarthESND modules** (`docs/RESULTS_AND_DISCUSSION.md`).
 
 ---
 
@@ -43,7 +43,13 @@ python -m venv .venv
 pip install -e ".[dev]"
 ```
 
-There is **no** separate `requirements.txt`; dependencies are declared in `pyproject.toml`.
+There is **no** `environment.yml`. Install via **`pyproject.toml`** (recommended) or pinned **`requirements.txt`** at repository root:
+
+```powershell
+pip install -e ".[dev]"
+# or
+pip install -r requirements.txt
+```
 
 **Network:** FDSN download and optional instrument-response steps require internet access to USGS and EarthScope services.
 

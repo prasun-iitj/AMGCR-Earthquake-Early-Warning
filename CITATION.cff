@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+title: "AMGCR Earthquake Research"
+message: >-
+  If you use this software, workflow, or documentation, please cite it using
+  the metadata in this file.
+type: software
+authors:
+  - family-names: Tripathi
+    given-names: Prasun Kumar
+    email: sanu.prasun@gmail.com
+repository-code: "https://github.com/prasun-iitj/AMGCR-Earthquake-Early-Warning"
+url: "https://github.com/prasun-iitj/AMGCR-Earthquake-Early-Warning"
+license: MIT
+version: 1.0.0
+date-released: 2026-07-29
+keywords:
+  - earthquake-early-warning
+  - seismology
+  - obspy
+  - fdsn
+  - reproducible-research
+  - machine-learning
+  - california-seismicity
+abstract: >-
+  Reproducible AI-assisted Earthquake Early Warning (EEW) research for Western
+  seismic regions, developed in the context of a Swiss certificate programme
+  (Assessment and Management of Geological and Climate Related Risk). Europe is
+  the long-term research focus; a completed California IRIS/EarthScope FDSN
+  pilot (eight events, 8×18 feature matrix) demonstrates the acquisition,
+  analysis, and reporting workflow. Version 2.0 adds an interactive Next.js
+  research platform under website/.
+preferred-citation:
+  type: report
+  title: >-
+    Reproducible AI-Assisted Earthquake Early Warning Research for Western
+    Seismic Regions
+  subtitle: >-
+    Method Development on a California FDSN Pilot with Transfer Path to
+    European Networks
+  authors:
+    - family-names: Tripathi
+      given-names: Prasun Kumar
+  date-released: 2026-07-29
+  url: >-
+    https://github.com/prasun-iitj/AMGCR-Earthquake-Early-Warning/blob/main/reports/Research_Report_Final.md

@@ -9,7 +9,7 @@ const repoRoot = path.resolve(websiteRoot, "..");
 
 const GITHUB_REPO_URL =
   process.env.NEXT_PUBLIC_GITHUB_REPO_URL ??
-  "https://github.com/amgcr/AMGCR_Earthquake_Research";
+  "https://github.com/prasun-iitj/AMGCR-Earthquake-Early-Warning";
 
 const SITE_ROUTES = {
   "README.md": "/docs/readme",

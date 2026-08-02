@@ -1,7 +1,8 @@
 # Version 2.0 Known Limitations
 
 **Platform:** AMGCR Earthquake Early Warning Research (website/)  
-**Science baseline:** v1.0.0 (unchanged)
+**Science baseline:** v1.0.0 (unchanged)  
+**Platform version:** 2.0.0
 
 This document lists intentional constraints and known gaps at the v2.0 public release. These are **not bugs** unless marked as defects.
 
@@ -28,6 +29,7 @@ This document lists intentional constraints and known gaps at the v2.0 public re
 | **Build-generated assets** | Figures, tables, waveforms, and search index are created by `npm run build` — not committed. |
 | **Canonical URL dependency** | Production SEO requires `NEXT_PUBLIC_SITE_URL` environment variable. |
 | **GitHub Pages** | Requires static export (`output: 'export'`) — not the default configuration. Vercel is recommended. |
+| **GitHub repo URL** | Default points to `prasun-iitj/AMGCR-Earthquake-Early-Warning`; override with `NEXT_PUBLIC_GITHUB_REPO_URL` if the repository moves. |
 
 ---
 
@@ -35,10 +37,9 @@ This document lists intentional constraints and known gaps at the v2.0 public re
 
 | Limitation | Detail |
 |------------|--------|
-| **Research page stale copy** | "Available in later phases" section lists explorers that now exist (map, waveforms, etc.). Content update deferred to avoid redesign scope. |
 | **GitHub not in header** | `/github` accessible via footer, resources, and search — not main navigation. |
-| **Presentation PDF** | Linked externally on GitHub; not embedded in site. |
-| **Europe dataset** | Documented as future direction; platform shows California pilot only. |
+| **Presentation PDF** | Linked externally on GitHub; not embedded in site (Version 2.1 candidate). |
+| **Europe dataset** | Documented as Version 3.0 direction; platform shows California pilot only. |
 
 ---
 
@@ -46,10 +47,8 @@ This document lists intentional constraints and known gaps at the v2.0 public re
 
 | Item | Severity | Detail |
 |------|----------|--------|
-| ESLint in hero slideshow | Low | `react-hooks/set-state-in-effect` warnings in `HeroBackgroundSlide.tsx` — functional, lint-only. |
-| Platform version string | Low | `siteConfig.version` may read `2.0.0-beta` until launch tag — update at deploy. |
-| No OG image asset | Low | Open Graph uses text metadata only; no dedicated `og-image.png` yet. |
-| No automated E2E tests | Medium | Manual and HTTP verification only; no Playwright/Cypress suite. |
+| **No automated E2E tests** | Medium | Manual and HTTP verification only; no Playwright/Cypress suite (Version 2.1). |
+| **Turbopack NFT warning** | Low | Build-time trace warning from `lib/content/stats.ts` filesystem reads — build succeeds. |
 
 ---
 
@@ -61,22 +60,20 @@ This document lists intentional constraints and known gaps at the v2.0 public re
 | **Map tile dependency** | Earthquake map requires OpenStreetMap tile servers (external network). |
 | **Leaflet bundle size** | Map page loads larger client JS — acceptable on broadband; slower on 2G. |
 | **Lighthouse on localhost** | Scores vary; run on production URL for authoritative metrics. |
+| **Decorative hero images** | Background slides use `alt=""` with sr-only descriptions — intentional for decorative imagery. |
 
 ---
 
-## 6. Out of scope for v2.0
+## 6. Out of scope for v2.0 (Version 2.1 / 3.0)
 
 The following remain on [ROADMAP.md](ROADMAP.md):
 
-- Europe dataset expansion (ORFEUS/EIDA)
-- ML model training UI
-- Real-time SeedLink streaming
-- Production EEW operational deployment
-- K-NET paper reproduction track
+**Version 2.1:** production deployment hardening, contact-form backend, embedded PDF, E2E tests  
+**Version 3.0:** Europe dataset expansion (ORFEUS/EIDA), ML model training UI, real-time SeedLink streaming, operational EEW deployment, K-NET paper reproduction track
 
 ---
 
 ## 7. Reporting issues
 
-For platform bugs: GitHub Issues on `amgcr/AMGCR_Earthquake_Research` (website/ label).  
+For platform bugs: GitHub Issues on [prasun-iitj/AMGCR-Earthquake-Early-Warning](https://github.com/prasun-iitj/AMGCR-Earthquake-Early-Warning) (`website/` label).  
 For science questions: refer to v1.0 submission report and reproducibility statement.
