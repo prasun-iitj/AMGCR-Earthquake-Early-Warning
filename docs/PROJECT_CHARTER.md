@@ -125,7 +125,7 @@ Key docs: [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md), [REFERENCES.md](../ref
 | Presentation & submission package (D-F2–F4) | **Complete** — `FINAL_SUBMISSION/` (validation **PASS**) |
 | Research Proposal v1 (superseded) | **Complete** — `reports/Research_Proposal_v1.md` |
 
-**Current stage:** **v1.0.0 Submission Release** (29 July 2026) · **Version 2.0 platform live** (2 August 2026). Pilot analysis **frozen**. Roadmap: [ROADMAP.md](ROADMAP.md).
+**Current stage:** **v1.0.0 Submission Release** (29 July 2026) · **Version 2.0 platform live** (2 August 2026) · **Swiss frozen STA/LTA validation complete** (STEP 2K) · **ML feasibility NO-GO** (STEP 3A). California pilot analysis **frozen**. Roadmap: [ROADMAP.md](ROADMAP.md).
 
 ### 6.4 Generic acquisition foundation
 

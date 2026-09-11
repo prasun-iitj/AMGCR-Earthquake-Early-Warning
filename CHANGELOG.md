@@ -4,7 +4,7 @@ Project history is maintained in **[docs/CHANGELOG.md](docs/CHANGELOG.md)**.
 
 ## Latest
 
-**[Unreleased]** — STEP 2K: Frozen STA/LTA (threshold 8.0) independently evaluated on Set C (550/550 records; 401 detected, 149 NO DETECTION). No retuning, no ML. California v1.0.0, Set A, and Set C membership untouched.
+**[Unreleased]** — Scientific freeze: STEP 2K frozen STA/LTA validation on Set C; consistency audit; STEP 3A ML feasibility **NO-GO**. Threshold 8.0, Set A, Set C, and California v1.0.0 unchanged.
 
 **[1.4.0]** — Pre-release audit: LICENSE, dependency sync, EarthESND alignment, `CITATION.cff`, `CODE_OF_CONDUCT.md` (2026-08-02).
 

@@ -14,7 +14,7 @@ Current progress for **AMGCR Earthquake Research**. Authoritative scope: [PROJEC
 | **Primary focus** | Europe (long-term) |
 | **Pilot implementation** | USA / California (IRIS–EarthScope) — **complete** |
 | **Reference track** | EarthESND literature track **documented**; executable pipeline optional (v3.0); K-NET reproduction **not started** |
-| **Current stage** | **v1.0 submission complete** · **Version 2.0 platform live** (2026-08-02) · **Swiss SED acquisition complete** (2026-09-06) · **Swiss independent frozen STA/LTA validation complete** (2026-09-11, STEP 2K) |
+| **Current stage** | **v1.0 submission complete** · **Version 2.0 platform live** (2026-08-02) · **Swiss frozen STA/LTA validation complete** (2026-09-11, STEP 2K) · **ML feasibility audit: NO-GO** (STEP 3A) · **scientific submission freeze** |
 
 ---
 
@@ -40,6 +40,8 @@ Current progress for **AMGCR Earthquake Research**. Authoritative scope: [PROJEC
 | **Swiss independent validation-set design** | ✅ **Design/audit corrected** (2026-09-11, STEP 2I.1) — Independent Swiss/Adjacent-Border Validation Set (15 locked events) |
 | **Swiss independent validation acquisition** | ✅ **Complete** (2026-09-11, STEP 2J) — 15/15 events, 550 CH HHZ MiniSEED + StationXML |
 | **Swiss independent frozen STA/LTA validation** | ✅ **Complete** (2026-09-11, STEP 2K) — threshold **8.0** evaluated as pre-declared; 550/550 records; **no** retuning |
+| **Swiss scientific consistency audit** | ✅ **Complete** (2026-09-11) — headline metrics agree across CSVs/JSON/results markdown |
+| **Swiss ML feasibility audit** | ✅ **Complete** (2026-09-11, STEP 3A) — **NO-GO**; no independent Set A labels / no Swiss feature matrix; **no model trained** |
 
 ---
 
@@ -88,7 +90,7 @@ See [ROADMAP.md](ROADMAP.md). Summary:
 
 ## Current goal
 
-Preserve **v1.0 submission integrity** (frozen pilot artefacts). Maintain **Version 2.0 platform** (`website/`). Plan **Version 2.1** and **Version 3.0** without re-running or rewriting v1.0 science unless explicitly approved.
+Preserve **v1.0 submission integrity** (frozen California artefacts). Keep Swiss Set C, threshold **8.0**, and STEP 2K results frozen. **Do not** train ML unless independent Set A labels are later acquired. Maintain **Version 2.0 platform** (`website/`).
 
 ---
 

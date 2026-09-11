@@ -24,8 +24,10 @@ Reproducible **AI-assisted EEW** research for **Western regions**: **Europe** as
 | D-S1 / D-S2 statements | ✅ Complete |
 | Final report & FINAL_SUBMISSION | ✅ Complete |
 | Validation | ✅ PASS |
+| Swiss Set A analysis + Set C frozen STA/LTA (STEP 2K) | ✅ Complete |
+| Swiss ML feasibility (STEP 3A) | ✅ **NO-GO** (no model trained) |
 
-**Active stage:** **Version 2.0 platform live** (2026-08-02) — see [V2_RELEASE_NOTES.md](V2_RELEASE_NOTES.md) and [website/README.md](../website/README.md). **Future work:** [ROADMAP.md](ROADMAP.md) (v2.1 / v3.0).
+**Active stage:** **scientific submission freeze** — California v1.0.0 frozen; Swiss threshold 8.0 and Set C frozen. Version 2.0 platform remains live (2026-08-02) — see [V2_RELEASE_NOTES.md](V2_RELEASE_NOTES.md). **Future work:** [ROADMAP.md](ROADMAP.md) (v2.1 / v3.0). Do not train ML on existing Set A tables.
 
 Primary narrative: [Research_Report_Final.md](../reports/Research_Report_Final.md) · Package: [FINAL_SUBMISSION/](../FINAL_SUBMISSION/)
 

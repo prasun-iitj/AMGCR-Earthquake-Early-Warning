@@ -82,6 +82,7 @@ No Swiss analysis, ML, or operational EEW claims. California v1.0.0 is separate 
 | Swiss independent validation candidates | **Design complete** — Independent Swiss/Adjacent-Border Validation Set (15 locked events) | [SWISS_INDEPENDENT_VALIDATION_PLAN.md](SWISS_INDEPENDENT_VALIDATION_PLAN.md) |
 | Swiss independent validation waveforms | **Acquisition complete** (STEP 2J) — 15 events, 550 CH HHZ records; MiniSEED gitignored | [SWISS_VALIDATION_ACQUISITION_REPORT.md](SWISS_VALIDATION_ACQUISITION_REPORT.md) |
 | Swiss independent frozen STA/LTA validation | **Complete** (STEP 2K) — threshold 8.0 evaluated as pre-declared; 550/550 records | [SWISS_INDEPENDENT_VALIDATION_RESULTS.md](SWISS_INDEPENDENT_VALIDATION_RESULTS.md) |
+| Swiss ML feasibility | **NO-GO** (STEP 3A) — inspection only; no model trained | [SWISS_ML_FEASIBILITY_AUDIT.md](SWISS_ML_FEASIBILITY_AUDIT.md) |
 | EarthESND Japan (K-NET) | Planned (optional, Version 3.0) | [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md) |
 | Broader Europe (ORFEUS/EIDA) | Planned (Version 3.0) | [ROADMAP.md](ROADMAP.md) |
 

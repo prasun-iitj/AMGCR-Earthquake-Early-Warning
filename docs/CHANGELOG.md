@@ -8,6 +8,20 @@ The format is inspired by **Keep a Changelog** and follows semantic versioning w
 
 ---
 
+## [Unreleased] - Scientific freeze and ML feasibility audit (2026-09-11)
+
+### Added
+
+- STEP 3A: ML feasibility inspection of existing Set A tables. Decision **NO-GO** (no independent labels, no Swiss feature matrix, no model trained).
+  - `docs/SWISS_ML_FEASIBILITY_AUDIT.md`
+
+### Notes
+
+- Consistency audit confirmed STEP 2K headline metrics across CSVs, JSON, and the results markdown.
+- Threshold 8.0, Set C, Set A, and California v1.0.0 were not modified.
+
+---
+
 ## [Unreleased] - Swiss independent frozen STA/LTA validation (2026-09-11)
 
 ### Added

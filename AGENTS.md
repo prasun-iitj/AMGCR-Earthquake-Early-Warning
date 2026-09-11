@@ -10,4 +10,4 @@ Cursor and other AI agents must follow:
 
 **Version 2.0 platform (2026-08-02):** Interactive website in `website/` — **complete** (v2.0.0). See [docs/V2_RELEASE_NOTES.md](docs/V2_RELEASE_NOTES.md) and [website/README.md](website/README.md).
 
-**Future work:** [docs/ROADMAP.md](docs/ROADMAP.md) — Version 2.1 (platform maintenance) and Version 3.0 (Europe, ML, streaming, operational deployment). EarthESND is **reference only**.
+**Future work:** [docs/ROADMAP.md](docs/ROADMAP.md) — Version 2.1 (platform maintenance) and Version 3.0. Swiss Set C STA/LTA validation is **frozen** (STEP 2K). Supervised ML on existing Set A tables is **NO-GO** ([docs/SWISS_ML_FEASIBILITY_AUDIT.md](docs/SWISS_ML_FEASIBILITY_AUDIT.md)). EarthESND is **reference only**.

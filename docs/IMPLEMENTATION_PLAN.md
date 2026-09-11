@@ -96,7 +96,7 @@ See [ROADMAP.md](ROADMAP.md).
 |-------|---------|----------|
 | Platform maintenance | 2.1 | Deployment, E2E tests, contact backend, embedded PDF |
 | Data | 3.0 | Europe dataset expansion, additional Western catalogues |
-| ML | 3.0 | EarthESND training/evaluation; tabular baselines |
+| ML | 3.0 | Swiss Set A tables: **NO-GO** (STEP 3A). EarthESND training only if explicitly requested |
 | Operations | 3.0 | Real-time streaming (SeedLink), operational deployment |
 | Quality | 3.0 | Instrument response caching, pre-origin noise windows, larger **N** |
 
