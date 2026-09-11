@@ -1,0 +1,85 @@
+{
+  "role": "independent_swiss_adjacent_border_validation",
+  "validation_dataset": {
+    "name": "independent_swiss_adjacent_border_validation_set",
+    "display_name": "Independent Swiss/Adjacent-Border Validation Set",
+    "n_events": 15,
+    "n_records_expected": 550,
+    "waveform_manifest": "data/manifests/sed_switzerland_validation_waveforms.csv",
+    "picks_csv": "data/manifests/sed_switzerland_validation_picks.csv"
+  },
+  "frozen_configuration": {
+    "processing": "causal_response_corrected_velocity",
+    "bandpass_hz": [
+      0.1,
+      15.0
+    ],
+    "component": "HHZ",
+    "sta_window_s": 0.5,
+    "lta_window_s": 10.0,
+    "trigger_on": 8.0,
+    "trigger_off": 0.5,
+    "search_start_offset_s": 0.0,
+    "search_end_offset_s": 90.0,
+    "edge_mute": "max_of_lta_and_five_percent_taper"
+  },
+  "windows": {
+    "acquisition": {
+      "start_offset_s": -60.0,
+      "end_offset_s": 90.0
+    },
+    "detection": {
+      "start_offset_s": 0.0,
+      "end_offset_s": 90.0
+    },
+    "pre_event_noise": {
+      "start_offset_s": -60.0,
+      "end_offset_s": -10.0
+    }
+  },
+  "scientific_boundary": {
+    "retune_threshold": false,
+    "sweep_thresholds": false,
+    "reselection_set_c": false,
+    "modify_set_a": false,
+    "modify_california": false,
+    "train_ml": false
+  },
+  "signal_processing": {
+    "source_config": "configs/swiss_signal_analysis.yaml",
+    "preprocessing": {
+      "detrend_demean": true,
+      "detrend_linear": true,
+      "taper_type": "hann",
+      "taper_max_percentage": 0.05
+    },
+    "instrument_response": {
+      "output": "VEL",
+      "water_level": 60.0,
+      "pre_filt_f1_hz": 0.05,
+      "pre_filt_f2_hz": 0.08,
+      "pre_filt_f3_nyquist_fraction": 0.4,
+      "pre_filt_f4_nyquist_fraction": 0.8
+    },
+    "bandpass": {
+      "freqmin_hz": 0.1,
+      "freqmax_hz": 15.0,
+      "corners": 4,
+      "zerophase": false,
+      "note": "Detection uses the established causal band-pass; amplitude Set A used a separate zero-phase copy."
+    },
+    "sta_lta": {
+      "sta_window_s": 0.5,
+      "lta_window_s": 10.0,
+      "trigger_on": 8.0,
+      "trigger_off": 0.5,
+      "component": "HHZ",
+      "edge_mute": "max(LTA, 5% of duration) at each end"
+    }
+  },
+  "set_c_locked": true,
+  "set_a_untouched": true,
+  "california_v1_untouched": true,
+  "threshold_retuned": false,
+  "threshold_is_optimal": false
+}

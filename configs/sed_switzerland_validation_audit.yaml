@@ -1,0 +1,161 @@
+# Frozen proposed STA/LTA configuration — reserved for independent validation.
+# Do not retune these numbers on the validation events.
+# 8.0 is the pre-declared/proposed threshold from the 20-event development set.
+
+validation_dataset:
+  name: independent_swiss_adjacent_border_validation_set
+  display_name: Independent Swiss/Adjacent-Border Validation Set
+  note: >
+    Nine of fifteen proposed events are immediate-border. The 15-event selection
+    is locked and is not silently re-balanced toward Swiss-interior events.
+
+frozen_configuration:
+  description: >
+    Proposed Swiss STA/LTA configuration selected from the 20-event development
+    dataset. Reserved for independent validation. Not an optimum and not yet validated.
+  processing: causal_response_corrected_velocity
+  bandpass_hz: [0.1, 15.0]
+  component: HHZ
+  sta_window_s: 0.5
+  lta_window_s: 10.0
+  trigger_on: 8.0
+  trigger_off: 0.5
+  search_start_offset_s: 0.0
+  search_end_offset_s: 90.0
+  edge_mute: max_of_lta_and_five_percent_taper
+
+# Three distinct windows. Do not call these the same "window".
+windows:
+  acquisition:
+    start_offset_s: -60.0
+    end_offset_s: 90.0
+    role: waveform_download_interval
+  detection:
+    start_offset_s: 0.0
+    end_offset_s: 90.0
+    role: eew_search_interval
+  pre_event_noise:
+    start_offset_s: -60.0
+    end_offset_s: -10.0
+    role: qc_noise_reference_only
+
+data_leakage:
+  statement: >
+    The 20-event development set was used to diagnose/propose the configuration.
+    The 15-event validation set was selected without using STA/LTA validation
+    performance. The frozen configuration is not changed after validation
+    results are observed.
+
+development_dataset:
+  name: swiss_sed_methods_transfer_pilot
+  n_events: 20
+  manifest_csv: data/manifests/sed_switzerland_pilot_events.csv
+  config: configs/sed_switzerland_pilot.yaml
+  role: diagnosis_and_proposal_only
+  event_ids:
+    - 2020btnrcj
+    - 2020vcnjhp
+    - 2020wcoepg
+    - 2020wfjqus
+    - 2021mvcsag
+    - 2021yhkcdx
+    - 2021zhdzar
+    - 2022qpgqyu
+    - 2022rvutkg
+    - 2023frzpnq
+    - 2024hxsnga
+    - 2024jelhrc
+    - 2024kyoses
+    - 2024movmgz
+    - 2024tbdkpx
+    - 2025ofuozq
+    - 2025ovpxfj
+    - 2025rgmtqp
+    - 2026idhhja
+    - 2022ezutme
+
+# Official SED/ETH FDSN — same endpoints as the development acquisition.
+endpoints:
+  event: "https://eida.ethz.ch/fdsnws/event/1/"
+  station: "https://eida.ethz.ch/fdsnws/station/1/"
+  dataselect: "https://eida.ethz.ch/fdsnws/dataselect/1/"
+  availability: "https://eida.ethz.ch/fdsnws/availability/1/"
+
+catalog:
+  starttime: "2020-01-01T00:00:00"
+  endtime: "2026-09-11T00:00:00"
+  minmagnitude: 2.5
+  minlatitude: 45.4
+  maxlatitude: 48.3
+  minlongitude: 5.6
+  maxlongitude: 11.1
+  format: text
+  allowed_event_types:
+    - earthquake
+    - induced earthquake
+
+# Approximate interior Switzerland box used only to label Swiss vs immediate-border.
+# Events in the ECOS-09 query box but outside this box are labelled immediate-border
+# unless the SED region string already indicates a neighbouring country.
+swiss_interior_box:
+  minlatitude: 45.82
+  maxlatitude: 47.81
+  minlongitude: 5.96
+  maxlongitude: 10.49
+
+# Locked Set C. Do not silently replace these IDs.
+locked_proposed_event_ids:
+  - 2020flmsvb
+  - 2020vcnoon
+  - 2021ffattd
+  - 2021toxjpc
+  - 2022gzvhhy
+  - 2022isnvgj
+  - 2022ugepue
+  - 2023ksedgz
+  - 2024bvrces
+  - 2024cxfhdh
+  - 2024ftcvhn
+  - 2024ujblmf
+  - 2025phgpma
+  - 2025rtcqvh
+  - 2026bklhob
+
+station_selection:
+  network: CH
+  availability_channels: "HHZ,HHN,HHE"
+  availability_station_batch_size: 10
+
+diversity:
+  n_proposed: 15
+  min_epicentral_separation_km: 15.0
+  year_bins: [[2020, 2021], [2022, 2023], [2024, 2024], [2025, 2026]]
+  # Quotas align with year_bins (4+4+4+3=15). Do not rank events by STA/LTA quality.
+  year_quotas: [4, 4, 4, 3]
+  min_swiss_territory: 6
+  magnitude_bins: [[2.5, 3.0], [3.0, 3.5], [3.5, 4.0], [4.0, 10.0]]
+  lat_split: 46.85
+  lon_split: 8.35
+
+validation_metrics_reserved:
+  station_event_detection_coverage:
+    requires: [hhz_trace_in_detection_window]
+  automatic_trigger_time:
+    requires: [hhz_trace, frozen_sta_lta, detection_window]
+  same_station_independent_sed_first_p_time:
+    requires: [sed_manual_ch_first_p_pick_at_same_station]
+  trigger_minus_p_error:
+    requires: [automatic_trigger_time, same_station_independent_sed_first_p_time]
+  median_absolute_timing_error_s:
+    requires: [paired_trigger_and_same_station_p]
+  percent_triggers_after_reference_p:
+    requires: [paired_trigger_and_same_station_p]
+  pre_event_noise_trigger_rate:
+    requires: [hhz_trace_in_pre_event_noise_window]
+  n_with_usable_same_station_independent_picks:
+    requires: [sed_manual_ch_first_p_at_same_station, readable_hhz_trace]
+
+output:
+  candidate_csv: data/manifests/sed_switzerland_validation_candidates.csv
+  reports_dir: reports/switzerland_validation_audit
+  logs_dir: logs/switzerland

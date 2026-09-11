@@ -1,0 +1,4 @@
+channel,n_records,noise_record_fraction,pre_origin_record_fraction,post_origin_coverage,median_search_latency_s,median_post_origin_latency_s,median_n_onsets_noise
+HHE,120,1.0,0.5166666666666667,1.0,-0.14232450000000002,3.588615,7.0
+HHN,120,0.9916666666666667,0.5083333333333333,1.0,-0.362473,4.1533370000000005,7.0
+HHZ,120,0.9916666666666667,0.6,1.0,-2.0099805,4.4416585,7.0

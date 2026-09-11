@@ -1,0 +1,89 @@
+# STA/LTA methods-transfer investigation (Swiss pilot).
+# Does not modify California v1.0.0 or Swiss raw MiniSEED.
+# Sensitivity analysis only — not a validated detector.
+
+pilot:
+  name: switzerland_sta_lta_transfer
+  description: >
+    Investigate why California STA/LTA (0.5/10 s, threshold 2.5) produces
+    widespread pre-event onsets on Swiss HH data. Not an EEW performance study.
+
+inputs:
+  analysis_config: configs/swiss_signal_analysis.yaml
+  manifest_csv: data/manifests/sed_switzerland_pilot_events.csv
+  trace_metrics_csv: reports/swiss_signal_analysis/swiss_trace_metrics.csv
+
+output:
+  reports_dir: reports/swiss_signal_analysis/sta_lta_transfer
+  figures_dir: reports/swiss_signal_analysis/sta_lta_transfer/figures
+  log_file: logs/switzerland/swiss_sta_lta_transfer.log
+
+# Baseline copied from the Swiss signal-analysis run (not retuned here).
+baseline:
+  sta_window_s: 0.5
+  lta_window_s: 10.0
+  threshold: 2.5
+  off_threshold: 0.5
+  primary_channel: HHZ
+
+windows:
+  noise_start_offset_s: -60.0
+  noise_end_offset_s: -10.0
+  pre_origin_start_offset_s: -5.0
+  pre_origin_end_offset_s: 0.0
+  post_origin_start_offset_s: 0.0
+  post_origin_end_offset_s: 90.0
+
+thresholds:
+  - 2.5
+  - 3.0
+  - 3.5
+  - 4.0
+  - 4.5
+  - 5.0
+  - 6.0
+  - 8.0
+  - 10.0
+
+sta_lta_windows:
+  - {sta_window_s: 0.5, lta_window_s: 10.0}
+  - {sta_window_s: 1.0, lta_window_s: 10.0}
+  - {sta_window_s: 1.0, lta_window_s: 20.0}
+  - {sta_window_s: 2.0, lta_window_s: 20.0}
+
+processing_variants:
+  - raw_counts
+  - response_vel
+  - causal_bandpass
+  - zerophase_bandpass
+
+components:
+  - HHZ
+  - HHN
+  - HHE
+
+# Pre-declared proposal rule (applied after the grid; not iterated to look good).
+proposal_rule:
+  sta_window_s: 0.5
+  lta_window_s: 10.0
+  processing: causal_bandpass
+  channel: HHZ
+  max_noise_record_fraction: 0.25
+  min_post_origin_coverage: 0.75
+  fallback_min_post_origin_coverage: 0.70
+  note: >
+    Propose the lowest listed threshold at 0.5/10 s causal HHZ for which
+    the fraction of records with >=1 noise-window onset is below 0.25
+    AND the fraction with >=1 post-origin onset in [0, 90] s is at least 0.75.
+    If none meet both, propose the lowest threshold that keeps post-origin
+    coverage >= 0.70 while minimising the noise-window record fraction.
+    This is a proposed configuration for a future validation study, not an optimum.
+
+figures:
+  example_pre_event:
+    event_id: 2020btnrcj
+    station: EMBD
+  example_post_origin:
+    event_id: 2020btnrcj
+    station: JAUN
+  dpi: 200

@@ -1,0 +1,5 @@
+processing,channel,sta_window_s,lta_window_s,threshold,n_records,n_records_noise_onset,n_records_pre_origin_onset,n_records_post_origin_onset,n_records_no_search_trigger,n_records_search_pre_origin,n_records_search_post_origin,noise_record_fraction,pre_origin_record_fraction,post_origin_coverage,n_onsets_noise_total,n_onsets_pre_origin_total,n_onsets_post_origin_total,median_search_latency_s,median_post_origin_latency_s
+raw_counts,HHZ,0.5,10.0,2.5,120,117,66,120,0,66,54,0.975,0.55,1.0,753,86,637,-0.301815,3.9227895
+response_vel,HHZ,0.5,10.0,2.5,120,119,70,119,0,70,50,0.9916666666666667,0.5833333333333334,0.9916666666666667,765,95,655,-0.7322695,3.892128
+causal_bandpass,HHZ,0.5,10.0,2.5,120,119,72,120,0,72,48,0.9916666666666667,0.6,1.0,804,99,683,-2.0099805,4.4416585
+zerophase_bandpass,HHZ,0.5,10.0,2.5,120,120,74,118,0,74,46,1.0,0.6166666666666667,0.9833333333333333,838,99,702,-1.4776835,3.7404495

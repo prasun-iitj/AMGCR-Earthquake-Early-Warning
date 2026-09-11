@@ -16,6 +16,8 @@ Reproducible **AI-assisted Earthquake Early Warning (EEW)** research for **Weste
 | [FINAL_SUBMISSION/FINAL_SUBMISSION_README.md](FINAL_SUBMISSION/FINAL_SUBMISSION_README.md) | PDF/DOCX/PPTX submission package |
 | [docs/RESEARCH_DIRECTION.md](docs/RESEARCH_DIRECTION.md) | Reference vs active research; Europe vs California |
 | [docs/ROADMAP.md](docs/ROADMAP.md) | Archived v1.0 milestones · v2.0 platform complete · v2.1/v3.0 future work |
+| [docs/SED_SWITZERLAND_DATASET_REPORT.md](docs/SED_SWITZERLAND_DATASET_REPORT.md) | Swiss SED methods-transfer acquisition (v3.0 start) |
+| [docs/SWISS_INDEPENDENT_VALIDATION_RESULTS.md](docs/SWISS_INDEPENDENT_VALIDATION_RESULTS.md) | Frozen Set C STA/LTA validation (STEP 2K) |
 
 **AI assistants:** read [docs/PROJECT_CHARTER.md](docs/PROJECT_CHARTER.md) and [docs/AI_AGENT.md](docs/AI_AGENT.md).
 
@@ -46,7 +48,7 @@ Reproducible **AI-assisted Earthquake Early Warning (EEW)** research for **Weste
 
 **Version 2.0 platform (complete — 2 August 2026):** Interactive research website in [`website/`](website/) — dashboard, workflow, results, dataset, waveforms, map, documentation portal, global search. Platform version **2.0.0** · Science baseline **v1.0.0** (frozen). See [docs/V2_RELEASE_NOTES.md](docs/V2_RELEASE_NOTES.md).
 
-**Version 2.1 / 3.0 future work** is documented in [docs/ROADMAP.md](docs/ROADMAP.md) (platform maintenance, Europe expansion, ML, streaming, operational deployment). The **v1.0 analysis chain is frozen** at 2026-07-29 artefacts.
+**Version 2.1 / 3.0:** platform maintenance; Swiss SED acquisition **complete** (waveforms only); Europe analysis, ML, streaming, operational deployment remain future work — [docs/ROADMAP.md](docs/ROADMAP.md). The **v1.0 California analysis chain is frozen** at 2026-07-29 artefacts.
 
 ## Key reports and deliverables
 
@@ -72,11 +74,13 @@ Analysis artefacts: `reports/eda/`, `reports/signal_analysis/`, `reports/preproc
 AMGCR_Earthquake_Research/
 ├── FINAL_SUBMISSION/       # v1.0 PDF/DOCX/PPTX + checklists (official submission)
 ├── configs/                # Acquisition and project YAML
-├── data/manifests/         # California pilot event CSV (tracked)
-├── data/raw/iris/          # Pilot MiniSEED (local; gitignored — see D-S2)
+├── data/manifests/         # California + Swiss event CSVs (tracked)
+├── data/raw/iris/          # California MiniSEED (local; gitignored — see D-S2)
+├── data/raw/switzerland/   # Swiss SED MiniSEED (local; gitignored)
+├── data/metadata/switzerland/  # Swiss StationXML (XML gitignored)
 ├── docs/                   # Charter, phase reports, submission statements
 ├── reports/                # Final report, figures, tables, presentation assets
-├── scripts/download/       # FDSN pilot download (executed)
+├── scripts/download/       # California (frozen) + Swiss SED download
 ├── scripts/analysis/       # EDA → features (executed; frozen)
 ├── src/                    # Acquisition framework (+ reserved package stubs)
 ├── tests/
@@ -89,8 +93,9 @@ Python 3.11+, ObsPy, NumPy, Pandas, Matplotlib, SciPy, PyYAML, Git.
 
 ## Verification
 
-- Acquisition framework: **9 passing tests** (`python -m pytest`).
+- Acquisition framework + Swiss helpers: `python -m pytest` (existing California tests unchanged; Swiss tests in `tests/test_switzerland_pilot.py`).
 - California pilot: **8×18** feature matrix, **24** figures — see [FINAL_SUBMISSION/VALIDATION_SUMMARY.md](FINAL_SUBMISSION/VALIDATION_SUMMARY.md).
+- Swiss SED methods-transfer: **20** events, **120** CH HH 3C records — [docs/SED_SWITZERLAND_DATASET_REPORT.md](docs/SED_SWITZERLAND_DATASET_REPORT.md).
 
 ## License, citation, and community
 

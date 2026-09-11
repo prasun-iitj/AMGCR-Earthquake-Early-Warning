@@ -68,15 +68,19 @@ Platform maintenance and polish — **not** new science.
 
 ---
 
-## Version 3.0 (planned)
+## Version 3.0 (in progress)
 
-Science and infrastructure expansion — **not** part of v1.0 or v2.0 scope.
+Science and infrastructure expansion — **not** part of v1.0 or v2.0 scope. California v1.0.0 remains frozen.
 
 ### 1. European and extended datasets
 
-- **Europe dataset expansion** — ORFEUS/EIDA and national FDSN endpoints  
+- **Swiss SED methods-transfer acquisition** — ✅ **Complete** (2026-09-06): 20 events, 120 CH HH 3C records, StationXML, pre-event window. See [SED_SWITZERLAND_DATASET_REPORT.md](SED_SWITZERLAND_DATASET_REPORT.md).
+- **Swiss independent validation-set design** — ✅ **Corrected** (2026-09-11, STEP 2I.1): Independent Swiss/Adjacent-Border Validation Set; acquisition/detection/noise windows distinguished. See [SWISS_INDEPENDENT_VALIDATION_PLAN.md](SWISS_INDEPENDENT_VALIDATION_PLAN.md).
+- **Swiss independent validation acquisition** — ✅ **Complete** (2026-09-11, STEP 2J): origin−60 s → origin+90 s; 15/15 events, 550 CH HHZ records. See [SWISS_VALIDATION_ACQUISITION_REPORT.md](SWISS_VALIDATION_ACQUISITION_REPORT.md).
+- **Swiss independent frozen STA/LTA validation** — ✅ **Complete** (2026-09-11, STEP 2K): pre-declared threshold **8.0** evaluated on locked Set C; 550/550 records; **no** retuning. See [SWISS_INDEPENDENT_VALIDATION_RESULTS.md](SWISS_INDEPENDENT_VALIDATION_RESULTS.md).
+- **Europe dataset expansion** — further ORFEUS/EIDA / national FDSN endpoints  
 - **Additional datasets** — scaled California/Western USA catalogues; optional K-NET track  
-- Cross-region feature comparison (USA vs Europe)
+- Cross-region feature comparison (USA vs Europe) — **not started**
 
 ### 2. Machine learning and evaluation
 
@@ -109,7 +113,7 @@ Optional reference track: K-NET paper tables — ⬜ not started ([PAPER_REPRODU
 | California pilot science | ✅ Complete | — | Scale / extend (v3.0) |
 | Submission deliverables | ✅ Complete | — | — |
 | Web / dashboard / explorers | — | ✅ Complete | Maintenance (v2.1) |
-| Europe / ML / streaming / deploy | — | — | ⬜ Planned (v3.0) |
+| Europe / ML / streaming / deploy | — | — | Swiss SED acquisition ✅; analysis/ML ⬜ |
 
 ---
 

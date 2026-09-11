@@ -26,8 +26,12 @@ Support **European-focused EEW research** using a **completed California FDSN pi
 | Reproducibility & data availability (D-S1/S2) | ✅ Complete |
 | Final report & FINAL_SUBMISSION (D-F1–F4) | ✅ Complete |
 | Submission validation | ✅ PASS |
+| Swiss SED methods-transfer acquisition | ✅ Complete (2026-09-06; no Swiss analysis/ML) |
+| Swiss independent validation-set design | ✅ Design/audit corrected (2026-09-11, STEP 2I.1) |
+| Swiss independent validation acquisition | ✅ Complete (2026-09-11, STEP 2J); MiniSEED/StationXML |
+| Swiss independent frozen STA/LTA validation | ✅ Complete (2026-09-11, STEP 2K); threshold 8.0 evaluated as pre-declared; no retuning |
 
-**Current stage:** **v1.0 submission complete** · **Version 2.0 platform live** (2026-08-02). **Default new work:** [ROADMAP.md](ROADMAP.md) **Version 2.1** (platform) and **Version 3.0** (science)—not re-running the pilot pipeline unless explicitly requested.
+**Current stage:** **v1.0 submission complete** · **Version 2.0 platform live** (2026-08-02) · **Swiss SED acquisition complete** · **Swiss independent frozen validation complete** (STEP 2K). **Do not** re-run the California pilot pipeline unless explicitly requested. **Do not** retune 8.0, train ML, or add datasets unless explicitly requested.
 
 ---
 
@@ -48,7 +52,7 @@ For EarthESND optional track only: [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md
 Unless the user explicitly asks otherwise:
 
 1. **Version 2.1** — platform maintenance, deployment, content sync, optional UX (`website/` only)  
-2. **Version 3.0 — European dataset expansion** — FDSN pilots, manifests, reports  
+2. **Version 3.0 — European dataset expansion** — Swiss SED acquisition is done; next is Swiss analysis only if requested, then further FDSN pilots  
 3. **Version 3.0 — EarthESND training & evaluation** — Western data; deviation logs  
 4. **Version 3.0 — Real-time streaming** and operational deployment planning  
 5. **Version 3.0 — Additional datasets** and comparative evaluation  

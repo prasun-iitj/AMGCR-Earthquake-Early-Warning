@@ -1,0 +1,84 @@
+{
+  "pilot": {
+    "name": "switzerland_sed_signal_analysis",
+    "description": "Waveform signal analysis of the Swiss SED methods-transfer pilot. Uses the Swiss acquisition manifest only. Does not modify raw MiniSEED or any California artefacts.\n"
+  },
+  "inputs": {
+    "acquisition_config": "configs/sed_switzerland_pilot.yaml",
+    "manifest_csv": "data/manifests/sed_switzerland_pilot_events.csv",
+    "raw_dir": "data/raw/switzerland",
+    "metadata_dir": "data/metadata/switzerland",
+    "california_signal_summary": "reports/signal_analysis/signal_analysis_summary.json"
+  },
+  "output": {
+    "reports_dir": "reports/swiss_signal_analysis",
+    "figures_dir": "reports/swiss_signal_analysis/figures",
+    "logs_dir": "logs/switzerland",
+    "log_file": "logs/switzerland/swiss_signal_analysis.log"
+  },
+  "windows": {
+    "noise_start_offset_s": -60.0,
+    "noise_end_offset_s": -10.0,
+    "event_start_offset_s": 0.0,
+    "event_end_offset_s": 180.0,
+    "expected_trigger_start_offset_s": 0.0,
+    "expected_trigger_end_offset_s": 90.0
+  },
+  "preprocessing": {
+    "detrend_demean": true,
+    "detrend_linear": true,
+    "taper_type": "hann",
+    "taper_max_percentage": 0.05
+  },
+  "bandpass": {
+    "type": "bandpass",
+    "freqmin_hz": 0.1,
+    "freqmax_hz": 15.0,
+    "corners": 4,
+    "zerophase": true,
+    "nyquist_guard": 0.9
+  },
+  "instrument_response": {
+    "output": "VEL",
+    "water_level": 60.0,
+    "pre_filt_f1_hz": 0.05,
+    "pre_filt_f2_hz": 0.08,
+    "pre_filt_f3_nyquist_fraction": 0.4,
+    "pre_filt_f4_nyquist_fraction": 0.8
+  },
+  "sta_lta": {
+    "sta_window_s": 0.5,
+    "lta_window_s": 10.0,
+    "threshold": 2.5,
+    "off_threshold": 0.5,
+    "primary_channel": "HHZ",
+    "mute_taper_edges": true,
+    "extra_start_mute_s": 0.0,
+    "filter_zerophase": false,
+    "search_start_offset_s": -5.0,
+    "search_end_offset_s": 90.0
+  },
+  "snr": {
+    "formula": "snr_peak = max(|x|) in event window / RMS(x) in noise window; snr_rms  = RMS(x) in event window / RMS(x) in noise window.\n",
+    "epsilon": 1e-12
+  },
+  "amplitude": {
+    "report_pgv_if_units_m_s": true,
+    "report_pga_from_velocity_derivative": true
+  },
+  "plausibility": {
+    "max_peak_velocity_m_s": 0.2,
+    "max_peak_acceleration_m_s2": 5.0
+  },
+  "required_channels": [
+    "HHZ",
+    "HHN",
+    "HHE"
+  ],
+  "figures": {
+    "example_event_id": "2020btnrcj",
+    "example_station": "EMBD",
+    "dpi": 200
+  },
+  "generated_at_utc": "2026-09-06T20:34:16.863804+00:00"
+}

@@ -14,7 +14,7 @@ Current progress for **AMGCR Earthquake Research**. Authoritative scope: [PROJEC
 | **Primary focus** | Europe (long-term) |
 | **Pilot implementation** | USA / California (IRIS–EarthScope) — **complete** |
 | **Reference track** | EarthESND literature track **documented**; executable pipeline optional (v3.0); K-NET reproduction **not started** |
-| **Current stage** | **v1.0 submission complete** · **Version 2.0 platform live** (2026-08-02) |
+| **Current stage** | **v1.0 submission complete** · **Version 2.0 platform live** (2026-08-02) · **Swiss SED acquisition complete** (2026-09-06) · **Swiss independent frozen STA/LTA validation complete** (2026-09-11, STEP 2K) |
 
 ---
 
@@ -36,6 +36,10 @@ Current progress for **AMGCR Earthquake Research**. Authoritative scope: [PROJEC
 | FINAL_SUBMISSION package (D-F4) | ✅ **Complete** |
 | Submission validation | ✅ **PASS** |
 | **Version 2.0 interactive platform** (`website/`) | ✅ **Complete** (2 August 2026) |
+| **Swiss SED methods-transfer acquisition** | ✅ **Complete** (2026-09-06) — 20 events, 120 CH 3C MiniSEED records |
+| **Swiss independent validation-set design** | ✅ **Design/audit corrected** (2026-09-11, STEP 2I.1) — Independent Swiss/Adjacent-Border Validation Set (15 locked events) |
+| **Swiss independent validation acquisition** | ✅ **Complete** (2026-09-11, STEP 2J) — 15/15 events, 550 CH HHZ MiniSEED + StationXML |
+| **Swiss independent frozen STA/LTA validation** | ✅ **Complete** (2026-09-11, STEP 2K) — threshold **8.0** evaluated as pre-declared; 550/550 records; **no** retuning |
 
 ---
 

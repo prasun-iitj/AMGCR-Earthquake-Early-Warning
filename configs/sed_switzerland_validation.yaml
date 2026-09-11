@@ -1,0 +1,53 @@
+# STEP 2K — Frozen independent validation of the pre-declared STA/LTA configuration.
+# Do not retune 8.0. Do not search thresholds. Do not modify Set A or California.
+
+role: independent_swiss_adjacent_border_validation
+audit_config: configs/sed_switzerland_validation_audit.yaml
+signal_processing_config: configs/swiss_signal_analysis.yaml
+acquisition_config: configs/sed_switzerland_validation_acquisition.yaml
+
+validation_dataset:
+  name: independent_swiss_adjacent_border_validation_set
+  display_name: Independent Swiss/Adjacent-Border Validation Set
+  n_events: 15
+  n_records_expected: 550
+  waveform_manifest: data/manifests/sed_switzerland_validation_waveforms.csv
+  picks_csv: data/manifests/sed_switzerland_validation_picks.csv
+
+# Copied from the audit config and checked for equality at load time.
+frozen_configuration:
+  processing: causal_response_corrected_velocity
+  bandpass_hz: [0.1, 15.0]
+  component: HHZ
+  sta_window_s: 0.5
+  lta_window_s: 10.0
+  trigger_on: 8.0
+  trigger_off: 0.5
+  search_start_offset_s: 0.0
+  search_end_offset_s: 90.0
+  edge_mute: max_of_lta_and_five_percent_taper
+
+windows:
+  acquisition:
+    start_offset_s: -60.0
+    end_offset_s: 90.0
+  detection:
+    start_offset_s: 0.0
+    end_offset_s: 90.0
+  pre_event_noise:
+    start_offset_s: -60.0
+    end_offset_s: -10.0
+
+scientific_boundary:
+  retune_threshold: false
+  sweep_thresholds: false
+  reselection_set_c: false
+  modify_set_a: false
+  modify_california: false
+  train_ml: false
+
+output:
+  reports_dir: reports/switzerland_validation
+  figures_dir: reports/switzerland_validation/figures
+  logs_dir: logs/switzerland
+  log_name: sed_switzerland_independent_validation.log

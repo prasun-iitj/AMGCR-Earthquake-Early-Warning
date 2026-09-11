@@ -1,0 +1,105 @@
+# Swiss methods-transfer pilot — SED/ETH FDSN acquisition
+# Separate from the frozen California v1.0.0 pipeline. Do not point these
+# paths at data/raw/iris or the California manifest.
+
+pilot:
+  name: switzerland_sed_methods_transfer
+  description: >
+    Swiss seismic-data acquisition (methods-transfer pilot) using official
+    SED/ETH FDSN services. Not an operational EEW system and not a trained model.
+
+endpoints:
+  event: "https://eida.ethz.ch/fdsnws/event/1/"
+  station: "https://eida.ethz.ch/fdsnws/station/1/"
+  dataselect: "https://eida.ethz.ch/fdsnws/dataselect/1/"
+  availability: "https://eida.ethz.ch/fdsnws/availability/1/"
+  obspy_client_base: "https://eida.ethz.ch"
+
+catalog:
+  starttime: "2020-01-01T00:00:00"
+  endtime: "2026-09-07T00:00:00"
+  minmagnitude: 2.5
+  minlatitude: 45.4
+  maxlatitude: 48.3
+  minlongitude: 5.6
+  maxlongitude: 11.1
+  format: text
+
+# Short IDs only. Full SED resource IDs are resolved from the live catalogue.
+event_ids:
+  - 2020btnrcj
+  - 2020vcnjhp
+  - 2020wcoepg
+  - 2020wfjqus
+  - 2021mvcsag
+  - 2021yhkcdx
+  - 2021zhdzar
+  - 2022qpgqyu
+  - 2022rvutkg
+  - 2023frzpnq
+  - 2024hxsnga
+  - 2024jelhrc
+  - 2024kyoses
+  - 2024movmgz
+  - 2024tbdkpx
+  - 2025ofuozq
+  - 2025ovpxfj
+  - 2025rgmtqp
+  - 2026idhhja
+  - 2022ezutme
+
+window:
+  pre_event_seconds: 90.0
+  post_event_seconds: 210.0
+  # Validation thresholds applied to actual MiniSEED, not availability metadata
+  min_pre_event_seconds: 60.0
+  min_post_event_seconds: 60.0
+
+station_selection:
+  network: CH
+  preferred_bands:
+    - HH
+    - BH
+  channel_components:
+    - Z
+    - N
+    - E
+  prefer_three_component: true
+  allow_incomplete_three_component: false
+  max_stations_per_event: 6
+  # Distance bins (km from hypocentre). Stations are taken from each occupied
+  # bin rather than the N nearest stations, to reduce proximity-only bias.
+  diversity_method: distance_bins
+  distance_bins_km: [0, 50, 100, 150, 250, 400]
+  max_stations_per_bin: 2
+  availability_station_batch_size: 8
+  availability_channels: "HHZ,HHN,HHE,BHZ,BHN,BHE"
+
+stationxml:
+  level: response
+  required_for_selection: false
+
+response_test:
+  enabled: true
+  event_ids:
+    - 2020btnrcj
+    - 2022rvutkg
+    - 2025ovpxfj
+  max_stations_per_event: 3
+  output: VEL
+  water_level: 60.0
+  pre_filt: [0.08, 0.1, 20.0, 25.0]
+
+retry:
+  attempts: 3
+  delay_seconds: 1.0
+  timeout_seconds: 60
+  sleep_between_requests_seconds: 0.35
+  stop_on_http_codes: [429, 503]
+
+output:
+  raw_dir: data/raw/switzerland
+  metadata_dir: data/metadata/switzerland
+  manifest_csv: data/manifests/sed_switzerland_pilot_events.csv
+  logs_dir: logs/switzerland
+  reports_dir: reports/switzerland_pilot

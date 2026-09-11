@@ -13,7 +13,8 @@ AMGCR_Earthquake_Research/
 ├── FINAL_SUBMISSION/          # Official v1.0 PDF/DOCX/PPTX + validation
 ├── configs/                   # EarthESND reference YAML + acquisition config
 ├── data/
-│   ├── manifests/             # Tracked pilot event CSV
+│   ├── manifests/             # Tracked California + Swiss event CSVs
+│   ├── metadata/              # Swiss StationXML (XML often gitignored)
 │   └── raw/                   # MiniSEED, sample catalogues (often gitignored)
 ├── docs/                      # Charter, phase reports, submission statements
 ├── references/                # Literature (EarthESND paper notes, REFERENCES)
@@ -49,7 +50,15 @@ Submission-ready exports (D-F4): final report, presentation, script, D-S1/S2 PDF
 | Path | Role |
 |------|------|
 | `manifests/iris_california_pilot_events.csv` | **8** California pilot events (tracked) |
-| `raw/iris/` | Pilot MiniSEED by event id (local; often gitignored — [DATA_AVAILABILITY_STATEMENT.md](DATA_AVAILABILITY_STATEMENT.md)) |
+| `manifests/sed_switzerland_pilot_events.csv` | **20** Swiss SED development events / **120** event–station rows (tracked) |
+| `manifests/sed_switzerland_validation_candidates.csv` | Independent Swiss/Adjacent-Border validation **candidate pool** (tracked) |
+| `manifests/sed_switzerland_validation_waveforms.csv` | STEP 2J event–station HHZ acquisition manifest (tracked; MiniSEED gitignored) |
+| `manifests/sed_switzerland_validation_picks.csv` | Same-station SED first-P provenance for acquired records |
+| `raw/iris/` | California MiniSEED by event id (local; often gitignored — [DATA_AVAILABILITY_STATEMENT.md](DATA_AVAILABILITY_STATEMENT.md)) |
+| `raw/switzerland/` | Swiss MiniSEED by event id (local; gitignored) |
+| `raw/switzerland_validation/` | Set C validation MiniSEED by event id (local; gitignored) |
+| `metadata/switzerland/` | Swiss StationXML (XML gitignored; regenerable) |
+| `metadata/switzerland_validation/` | Set C StationXML (XML gitignored; regenerable) |
 | `raw/catalogs/` | Sample QuakeML for generic FDSN tests |
 | `processed/` | Reserved; v1.0 features in `reports/features/` |
 
@@ -69,6 +78,7 @@ Project governance, phase reports, and submission statements. Start with [PROJEC
 |------|----------|
 | Final deliverables | `Research_Report_Final.md`, presentation outline/script |
 | Phase artefacts | `eda/`, `signal_analysis/`, `preprocessing/`, `features/` |
+| Swiss independent validation | `switzerland_validation/` (STEP 2K metrics/JSON); `switzerland_validation_acquisition/`; `switzerland_validation_audit/` |
 | Tables & figures | `tables/`, `figures/` (figures often gitignored; regenerate per D-S1) |
 | Proposal v1 | `Research_Proposal_v1.md` (superseded for submission) |
 
@@ -76,16 +86,21 @@ Project governance, phase reports, and submission statements. Start with [PROJEC
 
 ## scripts/
 
-- `download/download_iris_california_pilot.py` — USGS + EarthScope pilot acquisition  
+- `download/download_iris_california_pilot.py` — USGS + EarthScope California acquisition (**frozen**)  
+- `download/download_sed_switzerland_pilot.py` — SED/ETH Swiss methods-transfer acquisition  
+- `download/download_sed_switzerland_validation.py` — locked Set C validation MiniSEED/StationXML (STEP 2J)  
+- `audit/audit_swiss_validation_candidates.py` — independent Swiss validation-set catalogue/availability audit (no MiniSEED)  
+- `analysis/run_swiss_independent_validation.py` — frozen STA/LTA evaluation on Set C (STEP 2K; threshold 8.0 not retuned)  
 - `analysis/run_california_*.py` — frozen v1.0 analysis chain  
 
-Do **not** change analysis scripts for documentation-only releases unless explicitly approved.
+Do **not** change California analysis scripts for documentation-only releases unless explicitly approved.
 
 ---
 
 ## src/
 
 - **`acquisition/`** — reusable FDSN catalogue/waveform helpers  
+- **`analysis/`** — Swiss signal/STA-LTA helpers (Set A and frozen Set C validation); California analysis remains in `scripts/analysis/`  
 - **`models/`** (EarthESND reference) — preprocessing, ESN/DENN, evaluation; **reference only** for certificate science  
 
 Configs: `configs/earthesnd/`.

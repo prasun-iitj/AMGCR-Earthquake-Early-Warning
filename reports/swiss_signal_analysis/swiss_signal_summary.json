@@ -1,0 +1,141 @@
+{
+  "generated_at_utc": "2026-09-06T20:34:24.427596+00:00",
+  "config": "configs/swiss_signal_analysis.yaml",
+  "n_manifest_rows": 120,
+  "n_events": 20,
+  "n_ok": 120,
+  "n_partial": 0,
+  "n_fail": 0,
+  "response": {
+    "attempted": 120,
+    "successful": 120,
+    "failed": 0
+  },
+  "units_after_counts": {
+    "m/s": 120
+  },
+  "three_component": 120,
+  "pre_event_window_covered": 120,
+  "event_window_covered": 120,
+  "sta_lta": {
+    "parameters": {
+      "sta_s": 0.5,
+      "lta_s": 10.0,
+      "threshold": 2.5
+    },
+    "trigger_class_counts": {
+      "search_window_pre_origin": 72,
+      "expected_event_window": 48
+    },
+    "n_false_trigger_candidates": 119,
+    "latency_s": {
+      "n": 120,
+      "min": -4.966137,
+      "max": 74.837036,
+      "mean": 1.061904,
+      "median": -2.0099805
+    }
+  },
+  "snr_peak_hhz": {
+    "n": 120,
+    "min": 4.487446127675794,
+    "max": 42343.25174111923,
+    "mean": 1633.0304350884808,
+    "median": 279.92178058480954
+  },
+  "snr_peak_horizontal": {
+    "n": 120,
+    "min": 5.164277359186617,
+    "max": 43718.94768471766,
+    "mean": 1990.6596164867847,
+    "median": 369.1406660050388
+  },
+  "snr_peak_vector": {
+    "n": 120,
+    "min": 4.887356015428879,
+    "max": 37365.94387041234,
+    "mean": 1691.413031309184,
+    "median": 323.2522990544852
+  },
+  "peak_vel_hhz": {
+    "n": 120,
+    "min": 1.2483773337653815e-06,
+    "max": 0.00589504033283388,
+    "mean": 0.0001954930736645225,
+    "median": 5.5637281477963506e-05
+  },
+  "peak_vel_horizontal": {
+    "n": 120,
+    "min": 1.113222889100116e-06,
+    "max": 0.014991638422282355,
+    "mean": 0.00038115620926201034,
+    "median": 9.145395638062658e-05
+  },
+  "peak_acc_hhz": {
+    "n": 120,
+    "min": 3.8361022704695214e-05,
+    "max": 0.18630392124613374,
+    "mean": 0.00670004002593873,
+    "median": 0.0016677775135090969
+  },
+  "epicentral_distance_km": {
+    "n": 120,
+    "min": 6.134120222502586,
+    "max": 161.79418236846854,
+    "mean": 64.27113314462161,
+    "median": 56.85845154271027
+  },
+  "hypocentral_distance_km": {
+    "n": 120,
+    "min": 7.364147492588399,
+    "max": 162.0778483459854,
+    "mean": 65.06521065790659,
+    "median": 57.00500187623589
+  },
+  "sampling_rate_hz_counts": {
+    "200.0": 108,
+    "120.0": 12
+  },
+  "plausibility_counts": {
+    "ok": 120
+  },
+  "failures": [],
+  "figures": [
+    "fig01_representative_3c_waveform.png",
+    "fig02_response_correction_hhz.png",
+    "fig03_noise_vs_event_window.png",
+    "fig04_sta_lta_example.png",
+    "fig04b_sta_lta_additional_class.png",
+    "fig05_snr_distribution.png",
+    "fig06_trigger_latency_distribution.png",
+    "fig07_peak_amplitude_distribution.png",
+    "fig08_station_event_map.png",
+    "fig09_distance_vs_amplitude.png",
+    "fig10_california_swiss_structural_comparison.png"
+  ],
+  "windows": {
+    "noise_start_offset_s": -60.0,
+    "noise_end_offset_s": -10.0,
+    "event_start_offset_s": 0.0,
+    "event_end_offset_s": 180.0,
+    "expected_trigger_start_offset_s": 0.0,
+    "expected_trigger_end_offset_s": 90.0
+  },
+  "bandpass": {
+    "type": "bandpass",
+    "freqmin_hz": 0.1,
+    "freqmax_hz": 15.0,
+    "corners": 4,
+    "zerophase": true,
+    "nyquist_guard": 0.9
+  },
+  "language": {
+    "dataset": "Swiss pilot dataset / Swiss seismic-data acquisition / methods-transfer pilot",
+    "triggers": "automatic STA/LTA triggers, not validated P arrivals",
+    "not": [
+      "operational Swiss EEW",
+      "validated Swiss EEW",
+      "European EEW model"
+    ]
+  }
+}

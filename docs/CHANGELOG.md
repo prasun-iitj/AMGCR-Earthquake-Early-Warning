@@ -8,6 +8,104 @@ The format is inspired by **Keep a Changelog** and follows semantic versioning w
 
 ---
 
+## [Unreleased] - Swiss independent frozen STA/LTA validation (2026-09-11)
+
+### Added
+
+- STEP 2K: evaluated the pre-declared STA/LTA configuration (causal 0.1–15 Hz HHZ, 0.5/10 s, trigger_on **8.0**) on locked Set C.
+  - 15/15 events, 550/550 usable records; 401 detections, 149 NO DETECTION
+  - `scripts/analysis/run_swiss_independent_validation.py`
+  - `src/analysis/switzerland_validation.py`
+  - `configs/sed_switzerland_validation.yaml`
+  - `docs/SWISS_INDEPENDENT_VALIDATION_RESULTS.md`
+  - `reports/switzerland_validation/`
+  - `tests/test_switzerland_validation.py`
+
+### Notes
+
+- Threshold 8.0 was not retuned and is not claimed to be optimal.
+- SED/manual first-P picks are independent references, not ground truth.
+- California v1.0.0, Set A, and Set C membership were not modified.
+- No ML training and no operational EEW claim.
+
+---
+
+## [Unreleased] - Swiss independent validation acquisition (2026-09-11)
+
+### Added
+
+- STEP 2J: acquired locked Set C MiniSEED and StationXML using origin − 60 s → origin + 90 s.
+  - 15/15 events, 550 CH HHZ records, 550 StationXML responses verified per station/channel/interval
+  - `scripts/download/download_sed_switzerland_validation.py`
+  - `docs/SWISS_VALIDATION_ACQUISITION_REPORT.md`
+  - `data/manifests/sed_switzerland_validation_waveforms.csv`
+  - `data/manifests/sed_switzerland_validation_picks.csv`
+
+### Notes
+
+- No STA/LTA, no validation metrics, no retuning of threshold 8.0, no Set C reselection.
+- California v1.0.0 and the 20-event Swiss development set were not modified.
+
+---
+
+## [Unreleased] - Swiss independent validation design correction (2026-09-11)
+
+### Changed
+
+- STEP 2I.1: distinguished **acquisition** (origin−60 s → origin+90 s), **detection** (origin → origin+90 s), and **pre-event noise/QC** (origin−60 s → origin−10 s) windows.
+- Renamed the locked 15-event subset to **Independent Swiss/Adjacent-Border Validation Set** (9/15 immediate-border). Set C IDs were not replaced.
+- HH 3C availability is now a **unique CH station-code** count covering the acquisition window.
+- StationXML status set to **not yet verified per station** (BALST spot-check is not full coverage).
+- Same-station SED first-P ∩ HHZ availability recorded; event-level picks are not treated as a station reference.
+
+### Notes
+
+- No validation MiniSEED download, no STA/LTA on Set C, no metric computation, no retuning of threshold 8.0.
+- California v1.0.0 and the 20-event Swiss development set were not modified.
+
+---
+
+## [Unreleased] - Swiss independent validation design (2026-09-11)
+
+### Added
+
+- Independent Swiss validation-set **design/audit** (no MiniSEED download, no STA/LTA on the new events, no retuning of threshold 8.0):
+  - `docs/SWISS_INDEPENDENT_VALIDATION_PLAN.md`
+  - `data/manifests/sed_switzerland_validation_candidates.csv` (227 independent earthquakes; 15 proposed)
+  - `configs/sed_switzerland_validation_audit.yaml`
+  - `src/acquisition/switzerland_validation_audit.py`
+  - `scripts/audit/audit_swiss_validation_candidates.py`
+  - `tests/test_switzerland_validation_audit.py`
+  - `reports/switzerland_validation_audit/audit_summary.json`
+
+### Notes
+
+- The 20-event Swiss development set and the frozen California v1.0.0 pipeline were **not** modified.
+- Threshold 8.0 remains the pre-declared/proposed value from the development set, reserved for independent validation. It is not claimed to be optimal or already validated.
+
+---
+
+## [Unreleased] - Swiss SED methods-transfer acquisition (2026-09-06)
+
+### Added
+
+- Swiss seismic-data acquisition pipeline (separate from frozen California v1.0.0):
+  - `configs/sed_switzerland_pilot.yaml`
+  - `src/acquisition/switzerland_pilot.py`
+  - `scripts/download/download_sed_switzerland_pilot.py`
+  - `data/manifests/sed_switzerland_pilot_events.csv` (20 events, 120 event–station rows)
+  - `docs/SED_SWITZERLAND_DATASET_REPORT.md`
+  - `tests/test_switzerland_pilot.py`
+  - `reports/switzerland_pilot/` acquisition and response-test JSON
+- Raw MiniSEED under `data/raw/switzerland/`; StationXML under `data/metadata/switzerland/` (local / gitignored XML).
+
+### Notes
+
+- California IRIS pilot, analysis scripts, reports, figures, and `FINAL_SUBMISSION/` were **not** modified.
+- No Swiss STA/LTA, feature engineering, or ML. Not an operational EEW system.
+
+---
+
 ## [1.4.0] - Pre-release audit (2026-08-02)
 
 ### Added

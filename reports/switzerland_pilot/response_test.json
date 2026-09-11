@@ -1,0 +1,101 @@
+[
+  {
+    "event_id": "2020btnrcj",
+    "station": "EMBD",
+    "channel": "HHE;HHN;HHZ",
+    "units_before": "counts",
+    "units_after": "m/s",
+    "response_test_status": "PASS",
+    "exception_if_failed": "",
+    "waveform_file": "data/raw/switzerland/2020btnrcj/CH.EMBD.--.HH.20200125T191328.mseed",
+    "stationxml_file": "data/metadata/switzerland/2020btnrcj/CH.EMBD.--.HH.xml"
+  },
+  {
+    "event_id": "2020btnrcj",
+    "station": "VANNI",
+    "channel": "HHE;HHN;HHZ",
+    "units_before": "counts",
+    "units_after": "m/s",
+    "response_test_status": "PASS",
+    "exception_if_failed": "",
+    "waveform_file": "data/raw/switzerland/2020btnrcj/CH.VANNI.--.HH.20200125T191328.mseed",
+    "stationxml_file": "data/metadata/switzerland/2020btnrcj/CH.VANNI.--.HH.xml"
+  },
+  {
+    "event_id": "2020btnrcj",
+    "station": "JAUN",
+    "channel": "HHE;HHN;HHZ",
+    "units_before": "counts",
+    "units_after": "m/s",
+    "response_test_status": "PASS",
+    "exception_if_failed": "",
+    "waveform_file": "data/raw/switzerland/2020btnrcj/CH.JAUN.--.HH.20200125T191328.mseed",
+    "stationxml_file": "data/metadata/switzerland/2020btnrcj/CH.JAUN.--.HH.xml"
+  },
+  {
+    "event_id": "2022rvutkg",
+    "station": "HAUIG",
+    "channel": "HHE;HHN;HHZ",
+    "units_before": "counts",
+    "units_after": "m/s",
+    "response_test_status": "PASS",
+    "exception_if_failed": "",
+    "waveform_file": "data/raw/switzerland/2022rvutkg/CH.HAUIG.--.HH.20220910T155813.mseed",
+    "stationxml_file": "data/metadata/switzerland/2022rvutkg/CH.HAUIG.--.HH.xml"
+  },
+  {
+    "event_id": "2022rvutkg",
+    "station": "MUTEZ",
+    "channel": "HHE;HHN;HHZ",
+    "units_before": "counts",
+    "units_after": "m/s",
+    "response_test_status": "PASS",
+    "exception_if_failed": "",
+    "waveform_file": "data/raw/switzerland/2022rvutkg/CH.MUTEZ.--.HH.20220910T155813.mseed",
+    "stationxml_file": "data/metadata/switzerland/2022rvutkg/CH.MUTEZ.--.HH.xml"
+  },
+  {
+    "event_id": "2022rvutkg",
+    "station": "SULZ",
+    "channel": "HHE;HHN;HHZ",
+    "units_before": "counts",
+    "units_after": "m/s",
+    "response_test_status": "PASS",
+    "exception_if_failed": "",
+    "waveform_file": "data/raw/switzerland/2022rvutkg/CH.SULZ.--.HH.20220910T155813.mseed",
+    "stationxml_file": "data/metadata/switzerland/2022rvutkg/CH.SULZ.--.HH.xml"
+  },
+  {
+    "event_id": "2025ovpxfj",
+    "station": "ZUR",
+    "channel": "HHE;HHN;HHZ",
+    "units_before": "counts",
+    "units_after": "m/s",
+    "response_test_status": "PASS",
+    "exception_if_failed": "",
+    "waveform_file": "data/raw/switzerland/2025ovpxfj/CH.ZUR.--.HH.20250730T014235.mseed",
+    "stationxml_file": "data/metadata/switzerland/2025ovpxfj/CH.ZUR.--.HH.xml"
+  },
+  {
+    "event_id": "2025ovpxfj",
+    "station": "DAGMA",
+    "channel": "HHE;HHN;HHZ",
+    "units_before": "counts",
+    "units_after": "m/s",
+    "response_test_status": "PASS",
+    "exception_if_failed": "",
+    "waveform_file": "data/raw/switzerland/2025ovpxfj/CH.DAGMA.--.HH.20250730T014235.mseed",
+    "stationxml_file": "data/metadata/switzerland/2025ovpxfj/CH.DAGMA.--.HH.xml"
+  },
+  {
+    "event_id": "2025ovpxfj",
+    "station": "SLE",
+    "channel": "HHE;HHN;HHZ",
+    "units_before": "counts",
+    "units_after": "m/s",
+    "response_test_status": "PASS",
+    "exception_if_failed": "",
+    "waveform_file": "data/raw/switzerland/2025ovpxfj/CH.SLE.--.HH.20250730T014235.mseed",
+    "stationxml_file": "data/metadata/switzerland/2025ovpxfj/CH.SLE.--.HH.xml"
+  }
+]

@@ -1,0 +1,113 @@
+# Swiss methods-transfer signal analysis — separate from frozen California v1.0.0.
+# Not an operational EEW system. Not a trained model.
+
+pilot:
+  name: switzerland_sed_signal_analysis
+  description: >
+    Waveform signal analysis of the Swiss SED methods-transfer pilot.
+    Uses the Swiss acquisition manifest only. Does not modify raw MiniSEED
+    or any California artefacts.
+
+inputs:
+  acquisition_config: configs/sed_switzerland_pilot.yaml
+  manifest_csv: data/manifests/sed_switzerland_pilot_events.csv
+  raw_dir: data/raw/switzerland
+  metadata_dir: data/metadata/switzerland
+  california_signal_summary: reports/signal_analysis/signal_analysis_summary.json
+
+output:
+  reports_dir: reports/swiss_signal_analysis
+  figures_dir: reports/swiss_signal_analysis/figures
+  logs_dir: logs/switzerland
+  log_file: logs/switzerland/swiss_signal_analysis.log
+
+# Time windows are relative to catalogue origin (UTC).
+# Noise is true pre-event data, not the first seconds of an origin-aligned trace.
+windows:
+  noise_start_offset_s: -60.0
+  noise_end_offset_s: -10.0
+  # Amplitude / SNR signal window: origin to +180 s so S energy at the
+  # farthest selected stations (~400 km, S ≈ 110–120 s) remains inside the window.
+  event_start_offset_s: 0.0
+  event_end_offset_s: 180.0
+  # Window used only to classify whether an STA/LTA trigger is a plausible
+  # first-arrival candidate (P at 400 km is ~65–70 s at 6 km/s).
+  expected_trigger_start_offset_s: 0.0
+  expected_trigger_end_offset_s: 90.0
+
+preprocessing:
+  detrend_demean: true
+  detrend_linear: true
+  taper_type: hann
+  taper_max_percentage: 0.05
+
+# California B.1 used 0.1–15 Hz on 40 Hz BHZ. Swiss HH Nyquist is 60 or 100 Hz,
+# so 15 Hz is not a sampling limit. The same passband is used so Swiss vs
+# California comparison is a methods-transfer comparison, not a new EEW band.
+# A higher Swiss-only fmax is intentionally not applied in this step.
+bandpass:
+  type: bandpass
+  freqmin_hz: 0.1
+  freqmax_hz: 15.0
+  corners: 4
+  zerophase: true
+  nyquist_guard: 0.9
+
+instrument_response:
+  output: VEL
+  water_level: 60.0
+  # Cosine taper for deconvolution. Corners 3–4 scale with Nyquist so the
+  # California 40 Hz pre_filt (20, 25 Hz) is not copied onto 120/200 Hz HH.
+  pre_filt_f1_hz: 0.05
+  pre_filt_f2_hz: 0.08
+  pre_filt_f3_nyquist_fraction: 0.40
+  pre_filt_f4_nyquist_fraction: 0.80
+
+sta_lta:
+  sta_window_s: 0.5
+  lta_window_s: 10.0
+  threshold: 2.5
+  off_threshold: 0.5
+  primary_channel: HHZ
+  # Mute start/end of the characteristic function so taper/filter transients
+  # are not counted as earthquake triggers. Unmasked first-crossing is still
+  # stored as a diagnostic. California raw origin-aligned traces did not need this.
+  mute_taper_edges: true
+  extra_start_mute_s: 0.0
+  filter_zerophase: false
+  # Official trigger: first onset in this origin-relative window.
+  # First-on-trace (California style) is not used as the primary Swiss pick
+  # because 90 s of pre-event plus taper/filter startup produces early CFT crossings.
+  search_start_offset_s: -5.0
+  search_end_offset_s: 90.0
+  # If no threshold crossing exists, do not invent a pick (California fallback
+  # used LTA-window end). Record no_crossing instead.
+
+snr:
+  formula: >
+    snr_peak = max(|x|) in event window / RMS(x) in noise window;
+    snr_rms  = RMS(x) in event window / RMS(x) in noise window.
+  epsilon: 1.0e-12
+
+amplitude:
+  # Peak |velocity| after VEL response + bandpass, event window.
+  # Called band-limited PGV only when units are m/s.
+  # Band-limited PGA is d/dt of that velocity (same passband), units m/s^2.
+  report_pgv_if_units_m_s: true
+  report_pga_from_velocity_derivative: true
+
+plausibility:
+  # Flags only; records are kept. Regional M<5 PGV is typically << 0.2 m/s
+  # except at very short distance.
+  max_peak_velocity_m_s: 0.2
+  max_peak_acceleration_m_s2: 5.0
+
+required_channels:
+  - HHZ
+  - HHN
+  - HHE
+
+figures:
+  example_event_id: 2020btnrcj
+  example_station: EMBD
+  dpi: 200

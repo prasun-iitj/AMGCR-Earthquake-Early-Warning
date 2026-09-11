@@ -1,0 +1,6 @@
+{
+  "n_processing_failures": 0,
+  "processing_failures": [],
+  "n_no_detection": 149,
+  "note": "NO_DETECTION is a valid scientific outcome and is retained in validation_trace_metrics.csv. processing_failures are records where STA/LTA could not be evaluated."
+}

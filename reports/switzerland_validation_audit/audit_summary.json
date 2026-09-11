@@ -1,0 +1,120 @@
+{
+  "role": "independent_swiss_adjacent_border_validation_design",
+  "not_performed": [
+    "waveform_download",
+    "sta_lta_on_validation_events",
+    "threshold_retuning",
+    "ml_training",
+    "validation_metric_computation"
+  ],
+  "frozen_configuration": {
+    "description": "Proposed Swiss STA/LTA configuration selected from the 20-event development dataset. Reserved for independent validation. Not an optimum and not yet validated.\n",
+    "processing": "causal_response_corrected_velocity",
+    "bandpass_hz": [
+      0.1,
+      15.0
+    ],
+    "component": "HHZ",
+    "sta_window_s": 0.5,
+    "lta_window_s": 10.0,
+    "trigger_on": 8.0,
+    "trigger_off": 0.5,
+    "search_start_offset_s": 0.0,
+    "search_end_offset_s": 90.0,
+    "edge_mute": "max_of_lta_and_five_percent_taper"
+  },
+  "catalog_query_url": "https://eida.ethz.ch/fdsnws/event/1/query?starttime=2020-01-01T00:00:00&endtime=2026-09-11T00:00:00&minmagnitude=2.5&minlatitude=45.4&maxlatitude=48.3&minlongitude=5.6&maxlongitude=11.1&format=text&nodata=404",
+  "quakeml_query_urls": [
+    "https://eida.ethz.ch/fdsnws/event/1/query?starttime=2020-01-01T00:00:00&endtime=2021-01-01T00:00:00&minmagnitude=2.5&minlatitude=45.4&maxlatitude=48.3&minlongitude=5.6&maxlongitude=11.1&format=xml&includearrivals=true&nodata=404",
+    "https://eida.ethz.ch/fdsnws/event/1/query?starttime=2021-01-01T00:00:00&endtime=2022-01-01T00:00:00&minmagnitude=2.5&minlatitude=45.4&maxlatitude=48.3&minlongitude=5.6&maxlongitude=11.1&format=xml&includearrivals=true&nodata=404",
+    "https://eida.ethz.ch/fdsnws/event/1/query?starttime=2022-01-01T00:00:00&endtime=2023-01-01T00:00:00&minmagnitude=2.5&minlatitude=45.4&maxlatitude=48.3&minlongitude=5.6&maxlongitude=11.1&format=xml&includearrivals=true&nodata=404",
+    "https://eida.ethz.ch/fdsnws/event/1/query?starttime=2023-01-01T00:00:00&endtime=2024-01-01T00:00:00&minmagnitude=2.5&minlatitude=45.4&maxlatitude=48.3&minlongitude=5.6&maxlongitude=11.1&format=xml&includearrivals=true&nodata=404",
+    "https://eida.ethz.ch/fdsnws/event/1/query?starttime=2024-01-01T00:00:00&endtime=2025-01-01T00:00:00&minmagnitude=2.5&minlatitude=45.4&maxlatitude=48.3&minlongitude=5.6&maxlongitude=11.1&format=xml&includearrivals=true&nodata=404",
+    "https://eida.ethz.ch/fdsnws/event/1/query?starttime=2025-01-01T00:00:00&endtime=2026-01-01T00:00:00&minmagnitude=2.5&minlatitude=45.4&maxlatitude=48.3&minlongitude=5.6&maxlongitude=11.1&format=xml&includearrivals=true&nodata=404",
+    "https://eida.ethz.ch/fdsnws/event/1/query?starttime=2026-01-01T00:00:00&endtime=2026-09-11T00:00:00&minmagnitude=2.5&minlatitude=45.4&maxlatitude=48.3&minlongitude=5.6&maxlongitude=11.1&format=xml&includearrivals=true&nodata=404"
+  ],
+  "catalog_endtime": "2026-09-11T00:00:00",
+  "n_catalog_rows": 251,
+  "n_excluded": 24,
+  "exclusion_counts": {
+    "in_development_20_event_set": 20,
+    "event_type:atmospheric event": 1,
+    "event_type:landslide": 3
+  },
+  "n_independent_earthquakes": 227,
+  "n_candidate_pool_rows": 227,
+  "n_with_ch_p_picks": 227,
+  "n_proposed": 15,
+  "proposed_short_ids": [
+    "2020flmsvb",
+    "2020vcnoon",
+    "2021ffattd",
+    "2021toxjpc",
+    "2022gzvhhy",
+    "2022isnvgj",
+    "2022ugepue",
+    "2023ksedgz",
+    "2024bvrces",
+    "2024cxfhdh",
+    "2024ftcvhn",
+    "2024ujblmf",
+    "2025phgpma",
+    "2025rtcqvh",
+    "2026bklhob"
+  ],
+  "development_ids_in_catalog": [
+    "2020btnrcj",
+    "2020vcnjhp",
+    "2020wcoepg",
+    "2020wfjqus",
+    "2021mvcsag",
+    "2021yhkcdx",
+    "2021zhdzar",
+    "2022ezutme",
+    "2022qpgqyu",
+    "2022rvutkg",
+    "2023frzpnq",
+    "2024hxsnga",
+    "2024jelhrc",
+    "2024kyoses",
+    "2024movmgz",
+    "2024tbdkpx",
+    "2025ofuozq",
+    "2025ovpxfj",
+    "2025rgmtqp",
+    "2026idhhja"
+  ],
+  "development_ids_missing_from_catalog": [],
+  "proposed_overlap_with_development": [],
+  "quakeml_arrivals_parsed": true,
+  "n_events_with_parsed_picks": 251,
+  "pick_probe_event": "2026qmifmo",
+  "pick_probe_n_picks": 123,
+  "availability_checked_for_proposed": true,
+  "candidate_csv": "data/manifests/sed_switzerland_validation_candidates.csv",
+  "log_path": "logs/switzerland/sed_switzerland_validation_audit.log",
+  "quakeml_yearly_ok": true,
+  "selection_rule": "locked_proposed_event_ids",
+  "reselected_from_existing_candidate_csv": false,
+  "dataset_display_name": "Independent Swiss/Adjacent-Border Validation Set",
+  "set_c_unchanged": true,
+  "windows": {
+    "acquisition": [
+      -60.0,
+      90.0
+    ],
+    "detection": [
+      0.0,
+      90.0
+    ],
+    "pre_event_noise": [
+      -60.0,
+      -10.0
+    ]
+  },
+  "hh_3c_availability_meaning": "unique CH station codes with HHZ+HHN+HHE FDSN availability fully covering origin-60 s to origin+90 s (not a channel/trace count)",
+  "stationxml_status": "not_yet_verified_per_station",
+  "data_leakage_statement": "The 20-event development set was used to diagnose/propose the configuration. The 15-event validation set was selected without using STA/LTA validation performance. The frozen configuration is not changed after validation results are observed.",
+  "n_set_c_acquisition_obtainable": 15,
+  "n_set_c_with_same_station_first_p_and_hhz": 15
+}

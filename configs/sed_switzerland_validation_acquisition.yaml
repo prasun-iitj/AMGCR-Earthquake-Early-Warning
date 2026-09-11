@@ -1,0 +1,68 @@
+# STEP 2J — Independent Swiss/Adjacent-Border Validation Set acquisition.
+# Downloads MiniSEED and StationXML only. Does not run STA/LTA or compute metrics.
+#
+# 8.0 is the pre-declared/proposed threshold from the 20-event development set.
+# It is not used in this step and must not be retuned.
+
+role: independent_swiss_adjacent_border_validation_acquisition
+audit_config: configs/sed_switzerland_validation_audit.yaml
+candidate_csv: data/manifests/sed_switzerland_validation_candidates.csv
+
+validation_dataset:
+  name: independent_swiss_adjacent_border_validation_set
+  display_name: Independent Swiss/Adjacent-Border Validation Set
+
+# Copied from the audit config and checked for equality at load time.
+windows:
+  acquisition:
+    start_offset_s: -60.0
+    end_offset_s: 90.0
+    role: waveform_download_interval
+  detection:
+    start_offset_s: 0.0
+    end_offset_s: 90.0
+    role: eew_search_interval_not_used_in_this_step
+  pre_event_noise:
+    start_offset_s: -60.0
+    end_offset_s: -10.0
+    role: qc_noise_reference_only_not_used_in_this_step
+
+frozen_configuration:
+  trigger_on: 8.0
+  note: >
+    Recorded for provenance only. This acquisition step does not run STA/LTA
+    and must not change 8.0.
+
+# Deterministic rule already implied by STEP 2I.1: download HHZ for every
+# audit-supported same-station first-P ∩ HHZ pair. Not Set A's distance-bin
+# / max-6 ranking. No preferred-station subset is invented.
+station_selection:
+  rule: all_audit_same_station_first_p_and_hhz
+  network: CH
+  channel: HHZ
+  require_same_station_sed_first_p: true
+  copy_set_a_distance_bins: false
+
+scientific_boundary:
+  run_sta_lta: false
+  compute_validation_metrics: false
+  retune_threshold: false
+  reselection_set_c: false
+  modify_set_a: false
+  modify_california: false
+
+retry:
+  attempts: 3
+  delay_seconds: 1.0
+  timeout_seconds: 60
+  sleep_between_requests_seconds: 0.35
+  stop_on_http_codes: [429, 503]
+
+output:
+  raw_dir: data/raw/switzerland_validation
+  metadata_dir: data/metadata/switzerland_validation
+  manifest_csv: data/manifests/sed_switzerland_validation_waveforms.csv
+  picks_csv: data/manifests/sed_switzerland_validation_picks.csv
+  reports_dir: reports/switzerland_validation_acquisition
+  logs_dir: logs/switzerland
+  log_name: sed_switzerland_validation_acquisition.log

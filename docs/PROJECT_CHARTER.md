@@ -143,6 +143,7 @@ Key docs: [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md), [REFERENCES.md](../ref
 | Sample FDSN catalogue | Generic | Sample only | `data/raw/catalogs/` |
 | EarthESND Japan (K-NET) | Japan | Planned (optional, Version 3.0) | [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md) |
 | European networks (e.g. ORFEUS, EIDA) | Europe | **Planned (Version 3.0)** | [ROADMAP.md](ROADMAP.md) |
+| Swiss SED methods-transfer pilot | Switzerland / CH network | **Acquisition complete**; Set A analysis + Set C frozen STA/LTA validation (STEP 2K). Not operational EEW | `data/raw/switzerland/`, [SED_SWITZERLAND_DATASET_REPORT.md](SED_SWITZERLAND_DATASET_REPORT.md), [SWISS_INDEPENDENT_VALIDATION_RESULTS.md](SWISS_INDEPENDENT_VALIDATION_RESULTS.md) |
 
 Storage conventions: `docs/DATASET.md`, `data/raw/`, `data/manifests/`, `data/processed/` (when used).
 
