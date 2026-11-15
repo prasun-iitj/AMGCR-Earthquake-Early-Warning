@@ -514,7 +514,26 @@ The Reviewer Guide is intended to help faculty members and other reviewers follo
 3. Machine-learning evaluation, result charts, confusion matrices and feature-importance plots.
 4. Supporting documents, data inventories, code and reproducibility instructions.
 
-The website complements this report; it does not replace the report or the underlying evidence. The repository contains manifests, feature matrices, saved models, machine-readable results, scripts and figures. Raw MiniSEED, StationXML and QuakeML files are not published in the repository and must be re-downloaded using the documented acquisition scripts. The website's live deployment should be checked before the evaluation meeting to confirm that the latest Reviewer Guide is available.
+The website complements this report; it does not replace the report or the underlying evidence.
+
+**Reviewer Guide:** https://amgcr-research.vercel.app/review-guide  
+This page provides a guided route through the research overview, data collection and analysis, datasets, waveform examples, model evaluation, results and supporting resources.
+
+**Source code and research repository:** https://github.com/prasun-iitj/AMGCR-Earthquake-Early-Warning  
+The GitHub repository is the version-controlled source for the code and research artefacts. Reviewers can inspect the following locations:
+
+- `website/` — source code for the interactive research website.
+- `scripts/download/` — waveform and event-data acquisition scripts.
+- `scripts/analysis/` — waveform processing and feature extraction scripts.
+- `scripts/ml/` and `src/models/` — model training, evaluation and model implementation code.
+- `reports/features/` — derived feature matrices for the research datasets.
+- `reports/ml/` — saved models, evaluation summaries, per-event results and model-related figures.
+- `reports/figures/` — figures used to explain the workflow, datasets and results.
+- `docs/` and `docs/professor_handover/` — methodology, data dictionary, reproduction instructions, limitations and reviewer documentation.
+
+For a guided repository review, start with the [GitHub README](https://github.com/prasun-iitj/AMGCR-Earthquake-Early-Warning), followed by the [Professor Handover Guide](https://github.com/prasun-iitj/AMGCR-Earthquake-Early-Warning/blob/main/docs/professor_handover/PROFESSOR_HANDOVER_GUIDE.md), [Data and Model Inventory](https://github.com/prasun-iitj/AMGCR-Earthquake-Early-Warning/blob/main/docs/DATA_AND_MODEL_INVENTORY.md), and [ML Reproduction Guide](https://github.com/prasun-iitj/AMGCR-Earthquake-Early-Warning/blob/main/docs/ML_REPRODUCTION_GUIDE.md).
+
+Raw MiniSEED, StationXML and QuakeML files are not published in the repository; they must be re-downloaded using the documented acquisition scripts. Manifests, feature matrices, saved models, machine-readable results, scripts and figures are published. The website and repository are complementary: the website supports visual exploration, while GitHub provides access to the source code and research artefacts.
 
 ---
 
