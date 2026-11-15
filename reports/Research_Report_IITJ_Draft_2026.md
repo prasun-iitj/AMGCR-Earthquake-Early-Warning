@@ -1,20 +1,83 @@
 # INDIAN INSTITUTE OF TECHNOLOGY JODHPUR
 
+<br><br><br>
+
+# MACHINE-LEARNING-BASED CLASSIFICATION OF P-WAVE CANDIDATE WINDOWS IN SEISMIC RECORDS
+
+## A Reproducible Study Using Swiss SED Data, Event-Grouped Validation, and an Independent Evaluation Set
+
 <br><br>
+
+*A Project Report submitted by*
+
+**Prasun Kumar Tripathi**  
+**Roll Number:** [Insert IIT Jodhpur Roll Number]
+
+*in partial fulfillment of the requirements for the award of the degree of*
+
+**[Insert Official Degree Name]**
+
+<br><br>
+
+**[Insert Official Department / School / IDRP Name]**
+
+<br><br>
+
+**INDIAN INSTITUTE OF TECHNOLOGY JODHPUR**
+
+**November 2026**
+
+---
+
+\newpage
+
+## Declaration
+
+I hereby declare that the work presented in this Project Report titled **“Machine-Learning-Based Classification of P-Wave Candidate Windows in Seismic Records”**, submitted to the Indian Institute of Technology Jodhpur in partial fulfilment of the requirements for the award of the degree of **[Official Degree Name]**, is a bonafide record of the research work carried out under the supervision of **Dr. Anushka Joshi**.
+
+The contents of this Project Report, in full or in parts, have not been submitted to, and will not be submitted by me to, any other Institute or University in India or abroad for the award of any degree or diploma.
+
+<br><br>
+
+**Signature:** __________________________  
+**Prasun Kumar Tripathi**  
+**Roll Number:** [Insert IIT Jodhpur Roll Number]
+
+---
+
+\newpage
+
+## Certificate
+
+This is to certify that the Project Report titled **“Machine-Learning-Based Classification of P-Wave Candidate Windows in Seismic Records”**, submitted by **Prasun Kumar Tripathi ([IIT Jodhpur Roll Number])** to the Indian Institute of Technology Jodhpur for the award of the degree of **[Official Degree Name]**, is a bonafide record of the research work done by him under my supervision. To the best of my knowledge, the contents of this report, in full or in parts, have not been submitted to any other Institute or University for the award of any degree or diploma.
+
+<br><br>
+
+**Signature:** __________________________  
+**Dr. Anushka Joshi**  
+[Official designation / department, if required]
+
+---
+
+\newpage
 
 ## Abstract
 
-Earthquake Early Warning (EEW) depends on recognising the first arriving P-wave before the stronger shaking associated with later seismic phases reaches a location. Conventional short-term average/long-term average (STA/LTA) trigger rules are widely used for signal detection, but fixed thresholds can miss weak or emergent arrivals in noisy records. This study investigates a narrower and experimentally testable problem: whether supervised machine-learning models can distinguish analyst-labelled P-wave candidate windows from ambient-noise windows in previously unseen earthquake events.
+This study examines whether machine-learning models can distinguish analyst-labelled P-wave candidate windows from ambient-noise windows in seismic records. The work uses Swiss Seismological Service data accessed through EIDA. Set A contains 20 earthquakes and 240 labelled windows for model development; Set C contains 15 different earthquakes and 1,100 windows for independent event-level evaluation. Random Forest and XGBoost models were trained using event-grouped validation. On Set C, XGBoost achieved an F1-score of 0.9169 and recall of 0.8527, while Random Forest achieved an F1-score of 0.9125 and recall of 0.8436. Both outperformed the selected window-level STA/LTA baseline on recall and F1-score. The experiment is limited to offline, pick-aligned window classification and does not demonstrate continuous real-time detection or operational earthquake early warning.
 
-The work developed from an initial California waveform pilot into a Swiss-data machine-learning study using records and manual first-P arrival picks from the Swiss Seismological Service (SED), accessed through the European Integrated Data Archive (EIDA). The development dataset, Set A, contains 20 earthquakes, 120 three-component records from 54 stations, and 240 labelled four-second windows. A separate evaluation dataset, Set C, contains 15 different earthquakes, 550 vertical-component records from 79 stations, and 1,100 labelled windows. Positive windows begin at SED analyst first-P picks; negative windows are selected from an earlier origin-relative interval. Instrument responses were removed to ground velocity, and time-domain, frequency-domain, waveform-shape and STA/LTA features were extracted.
-
-Random Forest and XGBoost models were trained on Set A using 20-fold Leave-One-Group-Out cross-validation grouped by earthquake. Because Set C contains only vertical-component data, a separate 18-feature vertical-only model schema was trained on Set A, frozen, and evaluated on Set C. On Set C, XGBoost achieved an F1-score of 0.9169, recall of 0.8527 and precision of 0.9915; Random Forest achieved an F1-score of 0.9125, recall of 0.8436 and precision of 0.9936. The window-level STA/LTA baseline achieved an F1-score of 0.5014 and recall of 0.3345. These results correspond to 81 missed positive windows for XGBoost and 86 for Random Forest, compared with 366 for the window-level baseline.
-
-From these results, the tested tree-based models classify the prepared P-wave and noise windows better than the selected window-level STA/LTA rule on Set C. However, the evaluation is independent at event level only: all 54 Set A stations also occur in Set C. The study also uses pick-aligned windows, a zero-phase filter applied to full traces, a limited number of earthquakes, and slightly different preprocessing settings between datasets. It therefore demonstrates offline candidate-window classification, not continuous-stream P-wave detection, warning-time performance, or operational EEW capability.
-
-**Keywords:** Earthquake Early Warning; P-wave; seismic waveform; Random Forest; XGBoost; STA/LTA; feature engineering; event-grouped cross-validation; SED; EIDA.
+**Keywords:** Earthquake Early Warning; P-wave; seismic waveform; Random Forest; XGBoost; STA/LTA; event-grouped validation; SED; EIDA.
 
 ---
+
+\newpage
+
+## Table of Contents
+
+[Generate an automatic table of contents in the final Word/PDF document, using heading levels 1–3.]
+
+---
+
+\newpage
 
 ## 1. Introduction
 
