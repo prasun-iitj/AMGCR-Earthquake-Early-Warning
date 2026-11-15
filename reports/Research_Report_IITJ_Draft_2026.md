@@ -11,15 +11,15 @@
 *A Project Report submitted by*
 
 **Prasun Kumar Tripathi**  
-**Roll Number:** [Insert IIT Jodhpur Roll Number]
+**Roll Number:** M25AI2151
 
 *in partial fulfillment of the requirements for the award of the degree of*
 
-**[Insert Official Degree Name]**
+**M.Tech.- AI**
 
 <br><br>
 
-**[Insert Official Department / School / IDRP Name]**
+**School of Artificial Intelligence and Data Science (AIDE)**
 
 <br><br>
 
@@ -33,7 +33,7 @@
 
 ## Declaration
 
-I hereby declare that the work presented in this Project Report titled **“Machine-Learning-Based Classification of P-Wave Candidate Windows in Seismic Records”**, submitted to the Indian Institute of Technology Jodhpur in partial fulfilment of the requirements for the award of the degree of **[Official Degree Name]**, is a bonafide record of the research work carried out under the supervision of **Dr. Anushka Joshi**.
+I hereby declare that the work presented in this Project Report titled **“Machine-Learning-Based Classification of P-Wave Candidate Windows in Seismic Records”**, submitted to the Indian Institute of Technology Jodhpur in partial fulfilment of the requirements for the award of the degree of **M.Tech.- AI**, is a bonafide record of the research work carried out under the supervision of **Dr. Anushka Joshi**.
 
 The contents of this Project Report, in full or in parts, have not been submitted to, and will not be submitted by me to, any other Institute or University in India or abroad for the award of any degree or diploma.
 
@@ -41,7 +41,7 @@ The contents of this Project Report, in full or in parts, have not been submitte
 
 **Signature:** __________________________  
 **Prasun Kumar Tripathi**  
-**Roll Number:** [Insert IIT Jodhpur Roll Number]
+**Roll Number:** M25AI2151
 
 ---
 
@@ -49,13 +49,13 @@ The contents of this Project Report, in full or in parts, have not been submitte
 
 ## Certificate
 
-This is to certify that the Project Report titled **“Machine-Learning-Based Classification of P-Wave Candidate Windows in Seismic Records”**, submitted by **Prasun Kumar Tripathi ([IIT Jodhpur Roll Number])** to the Indian Institute of Technology Jodhpur for the award of the degree of **[Official Degree Name]**, is a bonafide record of the research work done by him under my supervision. To the best of my knowledge, the contents of this report, in full or in parts, have not been submitted to any other Institute or University for the award of any degree or diploma.
+This is to certify that the Project Report titled **“Machine-Learning-Based Classification of P-Wave Candidate Windows in Seismic Records”**, submitted by **Prasun Kumar Tripathi (M25AI2151)** to the Indian Institute of Technology Jodhpur for the award of the degree of **M.Tech.- AI**, is a bonafide record of the research work done by him under my supervision. To the best of my knowledge, the contents of this report, in full or in parts, have not been submitted to any other Institute or University for the award of any degree or diploma.
 
 <br><br>
 
 **Signature:** __________________________  
 **Dr. Anushka Joshi**  
-[Official designation / department, if required]
+School of Artificial Intelligence and Data Science (AIDE)
 
 ---
 
@@ -93,7 +93,11 @@ In this work, I have studied whether supervised machine-learning models can clas
 
 Can supervised classifiers trained on four-second, analyst-labelled seismic windows distinguish P-wave windows from ambient-noise windows on earthquake events not used during model development, and how do they compare with a selected STA/LTA window-level rule?
 
-### 1.2 Scope
+### 1.2 Relationship to the MTP-1 work
+
+The earlier MTP-1 report studied the Heteroscedastic Ensemble Deep Random Vector Functional Link (HedRVFL) approach for early Peak Ground Acceleration (PGA) prediction. Its preliminary implementation used a synthetic three-channel time-series dataset and investigated Deep RVFL-based prediction. The present report documents a different and more focused stage of the earthquake research: classification of analyst-labelled P-wave candidate windows using Swiss SED waveform data, with Random Forest and XGBoost models and event-grouped evaluation. The earlier synthetic HedRVFL/PGA results are not treated as results of the present P-wave classification experiments and are not combined with the metrics reported here.
+
+### 1.3 Scope
 
 The current experiment is an **offline, pre-cut window-classification benchmark**. Positive windows are aligned to analyst P picks before classification. The experiment does not demonstrate automatic discovery of P-wave arrival times in continuous waveform streams. It does not measure operational warning time, live false-alert rates, earthquake magnitude, source location or ground-motion prediction.
 
