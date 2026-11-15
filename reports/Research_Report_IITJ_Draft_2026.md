@@ -29,7 +29,7 @@ The work developed from an initial California waveform pilot into a Swiss-data m
 
 Random Forest and XGBoost models were trained on Set A using 20-fold Leave-One-Group-Out cross-validation grouped by earthquake. Because Set C contains only vertical-component data, a separate 18-feature vertical-only model schema was trained on Set A, frozen, and evaluated on Set C. On Set C, XGBoost achieved an F1-score of 0.9169, recall of 0.8527 and precision of 0.9915; Random Forest achieved an F1-score of 0.9125, recall of 0.8436 and precision of 0.9936. The window-level STA/LTA baseline achieved an F1-score of 0.5014 and recall of 0.3345. These results correspond to 81 missed positive windows for XGBoost and 86 for Random Forest, compared with 366 for the window-level baseline.
 
-The findings indicate that the tested tree-based classifiers discriminate the constructed P-wave and noise windows more effectively than the selected window-level STA/LTA rule on this evaluation set. However, the evaluation is independent at event level only: all 54 Set A stations also occur in Set C. The study also uses pick-aligned windows, a zero-phase filter applied to full traces, a limited number of earthquakes, and slightly different preprocessing settings between datasets. It therefore demonstrates offline candidate-window classification, not continuous-stream P-wave detection, warning-time performance, or operational EEW capability.
+From these results, the tested tree-based models classify the prepared P-wave and noise windows better than the selected window-level STA/LTA rule on Set C. However, the evaluation is independent at event level only: all 54 Set A stations also occur in Set C. The study also uses pick-aligned windows, a zero-phase filter applied to full traces, a limited number of earthquakes, and slightly different preprocessing settings between datasets. It therefore demonstrates offline candidate-window classification, not continuous-stream P-wave detection, warning-time performance, or operational EEW capability.
 
 **Keywords:** Earthquake Early Warning; P-wave; seismic waveform; Random Forest; XGBoost; STA/LTA; feature engineering; event-grouped cross-validation; SED; EIDA.
 
@@ -41,9 +41,9 @@ Earthquake Early Warning systems aim to provide useful information before strong
 
 Traditional seismic triggering methods commonly use a short-term average divided by a long-term average. The resulting STA/LTA ratio is compared with a threshold to identify possible signal onset. Although this approach is computationally simple, a fixed threshold may not respond equally well to different event magnitudes, source-to-station distances, background noise conditions and station characteristics.
 
-Machine-learning methods offer another way to distinguish waveform patterns. Instead of relying on one trigger statistic, a classifier can use several properties of a signal window, including amplitude, spectral distribution, waveform shape and STA/LTA measurements. Such a classifier must nevertheless be evaluated carefully. In seismic data, multiple records from the same earthquake are related; randomly splitting individual windows can therefore make test results appear stronger than their true ability to generalise to a new earthquake.
+Machine-learning methods provide another way to study waveform patterns. Instead of relying on one trigger statistic, a classifier can use several properties of a signal window, including amplitude, spectral distribution, waveform shape and STA/LTA measurements. Such a classifier must nevertheless be evaluated carefully. In seismic data, multiple records from the same earthquake are related; randomly splitting individual windows can therefore make test results appear stronger than their true ability to generalise to a new earthquake.
 
-This research examines the classification of P-wave candidate windows using supervised machine learning. It uses earthquake-event grouping during model validation and a separate set of earthquake events for independent evaluation. The focus is on reproducible data preparation, feature extraction, model comparison and transparent reporting of limitations.
+In this work, I have studied whether supervised machine-learning models can classify P-wave candidate windows. It uses earthquake-event grouping during model validation and a separate set of earthquake events for independent evaluation. The focus is on reproducible data preparation, feature extraction, model comparison and transparent reporting of limitations.
 
 ### 1.1 Research question
 
@@ -73,7 +73,7 @@ The objectives of the completed research are:
 
 ### 3.1 Initial California pilot
 
-The project began with a California pilot using USGS event metadata and EarthScope waveform services. The frozen pilot contains eight earthquakes, eight BHZ waveform records, two stations (CI.ADO and CI.USC), a sampling rate of 40 Hz and 300-second records beginning at catalogue origin time.
+The project first started with a California pilot using USGS event information and EarthScope waveform data. The frozen pilot contains eight earthquakes, eight BHZ waveform records, two stations (CI.ADO and CI.USC), a sampling rate of 40 Hz and 300-second records beginning at catalogue origin time.
 
 The California work established the initial acquisition, exploratory analysis, signal-analysis, preprocessing and feature-engineering workflow. It produced an 8 × 18 feature matrix. Instrument response removal was not applied in the frozen California run (0 of 8 records), so amplitudes remained in digital counts. The California pilot did not provide the supervised training and independent evaluation results reported in this document.
 
@@ -114,7 +114,85 @@ Set C was acquired as a separate evaluation dataset. It contains:
 
 The phase distribution recorded for Set C is Pg 390, P1 87 and Pn 73. No earthquake event is shared between Set A and Set C. However, all 54 stations in Set A also occur in Set C; Set C includes 25 additional stations. The evaluation is therefore independent at event level, but not at station level.
 
-### 3.4 Window construction and labels
+
+### 3.4 Where the data came from and how it was collected
+
+The project uses data from three public data services. The California pilot and the Swiss datasets are kept separate because they were collected at different stages and for different purposes.
+
+| Organisation / service | Information used in this project | How it was used |
+|---|---|---|
+| U.S. Geological Survey (USGS), FDSN Event service | Event origin time, location and magnitude for California | To prepare the California event list |
+| EarthScope (earlier IRIS DMC), FDSN dataselect | California BHZ waveform data in MiniSEED format | To download one vertical waveform record for each selected event |
+| Swiss Seismological Service (SED), ETH Zurich, through EIDA | Swiss event catalogue, waveform data, station response information and QuakeML arrivals | To prepare Set A and Set C, including the manual P-arrival labels |
+
+The California event search covered 1 January to 31 December 2024. The search box was 32.5°–42.0° N and 124.5°–114.0° W, with magnitude between 4.0 and 7.5. It returned 41 catalogue matches. The acquisition script checked events in time order and kept the first eight for which a waveform was returned. Therefore, these eight events should not be treated as a statistically selected sample of California earthquakes.
+
+For Set A, the project used 20 event IDs from an earlier feasibility audit. The SED catalogue was queried again to resolve those events. The configured catalogue search covered 1 January 2020 to 7 September 2026, with magnitude at least 2.5 and a region between 45.4°–48.3° N and 5.6°–11.1° E. The reason why those original 20 events were selected is not recorded in the repository.
+
+For Set C, a candidate pool of 251 catalogue rows was checked. After excluding the 20 Set A events and four non-earthquake entries (one atmospheric event and three landslides), 227 independent earthquake candidates remained. Fifteen events were selected using the documented diversity rules. These rules included year-wise quotas, magnitude groups, a minimum separation of 15 km, geographical divisions and a requirement that at least six events be in Swiss territory. The exact step-by-step ranking of the final 15 events is not recorded. Nine of the 15 events are described in the project records as immediate-border events, so Set C is more accurately called the Swiss/adjacent-border evaluation set.
+
+### 3.5 What files were downloaded?
+
+The raw waveform and metadata files have different roles. They are not the same as the CSV feature matrices used by the machine-learning models.
+
+| File type | What it contains | Use in this project |
+|---|---|---|
+| MiniSEED (.mseed) | Sampled seismic waveform values with station, channel, start time and sampling-rate information | Main waveform input |
+| StationXML (.xml) | Station coordinates, channel details and instrument response | Needed to convert recorded counts into ground velocity |
+| QuakeML (.xml) | Event details and phase arrival information | Used to obtain SED first-P picks |
+| CSV manifest | Event, station, file, pick and validation information in rows | Keeps a record of which data belongs to each dataset |
+| Feature matrix (CSV) | One row per labelled window, with metadata, label and calculated features | Input to the ML experiments |
+
+In the California pilot, 12 MiniSEED files are present in the local working copy, but only eight are listed in the frozen event manifest. The other four are not used in the reported pilot analysis because their origin is not established in the repository. For Swiss Set A there are 120 MiniSEED waveform files. The local metadata includes 120 StationXML files and QuakeML event information. Set C has 550 MiniSEED files and 550 verified StationXML files, with the corresponding QuakeML pick records.
+
+The raw Swiss records have different sampling rates. In Set A, 108 records are sampled at 200 Hz and 12 at 120 Hz. In Set C, 514 records are sampled at 200 Hz, 30 at 120 Hz and 6 at 100 Hz. The feature extraction scripts use the sampling rate of each trace when processing it. The records are not all identical in length or sampling rate, which is one reason that the acquisition and validation steps are important.
+
+The raw MiniSEED and XML files are available in the local research working copy but are not committed to GitHub. The repository publishes the manifests, derived feature matrices, models, result files, scripts and figures. Raw files were excluded because of their size and because the providers' redistribution terms have not yet been reviewed. A reviewer can inspect the published model inputs and results, but waveform-level reproduction requires downloading the source data again.
+
+### 3.6 How the records were selected and labelled
+
+Set A uses six stations for each of its 20 events, giving 120 three-component records. The acquisition configuration preferred complete HHZ, HHN and HHE channel groups. It selected stations from distance bands up to 400 km, with a maximum of two stations per distance band. The resulting dataset has 54 unique stations. Some availability queries timed out, so this is not a complete list of all stations that could have recorded those events.
+
+Set C follows a different rule. It includes every audit-supported station for which both a same-station SED first-P pick and an HHZ waveform were available. There was no fixed number of stations per event. As a result, the number of records per event varies from 3 to 62. Set C has 79 stations in total.
+
+The SED picks were retrieved from QuakeML and matched to waveform records by event and station. The pick records used for the experiment are marked as manual in the manifests. The phase counts are:
+
+| SED phase label | Set A picks | Set C picks |
+|---|---:|---:|
+| Pg | 114 | 390 |
+| P1 | 3 | 87 |
+| Pn | 3 | 73 |
+| **Total** | **120** | **550** |
+
+These phase labels are retained as supplied by SED. For the binary classification task, all these first-P-type picks are used to mark the positive window. The label is not generated by the machine-learning model or by the STA/LTA baseline.
+
+### 3.7 Dataset sizes at a glance
+
+The following table shows why the number of windows should not be confused with the number of independent earthquakes.
+
+| Dataset | Events | Records | Positive windows | Noise windows | Total windows |
+|---|---:|---:|---:|---:|---:|
+| California pilot | 8 | 8 | Not used in current ML experiment | Not used | Not part of ML-3/ML-4 |
+| Swiss Set A | 20 | 120 | 120 | 120 | 240 |
+| Swiss Set C | 15 | 550 | 550 | 550 | 1,100 |
+
+Each Swiss record produces two windows. So, for example, 1,100 Set C windows do not mean that the research has 1,100 independent earthquake events. They come from 15 earthquakes and 79 stations. This difference is considered in the validation method by grouping the Set A folds by earthquake.
+
+![Data source to dataset lineage](figures/data/dfig01_source_to_dataset_lineage.png)
+
+*Figure 1. How the data moves from the provider services to the two Swiss datasets and the derived model inputs. The California pilot is shown separately because it is not part of the Swiss ML evaluation.*
+
+![Comparison of data sources](figures/data/dfig02_iris_vs_sed_sources.png)
+
+*Figure 2. Data sources used in the early California pilot and in the later Swiss experiments.*
+
+![Raw data file structure](figures/data/dfig03_raw_data_structure.png)
+
+*Figure 3. Raw waveform and metadata file structure in the research working copy. Raw files are not included in the public Git repository.*
+
+---
+
+### 3.8 Window construction and labels
 
 Each record contributes two four-second windows:
 
@@ -128,6 +206,16 @@ The windows are labelled using analyst picks rather than the STA/LTA detector. T
 ---
 
 ## 4. Data processing and feature engineering
+
+The processing steps are shown here because the data is not given directly to the classifier as raw MiniSEED files. First the waveform is checked, then response correction and filtering are applied, and finally fixed windows and numerical features are prepared.
+
+![Processing pipeline](figures/data/dfig04_preprocessing_pipeline.png)
+
+*Figure 4. Main processing stages used to prepare the Set A and Set C feature matrices. Some settings differ between the two datasets, as explained below.*
+
+![Waveform before and after processing](figures/data/dfig05_filtering_before_after.png)
+
+*Figure 5. Example Set A waveform at CH.EMBD (HHZ, 120 Hz), showing raw counts, response-corrected velocity and filtered velocity. The two shaded windows show the negative noise window and the positive P-wave window.*
 
 ### 4.1 Waveform validation and response correction
 
@@ -167,6 +255,16 @@ Metadata and label columns are excluded from model inputs. In particular, event 
 
 ## 5. Machine-learning methodology
 
+The complete experiment is summarised in the next diagram. It shows the development data and the held-out event set separately. Set C is used only after the vertical models are trained and saved.
+
+![Research workflow](figures/final/fig01_research_workflow.png)
+
+*Figure 6. Overall workflow from data acquisition to independent evaluation.*
+
+![Window and feature preparation](figures/final/fig04_feature_engineering.png)
+
+*Figure 7. A four-second waveform window is converted into numerical features before classification.*
+
 ### 5.1 Models
 
 Two supervised tree-based classifiers were evaluated:
@@ -178,6 +276,10 @@ Two supervised tree-based classifiers were evaluated:
 The repository does not document a broad model-selection study comparing many classifier families. These two models should therefore be described as the implemented tree-ensemble approaches, not as a proven optimal model selection.
 
 ### 5.2 Event-grouped cross-validation on Set A
+
+![Leave-one-event-out validation](figures/final/fig06_logo_cross_validation.png)
+
+*Figure 8. Leave-One-Group-Out validation. One earthquake is kept for testing in each fold, rather than randomly splitting windows from the same event.*
 
 Model development used 20-fold Leave-One-Group-Out (LOGO) cross-validation. The grouping variable is the earthquake identifier (`short_id`). In each fold, all windows from one earthquake are held out together while the other earthquakes are used for training. This prevents windows from the same event appearing in both training and test partitions within a fold.
 
@@ -211,6 +313,12 @@ These are window-classification metrics. They are not operational false-alert ra
 
 ## 6. Results
 
+The results below are shown as tables and figures so that the main comparisons can be understood without opening the project website. The website is an additional place to explore the work, not a replacement for the report.
+
+![Dataset evolution](figures/final/fig02_dataset_evolution.png)
+
+*Figure 9. Growth from the initial California pilot to Swiss Set A and Set C. The three stages have different roles and their results are not combined.*
+
 ### 6.1 Set A — 24-feature model evaluation
 
 The ML-3 event-grouped cross-validation results for the 24-feature models were:
@@ -235,6 +343,14 @@ The 18-feature vertical-only models were also evaluated using 20-fold event-grou
 This experiment established the vertical-only schema used for the independent Set C evaluation.
 
 ### 6.3 Set C — independent event evaluation
+
+![Set C model comparison](figures/final/fig08_set_c_model_comparison.png)
+
+*Figure 10. Comparison of the frozen vertical models and the window-level STA/LTA baseline on Set C. See the table below for exact values.*
+
+![Set C confusion matrices](figures/final/fig09_set_c_confusion_matrices.png)
+
+*Figure 11. Confusion matrices for the three methods on Set C. The counts are also listed in the table below.*
 
 The principal result is the performance of the frozen 18-feature models on Set C:
 
@@ -262,6 +378,10 @@ Aggregate scores conceal variation between earthquakes. The Set C per-event resu
 
 ### 6.5 Feature importance
 
+![Feature importance](figures/final/fig10_feature_importance.png)
+
+*Figure 12. Feature importance from the saved vertical models. Importance values show how the fitted models used the features; they do not prove physical causation.*
+
 The saved vertical models identify spectral entropy and spectral centroid among the most influential features. For XGBoost, spectral entropy has the highest reported relative gain (0.3791), followed by spectral centroid (0.1913). For Random Forest, spectral entropy has the highest reported Gini importance (0.1937), followed by spectral centroid (0.1511).
 
 These values describe how the fitted models used the input features. They do not establish that a feature is a physical cause of P-wave detection. The interpretation that spectral characteristics help distinguish coherent P-wave energy from background noise is consistent with the feature definitions, but requires further physical and statistical validation.
@@ -281,6 +401,11 @@ The study also demonstrates why the classification task must be stated precisely
 ---
 
 ## 8. Limitations and threats to validity
+
+![Event and station overlap](figures/final/fig11_dataset_independence.png)
+
+*Figure 13. Set A and Set C have different earthquake events, but their station coverage overlaps. This is why the evaluation is event-independent but not station-independent.*
+
 
 The following limitations are part of the interpretation of the reported results.
 
@@ -302,6 +427,11 @@ These limitations restrict the strength and scope of the conclusions. They do no
 ---
 
 ## 9. Reproducibility and research artefacts
+
+![Limitations and future work](figures/final/fig12_limitations_roadmap.png)
+
+*Figure 14. Main research limitations and possible next steps.*
+
 
 The repository contains scripts, configuration files, manifests, derived feature matrices, saved models, machine-readable evaluation summaries, figures, tests and methodological reports.
 
@@ -331,7 +461,7 @@ On Swiss Set C, the frozen vertical XGBoost model achieved an F1-score of 0.9169
 
 The findings support the use of supervised tree-based models for further investigation of P-wave candidate-window classification. They do not yet establish a real-time P-wave detector or an operational EEW system. The small number of independent events, shared stations, pick-aligned windows, non-causal filtering and preprocessing differences must be addressed in future work.
 
-The main contribution of the project is therefore a documented and tested experimental workflow, together with an event-independent evaluation and an explicit account of what the current evidence does and does not establish.
+The main contribution of this project is the complete data-to-model workflow and its evaluation on separate earthquake events. The report also records the points which are still not tested and should be improved in the next stage.
 
 ---
 
