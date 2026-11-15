@@ -62,9 +62,9 @@ This is to certify that the Project Report titled **“Machine-Learning-Based Cl
 
 ## Abstract
 
-This study examines whether machine-learning models can distinguish analyst-labelled P-wave candidate windows from ambient-noise windows in seismic records. The work uses Swiss Seismological Service data accessed through EIDA. Set A contains 20 earthquakes and 240 labelled windows for model development; Set C contains 15 different earthquakes and 1,100 windows for independent event-level evaluation. Random Forest and XGBoost models were trained using event-grouped validation. On Set C, XGBoost achieved an F1-score of 0.9169 and recall of 0.8527, while Random Forest achieved an F1-score of 0.9125 and recall of 0.8436. Both outperformed the selected window-level STA/LTA baseline on recall and F1-score. The experiment is limited to offline, pick-aligned window classification and does not demonstrate continuous real-time detection or operational earthquake early warning.
+This study examines whether machine-learning models can distinguish analyst-labelled P-wave candidate windows from ambient-noise windows in seismic records. Swiss Seismological Service data accessed through EIDA were used. Set A contains 20 earthquakes and 240 labelled windows for model development; Set C contains 15 different earthquakes and 1,100 windows for independent event-level evaluation. Random Forest and XGBoost models were trained using event-grouped validation. On Set C, XGBoost achieved an F1-score of 0.9169 and recall of 0.8527; Random Forest achieved an F1-score of 0.9125 and recall of 0.8436. Both exceeded the selected window-level STA/LTA baseline in recall and F1-score. The study is limited to offline, pick-aligned window classification and does not demonstrate continuous real-time detection or operational earthquake early warning.
 
-**Keywords:** Earthquake Early Warning; P-wave; seismic waveform; Random Forest; XGBoost; STA/LTA; event-grouped validation; SED; EIDA.
+**Keywords:**** Earthquake Early Warning; P-wave; seismic waveform; Random Forest; XGBoost; STA/LTA; event-grouped validation; SED; EIDA.
 
 ---
 
@@ -164,7 +164,7 @@ The phase distribution recorded for Set C is Pg 390, P1 87 and Pn 73. No earthqu
 
 ### 3.4 Where the data came from and how it was collected
 
-The project uses data from three public data services. The California pilot and the Swiss datasets are kept separate because they were collected at different stages and for different purposes.
+The project uses data from three public data services. The California pilot and the Swiss datasets are kept separate because they were collected at different stages and for different purposes. The SED provides waveform access through FDSN services and participates in the ORFEUS EIDA system [4], while EarthScope provides FDSN waveform and station services for the California pilot [5].
 
 | Organisation / service | Information used in this project | How it was used |
 |---|---|---|
@@ -172,7 +172,7 @@ The project uses data from three public data services. The California pilot and 
 | EarthScope (earlier IRIS DMC), FDSN dataselect | California BHZ waveform data in MiniSEED format | To download one vertical waveform record for each selected event |
 | Swiss Seismological Service (SED), ETH Zurich, through EIDA | Swiss event catalogue, waveform data, station response information and QuakeML arrivals | To prepare Set A and Set C, including the manual P-arrival labels |
 
-The California event search covered 1 January to 31 December 2024. The search box was 32.5°–42.0° N and 124.5°–114.0° W, with magnitude between 4.0 and 7.5. It returned 41 catalogue matches. The acquisition script checked events in time order and kept the first eight for which a waveform was returned. Therefore, these eight events should not be treated as a statistically selected sample of California earthquakes.
+The California event search used the USGS earthquake catalogue and covered 1 January to 31 December 2024 [6]. The search box was 32.5°–42.0° N and 124.5°–114.0° W, with magnitude between 4.0 and 7.5. It returned 41 catalogue matches. The acquisition script checked events in time order and kept the first eight for which a waveform was returned. Therefore, these eight events should not be treated as a statistically selected sample of California earthquakes.
 
 For Set A, the project used 20 event IDs from an earlier feasibility audit. The SED catalogue was queried again to resolve those events. The configured catalogue search covered 1 January 2020 to 7 September 2026, with magnitude at least 2.5 and a region between 45.4°–48.3° N and 5.6°–11.1° E. The reason why those original 20 events were selected is not recorded in the repository.
 
@@ -266,7 +266,7 @@ The processing steps are shown here because the data is not given directly to th
 
 ### 4.1 Waveform validation and response correction
 
-The Swiss records were checked for time coverage, gaps, overlaps, required channels and associated station metadata. The feature-processing summaries report zero failed records for both Set A and Set C. StationXML responses were used to remove instrument response and convert waveform amplitudes to ground velocity in metres per second.
+The Swiss records were checked for time coverage, gaps, overlaps, required channels and associated station metadata. Waveform handling and signal processing were carried out using ObsPy, a Python framework for seismological data processing [7]. The feature-processing summaries report zero failed records for both Set A and Set C. StationXML responses were used to remove instrument response and convert waveform amplitudes to ground velocity in metres per second.
 
 ### 4.2 Preprocessing
 
@@ -550,7 +550,7 @@ The following repository records support the experimental design, data lineage, 
 - `docs/DATA_ACQUISITION_AND_REPRODUCTION.md`
 - `FINAL_INTEGRITY_CHECK.md`
 
-**Bibliography note:** The external reference list above is intentionally limited to scientific references already present in the earlier project report. Full citations for SED/EIDA, USGS, EarthScope and any additional ML methods should be checked against the exact provider and software documentation used before final submission.
+**Reference note:** The SED network-specific data DOI(s) should be added after confirming the exact network codes used in the downloaded records. The institute's current submission instructions and any supervisor-specific requirements should be checked before printing and binding.
 
 ---
 
