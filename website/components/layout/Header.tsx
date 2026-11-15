@@ -96,7 +96,14 @@ export function Header() {
                     )}
                     aria-current={isActive ? "page" : undefined}
                   >
-                    {item.label}
+                    {item.shortLabel ? (
+                      <>
+                        <span className="2xl:hidden">{item.shortLabel}</span>
+                        <span className="hidden 2xl:inline">{item.label}</span>
+                      </>
+                    ) : (
+                      item.label
+                    )}
                   </Link>
                 );
               })}

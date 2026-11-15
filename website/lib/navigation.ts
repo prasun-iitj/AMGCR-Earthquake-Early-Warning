@@ -1,10 +1,13 @@
 export type NavItem = {
   label: string;
   href: string;
+  /** Shorter label used in the desktop header below the 2xl breakpoint. */
+  shortLabel?: string;
 };
 
 export const mainNav: NavItem[] = [
   { label: "Home", href: "/" },
+  { label: "Data Collection & Analysis", shortLabel: "Data & Analysis", href: "/data-analysis" },
   { label: "Dashboard", href: "/dashboard" },
   { label: "Research", href: "/research" },
   { label: "Workflow", href: "/workflow" },

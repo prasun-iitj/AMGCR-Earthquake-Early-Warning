@@ -17,6 +17,7 @@ export function isNavItemActive(pathname: string, href: string): boolean {
 }
 
 export const footerQuickLinks = [
+  { label: "Data Collection & Analysis", href: "/data-analysis" },
   { label: "Dashboard", href: "/dashboard" },
   { label: "Dataset", href: "/dataset" },
   { label: "Waveforms", href: "/waveforms" },
@@ -33,6 +34,7 @@ export const mobileNavSections = [
     label: "Overview",
     items: [
       { label: "Home", href: "/" },
+      { label: "Data Collection & Analysis", href: "/data-analysis" },
       { label: "Dashboard", href: "/dashboard" },
       { label: "Research", href: "/research" },
     ],
@@ -42,6 +44,7 @@ export const mobileNavSections = [
     items: [
       { label: "Workflow", href: "/workflow" },
       { label: "Results", href: "/results" },
+      { label: "ML Evaluation", href: "/ml-evaluation" },
       { label: "Dataset", href: "/dataset" },
       { label: "Waveforms", href: "/waveforms" },
       { label: "Map", href: "/map" },

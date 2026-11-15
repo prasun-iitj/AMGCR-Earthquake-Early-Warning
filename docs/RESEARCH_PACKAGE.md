@@ -116,6 +116,7 @@ Version 2.1: platform maintenance. Version 3.0: Europe expansion (ORFEUS/EIDA), 
 
 ## 12. Where to find everything
 
+- Data journey (sources, acquisition, raw files, preprocessing, Set A/C construction): [DATA_COLLECTION_AND_ANALYSIS_REPORT.md](DATA_COLLECTION_AND_ANALYSIS_REPORT.md), [DATA_DICTIONARY.md](DATA_DICTIONARY.md), [DATA_ACQUISITION_AND_REPRODUCTION.md](DATA_ACQUISITION_AND_REPRODUCTION.md); website page `/data-analysis`
 - Reproduction: [ML_REPRODUCTION_GUIDE.md](ML_REPRODUCTION_GUIDE.md)
 - Paths, sizes, redistribution notes: [DATA_AND_MODEL_INVENTORY.md](DATA_AND_MODEL_INVENTORY.md)
 - Website page: `/ml-evaluation` (see `website/README.md`)

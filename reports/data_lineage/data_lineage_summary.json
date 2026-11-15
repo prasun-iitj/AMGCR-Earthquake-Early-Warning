@@ -1,0 +1,682 @@
+{
+  "generated_at_utc": "2026-11-15T14:44:50+00:00",
+  "note": "Counts derived from manifests, feature matrices, schemas, saved models and local folders. No waveform samples were read.",
+  "california": {
+    "events": 8,
+    "waveform_files_in_manifest": 8,
+    "stations_in_manifest": [
+      "ADO",
+      "USC"
+    ],
+    "channels_in_manifest": [
+      "CI.ADO.--.BHZ",
+      "CI.USC.--.BHZ"
+    ],
+    "magnitude_range": [
+      4.05,
+      4.87
+    ],
+    "origin_time_range": [
+      "2024-05-01T20:49:00.760000",
+      "2024-10-25T15:04:23.620000"
+    ],
+    "providers": {
+      "events": [
+        "USGS"
+      ],
+      "waveforms": [
+        "EARTHSCOPE"
+      ]
+    },
+    "local_raw_mseed_files": 12,
+    "local_raw_files_not_in_manifest": [
+      "CI.ADO.--.BHZ.20240823T153158.mseed",
+      "CI.ADO.--.BHZ.20241114T024035.mseed",
+      "CI.ADO.--.BHZ.20241209T230831.mseed",
+      "CI.USC.--.BHZ.20240912T142821.mseed"
+    ],
+    "stationxml_saved": false,
+    "p_pick_method": "automatic STA/LTA (0.5 s / 10 s, threshold 2.5); no analyst picks"
+  },
+  "set_a": {
+    "events": 20,
+    "records": 120,
+    "stations": 54,
+    "channels": [
+      "HHE;HHN;HHZ"
+    ],
+    "sampling_rates_hz": {
+      "200.0": 108,
+      "120.0": 12
+    },
+    "magnitude_range": [
+      2.967,
+      4.742
+    ],
+    "magnitude_types": {
+      "MLhc": 108,
+      "MLh": 12
+    },
+    "download_status": {
+      "OK": 120
+    },
+    "validation_status": {
+      "PASS": 120
+    },
+    "stationxml_available": {
+      "YES": 120
+    },
+    "pre_event_seconds_min": 89.997,
+    "post_event_seconds_min": 209.997,
+    "picks": {
+      "n": 120,
+      "phases": {
+        "Pg": 114,
+        "P1": 3,
+        "Pn": 3
+      },
+      "evaluation_mode": {
+        "manual": 120
+      },
+      "source": [
+        "SED QuakeML includearrivals"
+      ]
+    },
+    "windows": {
+      "total": 240,
+      "positive": 120,
+      "negative": 120
+    },
+    "p_latency_s_range": [
+      1.83,
+      27.265
+    ],
+    "epicentral_distance_km_range": [
+      6.134,
+      161.794
+    ],
+    "local_raw_mseed_files": 120,
+    "local_stationxml_files": 140,
+    "events_table": [
+      {
+        "short_id": "2020btnrcj",
+        "region": "Graechen VS",
+        "magnitude": 3.0,
+        "records": 6,
+        "stations": 6
+      },
+      {
+        "short_id": "2020vcnjhp",
+        "region": "Elm GL",
+        "magnitude": 4.32,
+        "records": 6,
+        "stations": 6
+      },
+      {
+        "short_id": "2020wcoepg",
+        "region": "Arolla VS",
+        "magnitude": 3.47,
+        "records": 6,
+        "stations": 6
+      },
+      {
+        "short_id": "2020wfjqus",
+        "region": "Elm GL",
+        "magnitude": 3.94,
+        "records": 6,
+        "stations": 6
+      },
+      {
+        "short_id": "2021mvcsag",
+        "region": "Oberwald VS",
+        "magnitude": 4.02,
+        "records": 6,
+        "stations": 6
+      },
+      {
+        "short_id": "2021yhkcdx",
+        "region": "Liestal BL",
+        "magnitude": 3.22,
+        "records": 6,
+        "stations": 6
+      },
+      {
+        "short_id": "2021zhdzar",
+        "region": "Porrentruy JU",
+        "magnitude": 4.1,
+        "records": 6,
+        "stations": 6
+      },
+      {
+        "short_id": "2022qpgqyu",
+        "region": "Zinal VS",
+        "magnitude": 3.21,
+        "records": 6,
+        "stations": 6
+      },
+      {
+        "short_id": "2022rvutkg",
+        "region": "Mulhouse F",
+        "magnitude": 4.74,
+        "records": 6,
+        "stations": 6
+      },
+      {
+        "short_id": "2023frzpnq",
+        "region": "Porrentruy JU",
+        "magnitude": 4.28,
+        "records": 6,
+        "stations": 6
+      },
+      {
+        "short_id": "2024hxsnga",
+        "region": "Yvonand VD",
+        "magnitude": 3.78,
+        "records": 6,
+        "stations": 6
+      },
+      {
+        "short_id": "2024jelhrc",
+        "region": "Arolla VS",
+        "magnitude": 3.72,
+        "records": 6,
+        "stations": 6
+      },
+      {
+        "short_id": "2024kyoses",
+        "region": "Pragelpass GL/SZ",
+        "magnitude": 4.42,
+        "records": 6,
+        "stations": 6
+      },
+      {
+        "short_id": "2024movmgz",
+        "region": "Laufenburg",
+        "magnitude": 4.25,
+        "records": 6,
+        "stations": 6
+      },
+      {
+        "short_id": "2024tbdkpx",
+        "region": "Muerren BE",
+        "magnitude": 3.47,
+        "records": 6,
+        "stations": 6
+      },
+      {
+        "short_id": "2025ofuozq",
+        "region": "Muerren BE",
+        "magnitude": 4.18,
+        "records": 6,
+        "stations": 6
+      },
+      {
+        "short_id": "2025ovpxfj",
+        "region": "Affoltern am Albis ZH",
+        "magnitude": 2.97,
+        "records": 6,
+        "stations": 6
+      },
+      {
+        "short_id": "2025rgmtqp",
+        "region": "Strada GR",
+        "magnitude": 3.78,
+        "records": 6,
+        "stations": 6
+      },
+      {
+        "short_id": "2026idhhja",
+        "region": "Sargans SG",
+        "magnitude": 3.83,
+        "records": 6,
+        "stations": 6
+      },
+      {
+        "short_id": "2022ezutme",
+        "region": "Annecy F",
+        "magnitude": 4.17,
+        "records": 6,
+        "stations": 6
+      }
+    ]
+  },
+  "set_c": {
+    "events": 15,
+    "records": 550,
+    "stations": 79,
+    "channels": [
+      "HHZ"
+    ],
+    "sampling_rates_hz": {
+      "200.0": 514,
+      "120.0": 30,
+      "100.0": 6
+    },
+    "magnitude_range": [
+      2.589,
+      4.105
+    ],
+    "location_class_records": {
+      "swiss_territory": 312,
+      "immediate_border": 238
+    },
+    "download_status": {
+      "ok": 550
+    },
+    "verification_status": {
+      "PASS": 550
+    },
+    "coverage_status": {
+      "full": 550
+    },
+    "stationxml_status": {
+      "verified": 550
+    },
+    "gaps_total": 0,
+    "overlaps_total": 0,
+    "picks": {
+      "n": 550,
+      "phases": {
+        "Pg": 390,
+        "P1": 87,
+        "Pn": 73
+      },
+      "evaluation_mode": {
+        "manual": 550
+      },
+      "source": [
+        "SED QuakeML includearrivals"
+      ]
+    },
+    "candidate_pool": {
+      "rows": 227,
+      "pool_role": {
+        "independent_candidate_pool": 212,
+        "proposed_validation_subset": 15
+      },
+      "in_development_set": {
+        "no": 227
+      }
+    },
+    "windows": {
+      "total": 1100,
+      "positive": 550,
+      "negative": 550
+    },
+    "feature_matrix_sampling_rates_hz": {
+      "200.0": 1028,
+      "120.0": 60,
+      "100.0": 12
+    },
+    "local_raw_mseed_files": 550,
+    "local_stationxml_files": 550,
+    "events_table": [
+      {
+        "short_id": "2020flmsvb",
+        "region": "Montreux VD",
+        "location_class": "swiss_territory",
+        "magnitude": 2.59,
+        "records": 52,
+        "stations": 52
+      },
+      {
+        "short_id": "2020vcnoon",
+        "region": "Elm GL",
+        "location_class": "swiss_territory",
+        "magnitude": 3.6,
+        "records": 29,
+        "stations": 29
+      },
+      {
+        "short_id": "2021ffattd",
+        "region": "Bern",
+        "location_class": "swiss_territory",
+        "magnitude": 3.21,
+        "records": 58,
+        "stations": 58
+      },
+      {
+        "short_id": "2021toxjpc",
+        "region": "Arolla VS",
+        "location_class": "swiss_territory",
+        "magnitude": 4.11,
+        "records": 61,
+        "stations": 61
+      },
+      {
+        "short_id": "2022gzvhhy",
+        "region": "Giswil OW",
+        "location_class": "swiss_territory",
+        "magnitude": 2.6,
+        "records": 59,
+        "stations": 59
+      },
+      {
+        "short_id": "2022isnvgj",
+        "region": "St. Anton am Arlberg A",
+        "location_class": "immediate_border",
+        "magnitude": 2.82,
+        "records": 22,
+        "stations": 22
+      },
+      {
+        "short_id": "2022ugepue",
+        "region": "Vaduz FL",
+        "location_class": "immediate_border",
+        "magnitude": 3.13,
+        "records": 51,
+        "stations": 51
+      },
+      {
+        "short_id": "2023ksedgz",
+        "region": "Mulhouse F",
+        "location_class": "immediate_border",
+        "magnitude": 3.56,
+        "records": 62,
+        "stations": 62
+      },
+      {
+        "short_id": "2024bvrces",
+        "region": "Imst A",
+        "location_class": "immediate_border",
+        "magnitude": 3.7,
+        "records": 3,
+        "stations": 3
+      },
+      {
+        "short_id": "2024cxfhdh",
+        "region": "Vesoul F",
+        "location_class": "immediate_border",
+        "magnitude": 3.41,
+        "records": 19,
+        "stations": 19
+      },
+      {
+        "short_id": "2024ftcvhn",
+        "region": "Albstadt D",
+        "location_class": "immediate_border",
+        "magnitude": 2.79,
+        "records": 7,
+        "stations": 7
+      },
+      {
+        "short_id": "2024ujblmf",
+        "region": "Bludenz A",
+        "location_class": "immediate_border",
+        "magnitude": 2.69,
+        "records": 13,
+        "stations": 13
+      },
+      {
+        "short_id": "2025phgpma",
+        "region": "Strada GR",
+        "location_class": "immediate_border",
+        "magnitude": 3.01,
+        "records": 27,
+        "stations": 27
+      },
+      {
+        "short_id": "2025rtcqvh",
+        "region": "Stockach D",
+        "location_class": "immediate_border",
+        "magnitude": 2.66,
+        "records": 34,
+        "stations": 34
+      },
+      {
+        "short_id": "2026bklhob",
+        "region": "Zermatt VS",
+        "location_class": "swiss_territory",
+        "magnitude": 3.6,
+        "records": 53,
+        "stations": 53
+      }
+    ]
+  },
+  "overlap": {
+    "event_overlap": 0,
+    "stations_set_a": 54,
+    "stations_set_c": 79,
+    "stations_shared": 54,
+    "stations_set_c_only": 25,
+    "stations_set_a_only": 0,
+    "set_c_records_at_shared_stations": 417
+  },
+  "schemas": {
+    "set_a_matrix_columns": [
+      "event_id",
+      "short_id",
+      "station",
+      "channel_group",
+      "sampling_rate_hz",
+      "magnitude",
+      "magnitude_type",
+      "region",
+      "epicentral_distance_km",
+      "hypocentral_distance_km",
+      "origin_time_utc",
+      "p_pick_time_utc",
+      "p_latency_s",
+      "p_phase",
+      "p_evaluation_mode",
+      "sample_id",
+      "window_type",
+      "is_earthquake",
+      "window_start_utc",
+      "window_end_utc",
+      "window_duration_s",
+      "z_peak_velocity_m_s",
+      "z_p2p_amplitude_m_s",
+      "z_rms_velocity_m_s",
+      "z_variance",
+      "z_std",
+      "z_zero_crossing_rate_hz",
+      "z_signal_energy_m2_s",
+      "z_crest_factor",
+      "z_kurtosis",
+      "z_skewness",
+      "z_cav_m_s",
+      "z_dominant_frequency_hz",
+      "z_spectral_centroid_hz",
+      "z_spectral_bandwidth_hz",
+      "z_spectral_rolloff_95_hz",
+      "z_spectral_entropy",
+      "h_peak_velocity_m_s",
+      "h_rms_velocity_m_s",
+      "vec3c_peak_velocity_m_s",
+      "vec3c_rms_velocity_m_s",
+      "vh_ratio",
+      "sta_lta_max",
+      "sta_lta_mean",
+      "snr_db"
+    ],
+    "set_c_matrix_columns": [
+      "event_id",
+      "short_id",
+      "station",
+      "magnitude",
+      "magnitude_type",
+      "region",
+      "sampling_rate_hz",
+      "origin_time_utc",
+      "p_pick_time_utc",
+      "p_phase",
+      "p_evaluation_mode",
+      "sample_id",
+      "window_type",
+      "is_earthquake",
+      "window_start_utc",
+      "window_end_utc",
+      "window_duration_s",
+      "z_peak_velocity_m_s",
+      "z_p2p_amplitude_m_s",
+      "z_rms_velocity_m_s",
+      "z_variance",
+      "z_std",
+      "z_zero_crossing_rate_hz",
+      "z_signal_energy_m2_s",
+      "z_crest_factor",
+      "z_kurtosis",
+      "z_skewness",
+      "z_cav_m_s",
+      "z_dominant_frequency_hz",
+      "z_spectral_centroid_hz",
+      "z_spectral_bandwidth_hz",
+      "z_spectral_rolloff_95_hz",
+      "z_spectral_entropy",
+      "sta_lta_max",
+      "sta_lta_mean"
+    ],
+    "feature_columns_24_in_set_a_matrix_order": [
+      "z_peak_velocity_m_s",
+      "z_p2p_amplitude_m_s",
+      "z_rms_velocity_m_s",
+      "z_variance",
+      "z_std",
+      "z_zero_crossing_rate_hz",
+      "z_signal_energy_m2_s",
+      "z_crest_factor",
+      "z_kurtosis",
+      "z_skewness",
+      "z_cav_m_s",
+      "z_dominant_frequency_hz",
+      "z_spectral_centroid_hz",
+      "z_spectral_bandwidth_hz",
+      "z_spectral_rolloff_95_hz",
+      "z_spectral_entropy",
+      "h_peak_velocity_m_s",
+      "h_rms_velocity_m_s",
+      "vec3c_peak_velocity_m_s",
+      "vec3c_rms_velocity_m_s",
+      "vh_ratio",
+      "sta_lta_max",
+      "sta_lta_mean",
+      "snr_db"
+    ],
+    "vertical_schema_json": [
+      "z_peak_velocity_m_s",
+      "z_p2p_amplitude_m_s",
+      "z_rms_velocity_m_s",
+      "z_variance",
+      "z_std",
+      "z_zero_crossing_rate_hz",
+      "z_signal_energy_m2_s",
+      "z_crest_factor",
+      "z_kurtosis",
+      "z_skewness",
+      "z_cav_m_s",
+      "z_dominant_frequency_hz",
+      "z_spectral_centroid_hz",
+      "z_spectral_bandwidth_hz",
+      "z_spectral_rolloff_95_hz",
+      "z_spectral_entropy",
+      "sta_lta_max",
+      "sta_lta_mean"
+    ],
+    "saved_model_feature_columns": {
+      "swiss_rf_model": [
+        "z_peak_velocity_m_s",
+        "z_p2p_amplitude_m_s",
+        "z_rms_velocity_m_s",
+        "z_variance",
+        "z_std",
+        "z_zero_crossing_rate_hz",
+        "z_signal_energy_m2_s",
+        "z_crest_factor",
+        "z_kurtosis",
+        "z_skewness",
+        "z_cav_m_s",
+        "z_dominant_frequency_hz",
+        "z_spectral_centroid_hz",
+        "z_spectral_bandwidth_hz",
+        "z_spectral_rolloff_95_hz",
+        "z_spectral_entropy",
+        "h_peak_velocity_m_s",
+        "h_rms_velocity_m_s",
+        "vec3c_peak_velocity_m_s",
+        "vec3c_rms_velocity_m_s",
+        "vh_ratio",
+        "sta_lta_max",
+        "sta_lta_mean",
+        "snr_db"
+      ],
+      "swiss_xgb_model": [
+        "z_peak_velocity_m_s",
+        "z_p2p_amplitude_m_s",
+        "z_rms_velocity_m_s",
+        "z_variance",
+        "z_std",
+        "z_zero_crossing_rate_hz",
+        "z_signal_energy_m2_s",
+        "z_crest_factor",
+        "z_kurtosis",
+        "z_skewness",
+        "z_cav_m_s",
+        "z_dominant_frequency_hz",
+        "z_spectral_centroid_hz",
+        "z_spectral_bandwidth_hz",
+        "z_spectral_rolloff_95_hz",
+        "z_spectral_entropy",
+        "h_peak_velocity_m_s",
+        "h_rms_velocity_m_s",
+        "vec3c_peak_velocity_m_s",
+        "vec3c_rms_velocity_m_s",
+        "vh_ratio",
+        "sta_lta_max",
+        "sta_lta_mean",
+        "snr_db"
+      ],
+      "vertical_rf_model_set_a": [
+        "z_peak_velocity_m_s",
+        "z_p2p_amplitude_m_s",
+        "z_rms_velocity_m_s",
+        "z_variance",
+        "z_std",
+        "z_zero_crossing_rate_hz",
+        "z_signal_energy_m2_s",
+        "z_crest_factor",
+        "z_kurtosis",
+        "z_skewness",
+        "z_cav_m_s",
+        "z_dominant_frequency_hz",
+        "z_spectral_centroid_hz",
+        "z_spectral_bandwidth_hz",
+        "z_spectral_rolloff_95_hz",
+        "z_spectral_entropy",
+        "sta_lta_max",
+        "sta_lta_mean"
+      ],
+      "vertical_xgb_model_set_a": [
+        "z_peak_velocity_m_s",
+        "z_p2p_amplitude_m_s",
+        "z_rms_velocity_m_s",
+        "z_variance",
+        "z_std",
+        "z_zero_crossing_rate_hz",
+        "z_signal_energy_m2_s",
+        "z_crest_factor",
+        "z_kurtosis",
+        "z_skewness",
+        "z_cav_m_s",
+        "z_dominant_frequency_hz",
+        "z_spectral_centroid_hz",
+        "z_spectral_bandwidth_hz",
+        "z_spectral_rolloff_95_hz",
+        "z_spectral_entropy",
+        "sta_lta_max",
+        "sta_lta_mean"
+      ]
+    },
+    "vertical_schema_matches_vertical_models": true,
+    "vertical_schema_is_subset_of_set_a_matrix": true,
+    "vertical_schema_is_subset_of_set_c_matrix": true,
+    "24_feature_models_match_each_other": true,
+    "24_feature_model_order_equals_set_a_matrix_order": true,
+    "n_24": 24,
+    "n_18": 18,
+    "nan_counts": {
+      "set_a_features": 0,
+      "set_c_features": 0
+    }
+  }
+}

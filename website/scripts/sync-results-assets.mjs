@@ -94,6 +94,43 @@ const datasetsCopied = copyMatchingFiles(
   (file) => file.endsWith(".csv"),
 );
 
+// Data-journey figures and downloads (published files only; raw waveforms are never copied).
+const dataFiguresCopied = copyMatchingFiles(
+  path.join(repoRoot, "reports/figures/data"),
+  path.join(websiteRoot, "public/data-figures"),
+  (file) => file.endsWith(".png"),
+);
+
+const dataDownloads = [
+  "docs/DATA_COLLECTION_AND_ANALYSIS_REPORT.md",
+  "docs/DATA_DICTIONARY.md",
+  "docs/DATA_ACQUISITION_AND_REPRODUCTION.md",
+  "docs/DATA_AND_MODEL_INVENTORY.md",
+  "docs/RESEARCH_PACKAGE.md",
+  "docs/ML_REPRODUCTION_GUIDE.md",
+  "FINAL_INTEGRITY_CHECK.md",
+  "reports/data_lineage/data_lineage_summary.json",
+  "reports/ml/vertical_feature_schema.json",
+  "data/manifests/iris_california_pilot_events.csv",
+  "data/manifests/sed_switzerland_pilot_events.csv",
+  "data/manifests/sed_switzerland_set_a_picks.csv",
+  "data/manifests/sed_switzerland_validation_candidates.csv",
+  "data/manifests/sed_switzerland_validation_waveforms.csv",
+  "data/manifests/sed_switzerland_validation_picks.csv",
+  "reports/features/swiss_set_a_feature_matrix.csv",
+  "reports/features/swiss_set_c_feature_matrix.csv",
+  "reports/features/feature_matrix.csv",
+];
+let dataDownloadsCopied = 0;
+fs.mkdirSync(path.join(websiteRoot, "public/data-downloads"), { recursive: true });
+for (const rel of dataDownloads) {
+  const src = path.join(repoRoot, rel);
+  if (fs.existsSync(src)) {
+    fs.copyFileSync(src, path.join(websiteRoot, "public/data-downloads", path.basename(rel)));
+    dataDownloadsCopied += 1;
+  }
+}
+
 // STEP ML-1A..ML-4 assets: final research figures + downloadable saved results.
 const finalFiguresCopied = copyMatchingFiles(
   path.join(repoRoot, "reports/figures/final"),
@@ -128,5 +165,5 @@ for (const rel of mlDownloads) {
 const waveformsExported = exportWaveforms();
 
 console.log(
-  `[sync-results-assets] Copied ${figuresCopied} figures, ${tablesCopied} tables, ${datasetsCopied} manifests, ${finalFiguresCopied} final figures, ${mlDownloadsCopied} ML downloads; exported ${waveformsExported} waveform JSON files`,
+  `[sync-results-assets] Copied ${figuresCopied} figures, ${tablesCopied} tables, ${datasetsCopied} manifests, ${finalFiguresCopied} final figures, ${mlDownloadsCopied} ML downloads, ${dataFiguresCopied} data figures, ${dataDownloadsCopied} data downloads; exported ${waveformsExported} waveform JSON files`,
 );

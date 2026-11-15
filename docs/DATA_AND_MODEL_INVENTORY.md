@@ -1,5 +1,17 @@
 # Data and Model Inventory
 
+> **Data lineage and availability (added 2026-11-15).** Counts below are verified by `scripts/reporting/audit_data_lineage.py` (`reports/data_lineage/data_lineage_summary.json`). Narrative: [DATA_COLLECTION_AND_ANALYSIS_REPORT.md](DATA_COLLECTION_AND_ANALYSIS_REPORT.md). Columns and features: [DATA_DICTIONARY.md](DATA_DICTIONARY.md). Commands: [DATA_ACQUISITION_AND_REPRODUCTION.md](DATA_ACQUISITION_AND_REPRODUCTION.md).
+>
+> | Dataset | Provider | Events | Records | Stations | Channels | Picks | Raw files local | Raw files on GitHub | How to obtain |
+> |---|---|---|---|---|---|---|---|---|---|
+> | California pilot | USGS + EarthScope | 8 | 8 listed (12 files locally) | 2 | CI BHZ | none (STA/LTA triggers) | yes, `data/raw/iris/` | no | `download_iris_california_pilot.py` |
+> | Swiss Set A | SED/ETH | 20 | 120 | 54 | CH HHZ/HHN/HHE | 120 manual | yes, 120 `.mseed` + 140 XML | no | `download_sed_switzerland_pilot.py`, `..._set_a_picks.py` |
+> | Swiss Set C | SED/ETH | 15 | 550 | 79 | CH HHZ | 550 manual | yes, 550 `.mseed` + 550 XML | no | `download_sed_switzerland_validation.py` |
+>
+> Classes: **A** raw data present locally: all of the above. **B** local but excluded from GitHub: all raw MiniSEED, StationXML, QuakeML (`.gitignore`). **C** published: manifests, feature matrices, models, results, scripts, figures, documents. **D** external only: the provider archives. **E** reconstructable by script: all raw data via the download scripts (licence terms not reviewed). Event overlap Set A / Set C: 0. Station overlap: all 54 Set A stations also occur in Set C (25 Set C only).
+>
+> Lineage: provider endpoint -> download script -> raw file + manifest row -> feature script -> feature-matrix row -> saved models -> `reports/ml/*.json`. Derived files that exist only locally: none in `data/interim` or `data/processed` (both empty); processed signals are computed in memory by the feature scripts.
+
 Paths are relative to the repository root. "Published" means committed to the GitHub repository. Sizes are from the working copy on 12 Nov 2026.
 
 ## 1. Waveform data (not published)
