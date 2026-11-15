@@ -54,8 +54,7 @@ This is to certify that the Project Report titled **“Machine-Learning-Based Cl
 <br><br>
 
 **Signature:** __________________________  
-**Dr. Anushka Joshi**  
-School of Artificial Intelligence and Data Science (AIDE)
+**Dr. Anushka Joshi**
 
 ---
 
