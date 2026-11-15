@@ -363,6 +363,8 @@ export default function DataAnalysisPage() {
         <p className="mb-4 text-sm text-text-muted">These commands overwrite committed manifests and matrices; use a separate clone. Details and expected outputs are in the reproduction guide.</p>
         <ul className="grid gap-2 sm:grid-cols-2">
           {[
+            ["PROFESSOR_HANDOVER_GUIDE.md", "Professor handover guide"],
+            ["RESEARCH_LIMITATIONS_AND_OPEN_QUESTIONS.md", "Limitations and open questions"],
             ["DATA_COLLECTION_AND_ANALYSIS_REPORT.md", "Main data report"],
             ["DATA_DICTIONARY.md", "Data dictionary"],
             ["DATA_ACQUISITION_AND_REPRODUCTION.md", "Acquisition and reproduction guide"],

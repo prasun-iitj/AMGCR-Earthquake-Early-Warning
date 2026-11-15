@@ -17,7 +17,9 @@ export function isNavItemActive(pathname: string, href: string): boolean {
 }
 
 export const footerQuickLinks = [
+  { label: "Professor Handover Guide", href: "/docs/professor-handover-guide" },
   { label: "Data Collection & Analysis", href: "/data-analysis" },
+  { label: "ML Evaluation", href: "/ml-evaluation" },
   { label: "Dashboard", href: "/dashboard" },
   { label: "Dataset", href: "/dataset" },
   { label: "Waveforms", href: "/waveforms" },

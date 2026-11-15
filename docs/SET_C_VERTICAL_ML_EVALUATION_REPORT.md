@@ -95,7 +95,7 @@ The 18 features were extracted from 4.0-second causal windows after instrument r
 8. `z_crest_factor`: Peak-to-RMS impulsiveness ratio
 9. `z_kurtosis`: Excess kurtosis of waveform distribution
 10. `z_skewness`: Waveform skewness
-11. `z_cav_m_s`: Cumulative absolute velocity ($\text{m/s}$)
+11. `z_cav_m_s`: Cumulative absolute velocity, computed as sum(|v|) x dt on velocity (m/s), which has dimension of length ($\text{m}$) despite the column name; name kept as in the saved schema (see `docs/DATA_DICTIONARY.md`)
 12. `z_dominant_frequency_hz`: Peak power spectrum frequency ($\text{Hz}$)
 13. `z_spectral_centroid_hz`: Center of spectral power distribution ($\text{Hz}$)
 14. `z_spectral_bandwidth_hz`: Spectral spread around centroid ($\text{Hz}$)

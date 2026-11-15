@@ -274,7 +274,7 @@ Accuracy: 66.73% | FP: 0 | FN: 366 (missed 66.5% of P-arrivals)
 | STEP 2K STA/LTA result preserved | ✅ Confirmed — STEP 2K record-level detector (threshold 8.0, 550 records) unchanged; the ML-4 window-level baseline is a separate re-implementation (§5.3) |
 | Threshold 8.0 provenance | ⚠️ Derived from the Swiss Set A grid (California threshold was 2.5). Docs state it was pre-declared before Set C; git history cannot independently prove the order (plan, configs and results arrive in one commit) |
 | Event grouping in CV | ✅ All Set A stations from one earthquake held out together |
-| Feature schema consistency | ⚠️ Same 18 names/order, response correction, bandpass and window length for Set A and Set C; **exception:** `sta_lta_max/mean` use STA 0.5 s (Set A) vs 1.0 s (Set C); impact NOT VERIFIED |
+| Feature schema consistency | ⚠️ Same 18 names/order, response correction, bandpass and window length for Set A and Set C; **exceptions:** `sta_lta_max/mean` use STA 0.5 s (Set A) vs 1.0 s (Set C), and the response pre-filter corners differ between the two scripts; both bandpass filters are zero-phase on the full trace; impact NOT VERIFIED |
 | Anti-leakage test suite | ✅ 89/89 unit tests passing |
 
 ---

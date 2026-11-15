@@ -58,7 +58,7 @@ No raw waveforms, no network, no retraining. Run from the repository root. Optio
 python -m pytest tests/test_vertical_models.py tests/test_ml_models.py tests/test_swiss_set_a_features.py tests/test_switzerland_set_a_picks.py -q -p no:cacheprovider
 ```
 
-Run on 2026-11-15: 20 passed (4 + 6 + 7 + 3). A text search found no file-writing calls in these four test files. The full suite (documented as 89/89 in older reports) was not re-run.
+Run on 2026-11-15: 20 passed (4 + 6 + 7 + 3). A text search found no file-writing calls in these four test files. The full suite (documented as 89/89 in older reports) was re-run separately on 2026-11-15 with `python -m pytest -q -p no:cacheprovider`: 89 passed. It writes no tracked files.
 
 **3.2 Recompute the Set C confusion counts from the saved models (RO).** This loads the two frozen vertical models (joblib pickles: load only files from this repository) and applies them to the published Set C feature matrix. Nothing is written. Save as a `.py` file outside the repository, or paste into a Python session started in the repository root:
 

@@ -121,7 +121,7 @@ Output when run on 2026-11-15 **(run)**: California events 8, files 8; Set A eve
 
 **6.2 Matrix columns and model results.** [ML_REPRODUCTION_GUIDE.md](ML_REPRODUCTION_GUIDE.md) sections 3 and 6 (column split 45 = 20 + 1 + 24 and 35 = 16 + 1 + 18; recomputed Set C confusion counts).
 
-**6.3 Tests (RO).** `python -m pytest tests/test_switzerland_set_a_picks.py tests/test_swiss_set_a_features.py tests/test_vertical_models.py tests/test_ml_models.py tests/test_switzerland_validation_acquisition.py tests/test_switzerland_pilot.py tests/test_switzerland_validation_audit.py -q -p no:cacheprovider` **(run 2026-11-15: 58 passed)**. The full suite was not run.
+**6.3 Tests (RO).** `python -m pytest tests/test_switzerland_set_a_picks.py tests/test_swiss_set_a_features.py tests/test_vertical_models.py tests/test_ml_models.py tests/test_switzerland_validation_acquisition.py tests/test_switzerland_pilot.py tests/test_switzerland_validation_audit.py -q -p no:cacheprovider` **(run 2026-11-15: 58 passed)**. The full suite (`python -m pytest -q -p no:cacheprovider`) was run separately on 2026-11-15: 89 passed.
 
 **6.4 Lineage audit (OVERWRITES one file).** `python scripts/reporting/audit_data_lineage.py` recomputes the counts from the manifests, matrices, schemas and saved models and, if present, the local raw folders, then rewrites `reports/data_lineage/data_lineage_summary.json` (the timestamp changes). It reads no waveform samples. Run it in a separate clone, or restore the file afterwards.
 

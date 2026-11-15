@@ -1,5 +1,7 @@
 # STEP ML-3: Supervised Machine Learning Benchmark Report
 
+> **Documentation correction (2026-11-15).** The magnitude range, noise-window offset, per-event magnitude and distance columns, per-event notes and the XGBoost perfect-event count in an earlier version of this report did not match the repository data (manifest, feature matrix, per-event CSV). They were corrected from those files; model metrics were not changed. See `reports/ml/ML3_INDEPENDENT_AUDIT.md`.
+
 **Project:** AMGCR Earthquake Research  
 **Track:** Supervised ML Prototype & Baseline Comparison  
 **Version:** v1.7.0  
@@ -43,7 +45,7 @@ The models were trained on the feature matrix generated in **STEP ML-2** from Sw
 - **Stations:** 54 unique seismic broadband and strong-motion stations.
 - **Window Length:** 4.0 seconds causal window.
   - *Positive Window:* $[t_{\text{pick}}, t_{\text{pick}} + 4.0\text{ s}]$, anchored to the independently verified SED analyst manual first-P pick.
-  - *Negative Window:* $[t_{\text{origin}} - 14.0\text{ s}, t_{\text{origin}} - 10.0\text{ s}]$, pre-origin quiescent background noise.
+  - *Negative Window:* $[t_{\text{origin}} - 35.0\text{ s}, t_{\text{origin}} - 31.0\text{ s}]$, pre-origin quiescent background noise.
 - **Signal Correction:** StationXML instrument response deconvolution to ground velocity ($\text{m/s}$), zero-phase 4th-order Butterworth bandpass filter ($0.1 - 15.0\text{ Hz}$).
 
 ### 24 Canonical Numeric Features
@@ -171,33 +173,33 @@ Notice that `z_spectral_entropy` is the #1 feature in both Random Forest (17.6%)
 
 In our Leave-One-Group-Out CV, each earthquake was evaluated as a completely unseen test event:
 
-| Event ID | Magnitude | Hypo Dist (km) | RF Accuracy | RF F1 | XGB Accuracy | XGB F1 | Notes |
+| Event ID | Magnitude (SED, manifest) | Mean hypocentral distance (km, Set A matrix) | RF Accuracy | RF F1 | XGB Accuracy | XGB F1 | Imperfect windows (RF / XGB) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
-| `2020btnrcj` | 2.1 | 24.8 | 0.9167 | 0.9091 | 0.9167 | 0.9091 | 1 distant station ($R > 45\text{ km}$) weak onset |
-| `2020vcnjhp` | 2.4 | 18.2 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | Perfect |
-| `2020wcoepg` | 3.1 | 35.1 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | Perfect |
-| `2020wfjqus` | 1.9 | 14.5 | 1.0000 | 1.0000 | 0.9167 | 0.9231 | 1 slight XGB boundary misclassification |
-| `2021mvcsag` | 2.8 | 29.4 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | Perfect |
-| `2021yhkcdx` | 1.8 | 19.8 | 0.9167 | 0.9091 | 0.9167 | 0.9091 | Lowest magnitude event in Set A; 1 station missed |
-| `2021zhdzar` | 4.3 | 42.0 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | Perfect (strong event) |
-| `2022ezutme` | 2.6 | 21.0 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | Perfect |
-| `2022qpgqyu` | 2.2 | 16.3 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | Perfect |
-| `2022rvutkg` | 3.3 | 31.7 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | Perfect |
-| `2023frzpnq` | 2.0 | 22.4 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | Perfect |
-| `2024hxsnga` | 2.7 | 17.9 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | Perfect |
-| `2024jelhrc` | 2.9 | 25.5 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | Perfect |
-| `2024kyoses` | 2.3 | 38.2 | 1.0000 | 1.0000 | 0.9167 | 0.9091 | 1 distant station missed by XGB |
-| `2024movmgz` | 3.0 | 28.1 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | Perfect |
-| `2024tbdkpx` | 2.5 | 15.6 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | Perfect |
-| `2025ofuozq` | 2.1 | 20.3 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | Perfect |
-| `2025ovpxfj` | 3.8 | 49.0 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | Perfect |
-| `2025rgmtqp` | 2.4 | 22.1 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | Perfect |
-| `2026idhhja` | 2.2 | 19.5 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | Perfect |
+| `2020btnrcj` | 3.00 | 58.8 | 0.9167 | 0.9091 | 0.9167 | 0.9091 | 1 / 1 of 12 |
+| `2020vcnjhp` | 4.32 | 58.4 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | none |
+| `2020wcoepg` | 3.47 | 61.3 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | none |
+| `2020wfjqus` | 3.94 | 58.1 | 1.0000 | 1.0000 | 0.9167 | 0.9231 | 0 / 1 of 12 |
+| `2021mvcsag` | 4.02 | 61.7 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | none |
+| `2021yhkcdx` | 3.22 | 69.3 | 0.9167 | 0.9091 | 0.9167 | 0.9091 | 1 / 1 of 12 |
+| `2021zhdzar` | 4.10 | 62.3 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | none |
+| `2022ezutme` | 4.17 | 94.1 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | none |
+| `2022qpgqyu` | 3.21 | 58.0 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | none |
+| `2022rvutkg` | 4.74 | 63.3 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | none |
+| `2023frzpnq` | 4.28 | 62.2 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | none |
+| `2024hxsnga` | 3.78 | 58.9 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | none |
+| `2024jelhrc` | 3.72 | 58.8 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | none |
+| `2024kyoses` | 4.42 | 69.6 | 1.0000 | 1.0000 | 0.9167 | 0.9091 | 0 / 1 of 12 |
+| `2024movmgz` | 4.25 | 64.9 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | none |
+| `2024tbdkpx` | 3.47 | 60.1 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | none |
+| `2025ofuozq` | 4.18 | 58.7 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | none |
+| `2025ovpxfj` | 2.97 | 61.5 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | none |
+| `2025rgmtqp` | 3.78 | 84.4 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | none |
+| `2026idhhja` | 3.83 | 76.8 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | none |
 
 **Summary:**
 - **Random Forest:** Perfect 100% test accuracy on **18 out of 20 events**.
-- **XGBoost:** Perfect 100% test accuracy on **17 out of 20 events**.
-- Both missed detections occurred exclusively on low-magnitude ($M_L \le 2.1$) events recorded at larger hypocentral distances ($R > 25\text{ km}$), where P-wave amplitudes approach the regional microseismic noise floor.
+- **XGBoost:** Perfect 100% test accuracy on **16 out of 20 events** (per `reports/ml/per_event_cross_validation_results.csv`).
+- Imperfect events (from the CSV): Random Forest `2020btnrcj`, `2021yhkcdx`; XGBoost `2020btnrcj`, `2020wfjqus`, `2021yhkcdx`, `2024kyoses`. Each has one or two misclassified windows out of 12. No magnitude or distance explanation for these errors is established here.
 
 ---
 

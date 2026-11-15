@@ -8,7 +8,7 @@ export const heroContent = {
   title: "Reproducible AI-Assisted Earthquake Early Warning Research",
   subtitle: "Western Seismic Regions",
   description:
-    "Europe-focused earthquake early warning research with a completed California FDSN pilot, open documentation, and a reproducible workflow from raw waveforms to machine-learning-ready features.",
+    "Europe-focused earthquake early warning research with a completed California FDSN pilot, Swiss SED datasets, an offline machine-learning window-classification benchmark, open documentation, and a reproducible workflow from raw waveforms to features.",
   primaryCta: { label: "Explore Research", href: "/research" },
   secondaryCta: { label: "View Report", href: "/research/report" },
 };
@@ -129,6 +129,27 @@ export const timelineSteps = [
 ];
 
 export const featuredDownloads = [
+  {
+    title: "Data Collection & Analysis",
+    description: "Original sources, acquisition, raw data, preprocessing, Swiss Set A and Set C, features and reproduction.",
+    href: "/data-analysis",
+    cta: "Open data journey",
+    external: false,
+  },
+  {
+    title: "ML Evaluation",
+    description: "Offline window-classification benchmark: Set A cross-validation, independent Set C results and disclosures.",
+    href: "/ml-evaluation",
+    cta: "Open ML results",
+    external: false,
+  },
+  {
+    title: "Professor Handover Guide",
+    description: "Entry point for academic review: overview, navigation, limitations, checklist and discussion notes.",
+    href: "/docs/professor-handover-guide",
+    cta: "Read the guide",
+    external: false,
+  },
   {
     title: "Final Report",
     description: "Primary submission narrative (D-F1) rendered from repository Markdown.",

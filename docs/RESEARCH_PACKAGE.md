@@ -101,11 +101,11 @@ Threshold 8.0 was chosen from the Swiss Set A threshold grid with a pre-written 
 1. Offline classification of pre-cut windows; no continuous picking, detection latency or alerting claim.
 2. Small training set (240 windows, 20 events).
 3. Event-level independence only; all Set A stations also occur in Set C.
-4. STA window mismatch (0.5 s vs 1.0 s) in two features; effect unverified.
+4. STA window mismatch (0.5 s vs 1.0 s) in two features, and different response pre-filter corners in the two feature scripts; effects unverified. The feature `z_cav_m_s` is sum(|v|) x dt on velocity and so has dimension of length despite its name.
 5. A zero-phase bandpass is applied to full traces before windowing, so window samples depend on neighbouring (including later) samples. Positive windows start at the analyst pick. Both sets are treated identically; the effect is not quantified. Earlier documents describe the windows as "causal"; that wording refers to window placement only.
 6. Vertical-only features omit particle-motion information. Misses concentrate on small events.
 7. The ML-4 baseline differs from the STEP 2K detector (section 9).
-8. Test counts quoted in older documents (89/89) were not re-run for this package; see [ML_REPRODUCTION_GUIDE.md](ML_REPRODUCTION_GUIDE.md) for what was run.
+8. The documented 89/89 test count was re-run in full on 2026-11-15 (`python -m pytest -q`: 89 passed). Tests check code and artefact consistency; they do not establish scientific validity.
 9. Audit: [../FINAL_INTEGRITY_CHECK.md](../FINAL_INTEGRITY_CHECK.md).
 
 ![Limitations and roadmap](../reports/figures/final/fig12_limitations_roadmap.png)

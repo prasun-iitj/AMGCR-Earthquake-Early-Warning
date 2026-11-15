@@ -4,6 +4,40 @@ Reproducible **AI-assisted Earthquake Early Warning (EEW)** research for **Weste
 
 **Release:** **v1.0.0 — Submission Release** (29 July 2026) · [RELEASE_SUMMARY_v1.0.md](RELEASE_SUMMARY_v1.0.md)
 
+## For academic reviewers (start here)
+
+**Read first:** [docs/professor_handover/PROFESSOR_HANDOVER_GUIDE.md](docs/professor_handover/PROFESSOR_HANDOVER_GUIDE.md) · [Executive summary](docs/professor_handover/RESEARCH_EXECUTIVE_SUMMARY.md) · [Review checklist](docs/professor_handover/PROFESSOR_REVIEW_CHECKLIST.md) · [Limitations and open questions](docs/professor_handover/RESEARCH_LIMITATIONS_AND_OPEN_QUESTIONS.md)
+
+**What this is.** An **offline P-wave versus ambient-noise window-classification research benchmark**. Random Forest and XGBoost trained on 20 Swiss earthquakes (Set A) are evaluated on 15 different earthquakes (Set C) and compared with an STA/LTA threshold rule. It is **not** an operational real-time early-warning system and not earthquake prediction.
+
+**Objective.** A reproducible workflow from public waveform services (USGS, EarthScope/IRIS, SED/ETH) to labelled 4 s windows, features and event-grouped evaluation, with limitations stated.
+
+![Research workflow](reports/figures/final/fig01_research_workflow.png)
+
+| Dataset | Provider | Events | Records | Stations | Channels | Manual picks | Windows | Features |
+|---|---|---|---|---|---|---|---|---|
+| California pilot (v1.0.0, frozen) | USGS + EarthScope | 8 | 8 (manifest) | 2 | CI BHZ | none (STA/LTA triggers) | n/a | 18 |
+| Swiss Set A | SED/ETH | 20 | 120 | 54 | HHZ, HHN, HHE | 120 | 240 | 24 |
+| Swiss Set C | SED/ETH | 15 | 550 | 79 | HHZ | 550 | 1,100 | 18 |
+
+**Main result (saved JSON, Set C, 15 unseen events).** XGBoost F1 0.9169 (recall 0.8527), Random Forest F1 0.9125 (recall 0.8436), window-level STA/LTA baseline F1 0.5014 (recall 0.3345). The baseline is not the STEP 2K record-level detector (401 of 550 records detected). Details: [docs/SET_C_VERTICAL_ML_EVALUATION_REPORT.md](docs/SET_C_VERTICAL_ML_EVALUATION_REPORT.md).
+
+**Website.** https://amgcr-research.vercel.app/ (live deployment status not verified for the latest commit). Source in [`website/`](website/); pages `/data-analysis` (Data Collection & Analysis) and `/ml-evaluation` (ML Evaluation) are built from this repository.
+
+| Need | Document |
+|---|---|
+| Data journey and sources | [docs/DATA_COLLECTION_AND_ANALYSIS_REPORT.md](docs/DATA_COLLECTION_AND_ANALYSIS_REPORT.md) |
+| Columns and features | [docs/DATA_DICTIONARY.md](docs/DATA_DICTIONARY.md) |
+| Reproduce data and features | [docs/DATA_ACQUISITION_AND_REPRODUCTION.md](docs/DATA_ACQUISITION_AND_REPRODUCTION.md) |
+| Reproduce / verify models | [docs/ML_REPRODUCTION_GUIDE.md](docs/ML_REPRODUCTION_GUIDE.md) |
+| Files, models and paths | [docs/DATA_AND_MODEL_INVENTORY.md](docs/DATA_AND_MODEL_INVENTORY.md) |
+| Research package | [docs/RESEARCH_PACKAGE.md](docs/RESEARCH_PACKAGE.md) |
+| Integrity audit | [FINAL_INTEGRITY_CHECK.md](FINAL_INTEGRITY_CHECK.md) |
+
+**Data availability.** Manifests, feature matrices, saved models, result files, scripts, configs and figures are in this repository. Raw MiniSEED, StationXML and QuakeML are **not** published (local only; provider licence terms not reviewed); they can be re-downloaded with `scripts/download/`, and new downloads may differ from the originals. The committed files allow results to be verified without the raw waveforms; waveform-level checks need a fresh download.
+
+**Limitations (short).** Few events; events independent but all Set A stations also occur in Set C; Set C is vertical-only; the Set A and Set C feature scripts differ (STA window 0.5 s vs 1.0 s, response pre-filter corners) and both apply a zero-phase filter to full traces before windowing; no latency or false-alert measurement; 4 local California MiniSEED files are not in the manifest. Full list: [limitations](docs/professor_handover/RESEARCH_LIMITATIONS_AND_OPEN_QUESTIONS.md).
+
 ## Start here
 
 | Document | Role |
@@ -82,8 +116,11 @@ AMGCR_Earthquake_Research/
 ├── data/raw/iris/          # California MiniSEED (local; gitignored — see D-S2)
 ├── data/raw/switzerland/   # Swiss SED MiniSEED (local; gitignored)
 ├── data/metadata/switzerland/  # Swiss StationXML (XML gitignored)
-├── docs/                   # Charter, phase reports, submission statements
-├── reports/                # Final report, figures, tables, presentation assets
+├── docs/                   # Charter, phase reports, data and ML guides, submission statements
+│   └── professor_handover/ # Academic review package (guide, summary, methodology, limitations, checklist, notes)
+├── reports/                # Final report, figures, tables, features, ML results, data lineage
+├── scripts/ml/             # RF / XGBoost training and evaluation
+├── scripts/reporting/      # lineage audit and figure generation
 ├── scripts/download/       # California (frozen) + Swiss SED download
 ├── scripts/analysis/       # EDA → features (executed; frozen)
 ├── src/                    # Acquisition framework (+ reserved package stubs)
