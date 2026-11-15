@@ -6,7 +6,7 @@ Reproducible **AI-assisted Earthquake Early Warning (EEW)** research for **Weste
 
 ## For academic reviewers (start here)
 
-**Read first:** [docs/professor_handover/PROFESSOR_HANDOVER_GUIDE.md](docs/professor_handover/PROFESSOR_HANDOVER_GUIDE.md) · [Executive summary](docs/professor_handover/RESEARCH_EXECUTIVE_SUMMARY.md) · [Review checklist](docs/professor_handover/PROFESSOR_REVIEW_CHECKLIST.md) · [Limitations and open questions](docs/professor_handover/RESEARCH_LIMITATIONS_AND_OPEN_QUESTIONS.md)
+**Read first:** [Website navigation guide](docs/professor_handover/WEBSITE_NAVIGATION_GUIDE.md) · [docs/professor_handover/PROFESSOR_HANDOVER_GUIDE.md](docs/professor_handover/PROFESSOR_HANDOVER_GUIDE.md) · [Executive summary](docs/professor_handover/RESEARCH_EXECUTIVE_SUMMARY.md) · [Review checklist](docs/professor_handover/PROFESSOR_REVIEW_CHECKLIST.md) · [Limitations and open questions](docs/professor_handover/RESEARCH_LIMITATIONS_AND_OPEN_QUESTIONS.md)
 
 **What this is.** An **offline P-wave versus ambient-noise window-classification research benchmark**. Random Forest and XGBoost trained on 20 Swiss earthquakes (Set A) are evaluated on 15 different earthquakes (Set C) and compared with an STA/LTA threshold rule. It is **not** an operational real-time early-warning system and not earthquake prediction.
 
