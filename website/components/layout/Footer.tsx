@@ -15,6 +15,10 @@ export function Footer() {
             <p className="mt-3 max-w-md text-sm leading-relaxed text-white/75">
               {siteConfig.description}
             </p>
+            <p className="mt-3 max-w-md text-xs leading-relaxed text-white/70">
+              {siteConfig.identity}, with an academic association with the Swiss Certificate Programme.
+              Swiss seismic data are from the Swiss Seismological Service (SED, ETH Zurich).
+            </p>
             <p className="mt-4 text-xs text-white/60">
               Platform v{siteConfig.version} · Science v{siteConfig.scienceVersion}
             </p>

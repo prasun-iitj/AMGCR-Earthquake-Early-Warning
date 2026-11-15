@@ -121,7 +121,7 @@ function loadCaliforniaPilot(): DatasetRecord {
     region: "United States (California)",
     status: "active",
     summary:
-      "Completed certificate-track pilot using USGS event metadata and EarthScope MiniSEED waveforms acquired with ObsPy.",
+      "Completed California pilot using USGS event metadata and EarthScope MiniSEED waveforms acquired with ObsPy.",
     source: "USGS FDSN (events) · EarthScope (waveforms)",
     acquisitionMethod: "ObsPy FDSN clients — scripts/download/download_iris_california_pilot.py",
     providers: ["USGS", "EarthScope"],

@@ -8,7 +8,7 @@ import { githubRepoUrl } from "@/lib/content/paths";
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact",
   description:
-    "Contact the AMGCR Earthquake Early Warning Research team — repository links and programme context.",
+    "Contact the AMGCR Earthquake Early Warning Research team — repository links and project context.",
   path: "/contact",
 });
 

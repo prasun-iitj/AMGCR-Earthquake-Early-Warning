@@ -124,6 +124,24 @@ summary {
   @apply prose prose-slate max-w-none prose-headings:font-serif prose-headings:text-text prose-p:text-text-muted prose-a:text-primary prose-a:no-underline hover:prose-a:text-primary-light prose-strong:text-text prose-code:rounded prose-code:bg-surface prose-code:px-1 prose-code:py-0.5 prose-code:text-text prose-pre:bg-surface prose-pre:border prose-pre:border-border prose-table:text-sm prose-th:text-text prose-td:text-text-muted;
 }
 
+/* Keep wide Markdown tables and long tokens inside narrow viewports. */
+.doc-prose table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.doc-prose a,
+.doc-prose code,
+main code {
+  overflow-wrap: anywhere;
+}
+
+main p,
+main li {
+  overflow-wrap: break-word;
+}
+
 .doc-prose .anchor-link {
   @apply no-underline;
 }

@@ -1,16 +1,19 @@
 import { githubRepoUrl } from "@/lib/content/paths";
 
 export const heroContent = {
-  eyebrow: {
-    left: "Swiss certificate programme",
-    right: "AMGCR",
-  },
+  eyebrow: "An IIT Jodhpur major research project",
   title: "Reproducible AI-Assisted Earthquake Early Warning Research",
-  subtitle: "Western Seismic Regions",
+  subtitle: "AMGCR: Assessment and Management of Geological and Climate Related Risk",
+  metaDescription:
+    "AMGCR, an IIT Jodhpur major research project on AI-assisted seismic signal analysis and P-wave detection, with documented data, methods, independent evaluation and limitations.",
   description:
-    "Europe-focused earthquake early warning research with a completed California FDSN pilot, Swiss SED datasets, an offline machine-learning window-classification benchmark, open documentation, and a reproducible workflow from raw waveforms to features.",
-  primaryCta: { label: "Explore Research", href: "/research" },
-  secondaryCta: { label: "View Report", href: "/research/report" },
+    "AI-assisted seismic signal analysis and P-wave detection: waveform acquisition, signal preprocessing, feature engineering, machine-learning classification of candidate windows, independent Swiss validation and comparison with traditional STA/LTA detection. Datasets, methodology, results and limitations are documented for reproducibility. This is an offline research benchmark, not an operational warning system.",
+  ctas: [
+    { label: "Explore Research", href: "/research", variant: "primary" as const },
+    { label: "View Data & Analysis", href: "/data-analysis", variant: "outline" as const },
+    { label: "Explore ML Evaluation", href: "/ml-evaluation", variant: "outline" as const },
+    { label: "Read Research Documentation", href: "/docs", variant: "outline" as const },
+  ],
 };
 
 export const projectHighlights = [
@@ -107,23 +110,34 @@ export const workflowSteps: WorkflowStep[] = [
 
 export const timelineSteps = [
   {
-    label: "Version 1.0",
-    detail: "Submission release · science frozen 2026-07-29",
+    label: "Swiss Certificate Programme association",
+    detail:
+      "The research began with an academic association with the Swiss Certificate Programme; its v1.0.0 submission (2026-07-29) froze the California pilot science.",
     status: "complete" as const,
   },
   {
-    label: "California Pilot",
-    detail: "8 events · IRIS/EarthScope · 8×18 features",
+    label: "California pilot",
+    detail: "8 events from USGS and EarthScope/IRIS; waveform analysis, preprocessing and an 8×18 feature matrix (frozen).",
     status: "complete" as const,
   },
   {
-    label: "Submission",
-    detail: "D-F1–F4 deliverables · validation PASS",
+    label: "Swiss seismic datasets",
+    detail: "SED/ETH data: Set A (20 events, 120 three-component records) and Set C (15 events, 550 vertical-component records), with manual first-P picks.",
     status: "complete" as const,
   },
   {
-    label: "Version 2.0",
-    detail: "Interactive research platform · documentation portal live",
+    label: "Features and models",
+    detail: "Engineered window features; Random Forest and XGBoost with event-grouped cross-validation.",
+    status: "complete" as const,
+  },
+  {
+    label: "Independent Swiss validation",
+    detail: "Frozen models evaluated on 15 unseen Set C events and compared with STA/LTA (offline benchmark; stations are shared with Set A).",
+    status: "complete" as const,
+  },
+  {
+    label: "IIT Jodhpur major research project",
+    detail: "Documented methodology, results and limitations presented on this research platform for academic review.",
     status: "current" as const,
   },
 ];

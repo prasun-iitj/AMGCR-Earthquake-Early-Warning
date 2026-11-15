@@ -178,9 +178,9 @@ function DetailGroup({
   items: Array<[string, string]>;
 }) {
   return (
-    <div className="rounded-xl border border-border bg-surface p-6">
+    <div className="min-w-0 rounded-xl border border-border bg-surface p-6">
       <h3 className="font-serif text-xl font-semibold text-text">{title}</h3>
-      <dl className="mt-4 space-y-3">
+      <dl className="mt-4 space-y-3 [overflow-wrap:anywhere]">
         {items.map(([term, value]) => (
           <div key={term}>
             <dt className="text-xs font-semibold uppercase tracking-wider text-text-muted">

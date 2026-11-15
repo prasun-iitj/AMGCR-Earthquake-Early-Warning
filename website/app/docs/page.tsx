@@ -58,7 +58,7 @@ export default function DocumentationIndexPage() {
                   </h2>
                   <ul className="grid gap-4 md:grid-cols-2">
                     {items.map((doc) => (
-                      <li key={doc.slug}>
+                      <li key={doc.slug} className="min-w-0">
                         <Link
                           href={doc.href}
                           className="group block h-full rounded-xl border border-border bg-surface-elevated p-6 shadow-sm transition-colors hover:border-primary/30"
@@ -69,7 +69,7 @@ export default function DocumentationIndexPage() {
                           <p className="mt-2 text-sm leading-relaxed text-text-muted">
                             {doc.description}
                           </p>
-                          <p className="mt-4 font-mono text-xs text-text-muted">
+                          <p className="mt-4 break-all font-mono text-xs text-text-muted">
                             {doc.sourcePath}
                           </p>
                         </Link>

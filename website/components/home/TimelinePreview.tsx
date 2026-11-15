@@ -6,8 +6,8 @@ export function TimelinePreview() {
     <Section
       variant="muted"
       eyebrow="Timeline"
-      title="Project timeline"
-      subtitle="From frozen v1.0 submission science to the Version 2.0 interactive platform."
+      title="Research journey"
+      subtitle="From the Swiss Certificate Programme association and the California pilot to Swiss datasets, models and independent validation."
     >
       <ol className="relative mx-auto max-w-4xl">
         {timelineSteps.map((step, index) => (

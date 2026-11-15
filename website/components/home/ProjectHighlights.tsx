@@ -44,7 +44,7 @@ export function ProjectHighlights() {
     <Section
       eyebrow="Project highlights"
       title="What this research delivers"
-      subtitle="A certificate-grade earthquake early warning workflow designed for transparency, transfer to European networks, and open reproducibility."
+      subtitle="A documented, reproducible seismic signal-analysis workflow, from waveform acquisition to independent validation, with its limitations stated."
     >
       <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
         {projectHighlights.map((item) => (

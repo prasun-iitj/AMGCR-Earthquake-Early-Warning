@@ -31,7 +31,7 @@ export function DatasetDownloads({ dataset }: DatasetDownloadsProps) {
           {dataset.downloads.map((item) => (
             <li
               key={`${item.path}-${item.label}`}
-              className="flex items-center justify-between gap-4 rounded-xl border border-border bg-surface-elevated px-5 py-4"
+              className="flex min-w-0 items-center justify-between gap-4 rounded-xl border border-border bg-surface-elevated px-5 py-4"
             >
               <div className="min-w-0">
                 <p className="font-medium text-text">{item.label}</p>

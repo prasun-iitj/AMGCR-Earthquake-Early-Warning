@@ -5,6 +5,7 @@ import { Section } from "@/components/ui/Section";
 import {
   academicSupervisor,
   acknowledgements,
+  projectBackground,
   researchArea,
   researchInterests,
   researchProject,
@@ -91,7 +92,7 @@ export function AboutProfilePage() {
         ]}
         eyebrow="About"
         title="Researcher profile"
-        subtitle="Academic background, research focus, and supervision for the AMGCR earthquake early warning programme."
+        subtitle="Academic background, research focus and supervision for AMGCR, an IIT Jodhpur major research project with an academic association with the Swiss Certificate Programme."
       />
 
       {/* Profile card + IIT Jodhpur branding */}
@@ -223,6 +224,16 @@ export function AboutProfilePage() {
               >
                 3. Research Project
               </h2>
+              <div className="mt-4 rounded-xl border border-primary/20 bg-primary/5 p-6">
+                <h3 className="font-serif text-xl font-semibold text-text">
+                  {projectBackground.heading}
+                </h3>
+                {projectBackground.paragraphs.map((paragraph) => (
+                  <p key={paragraph} className="mt-3 leading-relaxed text-text-muted">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
               <div className="mt-4 rounded-xl border border-border bg-surface-elevated p-6">
                 <h3 className="font-serif text-xl font-semibold text-text">
                   {researchProject.title}

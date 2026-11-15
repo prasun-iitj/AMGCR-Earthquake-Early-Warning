@@ -12,7 +12,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Home",
-  description: heroContent.description,
+  description: heroContent.metaDescription,
   path: "/",
 });
 

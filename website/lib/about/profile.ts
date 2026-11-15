@@ -37,8 +37,18 @@ export const academicSupervisor = {
 export const researcherBio = [
   "Prasun Kumar Tripathi is an M.Tech Artificial Intelligence scholar (Roll No. M25AI2151) at the School of Artificial Intelligence and Data Science (AIDE), Indian Institute of Technology Jodhpur. His graduate research focuses on machine-learning approaches for earthquake early warning, with particular emphasis on peak ground acceleration prediction using heteroscedastic ensemble deep random vector functional link architectures.",
   "Alongside his degree programme, he develops and documents the AMGCR Earthquake Early Warning Research platform — a reproducible, open pipeline spanning FDSN waveform acquisition, signal analysis, feature engineering, and interactive dissemination of pilot results from Western seismic regions.",
-  "He contributes to certificate-grade reproducible research workflows, maintaining version-controlled science, validation artefacts, and this public-facing research portal as part of the Swiss certificate programme (AMGCR).",
+  "He maintains the version-controlled science, validation artefacts and this public research portal for the AMGCR major research project at IIT Jodhpur.",
 ] as const;
+
+/** Institutional identity and academic background (About page). Wording kept factual; no formal partnership is implied. */
+export const projectBackground = {
+  heading: "Institutional identity and academic background",
+  paragraphs: [
+    "AMGCR (Assessment and Management of Geological and Climate Related Risk) is an IIT Jodhpur major research project.",
+    "The AMGCR research journey has an academic association with the Swiss Certificate Programme and has evolved into a major research project at IIT Jodhpur. The project brings together seismic data analysis, signal processing and machine-learning-based P-wave detection research.",
+    "Switzerland also appears in the research as a data source: Swiss seismic records from the Swiss Seismological Service (SED, ETH Zurich) are used for model development (Set A) and independent evaluation (Set C). This is a data reference, not an institutional affiliation.",
+  ],
+} as const;
 
 export const researchInterests = [
   {
@@ -66,12 +76,12 @@ export const researchInterests = [
 export const researchProject = {
   title: "AMGCR Earthquake Early Warning Research",
   summary:
-    "A reproducible research programme aligned with the Swiss certificate project (AMGCR), combining a completed California FDSN pilot (Version 1.0) with an interactive documentation and exploration platform (Version 2.0). The work connects literature-aligned AI methodology with open, auditable geophysical data processing.",
+    "A reproducible research project on AI-assisted seismic signal analysis and P-wave detection. It combines a completed California pilot (Version 1.0), Swiss SED datasets (Set A for development, Set C for independent evaluation), engineered features, Random Forest and XGBoost models with event-grouped cross-validation, and a comparison with STA/LTA detection. It is an offline research benchmark, not an operational early-warning system.",
   highlights: [
-    "California IRIS/EarthScope pilot — eight events, 8×18 ML-ready feature matrix (science frozen v1.0.0)",
-    "End-to-end workflow: acquisition → EDA → signal analysis → preprocessing → features → interpretation",
-    "Europe-focused long-term direction with California as the methods laboratory",
-    "Public report, presentation, and validation PASS submission package (D-F1–F4)",
+    "California IRIS/EarthScope pilot: eight events, 8×18 feature matrix (science frozen v1.0.0)",
+    "Swiss SED data: 20 development events (Set A) and 15 independent events (Set C) with manual first-P picks",
+    "Workflow: acquisition → preprocessing → manual P labels → candidate windows → features → models → independent evaluation",
+    "Documented limitations, data lineage and reproduction guides for academic review",
   ],
 } as const;
 
@@ -87,13 +97,18 @@ export const researchTimeline = [
     status: "current" as const,
   },
   {
-    label: "AMGCR v1.0 submission",
-    detail: "California pilot · reproducible pipeline · validation PASS · 2026-07-29",
+    label: "Swiss Certificate Programme association",
+    detail: "Academic background of the research; AMGCR v1.0 submission with the California pilot, validation PASS, 2026-07-29",
     status: "complete" as const,
   },
   {
-    label: "Interactive platform v2.0",
-    detail: "Documentation portal, explorers, and public research dashboard",
+    label: "Swiss datasets and models",
+    detail: "SED data (Set A, Set C), engineered features, Random Forest and XGBoost, independent Swiss validation",
+    status: "complete" as const,
+  },
+  {
+    label: "Research platform and handover",
+    detail: "Documentation portal, data and ML evaluation pages, and academic review package",
     status: "current" as const,
   },
 ] as const;
@@ -111,8 +126,8 @@ export const technologiesUsed = [
 
 export const acknowledgements = [
   "Dr. Anushka Joshi, School of Artificial Intelligence and Data Science (AIDE), IIT Jodhpur, for academic supervision and research guidance.",
-  "The Swiss certificate programme (AMGCR) framework that structures the reproducible earthquake early warning research deliverables.",
+  "The Swiss Certificate Programme, with which the AMGCR research journey has an academic association (no formal partnership or endorsement is implied).",
   "Indian Institute of Technology Jodhpur and the AIDE community for academic support and infrastructure.",
-  "Open geophysical data providers (USGS, IRIS/EarthScope) and the ObsPy developer community for foundational tooling.",
+  "Open geophysical data providers (USGS, IRIS/EarthScope, and the Swiss Seismological Service SED/ETH Zurich) and the ObsPy developer community for foundational tooling.",
   "Contributors and reviewers who supported the Version 1.0 submission validation and documentation quality.",
 ] as const;
