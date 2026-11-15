@@ -21,6 +21,7 @@ export const mainNav: NavItem[] = [
   { label: "Resources", href: "/resources" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
+  { label: "Reviewer Guide", shortLabel: "Review Guide", href: "/review-guide" },
 ];
 
 export const siteConfig = {
