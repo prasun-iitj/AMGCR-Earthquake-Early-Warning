@@ -5,7 +5,7 @@ import rehypeRaw from "rehype-raw";
 import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
-import { isExternalHref, rewriteMarkdownHref } from "@/lib/content/links";
+import { isExternalHref, rewriteMarkdownHref, rewriteMarkdownImageSrc } from "@/lib/content/links";
 
 const sanitizeSchema = {
   ...defaultSchema,
@@ -41,6 +41,15 @@ export function MarkdownRenderer({
           ],
         ]}
         components={{
+          img: ({ src, alt }) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={rewriteMarkdownImageSrc(typeof src === "string" ? src : undefined, sourcePath)}
+              alt={alt ?? ""}
+              loading="lazy"
+              className="h-auto max-w-full"
+            />
+          ),
           a: ({ href, children, ...props }) => {
             const resolved =
               rewriteMarkdownHref(href, sourcePath) ?? href ?? "#";

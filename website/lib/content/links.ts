@@ -38,10 +38,9 @@ export function rewriteMarkdownHref(
     return sourcePathToHref[normalized];
   }
 
-  if (normalized.endsWith(".md")) {
-    return `${githubRepoUrl}/blob/main/${normalized}`;
-  }
-
+  // Root-relative links go straight to GitHub. Relative links (including .md files that sit next to
+  // the current document) are resolved against the current document below, so sibling documents in
+  // docs/ map to their portal routes instead of a non-existent repository-root path.
   if (href.startsWith("/")) {
     return `${githubRepoUrl}/blob/main/${normalized}`;
   }
@@ -56,6 +55,32 @@ export function rewriteMarkdownHref(
   }
 
   return `${githubRepoUrl}/blob/main/${resolved}`;
+}
+
+/**
+ * Resolve a Markdown image path. Figures copied by scripts/sync-results-assets.mjs are served from
+ * /data-figures and /final-figures; any other repository image falls back to raw.githubusercontent.com.
+ */
+export function rewriteMarkdownImageSrc(
+  src: string | undefined,
+  currentSourcePath: string,
+): string | undefined {
+  if (!src || /^(https?:|data:|\/)/.test(src)) {
+    return src;
+  }
+
+  const resolved = resolveRelativePath(src, currentSourcePath);
+  const name = path.posix.basename(resolved);
+
+  if (resolved.startsWith("reports/figures/data/")) {
+    return `/data-figures/${name}`;
+  }
+  if (resolved.startsWith("reports/figures/final/")) {
+    return `/final-figures/${name}`;
+  }
+
+  const rawBase = githubRepoUrl.replace("https://github.com/", "https://raw.githubusercontent.com/");
+  return `${rawBase}/main/${resolved}`;
 }
 
 export function isExternalHref(href: string): boolean {
