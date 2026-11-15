@@ -266,7 +266,7 @@ The processing steps are shown here because the data is not given directly to th
 
 ### 4.1 Waveform validation and response correction
 
-The Swiss records were checked for time coverage, gaps, overlaps, required channels and associated station metadata. Waveform handling and signal processing were carried out using ObsPy, a Python framework for seismological data processing [7]. The feature-processing summaries report zero failed records for both Set A and Set C. StationXML responses were used to remove instrument response and convert waveform amplitudes to ground velocity in metres per second.
+The Swiss records were checked for time coverage, gaps, overlaps, required channels and associated station metadata. Waveform handling and signal processing were carried out using ObsPy, a Python framework for seismological data processing [3]. The feature-processing summaries report zero failed records for both Set A and Set C. StationXML responses were used to remove instrument response and convert waveform amplitudes to ground velocity in metres per second.
 
 ### 4.2 Preprocessing
 
