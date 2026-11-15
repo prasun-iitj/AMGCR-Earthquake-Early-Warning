@@ -18,7 +18,10 @@ Reproducible **AI-assisted Earthquake Early Warning (EEW)** research for **Weste
 | [docs/ROADMAP.md](docs/ROADMAP.md) | Archived v1.0 milestones · v2.0 platform complete · v2.1/v3.0 future work |
 | [docs/SED_SWITZERLAND_DATASET_REPORT.md](docs/SED_SWITZERLAND_DATASET_REPORT.md) | Swiss SED methods-transfer acquisition (v3.0 start) |
 | [docs/SWISS_INDEPENDENT_VALIDATION_RESULTS.md](docs/SWISS_INDEPENDENT_VALIDATION_RESULTS.md) | Frozen Set C STA/LTA validation (STEP 2K) |
-| [docs/SWISS_ML_FEASIBILITY_AUDIT.md](docs/SWISS_ML_FEASIBILITY_AUDIT.md) | STEP 3A: ML on Set A is **NO-GO** |
+| [docs/SWISS_ML_FEASIBILITY_AUDIT.md](docs/SWISS_ML_FEASIBILITY_AUDIT.md) | STEP 3A: ML on unlabelled Set A tables was **NO-GO** (later unblocked by STEP ML-1A) |
+| [docs/SET_C_VERTICAL_ML_EVALUATION_REPORT.md](docs/SET_C_VERTICAL_ML_EVALUATION_REPORT.md) | STEP ML-4: vertical-only RF/XGBoost trained on Set A, evaluated on Set C (offline research benchmark) |
+| [docs/AI_ML_CERTIFICATE_WRAP.md](docs/AI_ML_CERTIFICATE_WRAP.md) | AI/ML certificate wrap of 2026-11-11 (historical; predates ML-1A to ML-4) |
+| [reports/Certificate_Wrap_Presentation.pptx](reports/Certificate_Wrap_Presentation.pptx) | 13 Nov 2026 wrap deck |
 
 **AI assistants:** read [docs/PROJECT_CHARTER.md](docs/PROJECT_CHARTER.md) and [docs/AI_AGENT.md](docs/AI_AGENT.md).
 
@@ -49,7 +52,7 @@ Reproducible **AI-assisted Earthquake Early Warning (EEW)** research for **Weste
 
 **Version 2.0 platform (complete — 2 August 2026):** Interactive research website in [`website/`](website/) — dashboard, workflow, results, dataset, waveforms, map, documentation portal, global search. Platform version **2.0.0** · Science baseline **v1.0.0** (frozen). See [docs/V2_RELEASE_NOTES.md](docs/V2_RELEASE_NOTES.md).
 
-**Version 2.1 / 3.0:** platform maintenance; Swiss Set A analysis and frozen Set C validation **complete**; supervised ML on existing Set A tables is **NO-GO** ([docs/SWISS_ML_FEASIBILITY_AUDIT.md](docs/SWISS_ML_FEASIBILITY_AUDIT.md)). Streaming and operational deployment remain future work — [docs/ROADMAP.md](docs/ROADMAP.md). The **v1.0 California analysis chain is frozen** at 2026-07-29 artefacts.
+**Version 2.1 / 3.0:** platform maintenance; Swiss Set A analysis and frozen Set C validation **complete**; supervised ML on the original unlabelled Set A tables was **NO-GO** at STEP 3A ([docs/SWISS_ML_FEASIBILITY_AUDIT.md](docs/SWISS_ML_FEASIBILITY_AUDIT.md)); this was resolved on 2026-11-12 by STEP ML-1A (120/120 SED analyst picks) and STEP ML-2 to ML-4 (Set A–trained Random Forest/XGBoost evaluated on Set C; offline windowed benchmark, **not** an operational EEW system — see [docs/SET_C_VERTICAL_ML_EVALUATION_REPORT.md](docs/SET_C_VERTICAL_ML_EVALUATION_REPORT.md)). Streaming and operational deployment remain future work — [docs/ROADMAP.md](docs/ROADMAP.md). The **v1.0 California analysis chain is frozen** at 2026-07-29 artefacts.
 
 ## Key reports and deliverables
 
@@ -111,7 +114,7 @@ Python 3.11+, ObsPy, NumPy, Pandas, Matplotlib, SciPy, PyYAML, Git.
 
 ## Version
 
-**Science:** v1.0.0 — Submission Release (documentation **1.4.0**)  
+**Science:** v1.0.0 — frozen Submission Release (documentation **1.4.0** at release). Later internal documentation milestones (e.g. **v1.8.0** = STEP ML-4, 2026-11-12) are research-status counters, not software releases; package/citation version remains 1.0.0.  
 **Platform:** v2.0.0 — Interactive website ([website/](website/))
 
 See [docs/CHANGELOG.md](docs/CHANGELOG.md) · [website/CHANGELOG.md](website/CHANGELOG.md)

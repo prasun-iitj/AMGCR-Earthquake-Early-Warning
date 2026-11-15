@@ -9,6 +9,7 @@ export const staticRoutes = [
   { path: "/research/report", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "/workflow", priority: 0.85, changeFrequency: "monthly" as const },
   { path: "/results", priority: 0.85, changeFrequency: "weekly" as const },
+  { path: "/ml-evaluation", priority: 0.9, changeFrequency: "weekly" as const },
   { path: "/dataset", priority: 0.85, changeFrequency: "weekly" as const },
   { path: "/waveforms", priority: 0.85, changeFrequency: "weekly" as const },
   { path: "/map", priority: 0.85, changeFrequency: "weekly" as const },

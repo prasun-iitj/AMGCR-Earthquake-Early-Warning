@@ -54,17 +54,39 @@ function exportWaveforms() {
   return fs.readdirSync(outputDir).filter((file) => file.endsWith(".json")).length;
 }
 
-const figuresCopied = copyMatchingFiles(
-  path.join(repoRoot, "reports/figures"),
-  path.join(websiteRoot, "public/figures"),
-  (file) => file.endsWith(".png"),
-);
+const figuresCopied =
+  copyMatchingFiles(
+    path.join(repoRoot, "reports/figures"),
+    path.join(websiteRoot, "public/figures"),
+    (file) => file.endsWith(".png"),
+  ) +
+  copyMatchingFiles(
+    path.join(repoRoot, "reports/switzerland_validation/figures"),
+    path.join(websiteRoot, "public/figures"),
+    (file) => file.endsWith(".png"),
+  ) +
+  copyMatchingFiles(
+    path.join(repoRoot, "reports/swiss_signal_analysis/figures"),
+    path.join(websiteRoot, "public/figures"),
+    (file) => file.endsWith(".png"),
+  );
 
-const tablesCopied = copyMatchingFiles(
-  path.join(repoRoot, "reports/tables"),
-  path.join(websiteRoot, "public/tables"),
-  (file) => file.endsWith(".csv"),
-);
+const tablesCopied =
+  copyMatchingFiles(
+    path.join(repoRoot, "reports/tables"),
+    path.join(websiteRoot, "public/tables"),
+    (file) => file.endsWith(".csv"),
+  ) +
+  copyMatchingFiles(
+    path.join(repoRoot, "reports/switzerland_validation"),
+    path.join(websiteRoot, "public/tables"),
+    (file) => file.endsWith(".csv"),
+  ) +
+  copyMatchingFiles(
+    path.join(repoRoot, "reports/swiss_signal_analysis"),
+    path.join(websiteRoot, "public/tables"),
+    (file) => file.endsWith(".csv"),
+  );
 
 const datasetsCopied = copyMatchingFiles(
   path.join(repoRoot, "data/manifests"),
@@ -72,8 +94,39 @@ const datasetsCopied = copyMatchingFiles(
   (file) => file.endsWith(".csv"),
 );
 
+// STEP ML-1A..ML-4 assets: final research figures + downloadable saved results.
+const finalFiguresCopied = copyMatchingFiles(
+  path.join(repoRoot, "reports/figures/final"),
+  path.join(websiteRoot, "public/final-figures"),
+  (file) => file.endsWith(".png"),
+);
+
+const mlDownloads = [
+  "reports/ml/vertical_set_c_evaluation_summary.json",
+  "reports/ml/vertical_set_a_evaluation_summary.json",
+  "reports/ml/swiss_ml_evaluation_summary.json",
+  "reports/ml/vertical_feature_schema.json",
+  "reports/ml/vertical_set_c_per_event_results.csv",
+  "reports/ml/vertical_set_a_per_event_cv.csv",
+  "reports/ml/STEP_ML4_COMPREHENSIVE_REPORT.md",
+  "docs/SET_C_VERTICAL_ML_EVALUATION_REPORT.md",
+  "docs/RESEARCH_PACKAGE.md",
+  "docs/ML_REPRODUCTION_GUIDE.md",
+  "docs/DATA_AND_MODEL_INVENTORY.md",
+  "FINAL_INTEGRITY_CHECK.md",
+];
+let mlDownloadsCopied = 0;
+fs.mkdirSync(path.join(websiteRoot, "public/ml-downloads"), { recursive: true });
+for (const rel of mlDownloads) {
+  const src = path.join(repoRoot, rel);
+  if (fs.existsSync(src)) {
+    fs.copyFileSync(src, path.join(websiteRoot, "public/ml-downloads", path.basename(rel)));
+    mlDownloadsCopied += 1;
+  }
+}
+
 const waveformsExported = exportWaveforms();
 
 console.log(
-  `[sync-results-assets] Copied ${figuresCopied} figures, ${tablesCopied} tables, ${datasetsCopied} manifests; exported ${waveformsExported} waveform JSON files`,
+  `[sync-results-assets] Copied ${figuresCopied} figures, ${tablesCopied} tables, ${datasetsCopied} manifests, ${finalFiguresCopied} final figures, ${mlDownloadsCopied} ML downloads; exported ${waveformsExported} waveform JSON files`,
 );

@@ -42,6 +42,8 @@ data/processed/
 data/output/
 data/metadata/**/*.xml
 figures/
+# Curated research figures under reports/ are published (small PNGs)
+!reports/**/figures/
 
 # Local scratch scripts
 tmp_*.py

@@ -79,13 +79,18 @@ Science and infrastructure expansion — **not** part of v1.0 or v2.0 scope. Cal
 - **Swiss independent validation acquisition** — ✅ **Complete** (2026-09-11, STEP 2J): origin−60 s → origin+90 s; 15/15 events, 550 CH HHZ records. See [SWISS_VALIDATION_ACQUISITION_REPORT.md](SWISS_VALIDATION_ACQUISITION_REPORT.md).
 - **Swiss independent frozen STA/LTA validation** — ✅ **Complete** (2026-09-11, STEP 2K): pre-declared threshold **8.0** evaluated on locked Set C; 550/550 records; **no** retuning. See [SWISS_INDEPENDENT_VALIDATION_RESULTS.md](SWISS_INDEPENDENT_VALIDATION_RESULTS.md).
 - **Swiss ML feasibility audit** — ✅ **Complete** (2026-09-11, STEP 3A): **NO-GO** (no independent Set A labels; no Swiss feature matrix; no model trained). See [SWISS_ML_FEASIBILITY_AUDIT.md](SWISS_ML_FEASIBILITY_AUDIT.md).
+- **AI/ML certificate wrap** — ✅ **Complete** (2026-11-11): position paper and 16-slide deck; still no training. See [AI_ML_CERTIFICATE_WRAP.md](AI_ML_CERTIFICATE_WRAP.md).
 - **Europe dataset expansion** — further ORFEUS/EIDA / national FDSN endpoints  
 - **Additional datasets** — scaled California/Western USA catalogues; optional K-NET track  
 - Cross-region feature comparison (USA vs Europe) — **not started**
 
 ### 2. Machine learning and evaluation
 
-- **Swiss supervised ML on existing Set A tables** — ❌ **NO-GO** (STEP 3A). Do not train until independent Set A labels exist.
+- **Swiss Set A SED analyst pick acquisition** — ✅ **Complete** (2026-11-12, STEP ML-1A): 120/120 (100%) manual first-P picks verified and persisted into `data/manifests/sed_switzerland_set_a_picks.csv`. Unblocks supervised ML.
+- **Swiss Set A 3C feature extraction** — ✅ **Complete** (2026-11-12, STEP ML-2): 240 causal window samples (120 P-wave + 120 noise) across 24 physical velocity & 3C features in `reports/features/swiss_set_a_feature_matrix.csv`.
+- **Swiss supervised ML models (RF, XGBoost)** — ✅ **Complete** (2026-11-12, STEP ML-3): Random Forest (Accuracy 99.17%, F1 0.9916), XGBoost (Accuracy 98.33%, F1 0.9832) trained on Swiss Set A with 20-fold Leave-One-Group-Out CV; benchmarked against STA/LTA (F1 0.9386). Zero cross-station event leakage. See [ML_RESULTS_REPORT.md](ML_RESULTS_REPORT.md).
+- **Swiss Set C vertical-only independent evaluation** — ✅ **Complete** (2026-11-12, STEP ML-4): 18-feature vertical-only models trained on Set A (RF LOGO F1=0.9789, XGB LOGO F1=0.9832) and independently evaluated on locked Set C (N=1,100, 15 events, 79 stations). RF Set C F1=0.9125 (AUC=0.9767), XGB Set C F1=0.9169 (AUC=0.9780), STA/LTA F1=0.5014. ML models reduced missed detections by 77.9% vs STA/LTA. Zero Set C data used in training or tuning. See [SET_C_VERTICAL_ML_EVALUATION_REPORT.md](SET_C_VERTICAL_ML_EVALUATION_REPORT.md).
+- **Independent Set C held-out evaluation** — ✅ **Complete** via STEP ML-4 vertical experiment.
 - **EarthESND model training and evaluation** on Western data (deviation log vs Japan paper) — not started  
 - Tabular and waveform baselines on California `feature_matrix.csv` (N=8) — not scientifically sufficient as a Swiss ML path  
 - Comparative evaluation vs literature with documented metrics
@@ -115,8 +120,8 @@ Optional reference track: K-NET paper tables — ⬜ not started ([PAPER_REPRODU
 | California pilot science | ✅ Complete | — | Scale / extend (v3.0) |
 | Submission deliverables | ✅ Complete | — | — |
 | Web / dashboard / explorers | — | ✅ Complete | Maintenance (v2.1) |
-| Europe / ML / streaming / deploy | — | — | Swiss Set A analysis ✅; Set C frozen validation ✅; ML **NO-GO** until independent labels |
+| Europe / ML / streaming / deploy | — | — | Swiss Set A analysis ✅; Set C frozen validation ✅; STEP ML-1A labels ✅; STEP ML-2 features ✅; STEP ML-3 ML models ✅; STEP ML-4 Set C eval ✅ |
 
 ---
 
-Version: **1.4.0** (v2.0.0 platform release · science v1.0.0 frozen)
+Version: **1.8.0** (v2.0.0 platform release · science v1.0.0 frozen · STEP ML-4 vertical Set C eval complete)

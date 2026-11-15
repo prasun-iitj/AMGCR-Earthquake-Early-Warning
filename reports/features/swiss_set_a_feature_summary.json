@@ -1,0 +1,74 @@
+{
+  "generated_at_utc": "2026-11-11T22:04:19.658533+00:00",
+  "task": "STEP ML-2: Swiss Set A Feature Extraction",
+  "units": "Velocity in m/s, time in s, frequency in Hz, SNR in dB",
+  "n_records_processed": 120,
+  "n_samples_window_dataset": 240,
+  "class_balance": {
+    "is_earthquake_0_noise": 120,
+    "is_earthquake_1_p_arrival": 120
+  },
+  "feature_count_total": 24,
+  "feature_names": [
+    "z_peak_velocity_m_s",
+    "z_p2p_amplitude_m_s",
+    "z_rms_velocity_m_s",
+    "z_variance",
+    "z_std",
+    "z_zero_crossing_rate_hz",
+    "z_signal_energy_m2_s",
+    "z_crest_factor",
+    "z_kurtosis",
+    "z_skewness",
+    "z_cav_m_s",
+    "z_dominant_frequency_hz",
+    "z_spectral_centroid_hz",
+    "z_spectral_bandwidth_hz",
+    "z_spectral_rolloff_95_hz",
+    "z_spectral_entropy",
+    "h_peak_velocity_m_s",
+    "h_rms_velocity_m_s",
+    "vec3c_peak_velocity_m_s",
+    "vec3c_rms_velocity_m_s",
+    "vh_ratio",
+    "sta_lta_max",
+    "sta_lta_mean",
+    "snr_db"
+  ],
+  "causal_window_length_s": 4.0,
+  "instrument_response_output": "VEL (m/s)",
+  "bandpass_hz": [
+    0.1,
+    15.0
+  ],
+  "n_unique_events": 20,
+  "n_unique_stations": 54,
+  "failures_count": 0,
+  "failures": [],
+  "feature_means_by_class": {
+    "noise": {
+      "z_peak_velocity_m_s": 4.1329026742429673e-07,
+      "z_p2p_amplitude_m_s": 6.687631616925973e-07,
+      "z_rms_velocity_m_s": 2.4561249340859274e-07,
+      "z_variance": 9.18308559861566e-14,
+      "z_std": 2.0482442030448814e-07,
+      "z_zero_crossing_rate_hz": 1.2645833333333334,
+      "z_signal_energy_m2_s": 6.297595106606303e-13,
+      "z_crest_factor": 1.899005785320084,
+      "z_kurtosis": -0.9365988112160444,
+      "z_skewness": 0.041361179409787126
+    },
+    "p_wave": {
+      "z_peak_velocity_m_s": 0.0001629336120443999,
+      "z_p2p_amplitude_m_s": 0.0002960343680888683,
+      "z_rms_velocity_m_s": 3.430237725659145e-05,
+      "z_variance": 1.5007106780753285e-08,
+      "z_std": 3.426112629449401e-05,
+      "z_zero_crossing_rate_hz": 10.052083333333334,
+      "z_signal_energy_m2_s": 6.004720751030571e-08,
+      "z_crest_factor": 3.940545592792833,
+      "z_kurtosis": 3.237093312613242,
+      "z_skewness": -0.026350234490175758
+    }
+  }
+}

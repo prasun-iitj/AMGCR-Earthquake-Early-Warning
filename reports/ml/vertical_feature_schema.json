@@ -1,0 +1,26 @@
+{
+  "n_features": 18,
+  "features": [
+    "z_peak_velocity_m_s",
+    "z_p2p_amplitude_m_s",
+    "z_rms_velocity_m_s",
+    "z_variance",
+    "z_std",
+    "z_zero_crossing_rate_hz",
+    "z_signal_energy_m2_s",
+    "z_crest_factor",
+    "z_kurtosis",
+    "z_skewness",
+    "z_cav_m_s",
+    "z_dominant_frequency_hz",
+    "z_spectral_centroid_hz",
+    "z_spectral_bandwidth_hz",
+    "z_spectral_rolloff_95_hz",
+    "z_spectral_entropy",
+    "sta_lta_max",
+    "sta_lta_mean"
+  ],
+  "input_component": "Vertical (HHZ)",
+  "source_dataset": "Swiss Set A",
+  "validation_target": "Swiss Set C"
+}

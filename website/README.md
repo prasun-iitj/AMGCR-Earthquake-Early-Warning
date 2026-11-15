@@ -62,3 +62,7 @@ Legacy planning docs:
 - `docs/V2_UI_PLAN.md`
 - `docs/V2_ROADMAP.md`
 - `docs/V2_DEPLOYMENT_PLAN.md`
+
+## ML Evaluation page (`/ml-evaluation`)
+
+Server-rendered at build time from saved results in `../reports/ml/` and `../reports/features/` (no model is run in the browser). `npm run build` first runs `scripts/sync-results-assets.mjs`, which copies `reports/figures/final/*.png` to `public/final-figures/` and selected reports/JSON/CSV to `public/ml-downloads/` (both git-ignored, regenerated on every build). Charts are plain HTML/CSS in `components/ml/MlCharts.tsx`; loader: `lib/ml/loader.ts`. Final figures are produced by `scripts/reporting/make_final_figures.py` in the repository root.

@@ -15,6 +15,11 @@ const SITE_ROUTES = {
   "README.md": "/docs/readme",
   "docs/PROJECT_CHARTER.md": "/docs/project-charter",
   "docs/PROJECT_STATUS.md": "/docs/project-status",
+  "docs/RESEARCH_DIRECTION.md": "/docs/research-direction",
+  "docs/ROADMAP.md": "/docs/roadmap",
+  "docs/SED_SWITZERLAND_DATASET_REPORT.md": "/docs/swiss-sed-dataset-report",
+  "docs/SWISS_INDEPENDENT_VALIDATION_RESULTS.md": "/docs/swiss-validation-results",
+  "docs/SWISS_ML_FEASIBILITY_AUDIT.md": "/docs/swiss-ml-feasibility-audit",
   "reports/Research_Report_Final.md": "/research/report",
 };
 

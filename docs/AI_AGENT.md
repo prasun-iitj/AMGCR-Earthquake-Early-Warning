@@ -31,8 +31,9 @@ Support **European-focused EEW research** using a **completed California FDSN pi
 | Swiss independent validation acquisition | ✅ Complete (2026-09-11, STEP 2J); MiniSEED/StationXML |
 | Swiss independent frozen STA/LTA validation | ✅ Complete (2026-09-11, STEP 2K); threshold 8.0 evaluated as pre-declared; no retuning |
 | Swiss ML feasibility audit | ✅ Complete (2026-09-11, STEP 3A); **NO-GO** — no model trained |
+| AI/ML certificate wrap | ✅ Complete (2026-11-11); presentation pack; still no model trained |
 
-**Current stage:** **scientific submission freeze**. California v1.0.0 frozen. Swiss Set C and threshold **8.0** frozen. STEP 2K results frozen. **Do not** re-run the California pilot, retune 8.0, train ML, modify Set C, or add datasets unless explicitly requested.
+**Current stage:** **certificate wrap**. California v1.0.0 frozen. Swiss Set C and threshold **8.0** frozen. STEP 2K results frozen. **Do not** re-run the California pilot, retune 8.0, train ML, modify Set C, or add datasets unless explicitly requested. Default next task is the 13 November presentation, not new science.
 
 ---
 
@@ -52,11 +53,12 @@ For EarthESND optional track only: [PAPER_REPRODUCTION.md](PAPER_REPRODUCTION.md
 
 Unless the user explicitly asks otherwise:
 
-1. **Version 2.1** — platform maintenance, deployment, content sync, optional UX (`website/` only)  
+1. **Presentation (13 Nov 2026)** — use `reports/Certificate_Wrap_Presentation.pptx`; do not invent ML results  
 2. **Do not** start Swiss ML: STEP 3A is **NO-GO** until independent Set A labels exist ([SWISS_ML_FEASIBILITY_AUDIT.md](SWISS_ML_FEASIBILITY_AUDIT.md))  
-3. **Version 3.0 — further Europe data** — only if explicitly requested (Set C remains locked)  
-4. **Version 3.0 — EarthESND training & evaluation** — Western data; deviation logs; only if explicitly requested  
-5. **Version 3.0 — Real-time streaming** and operational deployment planning  
+3. **Version 2.1** — platform maintenance, deployment, content sync, optional UX (`website/` only)  
+4. **Version 3.0 — further Europe data** — only if explicitly requested (Set C remains locked)  
+5. **Version 3.0 — EarthESND training** — only if explicitly requested  
+6. **Version 3.0 — Real-time streaming** and operational deployment planning  
 
 **Do not** modify completed v1.0 analysis scripts, re-run analyses, or alter frozen submission PDFs unless asked. **Do not** modify EarthESND reference without explicit request. **Do not** retune threshold 8.0 or rewrite STEP 2K outputs.
 

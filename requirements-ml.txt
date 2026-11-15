@@ -1,0 +1,11 @@
+# Additional dependencies for STEP ML-3 / ML-4 (Random Forest, XGBoost).
+# The base requirements.txt (v1.0.0 freeze) does not include these.
+# Versions are those installed in the environment that produced the saved models.
+#
+#   python -m venv .venv
+#   .venv\Scripts\activate            (Windows)  |  source .venv/bin/activate (Linux/macOS)
+#   pip install -r requirements.txt -r requirements-ml.txt
+scikit-learn==1.9.1
+xgboost==3.4.1
+joblib==1.6.0
+threadpoolctl==3.8.0

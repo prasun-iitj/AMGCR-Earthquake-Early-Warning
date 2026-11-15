@@ -54,7 +54,15 @@ export function defaultFigureDescription(
     return `Processing comparison (raw → detrended → filtered → normalized) for event ${shortId}.`;
   }
 
-  return `Research figure from the ${phase} phase of the California pilot pipeline.`;
+  if (filename.startsWith("swiss_val_") || filename.startsWith("val_")) {
+    return `Validation figure from the independent Swiss/adjacent-border validation set (Set C, frozen threshold 8.0).`;
+  }
+
+  if (filename.startsWith("swiss_sig_") || filename.startsWith("swiss_")) {
+    return `Signal analysis and transfer figure from the Swiss SED pilot (Set A, 20 events).`;
+  }
+
+  return `Research figure from the ${phase} phase of the research pipeline.`;
 }
 
 export function getResultsSummary() {
@@ -73,15 +81,21 @@ export function getResultsSummary() {
     }
   }
 
+  const publicFiguresDir = resolveRepoPath("website/public/figures");
   const figuresDir = resolveRepoPath("reports/figures");
-  const figuresOnDisk = fs.existsSync(figuresDir)
-    ? fs.readdirSync(figuresDir).filter((file) => file.endsWith(".png")).length
-    : 0;
+  const figuresOnDisk = fs.existsSync(publicFiguresDir)
+    ? fs.readdirSync(publicFiguresDir).filter((file) => file.endsWith(".png")).length
+    : (fs.existsSync(figuresDir)
+      ? fs.readdirSync(figuresDir).filter((file) => file.endsWith(".png")).length
+      : 0);
 
+  const publicTablesDir = resolveRepoPath("website/public/tables");
   const tablesDir = resolveRepoPath("reports/tables");
-  const tablesOnDisk = fs.existsSync(tablesDir)
-    ? fs.readdirSync(tablesDir).filter((file) => file.endsWith(".csv")).length
-    : 0;
+  const tablesOnDisk = fs.existsSync(publicTablesDir)
+    ? fs.readdirSync(publicTablesDir).filter((file) => file.endsWith(".csv")).length
+    : (fs.existsSync(tablesDir)
+      ? fs.readdirSync(tablesDir).filter((file) => file.endsWith(".csv")).length
+      : 0);
 
   return {
     pilotEvents: stats.pilotEvents,

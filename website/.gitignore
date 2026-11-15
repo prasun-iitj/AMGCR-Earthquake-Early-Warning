@@ -22,6 +22,8 @@
 
 # synced research assets (generated from repository)
 /public/figures/
+/public/final-figures/
+/public/ml-downloads/
 /public/tables/
 /public/datasets/
 /public/waveforms/

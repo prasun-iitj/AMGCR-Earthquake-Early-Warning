@@ -77,9 +77,16 @@ function loadTablePreview(
   filename: string,
   maxRows = 5,
 ): Pick<ResultTable, "headers" | "previewRows" | "rowCount" | "available"> {
-  const absolutePath = resolveRepoPath(path.join("reports/tables", filename));
+  const candidates = [
+    resolveRepoPath(path.join("reports/tables", filename)),
+    resolveRepoPath(path.join("reports/switzerland_validation", filename)),
+    resolveRepoPath(path.join("reports/swiss_signal_analysis", filename)),
+    resolveRepoPath(path.join("website/public/tables", filename)),
+    path.resolve(process.cwd(), "public/tables", filename),
+  ];
+  const absolutePath = candidates.find((candidate) => fs.existsSync(candidate));
 
-  if (!fs.existsSync(absolutePath)) {
+  if (!absolutePath) {
     return {
       headers: [],
       previewRows: [],
@@ -123,6 +130,14 @@ function discoverFigures(): ResultFigure[] {
 
   if (fs.existsSync(figuresDir)) {
     for (const file of fs.readdirSync(figuresDir)) {
+      if (file.endsWith(".png")) {
+        filenames.add(file);
+      }
+    }
+  }
+
+  if (fs.existsSync(publicFiguresDir)) {
+    for (const file of fs.readdirSync(publicFiguresDir)) {
       if (file.endsWith(".png")) {
         filenames.add(file);
       }

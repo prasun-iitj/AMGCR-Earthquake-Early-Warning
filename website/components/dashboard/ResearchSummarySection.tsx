@@ -36,9 +36,14 @@ export function ResearchSummarySection({ summary }: ResearchSummarySectionProps)
       detail: "IRIS/EarthScope · 8 events complete",
     },
     {
-      label: "Europe phase",
-      value: "Planned",
-      detail: summary.europePhaseStatus,
+      label: "Swiss validation (Set C)",
+      value: summary.swissValidationMetrics ?? "72.9% trigger",
+      detail: "15 events · 550 records · frozen 8.0",
+    },
+    {
+      label: "Supervised ML (ML-4, offline)",
+      value: "Set C F1 0.91",
+      detail: "RF 0.9125 · XGB 0.9169 on 15 unseen events · STEP 3A NO-GO was resolved by ML-1A",
     },
   ];
 

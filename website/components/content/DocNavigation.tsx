@@ -11,19 +11,19 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
   }
 
   return (
-    <nav aria-label="Table of contents">
-      <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-text-muted">
+    <nav aria-label="Table of contents" className="max-h-[calc(100vh-8rem)] overflow-y-auto pr-3">
+      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-text-muted">
         On this page
       </p>
-      <ul className="space-y-2 text-sm">
+      <ul className="space-y-1.5 text-xs">
         {headings.map((heading) => (
           <li
             key={`${heading.slug}-${heading.level}`}
-            style={{ paddingLeft: `${(heading.level - 2) * 0.75}rem` }}
+            style={{ paddingLeft: `${(heading.level - 2) * 0.65}rem` }}
           >
             <a
               href={`#${heading.slug}`}
-              className="block leading-snug text-text-muted transition-colors hover:text-primary"
+              className="block py-0.5 leading-snug text-text-muted transition-colors hover:text-primary"
             >
               {heading.text}
             </a>

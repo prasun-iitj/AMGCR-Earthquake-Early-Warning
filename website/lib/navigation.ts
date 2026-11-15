@@ -9,6 +9,7 @@ export const mainNav: NavItem[] = [
   { label: "Research", href: "/research" },
   { label: "Workflow", href: "/workflow" },
   { label: "Results", href: "/results" },
+  { label: "ML Evaluation", href: "/ml-evaluation" },
   { label: "Dataset", href: "/dataset" },
   { label: "Waveforms", href: "/waveforms" },
   { label: "Map", href: "/map" },

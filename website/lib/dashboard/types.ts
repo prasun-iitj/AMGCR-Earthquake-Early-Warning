@@ -11,6 +11,8 @@ export type ResearchSummary = {
   validationStatus: string | null;
   californiaPilotStatus: string;
   europePhaseStatus: string;
+  swissTransferStatus?: string;
+  swissValidationMetrics?: string;
 };
 
 export type DatasetMetrics = {

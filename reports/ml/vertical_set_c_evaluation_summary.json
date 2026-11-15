@@ -1,0 +1,142 @@
+{
+  "evaluation": "STEP ML-4: Independent Swiss Set C Cross-Dataset Evaluation",
+  "dataset_name": "Swiss Set C Independent Validation Set",
+  "n_samples": 1100,
+  "n_events": 15,
+  "n_stations": 79,
+  "class_balance": {
+    "negative_noise_windows": 550,
+    "positive_p_wave_windows": 550
+  },
+  "features": [
+    "z_peak_velocity_m_s",
+    "z_p2p_amplitude_m_s",
+    "z_rms_velocity_m_s",
+    "z_variance",
+    "z_std",
+    "z_zero_crossing_rate_hz",
+    "z_signal_energy_m2_s",
+    "z_crest_factor",
+    "z_kurtosis",
+    "z_skewness",
+    "z_cav_m_s",
+    "z_dominant_frequency_hz",
+    "z_spectral_centroid_hz",
+    "z_spectral_bandwidth_hz",
+    "z_spectral_rolloff_95_hz",
+    "z_spectral_entropy",
+    "sta_lta_max",
+    "sta_lta_mean"
+  ],
+  "n_features": 18,
+  "training_origin": "Swiss Set A (Fitted and Frozen, Zero Set C Tuning)",
+  "models": {
+    "random_forest_vertical": {
+      "accuracy": 0.9190909090909091,
+      "precision": 0.9935760171306209,
+      "recall": 0.8436363636363636,
+      "specificity": 0.9945454545454545,
+      "f1_score": 0.9124877089478859,
+      "roc_auc": 0.9767454545454545,
+      "confusion_matrix": [
+        [
+          547,
+          3
+        ],
+        [
+          86,
+          464
+        ]
+      ],
+      "tp": 464,
+      "fp": 3,
+      "tn": 547,
+      "fn": 86
+    },
+    "xgboost_vertical": {
+      "accuracy": 0.9227272727272727,
+      "precision": 0.9915433403805497,
+      "recall": 0.8527272727272728,
+      "specificity": 0.9927272727272727,
+      "f1_score": 0.916911045943304,
+      "roc_auc": 0.977996694214876,
+      "confusion_matrix": [
+        [
+          546,
+          4
+        ],
+        [
+          81,
+          469
+        ]
+      ],
+      "tp": 469,
+      "fp": 4,
+      "tn": 546,
+      "fn": 81
+    },
+    "sta_lta_threshold_8_0": {
+      "threshold": 8.0,
+      "accuracy": 0.6672727272727272,
+      "precision": 1.0,
+      "recall": 0.33454545454545453,
+      "specificity": 1.0,
+      "f1_score": 0.5013623978201635,
+      "roc_auc": 0.844796694214876,
+      "confusion_matrix": [
+        [
+          550,
+          0
+        ],
+        [
+          366,
+          184
+        ]
+      ],
+      "tp": 184,
+      "fp": 0,
+      "tn": 550,
+      "fn": 366
+    }
+  },
+  "feature_importances_rf": {
+    "z_spectral_entropy": 0.19367264651088845,
+    "z_spectral_centroid_hz": 0.15112990118499223,
+    "z_p2p_amplitude_m_s": 0.13528551275323814,
+    "sta_lta_mean": 0.1179767440238252,
+    "z_crest_factor": 0.11043205051283056,
+    "z_peak_velocity_m_s": 0.07818043408581535,
+    "z_zero_crossing_rate_hz": 0.05097943775344496,
+    "z_spectral_rolloff_95_hz": 0.04054482599456283,
+    "sta_lta_max": 0.03870721337469844,
+    "z_rms_velocity_m_s": 0.01765474368256459,
+    "z_std": 0.01718531832178871,
+    "z_cav_m_s": 0.015993170002909722,
+    "z_dominant_frequency_hz": 0.015840791476656194,
+    "z_kurtosis": 0.013405289322413116,
+    "z_spectral_bandwidth_hz": 0.002113203698148952,
+    "z_skewness": 0.000898717301222643,
+    "z_signal_energy_m2_s": 0.0,
+    "z_variance": 0.0
+  },
+  "feature_importances_xgb": {
+    "z_spectral_entropy": 0.37914663553237915,
+    "z_spectral_centroid_hz": 0.1912834495306015,
+    "sta_lta_mean": 0.13034069538116455,
+    "z_p2p_amplitude_m_s": 0.07929912954568863,
+    "z_crest_factor": 0.053101565688848495,
+    "z_peak_velocity_m_s": 0.05210763216018677,
+    "z_kurtosis": 0.025932280346751213,
+    "z_zero_crossing_rate_hz": 0.01833568699657917,
+    "z_signal_energy_m2_s": 0.01622973009943962,
+    "sta_lta_max": 0.014027075842022896,
+    "z_spectral_rolloff_95_hz": 0.01361392717808485,
+    "z_rms_velocity_m_s": 0.012729786336421967,
+    "z_variance": 0.011401656083762646,
+    "z_skewness": 0.0024507606867700815,
+    "z_std": 0.0,
+    "z_spectral_bandwidth_hz": 0.0,
+    "z_cav_m_s": 0.0,
+    "z_dominant_frequency_hz": 0.0
+  }
+}
