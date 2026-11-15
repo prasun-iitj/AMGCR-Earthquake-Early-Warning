@@ -498,6 +498,24 @@ The repository records a full automated test-suite result of 89 passing tests in
 
 Raw MiniSEED, StationXML and QuakeML data are not published in the repository. Re-acquisition from data providers may differ as catalogues, picks, metadata and availability change. The data acquisition and reproduction guide should be followed when reproducing the workflow.
 
+
+### 9.1 Project website and reviewer navigation
+
+A companion website has been developed to make the research workflow, datasets, analysis and results easier to inspect. The website provides an interactive presentation of the project and links to selected supporting research artefacts.
+
+**Website:** https://amgcr-research.vercel.app/  
+**Reviewer navigation:** https://amgcr-research.vercel.app/review-guide  
+**Source repository:** https://github.com/prasun-iitj/AMGCR-Earthquake-Early-Warning
+
+The Reviewer Guide is intended to help faculty members and other reviewers follow the project in a logical order:
+
+1. Research background, objective and workflow.
+2. Data sources, acquisition, waveform preparation and dataset construction.
+3. Machine-learning evaluation, result charts, confusion matrices and feature-importance plots.
+4. Supporting documents, data inventories, code and reproducibility instructions.
+
+The website complements this report; it does not replace the report or the underlying evidence. The repository contains manifests, feature matrices, saved models, machine-readable results, scripts and figures. Raw MiniSEED, StationXML and QuakeML files are not published in the repository and must be re-downloaded using the documented acquisition scripts. The website's live deployment should be checked before the evaluation meeting to confirm that the latest Reviewer Guide is available.
+
 ---
 
 ## 10. Conclusion
